@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
     <title>Indie Roblox Wikis Alliance</title>
-    <link href="https://roblox-indie-wikis.github.io/irwa-website/feed.xml" rel="self" />
-    <link href="https://roblox-indie-wikis.github.io/irwa-website" />
+    <link href="https://irwa.enews.link/feed.xml" rel="self" />
+    <link href="https://irwa.enews.link" />
     <updated>1970-01-01T07:30:00+07:30</updated>
     <author>
         <name>enews01</name>
     </author>
-    <id>https://roblox-indie-wikis.github.io/irwa-website</id>
+    <id>https://irwa.enews.link</id>
 
 </feed>

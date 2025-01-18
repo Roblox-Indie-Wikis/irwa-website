@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="https://roblox-indie-wikis.github.io/irwa-website/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://irwa.enews.link/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
-<loc>https://roblox-indie-wikis.github.io/irwa-website/</loc>
+<loc>https://irwa.enews.link/</loc>
 </url>
 <url>
-<loc>https://roblox-indie-wikis.github.io/irwa-website/about-2/</loc>
+<loc>https://irwa.enews.link/about-2/</loc>
 <lastmod>2025-01-18T18:09:25+08:00</lastmod>
 </url>
 <url>
-<loc>https://roblox-indie-wikis.github.io/irwa-website/contact/</loc>
+<loc>https://irwa.enews.link/contact/</loc>
 <lastmod>2025-01-18T18:09:27+08:00</lastmod>
 </url>
 <url>
-<loc>https://roblox-indie-wikis.github.io/irwa-website/joining/</loc>
+<loc>https://irwa.enews.link/joining/</loc>
 <lastmod>2025-01-18T19:08:22+08:00</lastmod>
 </url>
 <url>
-<loc>https://roblox-indie-wikis.github.io/irwa-website/wiki-listings/</loc>
+<loc>https://irwa.enews.link/wiki-listings/</loc>
 <lastmod>2025-01-18T19:02:29+08:00</lastmod>
 </url>
 </urlset>
