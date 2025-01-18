@@ -1,6 +1,6 @@
 {
     "version": "https://jsonfeed.org/version/1",
-    "title": "IRWA Website",
+    "title": "Indie Roblox Wikis Alliance",
     "description": "",
     "home_page_url": "https://roblox-indie-wikis.github.io/irwa-website",
     "feed_url": "https://roblox-indie-wikis.github.io/irwa-website/feed.json",
@@ -9,19 +9,5 @@
         "name": "enews01"
     },
     "items": [
-        {
-            "id": "https://roblox-indie-wikis.github.io/irwa-website/test-post.html",
-            "url": "https://roblox-indie-wikis.github.io/irwa-website/test-post.html",
-            "title": "Test Post",
-            "summary": "Roblox Indie Wikis",
-            "content_html": "\n  <p>\n    Roblox Indie Wikis\n  </p>\n\n  <p>\n    \n  </p>",
-            "author": {
-                "name": "enews01"
-            },
-            "tags": [
-            ],
-            "date_published": "2025-01-18T17:45:00+08:00",
-            "date_modified": "2025-01-18T17:45:01+08:00"
-        }
     ]
 }
