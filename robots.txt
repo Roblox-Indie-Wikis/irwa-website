@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://roblox-indie-wikis.github.io/irwa-website/sitemap.xml
