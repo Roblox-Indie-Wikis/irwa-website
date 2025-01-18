@@ -1,39 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
-    <title>IRWA Website</title>
+    <title>Indie Roblox Wikis Alliance</title>
     <link href="https://roblox-indie-wikis.github.io/irwa-website/feed.xml" rel="self" />
     <link href="https://roblox-indie-wikis.github.io/irwa-website" />
-    <updated>2025-01-18T17:45:01+08:00</updated>
+    <updated>1970-01-01T07:30:00+07:30</updated>
     <author>
         <name>enews01</name>
     </author>
     <id>https://roblox-indie-wikis.github.io/irwa-website</id>
 
-    <entry>
-        <title>Test Post</title>
-        <author>
-            <name>enews01</name>
-        </author>
-        <link href="https://roblox-indie-wikis.github.io/irwa-website/test-post.html"/>
-        <id>https://roblox-indie-wikis.github.io/irwa-website/test-post.html</id>
-
-        <updated>2025-01-18T17:45:00+08:00</updated>
-            <summary>
-                <![CDATA[
-                    Roblox Indie Wikis
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                
-  <p>
-    Roblox Indie Wikis
-  </p>
-
-  <p>
-    
-  </p>
-            ]]>
-        </content>
-    </entry>
 </feed>
