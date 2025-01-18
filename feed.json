@@ -2,10 +2,10 @@
     "version": "https://jsonfeed.org/version/1",
     "title": "Indie Roblox Wikis Alliance",
     "description": "",
-    "home_page_url": "https://roblox-indie-wikis.github.io/irwa-website",
-    "feed_url": "https://roblox-indie-wikis.github.io/irwa-website/feed.json",
+    "home_page_url": "https://irwa.enews.link",
+    "feed_url": "https://irwa.enews.link/feed.json",
     "user_comment": "",
-    "icon": "https://roblox-indie-wikis.github.io/irwa-website/media/website/IRWA-Logo1.svg",
+    "icon": "https://irwa.enews.link/media/website/IRWA-Logo1.svg",
     "author": {
         "name": "enews01"
     },
