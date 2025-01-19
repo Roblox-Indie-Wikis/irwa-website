@@ -3,10 +3,22 @@
     <title>Indie Roblox Wikis Alliance</title>
     <link href="https://irwa.enews.link/feed.xml" rel="self" />
     <link href="https://irwa.enews.link" />
-    <updated>1970-01-01T07:30:00+07:30</updated>
+    <updated>2025-01-19T16:46:51+08:00</updated>
     <author>
         <name>enews01</name>
     </author>
     <id>https://irwa.enews.link</id>
 
+    <entry>
+        <title>Getting Started</title>
+        <author>
+            <name>enews01</name>
+        </author>
+        <link href="https://irwa.enews.link/getting-started/"/>
+        <id>https://irwa.enews.link/getting-started/</id>
+
+        <updated>2025-01-19T16:46:51+08:00</updated>
+            <summary></summary>
+        <content></content>
+    </entry>
 </feed>
