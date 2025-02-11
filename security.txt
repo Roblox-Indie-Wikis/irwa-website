@@ -1,5 +1,5 @@
 Contact: security@enews.link
 Expires: 2026-01-01T00:00:00.000Z
 Preferred-Languages: en, zh
-Canonical: https://irwa.enews.link/security.txt
+Canonical: https://indierobloxwikis.org/security.txt
 Instructions: Please do not post the vulnerability publicly by using our wikis servers or bug trackers for that. Rather, please read mail us at the address above, and we will get back to you shortly. 

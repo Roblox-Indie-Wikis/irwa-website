@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="https://irwa.enews.link/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://indierobloxwikis.org/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
-<loc>https://irwa.enews.link/</loc>
+<loc>https://indierobloxwikis.org/</loc>
 </url>
 <url>
-<loc>https://irwa.enews.link/about-2/</loc>
+<loc>https://indierobloxwikis.org/about-2/</loc>
 <lastmod>2025-01-21T17:00:30+08:00</lastmod>
 <image:image>
-<image:loc>https://irwa.enews.link/media/posts/3/1737445656507-hyper-nize-2.png</image:loc>
+<image:loc>https://indierobloxwikis.org/media/posts/3/1737445656507-hyper-nize-2.png</image:loc>
 <image:title><![CDATA[]]></image:title>
 </image:image>
 </url>
 <url>
-<loc>https://irwa.enews.link/getting-started/</loc>
+<loc>https://indierobloxwikis.org/getting-started/</loc>
 <lastmod>2025-02-09T23:11:03+08:00</lastmod>
 </url>
 <url>
-<loc>https://irwa.enews.link/joining/</loc>
+<loc>https://indierobloxwikis.org/joining/</loc>
 <lastmod>2025-01-21T15:19:57+08:00</lastmod>
 </url>
 <url>
-<loc>https://irwa.enews.link/legal/</loc>
+<loc>https://indierobloxwikis.org/legal/</loc>
 <lastmod>2025-01-20T22:47:51+08:00</lastmod>
 </url>
 <url>
-<loc>https://irwa.enews.link/privacy/</loc>
+<loc>https://indierobloxwikis.org/privacy/</loc>
 <lastmod>2025-01-21T09:52:56+08:00</lastmod>
 </url>
 <url>
-<loc>https://irwa.enews.link/projects/</loc>
+<loc>https://indierobloxwikis.org/projects/</loc>
 <lastmod>2025-01-21T09:53:27+08:00</lastmod>
 </url>
 <url>
-<loc>https://irwa.enews.link/wiki-listings/</loc>
+<loc>https://indierobloxwikis.org/wiki-listings/</loc>
 <lastmod>2025-01-21T13:33:19+08:00</lastmod>
 <image:image>
-<image:loc>https://irwa.enews.link/media/posts/5/HELLMET.png</image:loc>
+<image:loc>https://indierobloxwikis.org/media/posts/5/HELLMET.png</image:loc>
 <image:title><![CDATA[]]></image:title>
 </image:image>
 <image:image>
-<image:loc>https://irwa.enews.link/media/posts/5/RobloxFandomInterwikiLogo.webp</image:loc>
+<image:loc>https://indierobloxwikis.org/media/posts/5/RobloxFandomInterwikiLogo.webp</image:loc>
 <image:title><![CDATA[Roblox Fandom Interwiki Logo]]></image:title>
 </image:image>
 </url>

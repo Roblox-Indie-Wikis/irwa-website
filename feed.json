@@ -2,17 +2,17 @@
     "version": "https://jsonfeed.org/version/1",
     "title": "Indie Roblox Wikis Alliance",
     "description": "",
-    "home_page_url": "https://irwa.enews.link",
-    "feed_url": "https://irwa.enews.link/feed.json",
+    "home_page_url": "https://indierobloxwikis.org",
+    "feed_url": "https://indierobloxwikis.org/feed.json",
     "user_comment": "",
-    "icon": "https://irwa.enews.link/media/website/IRWA-Logo1.svg",
+    "icon": "https://indierobloxwikis.org/media/website/IRWA-Logo1.svg",
     "author": {
         "name": "enews01"
     },
     "items": [
         {
-            "id": "https://irwa.enews.link/getting-started/",
-            "url": "https://irwa.enews.link/getting-started/",
+            "id": "https://indierobloxwikis.org/getting-started/",
+            "url": "https://indierobloxwikis.org/getting-started/",
             "title": "Getting Started",
             "summary": "Test Blog Post",
             "content_html": "<p>Test Blog Post</p>",
