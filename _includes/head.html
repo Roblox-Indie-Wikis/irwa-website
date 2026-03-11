@@ -21,6 +21,9 @@
 <link rel="preload" href="{{ "/assets/dynamic/fonts/lora/lora.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ "/assets/dynamic/fonts/lora/lora-italic.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+{% if page.url == "/members/" %}
+<link rel="stylesheet" href="{{ "/assets/css/members.css" | relative_url }}">
+{% endif %}
 <noscript>
   <style>
     img[loading] { opacity: 1; }

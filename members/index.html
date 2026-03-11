@@ -1,0 +1,151 @@
+---
+layout: page
+title: Members
+description: Our members include wikis covering games from some of the most popular games on the Roblox platform. Take a look at our member sites right here!
+---
+
+<h1 class="align-left">Members</h1>
+<div class="members-intro">
+    <p>Our members include wikis covering games from some of the most popular games on the Roblox platform. Take a look at our member sites right here!</p>
+    <p>Interested in joining? Check out <a href="{{ "/joining/" | relative_url }}">this page</a> for more!</p>
+</div>
+
+<div class="members-grid">
+    {% for member in site.data.members %}
+    <div class="member-box"
+         onclick="openMemberModal({{ member | jsonify | escape }})">
+        <img src="{{ member.logo | relative_url }}" alt="" class="member-box-logo">
+        <span class="member-name">{{ member.name }}</span>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Modal Structure -->
+<div id="memberModal" class="modal-overlay" onclick="closeMemberModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeMemberModal(event)">&times;</button>
+
+        <div class="modal-left">
+            <img id="modalLogo" src="" alt="Wiki Logo">
+        </div>
+
+        <div class="modal-right">
+            <div class="modal-header-grid">
+                <div class="modal-title-area">
+                    <h2 id="modalName"></h2>            
+                </div>
+
+                <p id="modalDescription"></p>
+
+                <div class="modal-meta-area">
+                    <div class="meta-item">
+                        <span class="meta-label">Joined</span>
+                        <span id="modalJoined" class="meta-value"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Team</span>
+                        <div id="modalTeam" class="meta-value team-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer-grid">
+                <div class="modal-socials" id="modalSocials">
+                    <!-- Social links will be injected here -->
+                </div>
+                <div class="modal-cta">
+                    <a id="modalGameLink" href="" target="_blank" class="btn-game-link">Game Link →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openMemberModal(member) {
+    const modal = document.getElementById('memberModal');
+    const name = document.getElementById('modalName');
+    const desc = document.getElementById('modalDescription');
+    const logo = document.getElementById('modalLogo');
+    const joined = document.getElementById('modalJoined');
+    const team = document.getElementById('modalTeam');
+    const gameLink = document.getElementById('modalGameLink');
+    const socials = document.getElementById('modalSocials');
+
+    name.textContent = member.name;
+    desc.textContent = member.description;
+    logo.src = '{{ "" | relative_url }}' + member.logo;
+    joined.textContent = member.joined || 'N/A';
+
+    // Clear and populate team
+    team.innerHTML = '';
+    if (member.team) {
+        member.team.forEach(t => {
+            const span = document.createElement('span');
+            span.className = 'team-tag';
+            span.textContent = t.name;
+            team.appendChild(span);
+        });
+    }
+
+    // Set game link
+    if (member.game_link) {
+        gameLink.href = member.game_link;
+        gameLink.style.display = 'inline-block';
+    } else {
+        gameLink.style.display = 'none';
+    }
+
+    // Clear and populate socials
+    socials.innerHTML = '';
+
+    // Always add Wiki link first
+    if (member.link) {
+        const a = document.createElement('a');
+        a.href = member.link;
+        a.textContent = 'Wiki';
+        a.target = '_blank';
+        socials.appendChild(a);
+    }
+
+    if (member.discord) {
+        const a = document.createElement('a');
+        a.href = member.discord;
+        a.textContent = 'Discord';
+        a.target = '_blank';
+        socials.appendChild(a);
+    }
+
+    if (member.twitter) {
+        const a = document.createElement('a');
+        a.href = member.twitter;
+        a.textContent = 'Twitter';
+        a.target = '_blank';
+        socials.appendChild(a);
+    }
+
+    if (document.startViewTransition) {
+        document.startViewTransition(() => {
+            modal.classList.add('active');
+        });
+    } else {
+        modal.classList.add('active');
+    }
+}
+
+function closeMemberModal(event) {
+    const modal = document.getElementById('memberModal');
+    if (document.startViewTransition) {
+        document.startViewTransition(() => {
+            modal.classList.remove('active');
+        });
+    } else {
+        modal.classList.remove('active');
+    }
+}
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMemberModal();
+});
+</script>
