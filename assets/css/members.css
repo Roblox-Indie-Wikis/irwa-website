@@ -69,11 +69,12 @@
     background: var(--white);
     width: 90%;
     max-width: 900px;
+    max-height: 80svh;
     display: flex;
     flex-direction: row;
     position: relative;
     border-radius: var(--border-radius);
-    overflow: hidden;
+    overflow: scroll;
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     opacity: 0;
     transform: translateY(20px);
