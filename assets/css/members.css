@@ -94,7 +94,7 @@
 }
 
 .modal-close {
-    position: absolute;
+    position: sticky;
     top: 15px;
     right: 15px;
     background: var(--lighter);
