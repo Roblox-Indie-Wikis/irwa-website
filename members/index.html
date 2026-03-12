@@ -16,7 +16,6 @@ description: Our members include wikis covering games from some of the most popu
          onclick="openMemberModal({{ member | jsonify | escape }}, this)"
          data-logo="{{ member.logo | relative_url }}">
         <img src="{{ member.logo | relative_url }}" alt="{{ member.name }} logo" class="member-box-logo">
-        <span class="member-name">{{ member.name }}</span>
     </button>
     {% endfor %}
 </div>
