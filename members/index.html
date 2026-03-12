@@ -140,33 +140,29 @@ function openMemberModal(member, element) {
         socials.appendChild(createSocialLink(member.twitter, 'Twitter'));
     }
 
-    const showModal = () => {
-        modal.classList.add('active');
-        modalContent.focus();
-        document.addEventListener('keydown', trapFocus);
-    };
-
-    if (document.startViewTransition) {
-        document.startViewTransition(showModal);
-    } else {
-        showModal();
-    }
+    modal.classList.add('active');
+    modalContent.focus();
+    document.addEventListener('keydown', trapFocus);
 }
 
 function closeMemberModal() {
     const modal = document.getElementById('memberModal');
+    modal.classList.remove('active');
 
-    const hideModal = () => {
-        modal.classList.remove('active');
+    let transitionFinished = false;
+    const cleanup = () => {
+        if (transitionFinished) return;
+        transitionFinished = true;
         document.removeEventListener('keydown', trapFocus);
         if (lastFocusedElement) lastFocusedElement.focus();
+        modal.removeEventListener('transitionend', cleanup);
+        modal.removeEventListener('animationend', cleanup);
     };
 
-    if (document.startViewTransition) {
-        document.startViewTransition(hideModal);
-    } else {
-        hideModal();
-    }
+    modal.addEventListener('transitionend', cleanup);
+    modal.addEventListener('animationend', cleanup);
+    // Fallback cleanup after 400ms (transition is 300ms)
+    setTimeout(cleanup, 400);
 }
 
 function trapFocus(e) {
