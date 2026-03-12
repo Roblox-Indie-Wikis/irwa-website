@@ -77,7 +77,7 @@
     - name: Cinna
 
 - name: Restaurant Tycoon 3 Wiki
-  link: https://rt3.miraheze.org/
+  link: https://rt3.ugwiki.org
   logo: /media/files/RT3.png
   description: "The officially endorsed Restaurant Tycoon 3 Wiki, an encyclopedia that encompasses everything RT3! Find out about everything from codes and recent updates to worker and build mode information!"
   discord: https://discord.gg/42sSnpjV38
@@ -86,7 +86,7 @@
     - name: RT3 Staff
 
 - name: 3D Planets Simulator Wiki
-  link: https://official3ps.miraheze.org/
+  link: https://3ps.miraheze.org
   logo: /media/files/3DPS.png
   description: "The official database for 3D Planets Simulator, A space-themed colonization and industry game based on Roblox. Join now and explore the Blue Galaxy!"
   discord: https://discord.gg/BetFzeDmcH
@@ -105,7 +105,7 @@
     - name: Boggio
 
 - name: Roblox D-DAY Wiki
-  link: https://robloxdday.miraheze.org/wiki/Roblox_D-DAY_Wiki
+  link: https://robloxdday.miraheze.org
   logo: "/media/files/D-DAY (Temp).png"
   description: "This officially-recognized wiki is dedicated to the Roblox game D-DAY, providing the most accurate information possible to its fans."
   joined: "October 2024"
