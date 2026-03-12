@@ -33,11 +33,8 @@
 }
 
 .member-box-logo {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    border-radius: 50%;
-    background: white;
+    width: auto;
+    height: 100px;
     padding: 2px;
 }
 
