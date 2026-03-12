@@ -12,21 +12,22 @@ description: Our members include wikis covering games from some of the most popu
 
 <div class="members-grid">
     {% for member in site.data.members %}
-    <div class="member-box"
-         onclick="openMemberModal({{ member | jsonify | escape }})">
-        <img src="{{ member.logo | relative_url }}" alt="" class="member-box-logo">
+    <button type="button" class="member-box"
+         onclick="openMemberModal({{ member | jsonify | escape }}, this)"
+         data-logo="{{ member.logo | relative_url }}">
+        <img src="{{ member.logo | relative_url }}" alt="{{ member.name }} logo" class="member-box-logo">
         <span class="member-name">{{ member.name }}</span>
-    </div>
+    </button>
     {% endfor %}
 </div>
 
 <!-- Modal Structure -->
-<div id="memberModal" class="modal-overlay" onclick="closeMemberModal(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <button class="modal-close" onclick="closeMemberModal(event)">&times;</button>
+<div id="memberModal" class="modal-overlay" onclick="closeMemberModal(event)" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <div class="modal-content" onclick="event.stopPropagation()" tabindex="-1">
+        <button class="modal-close" onclick="closeMemberModal(event)" aria-label="Close Modal">&times;</button>
 
         <div class="modal-left">
-            <img id="modalLogo" src="" alt="Wiki Logo">
+            <img id="modalLogo" alt="Wiki Logo" hidden>
         </div>
 
         <div class="modal-right">
@@ -54,7 +55,7 @@ description: Our members include wikis covering games from some of the most popu
                     <!-- Social links will be injected here -->
                 </div>
                 <div class="modal-cta">
-                    <a id="modalGameLink" href="" target="_blank" class="btn-game-link">Game Link →</a>
+                    <a id="modalGameLink" href="" target="_blank" rel="noopener noreferrer" class="btn-game-link">Game Link →</a>
                 </div>
             </div>
         </div>
@@ -62,8 +63,12 @@ description: Our members include wikis covering games from some of the most popu
 </div>
 
 <script>
-function openMemberModal(member) {
+let lastFocusedElement;
+
+function openMemberModal(member, element) {
+    lastFocusedElement = element;
     const modal = document.getElementById('memberModal');
+    const modalContent = modal.querySelector('.modal-content');
     const name = document.getElementById('modalName');
     const desc = document.getElementById('modalDescription');
     const logo = document.getElementById('modalLogo');
@@ -74,17 +79,32 @@ function openMemberModal(member) {
 
     name.textContent = member.name;
     desc.textContent = member.description;
-    logo.src = '{{ "" | relative_url }}' + member.logo;
+
+    // Use the pre-resolved URL from the data attribute
+    logo.hidden = true;
+    logo.onload = () => logo.hidden = false;
+    logo.src = element.dataset.logo;
+    logo.alt = member.name + " logo";
+
     joined.textContent = member.joined || 'N/A';
 
     // Clear and populate team
-    team.innerHTML = '';
+    team.textContent = '';
     if (member.team) {
         member.team.forEach(t => {
+            const container = document.createElement('div');
+            container.className = 'team-member';
+
+            const icon = document.createElement('div');
+            icon.className = 'team-member-icon';
+            container.appendChild(icon);
+
             const span = document.createElement('span');
             span.className = 'team-tag';
             span.textContent = t.name;
-            team.appendChild(span);
+            container.appendChild(span);
+
+            team.appendChild(container);
         });
     }
 
@@ -97,55 +117,86 @@ function openMemberModal(member) {
     }
 
     // Clear and populate socials
-    socials.innerHTML = '';
+    socials.textContent = '';
+
+    const createSocialLink = (href, text) => {
+        const a = document.createElement('a');
+        a.href = href;
+        a.textContent = text;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        return a;
+    };
 
     // Always add Wiki link first
     if (member.link) {
-        const a = document.createElement('a');
-        a.href = member.link;
-        a.textContent = 'Wiki';
-        a.target = '_blank';
-        socials.appendChild(a);
+        socials.appendChild(createSocialLink(member.link, 'Wiki'));
     }
 
     if (member.discord) {
-        const a = document.createElement('a');
-        a.href = member.discord;
-        a.textContent = 'Discord';
-        a.target = '_blank';
-        socials.appendChild(a);
+        socials.appendChild(createSocialLink(member.discord, 'Discord'));
     }
 
     if (member.twitter) {
-        const a = document.createElement('a');
-        a.href = member.twitter;
-        a.textContent = 'Twitter';
-        a.target = '_blank';
-        socials.appendChild(a);
+        socials.appendChild(createSocialLink(member.twitter, 'Twitter'));
     }
 
-    if (document.startViewTransition) {
-        document.startViewTransition(() => {
-            modal.classList.add('active');
-        });
-    } else {
+    const showModal = () => {
         modal.classList.add('active');
-    }
-}
+        modalContent.focus();
+        document.addEventListener('keydown', trapFocus);
+    };
 
-function closeMemberModal(event) {
-    const modal = document.getElementById('memberModal');
     if (document.startViewTransition) {
-        document.startViewTransition(() => {
-            modal.classList.remove('active');
-        });
+        document.startViewTransition(showModal);
     } else {
-        modal.classList.remove('active');
+        showModal();
     }
 }
 
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMemberModal();
-});
+function closeMemberModal() {
+    const modal = document.getElementById('memberModal');
+
+    const hideModal = () => {
+        modal.classList.remove('active');
+        document.removeEventListener('keydown', trapFocus);
+        if (lastFocusedElement) lastFocusedElement.focus();
+    };
+
+    if (document.startViewTransition) {
+        document.startViewTransition(hideModal);
+    } else {
+        hideModal();
+    }
+}
+
+function trapFocus(e) {
+    const modal = document.getElementById('memberModal');
+    if (!modal.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+        closeMemberModal();
+        return;
+    }
+
+    if (e.key === 'Tab') {
+        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+            if (document.activeElement === firstElement) {
+                lastElement.focus();
+                e.preventDefault();
+            }
+        } else {
+            if (document.activeElement === lastElement) {
+                firstElement.focus();
+                e.preventDefault();
+            }
+        }
+    }
+}
 </script>
