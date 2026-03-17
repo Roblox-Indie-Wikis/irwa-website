@@ -2724,7 +2724,7 @@ img.is-loaded {
 	font-style: normal
 }
 
-.light-btn-bg {
+.btn-light {
 	background: var(--light-btn-bg)!important;
 	color: var(--text-color)!important;
 }
