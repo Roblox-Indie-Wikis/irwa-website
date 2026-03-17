@@ -63,6 +63,7 @@
 	--link-color: var(--color);
 	--link-color-hover: oklch(from var(--color) 0.3163 0.045 h);
 	--inline-code: 255, 81, 81;
+	--light-btn-bg: #F0EEE5;
 	--box-shadow: 0px 4.4px 4.5px -100px rgba(var(--dark-rgb), 0.174), 0px 12.3px 12.5px -100px rgba(var(--dark-rgb), 0.25), 0px 29.5px 30.1px -100px rgba(var(--dark-rgb), 0.326), 0px 98px 100px -100px rgba(var(--dark-rgb), 0.5);
 	--box-shadow-hover: 0px 5.4px 4.5px -100px rgba(var(--dark-rgb), 0.174), 0px 15px 12.5px -100px rgba(var(--dark-rgb), 0.25), 0px 36.2px 30.1px -100px rgba(var(--dark-rgb), 0.326), 0px 120px 100px -100px rgba(var(--dark-rgb), 0.5)
 }
@@ -2718,9 +2719,14 @@ img.is-loaded {
 }
 
 .btn {
-	font-family: Raleway, sans-serif;
+	font-family: var(--font-body);
 	font-weight: 400;
 	font-style: normal
+}
+
+.light-btn-bg {
+	background: var(--light-btn-bg)!important;
+	color: var(--text-color)!important;
 }
 
 .body {
