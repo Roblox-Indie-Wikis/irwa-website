@@ -1,20 +1,4 @@
 @font-face {
-	font-family: Raleway;
-	src: url('../dynamic/fonts/raleway/raleway.woff2') format('woff2');
-	font-weight: 100 900;
-	font-display: swap;
-	font-style: normal
-}
-
-@font-face {
-	font-family: Raleway;
-	src: url('../dynamic/fonts/raleway/raleway-italic.woff2') format('woff2');
-	font-weight: 100 900;
-	font-display: swap;
-	font-style: italic
-}
-
-@font-face {
 	font-family: Lora;
 	src: url('../dynamic/fonts/lora/lora.woff2') format('woff2');
 	font-weight: 400 700;
@@ -30,6 +14,8 @@
 	font-style: italic
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
 :root {
 	--page-margin: 8vmin;
 	--page-width: 1440px;
@@ -42,7 +28,7 @@
 	--gallery-gap: 0.5rem;
 	--magic-number: 4rem;
 	--baseline: .25rem;
-	--font-body: 'Raleway', sans-serif;
+	--font-body: 'Instrument Sans', sans-serif;
 	--font-heading: 'Lora', serif;
 	--font-logo: var(--font-body);
 	--font-menu: var(--font-body);
@@ -67,15 +53,15 @@
 	--dark-rgb: 40, 49, 73;
 	--gray-1: #5f5f74;
 	--gray-2: #9196A2;
-	--light: #d4d2e1;
-	--lighter: #DBDDE6;
-	--color: #6f689b;
-	--color-rgb: 111, 104, 155;
-	--page-bg: linear-gradient(110deg, rgba(215, 218, 227, 1) 0%, rgba(242, 243, 248, 1) 100%);
+	--light: #D7E8C7;
+	--lighter: #E7F3DA;
+	--color: #54624b;
+	--color-rgb: 84, 98, 75;
+	--page-bg: linear-gradient(to bottom, #f5f2ed 0%, rgba(242, 243, 248, 1) 100%);
 	--text-color: #343435;
 	--headings-color: #283149;
-	--link-color: #6f689b;
-	--link-color-hover: #283149;
+	--link-color: var(--color);
+	--link-color-hover: oklch(from var(--color) 0.3163 0.045 h);
 	--inline-code: 255, 81, 81;
 	--box-shadow: 0px 4.4px 4.5px -100px rgba(var(--dark-rgb), 0.174), 0px 12.3px 12.5px -100px rgba(var(--dark-rgb), 0.25), 0px 29.5px 30.1px -100px rgba(var(--dark-rgb), 0.326), 0px 98px 100px -100px rgba(var(--dark-rgb), 0.5);
 	--box-shadow-hover: 0px 5.4px 4.5px -100px rgba(var(--dark-rgb), 0.174), 0px 15px 12.5px -100px rgba(var(--dark-rgb), 0.25), 0px 36.2px 30.1px -100px rgba(var(--dark-rgb), 0.326), 0px 120px 100px -100px rgba(var(--dark-rgb), 0.5)
