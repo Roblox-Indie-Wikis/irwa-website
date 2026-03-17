@@ -16,6 +16,56 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
+/* palette */
+:root {
+  --primary-base: #6B7A5F;
+  --primary-1: #D9E6CA;
+  --primary-2: #BDCAAE;
+  --primary-3: #A2AF95;
+  --primary-4: #89957D;
+  --primary-5: #707C64;
+  --primary-6: #57634D;
+  --primary-7: #3F4B35;
+  --primary-8: #2B3421;
+  --primary-9: #141F0E;
+
+  --secondary-base: #8C7E6D;
+  --secondary-1: #EFE2CF;
+  --secondary-2: #D2C5B4;
+  --secondary-3: #B5AA98;
+  --secondary-4: #9B8F7F;
+  --secondary-5: #817565;
+  --secondary-6: #685C50;
+  --secondary-7: #4E4438;
+  --secondary-8: #372F24;
+  --secondary-9: #221910;
+
+  --tertiary-base: #D9D2C5;
+  --tertiary-1: #E8E2D4;
+  --tertiary-2: #CAC6BA;
+  --tertiary-3: #AFAB9F;
+  --tertiary-4: #949085;
+  --tertiary-5: #7B776C;
+  --tertiary-6: #615E55;
+  --tertiary-7: #49463F;
+  --tertiary-8: #333029;
+  --tertiary-9: #1E1B14;
+
+  --neutral-base: #F5F2ED;
+  --neutral-1: #E4E3DF;
+  --neutral-2: #C8C7C3;
+  --neutral-3: #ACABA7;
+  --neutral-4: #92918C;
+  --neutral-5: #787773;
+  --neutral-6: #5F5E5A;
+  --neutral-7: #474843;
+  --neutral-8: #31302C;
+  --neutral-9: #1C1C1A;
+
+	--white: #FFFFFF;
+	--black: #000000;
+}
+
 :root {
 	--page-margin: 8vmin;
 	--page-width: 1440px;
@@ -43,8 +93,6 @@
 	--headings-letter-spacing: -0.03em;
 	--headings-line-height: 1.2;
 	--card-image-height: calc(12rem + 13vmin);
-	--white: #FFFFFF;
-	--black: #000000;
 	--green: #00C899;
 	--blue: #3DBFE2;
 	--red: #EB7F9B;
@@ -57,13 +105,13 @@
 	--lighter: #E7F3DA;
 	--color: #54624b;
 	--color-rgb: 84, 98, 75;
-	--page-bg: linear-gradient(to bottom, #f5f2ed 0%, rgba(242, 243, 248, 1) 100%);
+	--page-bg: #f5f2ed;
 	--text-color: #343435;
 	--headings-color: #283149;
 	--link-color: var(--color);
 	--link-color-hover: oklch(from var(--color) 0.3163 0.045 h);
 	--inline-code: 255, 81, 81;
-	--light-btn-bg: #F0EEE5;
+	--light-btn-bg: #E8E1D1;
 	--box-shadow: 0px 4.4px 4.5px -100px rgba(var(--dark-rgb), 0.174), 0px 12.3px 12.5px -100px rgba(var(--dark-rgb), 0.25), 0px 29.5px 30.1px -100px rgba(var(--dark-rgb), 0.326), 0px 98px 100px -100px rgba(var(--dark-rgb), 0.5);
 	--box-shadow-hover: 0px 5.4px 4.5px -100px rgba(var(--dark-rgb), 0.174), 0px 15px 12.5px -100px rgba(var(--dark-rgb), 0.25), 0px 36.2px 30.1px -100px rgba(var(--dark-rgb), 0.326), 0px 120px 100px -100px rgba(var(--dark-rgb), 0.5)
 }
@@ -1274,7 +1322,11 @@ textarea {
 	margin-right: auto;
 	max-width: var(--page-width);
 	overflow: hidden;
-	padding: 0 var(--page-margin)
+}
+
+.container > * {
+	padding-left: var(--page-margin);
+	padding-right: var(--page-margin);
 }
 
 .container--narrow {
@@ -2379,7 +2431,8 @@ textarea {
 	font-size: .7901234568rem;
 	margin-top: var(--magic-number);
 	margin-bottom: calc(var(--magic-number)/ 2);
-	padding-top: calc(var(--magic-number)/ 3)
+	padding-top: calc(var(--magic-number)/ 3);
+	background: #E8E1D1;
 }
 
 @media all and (max-width:56.1875em) {
