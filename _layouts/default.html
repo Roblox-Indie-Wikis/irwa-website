@@ -4,7 +4,7 @@
   {% include head.html %}
 </head>
 <body class="{{ page.body_class | default: 'page-template' }} lines">
-  <div class="container lines lines--right">
+  <div class="container">
     {% include header.html %}
     <main class="main {{ page.main_class | default: 'page' }}">
       {{ content }}
