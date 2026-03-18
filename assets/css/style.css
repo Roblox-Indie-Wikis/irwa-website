@@ -79,7 +79,6 @@
 	--border-radius: 3px;
 	--cards-gap: 1rem;
 	--featured-image-height: 40vmin;
-	--animated-lines-time: 3s;
 	--gallery-gap: 0.5rem;
 	--magic-number: 4rem;
 	--baseline: .25rem;
@@ -726,6 +725,7 @@ textarea {
 	background: oklch(from var(--page-bg) l c h / 80%);
 	backdrop-filter: blur(14px) saturate(1.1);
 	width: 100%;
+	z-index: 999;
 
 	@media all and (min-width:80.0625em) and (min-height:50em) {
 		padding-top: 3rem;
@@ -1118,6 +1118,7 @@ textarea {
 
 .navbar_mobile_sidebar__overlay {
 	background: oklch(from var(--black) l c h / .6);
+	backdrop-filter: blur(5px);
 	height: 100%;
 	opacity: 1;
 	pointer-events: auto;
@@ -1130,6 +1131,10 @@ textarea {
 	&.is-hidden {
 		opacity: 0;
 		pointer-events: none
+	}
+
+	@starting-style {
+		backdrop-filter: blur(0px);
 	}
 }
 
@@ -1975,47 +1980,6 @@ textarea {
 	}
 }
 
-@media all and (min-width:56.25em) {
-	.lines::after,
-	.lines::before {
-		content: "";
-		display: block;
-		position: absolute;
-		height: 50vh;
-		width: 2px;
-		top: -50%;
-		left: 20vw;
-		background: linear-gradient(to bottom, oklch(from var(--black) l c h / 0) 0, oklch(from var(--primary-base) l c h / .15) 75%, oklch(from var(--black) l c h / 0) 0);
-		animation: run var(--animated-lines-time) cubic-bezier(.4, .26, 0, .97) 0s infinite forwards;
-		z-index: -1
-	}
-}
-
-.lines::before {
-	animation-delay: 2s;
-	left: 40vw
-}
-
-@keyframes run {
-	0% {
-		top: -50%
-	}
-
-	100% {
-		top: 100%
-	}
-}
-
-.lines--right::after {
-	animation-delay: 4s;
-	left: 60vw
-}
-
-.lines--right::before {
-	animation-delay: 6s;
-	left: 80vw
-}
-
 .facebook:hover svg {
 	fill: #0866FF
 }
@@ -2503,27 +2467,6 @@ img.is-loaded {
 .logo-carousel {
 	mask-image: linear-gradient(to right, oklch(from var(--black) l c h / 0), var(--black) 20%, var(--black) 80%, oklch(from var(--black) l c h / 0));
 	position: relative;
-
-	&::after,
-	&::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		width: 150px;
-		height: 100%;
-		z-index: 2;
-		pointer-events: none
-	}
-
-	&::before {
-		left: 0;
-		background: linear-gradient(to right, var(--neutral-2) 0, oklch(from var(--neutral-2) l c h / .75) 30%, oklch(from var(--neutral-2) l c h / .5) 50%, oklch(from var(--neutral-2) l c h / .25) 70%, oklch(from var(--neutral-2) l c h / 0) 100%)
-	}
-
-	&::after {
-		right: 0;
-		background: linear-gradient(to left, var(--neutral-base) 0, oklch(from var(--neutral-base) l c h / .75) 30%, oklch(from var(--neutral-base) l c h / .5) 50%, oklch(from var(--neutral-base) l c h / .25) 70%, oklch(from var(--neutral-base) l c h / 0) 100%)
-	}
 }
 
 .logo-track {
