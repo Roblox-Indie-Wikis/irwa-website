@@ -30,11 +30,11 @@
         transform: translateY(-3px);
         box-shadow: 0 12px 20px 0 oklch(from var(--neutral-9) l c h / 0.12);
     }
+}
 
-    &-logo {
-        width: auto;
-        height: 100px;
-    }
+.member-box-logo {
+    width: auto;
+    height: 100px;
 }
 
 /* Modal Styles */
