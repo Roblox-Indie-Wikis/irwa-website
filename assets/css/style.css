@@ -16,6 +16,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
+@view-transition {
+	navigation: auto;
+}
+
 /* palette */
 :root {
 	--primary-base: #6B7A5F;
@@ -2441,12 +2445,13 @@ img.is-loaded {
 
 .btn {
 	font-family: var(--font-body);
-	font-weight: 400;
-	font-style: normal
+	font-weight: 600;
+	font-style: normal;
+	margin: 0 2px;
 }
 
 .btn-light {
-	background: var(--neutral-1)!important;
+	background: var(--primary-2)!important;
 	color: var(--text-color)!important;
 }
 
