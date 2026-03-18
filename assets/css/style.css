@@ -717,15 +717,18 @@ textarea {
 .header {
 	align-items: center;
 	display: flex;
-	height: var(--navbar-height);
-	margin-top: 2rem;
+	min-height: var(--navbar-height);
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 	max-width: var(--page-width);
-	position: sticky;
+	position: fixed;
 	top: 0px;
-	backdrop-filter: blur(10px);
+	background: oklch(from var(--page-bg) l c h / 80%);
+	backdrop-filter: blur(14px) saturate(1.1);
 
 	@media all and (min-width:80.0625em) and (min-height:50em) {
-		margin-top: 3rem
+		padding-top: 3rem;
+		padding-bottom: 3rem;
 	}
 }
 
@@ -1147,7 +1150,7 @@ textarea {
 }
 
 .main {
-	margin-top: var(--magic-number)
+	margin-top: calc(var(--magic-number) * 1.5)
 }
 
 .hero {
