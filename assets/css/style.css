@@ -225,6 +225,10 @@ a {
 	}
 }
 
+.img-invert {
+	filter: invert(1)
+}
+
 dl,
 ol,
 p,
