@@ -720,7 +720,9 @@ textarea {
 	height: var(--navbar-height);
 	margin-top: 2rem;
 	max-width: var(--page-width);
-	position: relative;
+	position: sticky;
+	top: 0px;
+	backdrop-filter: blur(10px);
 
 	@media all and (min-width:80.0625em) and (min-height:50em) {
 		margin-top: 3rem
@@ -2155,8 +2157,8 @@ textarea {
 	color: var(--neutral-6);
 	font-size: .7901234568rem;
 	margin-top: var(--magic-number);
-	margin-bottom: calc(var(--magic-number)/ 2);
 	padding-top: calc(var(--magic-number)/ 3);
+	padding-bottom: calc(var(--magic-number)/ 3);
 	background: var(--tertiary-1);
 
 	@media all and (max-width:56.1875em) {
