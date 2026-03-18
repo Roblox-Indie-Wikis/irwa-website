@@ -188,7 +188,7 @@ html {
 }
 
 body {
-	background: linear-gradient(to bottom, var(--secondary-1) 20%, var(--page-bg));
+	background: var(--page-bg);
 	color: var(--text-color);
 	font-family: var(--font-body);
 	font-variation-settings: "wght" var(--font-weight-normal);
@@ -732,7 +732,7 @@ textarea {
 	max-width: var(--page-width);
 	position: fixed;
 	top: 0px;
-	background: oklch(from var(--secondary-1) l c h / 80%)
+	background: oklch(from var(--page-bg) l c h / 80%);
 	backdrop-filter: blur(14px) saturate(1.1);
 	width: 100%;
 	z-index: 999;
