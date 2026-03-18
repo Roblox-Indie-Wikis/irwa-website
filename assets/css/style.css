@@ -718,13 +718,14 @@ textarea {
 	align-items: center;
 	display: flex;
 	min-height: var(--navbar-height);
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
 	max-width: var(--page-width);
 	position: fixed;
 	top: 0px;
 	background: oklch(from var(--page-bg) l c h / 80%);
 	backdrop-filter: blur(14px) saturate(1.1);
+	width: 100%;
 
 	@media all and (min-width:80.0625em) and (min-height:50em) {
 		padding-top: 3rem;
@@ -1150,7 +1151,7 @@ textarea {
 }
 
 .main {
-	margin-top: calc(var(--magic-number) * 1.5)
+	margin-top: calc(var(--magic-number) * 1.8)
 }
 
 .hero {
