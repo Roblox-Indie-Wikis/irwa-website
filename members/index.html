@@ -12,7 +12,7 @@ description: Our members include wikis covering games from some of the most popu
 
 <div class="members-grid">
     {% for member in site.data.members %}
-    <button type="button" class="member-box"
+    <button type="button" class="member-box btn-secondary"
          onclick="openMemberModal({{ member | jsonify | escape }}, this)"
          data-logo="{{ member.logo | relative_url }}">
         <img src="{{ member.logo | relative_url }}" alt="{{ member.name }} logo" class="member-box-logo">
@@ -54,7 +54,7 @@ description: Our members include wikis covering games from some of the most popu
                     <!-- Social links will be injected here -->
                 </div>
                 <div class="modal-cta">
-                    <a id="modalGameLink" href="" target="_blank" rel="noopener noreferrer" class="btn-game-link">Game Link <span class="material-symbols-outlined">arrow_forward</span></a>
+                    <a id="modalSiteLink" href="" target="_blank" rel="noopener noreferrer" class="btn-site-link">Game Link <span class="material-symbols-outlined">arrow_forward</span></a>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@ function openMemberModal(member, element) {
     const logo = document.getElementById('modalLogo');
     const joined = document.getElementById('modalJoined');
     const team = document.getElementById('modalTeam');
-    const gameLink = document.getElementById('modalGameLink');
+    const link = document.getElementById('modalSiteLink');
     const socials = document.getElementById('modalSocials');
 
     name.textContent = member.name;
@@ -108,11 +108,11 @@ function openMemberModal(member, element) {
     }
 
     // Set game link
-    if (member.game_link) {
-        gameLink.href = member.game_link;
-        gameLink.style.display = 'inline-block';
+    if (member.link) {
+        link.href = member.link;
+        link.style.display = 'inline-block';
     } else {
-        gameLink.style.display = 'none';
+        link.style.display = 'none';
     }
 
     // Clear and populate socials
