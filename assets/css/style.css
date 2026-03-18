@@ -289,6 +289,10 @@ h6 {
 	font-size: clamp(1rem, 1rem + .125 * (100vw - 20rem) / 80, 1.125rem)
 }
 
+.material-symbols-outlined {
+	font-size: var(--font-size);
+}
+
 h1+*,
 h2+*,
 h3+*,
@@ -2453,6 +2457,10 @@ img.is-loaded {
 .btn-light {
 	background: var(--primary-2)!important;
 	color: var(--text-color)!important;
+}
+
+.btn-secondary {
+	background: var(--secondary-4)!important;
 }
 
 .body {

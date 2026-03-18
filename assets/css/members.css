@@ -7,7 +7,7 @@
 }
 
 .member-box {
-    background: var(--link-color);
+    background: var(--secondary-7);
     box-shadow: 0px 8px 20px -3px oklch(from var(--neutral-9) l c h / 0.12);
     border: none;
     border-radius: var(--border-radius);
@@ -222,7 +222,7 @@
     }
 }
 
-.btn-game-link {
+.btn-site-link {
     background: var(--neutral-9);
     color: var(--white) !important;
     padding: 8px 16px;
