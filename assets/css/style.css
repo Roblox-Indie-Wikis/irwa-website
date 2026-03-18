@@ -22,7 +22,7 @@
 
 /* palette */
 :root {
-	--primary-base: #6B7A5F;
+	--primary-base: #1a7e2f;
 	--primary-1: #D9E6CA;
 	--primary-2: #BDCAAE;
 	--primary-3: #A2AF95;
@@ -2454,6 +2454,10 @@ img.is-loaded {
 	font-weight: 600;
 	font-style: normal;
 	margin: 0 2px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2px;
 }
 
 .btn-light {
@@ -2521,5 +2525,15 @@ img.is-loaded {
 
 	100% {
 		transform: translateX(calc(-230px * 5))
+	}
+}
+
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+
+	& > div {
+		flex: 1;
 	}
 }
