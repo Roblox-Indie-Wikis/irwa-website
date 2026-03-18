@@ -54,7 +54,7 @@ description: Our members include wikis covering games from some of the most popu
                     <!-- Social links will be injected here -->
                 </div>
                 <div class="modal-cta">
-                    <a id="modalSiteLink" href="" target="_blank" rel="noopener noreferrer" class="btn-site-link">Game Link <span class="material-symbols-outlined">arrow_forward</span></a>
+                    <a id="modalSiteLink" href="" target="_blank" rel="noopener noreferrer" class="btn-site-link">Visit site <span class="material-symbols-outlined">arrow_forward</span></a>
                 </div>
             </div>
         </div>
@@ -128,8 +128,8 @@ function openMemberModal(member, element) {
     };
 
     // Always add Wiki link first
-    if (member.link) {
-        socials.appendChild(createSocialLink(member.link, 'Wiki'));
+    if (member.game_link) {
+        socials.appendChild(createSocialLink(member.link, 'Game'));
     }
 
     if (member.discord) {
