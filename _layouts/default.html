@@ -3,7 +3,7 @@
 <head>
   {% include head.html %}
 </head>
-<body class="{{ page.body_class | default: 'page-template' }} lines">
+<body class="{{ page.body_class | default: 'page-template' }}">
   <div class="container">
     {% include header.html %}
     <main class="main {{ page.main_class | default: 'page' }}">
@@ -54,22 +54,5 @@
   </script>
   <script defer="defer" src="{{ "/media/plugins/syntaxHighlighter/prism.js" | relative_url }}"></script>
   <script defer="defer" src="{{ "/media/plugins/syntaxHighlighter/prism-line-numbers.min.js" | relative_url }}"></script>
-  <script>
-    (function() {
-      var originalTitle = document.title;
-      var timeout;
-      document.addEventListener("visibilitychange", function() {
-        if (document.hidden) {
-          document.title = "👀 IRWA - Indie Roblox Wikis";
-        } else {
-          clearTimeout(timeout);
-          document.title = "🎉 Nice to see you again!";
-          setTimeout(function() {
-            document.title = originalTitle;
-          }, 1676);
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
