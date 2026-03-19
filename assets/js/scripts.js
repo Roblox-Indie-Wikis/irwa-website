@@ -427,6 +427,36 @@
 	init();
 })(window.publiiThemeMenuConfig);
 
+// Theme Toggle
+(function() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (themeIcon) themeIcon.textContent = 'dark_mode';
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            let theme = 'light';
+            if (body.classList.contains('dark-mode')) {
+                theme = 'dark';
+                if (themeIcon) themeIcon.textContent = 'dark_mode';
+            } else {
+                if (themeIcon) themeIcon.textContent = 'light_mode';
+            }
+
+            localStorage.setItem('theme', theme);
+        });
+    }
+})();
+
 
 // Share buttons pop-up
 (function () {
