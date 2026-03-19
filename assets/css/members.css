@@ -88,7 +88,7 @@
   }
 }
 .modal-content {
-  background: var(--white);
+  background: var(--neutral-base);
   width: 90%;
   max-width: 900px;
   max-height: 80svh;
@@ -125,7 +125,7 @@
 }
 .modal-left {
   flex: 0 0 300px;
-  background: var(--neutral-base);
+  background: var(--neutral-2);
   display: flex;
   align-items: center;
   justify-content: center;
