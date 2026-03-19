@@ -2462,7 +2462,7 @@ img.is-loaded {
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	gap: 2px;
+	gap: 5px;
 }
 
 .btn-light {
