@@ -46,27 +46,27 @@
 	--secondary-8: #8A5C11;
 	--secondary-9: #473928;
 
-	--tertiary-base: #D9D2C5;
-	--tertiary-1: #E8E2D4;
-	--tertiary-2: #CAC6BA;
-	--tertiary-3: #AFAB9F;
-	--tertiary-4: #949085;
-	--tertiary-5: #7B776C;
-	--tertiary-6: #615E55;
-	--tertiary-7: #49463F;
-	--tertiary-8: #333029;
-	--tertiary-9: #1E1B14;
+	--tertiary-base: #1a3d7e;
+	--tertiary-1: #E6EAF2;
+	--tertiary-2: #D9E3F3;
+	--tertiary-3: #C9DBF8;
+	--tertiary-4: #B7D0FA;
+	--tertiary-5: #A2C1F7;
+	--tertiary-6: #1A3D7E;
+	--tertiary-7: #2B4F92;
+	--tertiary-8: #2F5EB6;
+	--tertiary-9: #0D2F6F;
 
 	--neutral-base: #F5F2ED;
-	--neutral-1: #DBD7CF;
-	--neutral-2: #D2CEC7;
-	--neutral-3: #C8C4BD;
-	--neutral-4: #BCB7B0;
-	--neutral-5: #A7A39C;
+	--neutral-1: #ECEAE8;
+	--neutral-2: #E3E0DB;
+	--neutral-3: #DBD7CF;
+	--neutral-4: #D2CEC7;
+	--neutral-5: #C8C4BD;
 	--neutral-6: #7C7972;
 	--neutral-7: #706C65;
 	--neutral-8: #57534D;
-	--neutral-9: #1C1C1A;
+	--neutral-9: #2A2621;
 
 	--white: #FFFFFF;
 	--black: #000000;
@@ -101,27 +101,27 @@
 	--secondary-8: #FECA87;
 	--secondary-9: #FFE2B1;
 
-	--tertiary-base: #333029;
-	--tertiary-1: #1E1B14;
-	--tertiary-2: #333029;
-	--tertiary-3: #49463F;
-	--tertiary-4: #615E55;
-	--tertiary-5: #7B776C;
-	--tertiary-6: #949085;
-	--tertiary-7: #AFAB9F;
-	--tertiary-8: #CAC6BA;
-	--tertiary-9: #E8E2D4;
+	--tertiary-base: #1a3d7e;
+	--tertiary-1: #151C29;
+	--tertiary-2: #161F2F;
+	--tertiary-3: #162B52;
+	--tertiary-4: #15336C;
+	--tertiary-5: #1A3D7E;
+	--tertiary-6: #030303;
+	--tertiary-7: #3768C5;
+	--tertiary-8: #84B5FF;
+	--tertiary-9: #CFE2FF;
 
 	--neutral-base: #1C1C1A;
 	--neutral-1: #1C1C1A;
-	--neutral-2: #31302C;
-	--neutral-3: #474843;
-	--neutral-4: #5F5E5A;
-	--neutral-5: #787773;
-	--neutral-6: #92918C;
-	--neutral-7: #ACABA7;
-	--neutral-8: #C8C7C3;
-	--neutral-9: #E4E3DF;
+	--neutral-2: #232321;
+	--neutral-3: #2C2C28;
+	--neutral-4: #32322F;
+	--neutral-5: #383835;
+	--neutral-6: #71716E;
+	--neutral-7: #646460;
+	--neutral-8: #B4B4B0;
+	--neutral-9: #EDEDE9;
 
 	--white: #000000;
 	--black: #FFFFFF;
@@ -329,34 +329,28 @@ h6 {
 	text-transform: var(--headings-transform)
 }
 
-.h1,
-h1 {
-	font-size: clamp(1.8020324707rem, 1.8020324707rem + .7637520432 * (100vw - 20rem) / 80, 2.565784514rem)
+.h1, h1 {
+    font-size: clamp(1.8020324707rem, calc(1.8020324707rem + .7637520432 * (100vw - 20rem) / 80), 2.565784514rem);
 }
 
-.h2,
-h2 {
-	font-size: clamp(1.423828125rem, 1.423828125rem + .6034584045 * (100vw - 20rem) / 80, 2.0272865295rem)
+.h2, h2 {
+    font-size: clamp(1.423828125rem, calc(1.423828125rem + .6034584045 * (100vw - 20rem) / 80), 2.0272865295rem);
 }
 
-.h3,
-h3 {
-	font-size: clamp(1.265625rem, 1.265625rem + .5364074707 * (100vw - 20rem) / 80, 1.8020324707rem)
+.h3, h3 {
+    font-size: clamp(1.265625rem, calc(1.265625rem + .5364074707 * (100vw - 20rem) / 80), 1.8020324707rem);
 }
 
-.h4,
-h4 {
-	font-size: clamp(1.125rem, 1.125rem + .298828125 * (100vw - 20rem) / 80, 1.423828125rem)
+.h4, h4 {
+    font-size: clamp(1.125rem, calc(1.125rem + .298828125 * (100vw - 20rem) / 80), 1.423828125rem);
 }
 
-.h5,
-h5 {
-	font-size: clamp(1rem, 1rem + .265625 * (100vw - 20rem) / 80, 1.265625rem)
+.h5, h5 {
+    font-size: clamp(1rem, calc(1rem + .265625 * (100vw - 20rem) / 80), 1.265625rem);
 }
 
-.h6,
-h6 {
-	font-size: clamp(1rem, 1rem + .125 * (100vw - 20rem) / 80, 1.125rem)
+.h6, h6 {
+    font-size: clamp(1rem, calc(1rem + .125 * (100vw - 20rem) / 80), 1.125rem);
 }
 
 .material-symbols-outlined {
@@ -386,9 +380,9 @@ blockquote {
 	max-width: 80%;
 	padding: calc(var(--baseline) * 22) 0 calc(var(--baseline) * 12);
 	position: relative;
-	font-size: clamp(1.265625rem, 1.265625rem + .158203125 * (100vw - 20rem) / 80, 1.423828125rem);
+	font-size: clamp(1.265625rem, calc(1.265625rem + .158203125 * (100vw - 20rem) / 80), 1.423828125rem);
 
-	@media all and (min-width:37.5em) {
+	@media all and (min-width: 37.5em) {
 		max-width: 60%
 	}
 
@@ -400,7 +394,7 @@ blockquote {
 		position: absolute;
 		top: calc(var(--baseline) * 11);
 
-		@media all and (min-width:37.5em) {
+		@media all and (min-width: 37.5em) {
 			left: -20%
 		}
 	}
@@ -1200,7 +1194,7 @@ textarea {
 
 .hero {
 	color: var(--neutral-6);
-	font-size: clamp(1rem, 1rem + .125 * (100vw - 20rem) / 80, 1.125rem);
+	font-size: clamp(1rem, calc(1rem + .125 * (100vw - 20rem) / 80), 1.125rem);
 	padding-bottom: var(--magic-number);
 	max-width: var(--entry-width);
 
@@ -1851,7 +1845,7 @@ textarea {
 }
 
 .page--error__title {
-	font-size: clamp(6.583250172rem, 6.583250172rem + 8.4311510216 * (100vw - 20rem) / 80, 15.0144011936rem)
+	font-size: clamp(6.583250172rem, calc(6.583250172rem + 8.4311510216 * (100vw - 20rem) / 80), 15.0144011936rem)
 }
 
 .page--error__btn {
