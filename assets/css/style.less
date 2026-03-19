@@ -125,6 +125,10 @@
 
 	--white: #000000;
 	--black: #FFFFFF;
+
+	--page-bg: var(--neutral-base);
+	--text-color: var(--neutral-9);
+	--link-color: var(--primary-base);
 }
 
 :root {
@@ -156,7 +160,6 @@
 	--page-bg: var(--neutral-base);
 	--text-color: var(--neutral-9);
 	--link-color: var(--primary-base);
-	--link-color-hover: var(--primary-base);
 	--box-shadow: 0px 4.4px 4.5px -100px oklch(from var(--neutral-9) l c h / 0.174), 0px 12.3px 12.5px -100px oklch(from var(--neutral-9) l c h / 0.25), 0px 29.5px 30.1px -100px oklch(from var(--neutral-9) l c h / 0.326), 0px 98px 100px -100px oklch(from var(--neutral-9) l c h / 0.5);
 	--box-shadow-hover: 0px 5.4px 4.5px -100px oklch(from var(--neutral-9) l c h / 0.174), 0px 15px 12.5px -100px oklch(from var(--neutral-9) l c h / 0.25), 0px 36.2px 30.1px -100px oklch(from var(--neutral-9) l c h / 0.326), 0px 120px 100px -100px oklch(from var(--neutral-9) l c h / 0.5)
 }
@@ -260,20 +263,6 @@ a {
 	&:hover,
 	&:active,
 	&:focus {
-		color: var(--link-color-hover);
-		outline: 0
-	}
-}
-
-.invert {
-	color: var(--link-color-hover);
-	text-decoration: none;
-	transition: all .12s linear;
-
-	&:hover,
-	&:active,
-	&:focus {
-		color: var(--link-color);
 		outline: 0
 	}
 }
