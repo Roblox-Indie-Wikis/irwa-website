@@ -110,36 +110,36 @@
   --primary-7: #006F20;
   --primary-8: #006E1E;
   --primary-9: #1E3D21;
-  --secondary-base: #8C7E6D;
-  --secondary-1: #EFE2CF;
-  --secondary-2: #D2C5B4;
-  --secondary-3: #B5AA98;
-  --secondary-4: #9B8F7F;
-  --secondary-5: #817565;
-  --secondary-6: #685C50;
-  --secondary-7: #4E4438;
-  --secondary-8: #372F24;
-  --secondary-9: #221910;
-  --tertiary-base: #D9D2C5;
-  --tertiary-1: #E8E2D4;
-  --tertiary-2: #CAC6BA;
-  --tertiary-3: #AFAB9F;
-  --tertiary-4: #949085;
-  --tertiary-5: #7B776C;
-  --tertiary-6: #615E55;
-  --tertiary-7: #49463F;
-  --tertiary-8: #333029;
-  --tertiary-9: #1E1B14;
+  --secondary-base: #94651e;
+  --secondary-1: #FFD6A1;
+  --secondary-2: #FDC987;
+  --secondary-3: #ECBC7E;
+  --secondary-4: #D9AC74;
+  --secondary-5: #C69453;
+  --secondary-6: #94651E;
+  --secondary-7: #865808;
+  --secondary-8: #8A5C11;
+  --secondary-9: #473928;
+  --tertiary-base: #1a3d7e;
+  --tertiary-1: #E6EAF2;
+  --tertiary-2: #D9E3F3;
+  --tertiary-3: #C9DBF8;
+  --tertiary-4: #B7D0FA;
+  --tertiary-5: #A2C1F7;
+  --tertiary-6: #1A3D7E;
+  --tertiary-7: #2B4F92;
+  --tertiary-8: #2F5EB6;
+  --tertiary-9: #0D2F6F;
   --neutral-base: #F5F2ED;
-  --neutral-1: #E4E3DF;
-  --neutral-2: #C8C7C3;
-  --neutral-3: #ACABA7;
-  --neutral-4: #92918C;
-  --neutral-5: #787773;
-  --neutral-6: #5F5E5A;
-  --neutral-7: #474843;
-  --neutral-8: #31302C;
-  --neutral-9: #1C1C1A;
+  --neutral-1: #ECEAE8;
+  --neutral-2: #E3E0DB;
+  --neutral-3: #DBD7CF;
+  --neutral-4: #D2CEC7;
+  --neutral-5: #C8C4BD;
+  --neutral-6: #7C7972;
+  --neutral-7: #706C65;
+  --neutral-8: #57534D;
+  --neutral-9: #2A2621;
   --white: #FFFFFF;
   --black: #000000;
   --green: #00C899;
@@ -149,46 +149,46 @@
 }
 .dark-mode {
   --social-icon-filter: invert(1) brightness(0.8);
-  --primary-base: #7DBD82;
-  --primary-1: #1E3D21;
-  --primary-2: #006E1E;
-  --primary-3: #006F20;
-  --primary-4: #1A7E2F;
-  --primary-5: #4BA857;
-  --primary-6: #7DBD82;
-  --primary-7: #9DCDA0;
-  --primary-8: #B5D8B6;
-  --primary-9: #C8E1C9;
-  --secondary-base: #685C50;
-  --secondary-1: #221910;
-  --secondary-2: #372F24;
-  --secondary-3: #4E4438;
-  --secondary-4: #685C50;
-  --secondary-5: #817565;
-  --secondary-6: #9B8F7F;
-  --secondary-7: #B5AA98;
-  --secondary-8: #D2C5B4;
-  --secondary-9: #EFE2CF;
-  --tertiary-base: #333029;
-  --tertiary-1: #1E1B14;
-  --tertiary-2: #333029;
-  --tertiary-3: #49463F;
-  --tertiary-4: #615E55;
-  --tertiary-5: #7B776C;
-  --tertiary-6: #949085;
-  --tertiary-7: #AFAB9F;
-  --tertiary-8: #CAC6BA;
-  --tertiary-9: #E8E2D4;
+  --primary-base: #1a7e2f;
+  --primary-1: #0B140B;
+  --primary-2: #162B18;
+  --primary-3: #123D18;
+  --primary-4: #154B1E;
+  --primary-5: #195B24;
+  --primary-6: #1A7E2F;
+  --primary-7: #1D6D2C;
+  --primary-8: #74D07D;
+  --primary-9: #AEF7B3;
+  --secondary-base: #94651e;
+  --secondary-1: #1E170F;
+  --secondary-2: #311F06;
+  --secondary-3: #432500;
+  --secondary-4: #512E00;
+  --secondary-5: #5F3C00;
+  --secondary-6: #94651E;
+  --secondary-7: #865808;
+  --secondary-8: #FECA87;
+  --secondary-9: #FFE2B1;
+  --tertiary-base: #1a3d7e;
+  --tertiary-1: #151C29;
+  --tertiary-2: #161F2F;
+  --tertiary-3: #162B52;
+  --tertiary-4: #15336C;
+  --tertiary-5: #1A3D7E;
+  --tertiary-6: #030303;
+  --tertiary-7: #3768C5;
+  --tertiary-8: #84B5FF;
+  --tertiary-9: #CFE2FF;
   --neutral-base: #1C1C1A;
   --neutral-1: #1C1C1A;
-  --neutral-2: #31302C;
-  --neutral-3: #474843;
-  --neutral-4: #5F5E5A;
-  --neutral-5: #787773;
-  --neutral-6: #92918C;
-  --neutral-7: #ACABA7;
-  --neutral-8: #C8C7C3;
-  --neutral-9: #E4E3DF;
+  --neutral-2: #232321;
+  --neutral-3: #2C2C28;
+  --neutral-4: #32322F;
+  --neutral-5: #383835;
+  --neutral-6: #71716E;
+  --neutral-7: #646460;
+  --neutral-8: #B4B4B0;
+  --neutral-9: #EDEDE9;
   --white: #000000;
   --black: #FFFFFF;
   --page-bg: var(--neutral-base);
@@ -211,7 +211,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -370,27 +370,27 @@ h6 {
 }
 .h1,
 h1 {
-  font-size: clamp(1.80203247rem, 1.80203247rem + 0.76375204 * 80vw / 80, 2.56578451rem);
+  font-size: clamp(1.80203247rem, calc(1.80203247rem + 0.76375204 * (100vw - 20rem) / 80), 2.56578451rem);
 }
 .h2,
 h2 {
-  font-size: clamp(1.42382813rem, 1.42382813rem + 0.6034584 * 80vw / 80, 2.02728653rem);
+  font-size: clamp(1.42382813rem, calc(1.42382813rem + 0.6034584 * (100vw - 20rem) / 80), 2.02728653rem);
 }
 .h3,
 h3 {
-  font-size: clamp(1.265625rem, 1.265625rem + 0.53640747 * 80vw / 80, 1.80203247rem);
+  font-size: clamp(1.265625rem, calc(1.265625rem + 0.53640747 * (100vw - 20rem) / 80), 1.80203247rem);
 }
 .h4,
 h4 {
-  font-size: clamp(1.125rem, 1.125rem + 0.29882813 * 80vw / 80, 1.42382813rem);
+  font-size: clamp(1.125rem, calc(1.125rem + 0.29882813 * (100vw - 20rem) / 80), 1.42382813rem);
 }
 .h5,
 h5 {
-  font-size: clamp(1rem, 1rem + 0.265625 * 80vw / 80, 1.265625rem);
+  font-size: clamp(1rem, calc(1rem + 0.265625 * (100vw - 20rem) / 80), 1.265625rem);
 }
 .h6,
 h6 {
-  font-size: clamp(1rem, 1rem + 0.125 * 80vw / 80, 1.125rem);
+  font-size: clamp(1rem, calc(1rem + 0.125 * (100vw - 20rem) / 80), 1.125rem);
 }
 .material-symbols-outlined {
   font-size: inherit;
@@ -416,7 +416,7 @@ blockquote {
   max-width: 80%;
   padding: calc(var(--baseline) * 22) 0 calc(var(--baseline) * 12);
   position: relative;
-  font-size: clamp(1.265625rem, 1.265625rem + 0.15820313 * 80vw / 80, 1.42382813rem);
+  font-size: clamp(1.265625rem, calc(1.265625rem + 0.15820313 * (100vw - 20rem) / 80), 1.42382813rem);
 }
 @media all and (min-width: 37.5em) {
   blockquote {
@@ -1213,7 +1213,7 @@ textarea {
   left: 0;
   width: 100%;
   height: 100%;
-  background: oklch(from var(--black) l c h / 0.6);
+  background: oklch(from #000 l c h / 0.6);
   backdrop-filter: blur(5px);
   transition: all 0.3s cubic-bezier(0, 0, 0.3, 1);
   @starting-style {
@@ -1232,7 +1232,6 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   max-width: var(--page-width);
-  overflow: hidden;
 }
 .container > * {
   padding-left: var(--page-margin);
@@ -1246,7 +1245,7 @@ textarea {
 }
 .hero {
   color: var(--neutral-6);
-  font-size: clamp(1rem, 1rem + 0.125 * 80vw / 80, 1.125rem);
+  font-size: clamp(1rem, calc(1rem + 0.125 * (100vw - 20rem) / 80), 1.125rem);
   padding-bottom: var(--magic-number);
   max-width: var(--entry-width);
 }
@@ -1806,7 +1805,7 @@ textarea {
   margin-left: 0.3rem;
 }
 .page--error__title {
-  font-size: clamp(6.58325017rem, 6.58325017rem + 8.43115102 * 80vw / 80, 15.01440119rem);
+  font-size: clamp(6.58325017rem, calc(6.58325017rem + 8.43115102 * (100vw - 20rem) / 80), 15.01440119rem);
 }
 .page--error__btn {
   margin-top: calc(var(--baseline) * 7) !important;
@@ -2381,17 +2380,18 @@ img.is-loaded {
 .logo-carousel {
   mask-image: linear-gradient(to right, oklch(from var(--black) l c h / 0), var(--black) 20%, var(--black) 80%, oklch(from var(--black) l c h / 0));
   position: relative;
+  --logo-slide-width: 150px;
 }
 .logo-track {
   display: flex;
   animation: scroll 23s linear infinite;
-  width: calc(230px * 10);
+  width: calc(var(--logo-slide-width) * 10);
 }
 .logo-track:hover {
   animation-play-state: paused;
 }
 .logo-slide {
-  width: 150px;
+  width: var(--logo-slide-width);
   padding: 0 30px;
   flex-shrink: 0;
   display: flex;
@@ -2412,7 +2412,7 @@ img.is-loaded {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-230px * 5));
+    transform: translateX(calc(var(--logo-slide-width) * -5));
   }
 }
 .flex-container {
