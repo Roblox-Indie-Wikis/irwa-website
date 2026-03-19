@@ -1183,7 +1183,6 @@ textarea {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: var(--page-width);
-	overflow: hidden;
 
 	& > * {
 		padding-left: var(--page-margin);
@@ -2516,12 +2515,13 @@ img.is-loaded {
 .logo-carousel {
 	mask-image: linear-gradient(to right, oklch(from var(--black) l c h / 0), var(--black) 20%, var(--black) 80%, oklch(from var(--black) l c h / 0));
 	position: relative;
+	--logo-slide-width: 150px;
 }
 
 .logo-track {
 	display: flex;
 	animation: scroll 23s linear infinite;
-	width: calc(230px * 10);
+	width: calc(var(--logo-slide-width) * 10);
 
 	&:hover {
 		animation-play-state: paused
@@ -2529,7 +2529,7 @@ img.is-loaded {
 }
 
 .logo-slide {
-	width: 150px;
+	width: var(--logo-slide-width);
 	padding: 0 30px;
 	flex-shrink: 0;
 	display: flex;
@@ -2554,7 +2554,7 @@ img.is-loaded {
 	}
 
 	100% {
-		transform: translateX(calc(-230px * 5))
+		transform: translateX(calc(var(--logo-slide-width) * -5))
 	}
 }
 

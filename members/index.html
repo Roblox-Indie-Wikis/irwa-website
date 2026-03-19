@@ -116,6 +116,7 @@ function openMemberModal(element) {
         link.href = member.link;
         link.style.display = 'inline-block';
     } else {
+        link.removeAttribute('href');
         link.style.display = 'none';
     }
 
