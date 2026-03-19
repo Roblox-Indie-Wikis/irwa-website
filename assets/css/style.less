@@ -253,7 +253,8 @@ body {
 	line-height: var(--line-height);
 	min-height: 100vh;
 	padding: 0;
-	overscroll-behavior: none
+	overscroll-behavior: none;
+	transition: .3s ease-out background;
 }
 
 a {
@@ -283,7 +284,15 @@ a {
 }
 
 .img-invert {
-	filter: invert(1)
+	filter: invert(1);
+
+	.dark-mode & {
+		filter: unset!important;
+	}
+}
+
+.dark-mode .img-invert-dark {
+	filter: invert(1);
 }
 
 dl,
@@ -587,6 +596,7 @@ button {
 [type=button],
 [type=submit],
 button {
+	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none
 }
@@ -637,6 +647,7 @@ textarea {
 	outline: 0;
 	padding: .5rem .74rem;
 	width: 100%;
+	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 
