@@ -304,6 +304,7 @@ body {
   min-height: 100vh;
   padding: 0;
   overscroll-behavior: none;
+  transition: 0.3s ease-out background;
 }
 a {
   color: var(--link-color);
@@ -328,6 +329,12 @@ a:focus {
   outline: 0;
 }
 .img-invert {
+  filter: invert(1);
+}
+.dark-mode .img-invert {
+  filter: unset!important;
+}
+.dark-mode .img-invert-dark {
   filter: invert(1);
 }
 dl,
@@ -676,6 +683,7 @@ button:disabled {
 [type=button],
 [type=submit],
 button {
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -719,6 +727,7 @@ textarea {
   outline: 0;
   padding: 0.5rem 0.74rem;
   width: 100%;
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
