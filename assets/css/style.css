@@ -2535,7 +2535,8 @@ img.is-loaded {
 .flex-container {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 10px;
+	gap: 20px;
+	width: 100%;
 
 	& > div {
 		flex: 1;
