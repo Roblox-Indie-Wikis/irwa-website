@@ -44,7 +44,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: oklch(from var(--black) l c h / 0.7);
+    background: oklch(from var(--black) l c h / 0.6);
+    backdrop-filter: blur(5px);
     display: none;
     align-items: center;
     justify-content: center;
@@ -81,7 +82,7 @@
     flex-direction: row;
     position: relative;
     border-radius: var(--border-radius);
-    overflow: scroll;
+    overflow: auto;
     box-shadow: 0 20px 40px oklch(from var(--black) l c h / 0.3);
     opacity: 0;
     transform: translateY(20px);

@@ -15,6 +15,7 @@
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1');
 
 @view-transition {
 	navigation: auto;
@@ -23,15 +24,15 @@
 /* palette */
 :root {
 	--primary-base: #1a7e2f;
-	--primary-1: #D9E6CA;
-	--primary-2: #BDCAAE;
-	--primary-3: #A2AF95;
-	--primary-4: #89957D;
-	--primary-5: #707C64;
-	--primary-6: #57634D;
-	--primary-7: #3F4B35;
-	--primary-8: #2B3421;
-	--primary-9: #141F0E;
+	--primary-1: #C8E1C9;
+	--primary-2: #B5D8B6;
+	--primary-3: #9DCDA0;
+	--primary-4: #7DBD82;
+	--primary-5: #4BA857;
+	--primary-6: #1A7E2F;
+	--primary-7: #006F20;
+	--primary-8: #006E1E;
+	--primary-9: #1E3D21;
 
 	--secondary-base: #8C7E6D;
 	--secondary-1: #EFE2CF;
