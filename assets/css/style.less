@@ -259,10 +259,6 @@ a {
 	color: var(--link-color);
 	text-decoration: none;
 	transition: all .12s linear;
-
-	&:visited, &:focus {
-		color: var(--link-color);
-	}
 }
 
 .img-invert {
@@ -2560,4 +2556,24 @@ img.is-loaded {
 
 .glass-section {
 	.glassmorphism-mixin();
+}
+
+.glass-button {
+	.glassmorphism-button-mixin();
+
+	/* Size Variations */
+	&.small {
+	padding: 0.5em 1.5em;
+	font-size: 0.875rem;
+	}
+
+	&.medium {
+	padding: 0.75em 2em;
+	font-size: 1rem;
+	}
+
+	&.large {
+	padding: 1em 3em;
+	font-size: 1.125rem;
+	}
 }
