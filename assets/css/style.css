@@ -1251,8 +1251,12 @@ textarea {
 }
 .main {
   margin-top: calc(var(--magic-number) * 1.2);
-  padding-left: 0!important;
-  padding-right: 0!important;
+}
+@media screen and (min-width: 1119px) {
+  .main {
+    padding-left: 0!important;
+    padding-right: 0!important;
+  }
 }
 .hero {
   color: var(--neutral-6);
