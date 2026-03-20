@@ -293,7 +293,7 @@ html.no-scroll {
   overflow: hidden;
 }
 body {
-  background: var(--page-bg);
+  /* background: var(--page-bg); */
   color: var(--text-color);
   font-family: var(--font-body);
   font-variation-settings: "wght" var(--font-weight-normal);
@@ -303,6 +303,14 @@ body {
   padding: 0;
   overscroll-behavior: none;
   transition: 0.3s ease-out background;
+}
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../../media/backgrounds/frutiger-aero-land.jpeg');
+  background-size: cover;
+  z-index: -1;
 }
 a {
   color: var(--link-color);
@@ -1232,7 +1240,7 @@ textarea {
   max-width: var(--entry-width);
 }
 .main {
-  margin-top: calc(var(--magic-number) * 1.8);
+  margin-top: calc(var(--magic-number) * 1.2);
   padding-left: 0!important;
   padding-right: 0!important;
 }
@@ -2429,7 +2437,7 @@ img.is-loaded {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 36px 18px #ffffff;
   position: relative;
   overflow: hidden;
-  padding: 1rem;
+  padding: 2rem;
 }
 .glass-section::before {
   content: '';
@@ -2471,7 +2479,7 @@ img.is-loaded {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
   /* Typography */
   color: var(--fg);
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Segoe UI", system-ui, sans-serif;
+  /* font-family: "Lucida Grande", "Lucida Sans Unicode", "Segoe UI", system-ui, sans-serif; */
   font-weight: 700;
   text-shadow: 0 2px 0.5em rgba(0, 0, 0, 0.2);
   /* Layout */

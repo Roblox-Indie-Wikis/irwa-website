@@ -243,7 +243,7 @@ html {
 }
 
 body {
-	background: var(--page-bg);
+	/* background: var(--page-bg); */
 	color: var(--text-color);
 	font-family: var(--font-body);
 	font-variation-settings: "wght" var(--font-weight-normal);
@@ -253,6 +253,15 @@ body {
 	padding: 0;
 	overscroll-behavior: none;
 	transition: .3s ease-out background;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: url('../../media/backgrounds/frutiger-aero-land.jpeg');
+		background-size: cover;
+		z-index: -1;
+	}
 }
 
 a {
@@ -1178,7 +1187,7 @@ textarea {
 }
 
 .main {
-	margin-top: calc(var(--magic-number) * 1.8);
+	margin-top: calc(var(--magic-number) * 1.2);
 	padding-left: 0!important;
 	padding-right: 0!important;
 }
