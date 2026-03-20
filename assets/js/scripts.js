@@ -436,16 +436,16 @@
     // Check for saved theme preference
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'dark') {
-        body.classList.add('dark-mode');
+        document.documentElement.classList.add('dark-mode');
         if (themeIcon) themeIcon.textContent = 'dark_mode';
     }
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
+            document.documentElement.classList.toggle('dark-mode');
 
             let theme = 'light';
-            if (body.classList.contains('dark-mode')) {
+            if (document.documentElement.classList.contains('dark-mode')) {
                 theme = 'dark';
                 if (themeIcon) themeIcon.textContent = 'dark_mode';
             } else {
