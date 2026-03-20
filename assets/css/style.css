@@ -150,15 +150,15 @@
 .dark-mode {
   --social-icon-filter: invert(1) brightness(0.8);
   --primary-base: #1a3d7e;
-  --tertiary-1: #151C29;
-  --tertiary-2: #161F2F;
-  --tertiary-3: #162B52;
-  --tertiary-4: #15336C;
-  --tertiary-5: #1A3D7E;
-  --tertiary-6: #030303;
-  --tertiary-7: #3768C5;
-  --tertiary-8: #84B5FF;
-  --tertiary-9: #CFE2FF;
+  --primary-1: #151C29;
+  --primary-2: #161F2F;
+  --primary-3: #162B52;
+  --primary-4: #15336C;
+  --primary-5: #1A3D7E;
+  --primary-6: #030303;
+  --primary-7: #3768C5;
+  --primary-8: #84B5FF;
+  --primary-9: #CFE2FF;
   --secondary-base: #94651e;
   --secondary-1: #1E170F;
   --secondary-2: #311F06;
