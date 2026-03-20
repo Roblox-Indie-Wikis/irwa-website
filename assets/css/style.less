@@ -75,9 +75,6 @@
 	--blue: #3DBFE2;
 	--red: #EB7F9B;
 	--yellow: #FFC76B;
-
-	--box-shadow: 0px 4.4px 4.5px -100px oklch(from var(--neutral-9) l c h / 0.174), 0px 12.3px 12.5px -100px oklch(from var(--neutral-9) l c h / 0.25), 0px 29.5px 30.1px -100px oklch(from var(--neutral-9) l c h / 0.326), 0px 98px 100px -100px oklch(from var(--neutral-9) l c h / 0.5);
-	--box-shadow-hover: 0px 5.4px 4.5px -100px oklch(from var(--neutral-9) l c h / 0.174), 0px 15px 12.5px -100px oklch(from var(--neutral-9) l c h / 0.25), 0px 36.2px 30.1px -100px oklch(from var(--neutral-9) l c h / 0.326), 0px 120px 100px -100px oklch(from var(--neutral-9) l c h / 0.5)
 }
 
 .dark-mode {
@@ -132,9 +129,6 @@
 	--page-bg: var(--neutral-base);
 	--text-color: var(--neutral-9);
 	--link-color: var(--primary-base);
-
-	--box-shadow: 0px 4.4px 4.5px -100px oklch(from #000 l c h / 0.174), 0px 12.3px 12.5px -100px oklch(from #000 l c h / 0.25), 0px 29.5px 30.1px -100px oklch(from #000 l c h / 0.326), 0px 98px 100px -100px oklch(from #000 l c h / 0.5);
-	--box-shadow-hover: 0px 5.4px 4.5px -100px oklch(from #000 l c h / 0.174), 0px 15px 12.5px -100px oklch(from #000 l c h / 0.25), 0px 36.2px 30.1px -100px oklch(from #000 l c h / 0.326), 0px 120px 100px -100px oklch(from #000 l c h / 0.5)
 }
 
 :root {
@@ -166,6 +160,8 @@
 	--page-bg: var(--neutral-base);
 	--text-color: var(--neutral-9);
 	--link-color: var(--primary-base);
+	--box-shadow: 0px 4.4px 4.5px -100px oklch(from #000 l c h / 0.174), 0px 12.3px 12.5px -100px oklch(from #000 l c h / 0.25), 0px 29.5px 30.1px -100px oklch(from #000 l c h / 0.326), 0px 98px 100px -100px oklch(from #000 l c h / 0.5);
+	--box-shadow-hover: 0px 5.4px 4.5px -100px oklch(from #000 l c h / 0.174), 0px 15px 12.5px -100px oklch(from #000 l c h / 0.25), 0px 36.2px 30.1px -100px oklch(from #000 l c h / 0.326), 0px 120px 100px -100px oklch(from #000 l c h / 0.5);
 }
 
 @media all and (min-width:56.25em) {
@@ -264,10 +260,8 @@ a {
 	text-decoration: none;
 	transition: all .12s linear;
 
-	&:hover,
-	&:active,
-	&:focus {
-		outline: 0
+	&:visited, &:focus {
+		color: var(--link-color);
 	}
 }
 
