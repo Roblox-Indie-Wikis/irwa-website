@@ -210,7 +210,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -311,10 +311,15 @@ body::before {
   background: url('../../media/backgrounds/futuristic-city.webp');
   background-size: cover;
   z-index: -1;
+}
+body.home-template::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 75%, transparent);
 }
-.dark-mode body::before {
+.dark-mode body.home-template::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent) !important;
+}
+body.page-template::before {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 75%, transparent);
 }
 a {
   color: var(--link-color);
