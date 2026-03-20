@@ -243,7 +243,7 @@ html {
 }
 
 body {
-	/* background: var(--page-bg); */
+	background: var(--page-bg);
 	color: var(--text-color);
 	font-family: var(--font-body);
 	font-variation-settings: "wght" var(--font-weight-normal);
@@ -261,6 +261,11 @@ body {
 		background: url('../../media/backgrounds/frutiger-aero-land.jpeg');
 		background-size: cover;
 		z-index: -1;
+		mask-image: linear-gradient(to bottom, white 75%, transparent);
+
+		.dark-mode & {
+			mask-image: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent)
+		}
 	}
 }
 
@@ -2569,10 +2574,15 @@ img.is-loaded {
 
 .glass-button {
 	.glassmorphism-button-mixin();
-
 	--hue: 140;
 	--sat: 0.54;
 	--glow-intensity: 0.8;
+
+	margin: 0 2px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
 
 	/* Size Variations */
 	&.small {
