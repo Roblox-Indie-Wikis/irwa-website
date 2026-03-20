@@ -794,9 +794,9 @@ textarea {
 	}
 
 	&>img {
-		height: 4rem;
+		height: 3rem;
 		object-fit: contain;
-		padding: calc(var(--baseline) * 2) 0;
+		/* padding: calc(var(--baseline) * 2) 0; */
 		width: auto
 	}
 }
@@ -2606,13 +2606,18 @@ img.is-loaded {
 	--hue: 200;
 	--sat: 0.54;
 	--glow-intensity: 0.8;
+	backdrop-filter: blur(5px);
 	
 	&.logo {
-		padding: 1em 3em;
+		padding: 0.5rem;
 	}
 
 	&.theme-toggle-container {
 		margin-right: 10px;
+	}
+
+	&.navbar {
+		padding: 0 10px;
 	}
 }
 
