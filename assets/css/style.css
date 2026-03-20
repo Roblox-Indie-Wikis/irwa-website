@@ -1119,6 +1119,7 @@ textarea {
   padding: 0.5rem 1.25rem;
 }
 .navbar .navbar__toggle {
+  background: transparent;
   border: none;
   box-shadow: none;
   color: #000;
