@@ -100,7 +100,7 @@
 }
 /* palette */
 :root {
-  --primary-base: #1a3d7e;
+  --primary-base: #3167cd;
   --primary-1: #E6EAF2;
   --primary-2: #D9E3F3;
   --primary-3: #C9DBF8;
@@ -149,7 +149,7 @@
 }
 .dark-mode {
   --social-icon-filter: invert(1) brightness(0.8);
-  --primary-base: #1a3d7e;
+  --primary-base: #669cff;
   --primary-1: #151C29;
   --primary-2: #161F2F;
   --primary-3: #162B52;
@@ -320,6 +320,7 @@ body.home-template::before {
 }
 body.page-template::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 75%, transparent);
+  filter: blur(5px);
 }
 a {
   color: var(--link-color);
@@ -1021,15 +1022,18 @@ textarea {
 }
 .navbar .navbar__menu li a,
 .navbar .navbar__menu li span[aria-haspopup=true] {
-  /* color: var(--primary-6); */
+  color: var(--text-color);
   display: block;
   padding: 0 0.75rem;
   transition: all 0.24s ease-out;
-  /* &:active,
-				&:focus,
-				&:hover {
-					color: var(--link-color)
-				} */
+}
+.navbar .navbar__menu li a:active,
+.navbar .navbar__menu li span[aria-haspopup=true]:active,
+.navbar .navbar__menu li a:focus,
+.navbar .navbar__menu li span[aria-haspopup=true]:focus,
+.navbar .navbar__menu li a:hover,
+.navbar .navbar__menu li span[aria-haspopup=true]:hover {
+  color: var(--text-color);
 }
 .navbar .navbar__menu li span {
   color: var(--neutral-9);
@@ -2495,7 +2499,7 @@ img.is-loaded {
   user-select: none;
   -webkit-user-select: none;
   /* Top Highlight Effect */
-  --hue: 140;
+  --hue: 180;
   --sat: 0.54;
   --glow-intensity: 0.8;
   margin: 0 2px;

@@ -24,7 +24,7 @@
 
 /* palette */
 :root {
-	--primary-base: #1a3d7e;
+	--primary-base: #3167cd;
 	--primary-1: #E6EAF2;
 	--primary-2: #D9E3F3;
 	--primary-3: #C9DBF8;
@@ -79,7 +79,7 @@
 
 .dark-mode {
 	--social-icon-filter: invert(1) brightness(0.8);
-	--primary-base: #1a3d7e;
+	--primary-base: #669cff;
 	--primary-1: #151C29;
 	--primary-2: #161F2F;
 	--primary-3: #162B52;
@@ -273,6 +273,7 @@ body {
 
 	&.page-template::before {
 		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 75%, transparent);
+		filter: blur(5px);
 	}
 }
 
@@ -943,16 +944,16 @@ textarea {
 
 			& a,
 			& span[aria-haspopup=true] {
-				/* color: var(--primary-6); */
+				color: var(--text-color);
 				display: block;
 				padding: 0 .75rem;
 				transition: all .24s ease-out;
 
-				/* &:active,
+				&:active,
 				&:focus,
 				&:hover {
-					color: var(--link-color)
-				} */
+					color: var(--text-color)
+				}
 			}
 
 			& span {
@@ -2581,7 +2582,7 @@ img.is-loaded {
 
 .glass-button {
 	.glassmorphism-button-mixin();
-	--hue: 140;
+	--hue: 236;
 	--sat: 0.54;
 	--glow-intensity: 0.8;
 
