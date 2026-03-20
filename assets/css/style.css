@@ -2499,7 +2499,7 @@ img.is-loaded {
   user-select: none;
   -webkit-user-select: none;
   /* Top Highlight Effect */
-  --hue: 180;
+  --hue: 236;
   --sat: 0.54;
   --glow-intensity: 0.8;
   margin: 0 2px;
