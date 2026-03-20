@@ -210,7 +210,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -293,7 +293,7 @@ html.no-scroll {
   overflow: hidden;
 }
 body {
-  /* background: var(--page-bg); */
+  background: var(--page-bg);
   color: var(--text-color);
   font-family: var(--font-body);
   font-variation-settings: "wght" var(--font-weight-normal);
@@ -311,6 +311,10 @@ body::before {
   background: url('../../media/backgrounds/frutiger-aero-land.jpeg');
   background-size: cover;
   z-index: -1;
+  mask-image: linear-gradient(to bottom, white 75%, transparent);
+}
+.dark-mode body::before {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
 }
 a {
   color: var(--link-color);
@@ -2495,6 +2499,11 @@ img.is-loaded {
   --hue: 140;
   --sat: 0.54;
   --glow-intensity: 0.8;
+  margin: 0 2px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   /* Size Variations */
 }
 .glass-button::after {
