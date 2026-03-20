@@ -1119,10 +1119,9 @@ textarea {
   padding: 0.5rem 1.25rem;
 }
 .navbar .navbar__toggle {
-  background: var(--neutral-2);
   border: none;
   box-shadow: none;
-  color: var(--link-color);
+  color: #000;
   cursor: pointer;
   display: block;
   font-variation-settings: "wght" var(--font-weight-bold);
@@ -2598,8 +2597,10 @@ img.is-loaded {
 .header-glassy.theme-toggle-container {
   margin-right: 10px;
 }
-.header-glassy.navbar {
-  padding: 0 10px;
+@media screen and (min-width: 1119px) {
+  .header-glassy.navbar {
+    padding: 0 10px;
+  }
 }
 #themeToggle {
   padding: 0.5rem;
