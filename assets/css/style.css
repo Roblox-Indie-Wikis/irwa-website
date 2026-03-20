@@ -210,7 +210,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -308,7 +308,7 @@ body::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../../media/backgrounds/frutiger-aero-land.jpeg');
+  background: url('../../media/backgrounds/futuristic-city.webp');
   background-size: cover;
   z-index: -1;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 75%, transparent);
@@ -2591,9 +2591,9 @@ img.is-loaded {
 .header-glassy.navbar {
   padding: 0 10px;
 }
-.themeToggle {
+#themeToggle {
   padding: 0.5rem;
 }
-.themeToggle .material-symbols-outlined {
-  font-size: 24px;
+#themeToggle .material-symbols-outlined {
+  font-size: 24px!important;
 }
