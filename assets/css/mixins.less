@@ -112,7 +112,6 @@
         transparent
     );
     
-    /* Base Styling */
     background-color: var(--bg);
     background: 
         var(--bottom-glow),
@@ -120,22 +119,16 @@
     
     border: 1px solid var(--bg);
     border-radius: 9999px;
-    
-    /* Shadows and Effects */
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
     
-    /* Typography */
     color: var(--fg);
     /* font-family: "Lucida Grande", "Lucida Sans Unicode", "Segoe UI", system-ui, sans-serif; */
     font-weight: 700;
     text-shadow: 0 2px 0.5em rgba(0, 0, 0, 0.2);
     
-    /* Layout */
     cursor: pointer;
     position: relative;
     transition: all 300ms ease;
-    
-    /* Prevent text selection */
     user-select: none;
     -webkit-user-select: none;
 
@@ -157,14 +150,12 @@
         pointer-events: none;
     }
 
-    /* Hover State */
     &:hover,
     &:focus {
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
         transform: translateY(-1px);
     }
 
-    /* Active State */
     &:active {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         transform: translateY(1px);
