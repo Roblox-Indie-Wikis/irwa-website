@@ -210,7 +210,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -2429,6 +2429,7 @@ img.is-loaded {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 36px 18px #ffffff;
   position: relative;
   overflow: hidden;
+  padding: 1rem;
 }
 .glass-section::before {
   content: '';
@@ -2447,6 +2448,14 @@ img.is-loaded {
   width: 1px;
   height: 100%;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent, rgba(255, 255, 255, 0.3));
+}
+.glass-section h1,
+.glass-section h2,
+.glass-section h3,
+.glass-section h4,
+.glass-section h5,
+.glass-section h6 {
+  margin-top: unset;
 }
 .glass-button {
   --fg: oklch(15% calc(var(--sat) * 0.5) var(--hue));
@@ -2475,6 +2484,9 @@ img.is-loaded {
   /* Top Highlight Effect */
   /* Hover State */
   /* Active State */
+  --hue: 140;
+  --sat: 0.54;
+  --glow-intensity: 0.8;
   /* Size Variations */
 }
 .glass-button::after {
