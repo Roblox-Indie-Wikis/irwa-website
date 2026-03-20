@@ -1033,7 +1033,7 @@ textarea {
 .navbar .navbar__menu li span[aria-haspopup=true]:focus,
 .navbar .navbar__menu li a:hover,
 .navbar .navbar__menu li span[aria-haspopup=true]:hover {
-  color: var(--text-color);
+  color: #000;
 }
 .navbar .navbar__menu li span {
   color: var(--neutral-9);
