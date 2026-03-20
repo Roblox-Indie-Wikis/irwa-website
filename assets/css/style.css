@@ -210,7 +210,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -311,10 +311,10 @@ body::before {
   background: url('../../media/backgrounds/frutiger-aero-land.jpeg');
   background-size: cover;
   z-index: -1;
-  mask-image: linear-gradient(to bottom, white 75%, transparent);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 75%, transparent);
 }
 .dark-mode body::before {
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent) !important;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent) !important;
 }
 a {
   color: var(--link-color);
@@ -848,10 +848,10 @@ textarea {
   max-width: var(--page-width);
   position: fixed;
   top: 0px;
-  background: oklch(from var(--page-bg) l c h / 80%);
-  border-radius: 10em;
-  backdrop-filter: blur(14px) saturate(1.1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  /* background: oklch(from var(--page-bg) l c h / 80%);
+	border-radius: 10em;
+	backdrop-filter: blur(14px) saturate(1.1);
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); */
   width: calc(100% - 2rem);
   z-index: 999;
   /* @media all and (min-width:80.0625em) and (min-height:50em) {
@@ -2433,12 +2433,13 @@ img.is-loaded {
   flex: 1;
 }
 .glass-section {
-  background: rgba(255, 255, 255, 0.4);
+  --lightness: 255;
+  background: rgba(var(--lightness), var(--lightness), var(--lightness), 0.4);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 36px 18px #ffffff;
+  border: 1px solid rgba(var(--lightness), var(--lightness), var(--lightness), 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(var(--lightness), var(--lightness), var(--lightness), 0.5), inset 0 -1px 0 rgba(var(--lightness), var(--lightness), var(--lightness), 0.1), inset 0 0 36px 18px rgba(var(--lightness), var(--lightness), var(--lightness), 1.8);
   position: relative;
   overflow: hidden;
   padding: 2rem;
@@ -2450,7 +2451,7 @@ img.is-loaded {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  background: linear-gradient(90deg, transparent, rgba(var(--lightness), var(--lightness), var(--lightness), 0.8), transparent);
 }
 .glass-section::after {
   content: '';
@@ -2459,7 +2460,7 @@ img.is-loaded {
   left: 0;
   width: 1px;
   height: 100%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent, rgba(255, 255, 255, 0.3));
+  background: linear-gradient(180deg, rgba(var(--lightness), var(--lightness), var(--lightness), 0.8), transparent, rgba(var(--lightness), var(--lightness), var(--lightness), 0.3));
 }
 .glass-section h1,
 .glass-section h2,
@@ -2468,6 +2469,9 @@ img.is-loaded {
 .glass-section h5,
 .glass-section h6 {
   margin-top: unset;
+}
+.dark-mode .glass-section {
+  --lightness: 0;
 }
 .glass-button {
   --fg: oklch(15% calc(var(--sat) * 0.5) var(--hue));
@@ -2531,4 +2535,61 @@ img.is-loaded {
 .glass-button.large {
   padding: 1em 3em;
   font-size: 1.125rem;
+}
+.header-glassy {
+  --fg: oklch(15% calc(var(--sat) * 0.5) var(--hue));
+  --bg: oklch(75% var(--sat) var(--hue) / 0.8);
+  --bg-dark: oklch(45% var(--sat) var(--hue) / 0.75);
+  --bottom-glow: radial-gradient(farthest-corner at bottom center, rgba(255, 255, 255, var(--glow-intensity)), transparent);
+  background-color: var(--bg);
+  background: var(--bottom-glow), linear-gradient(to bottom, var(--bg-dark), var(--bg));
+  border: 1px solid var(--bg);
+  border-radius: 9999px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  color: var(--fg);
+  /* font-family: "Lucida Grande", "Lucida Sans Unicode", "Segoe UI", system-ui, sans-serif; */
+  font-weight: 700;
+  text-shadow: 0 2px 0.5em rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  position: relative;
+  transition: all 300ms ease;
+  user-select: none;
+  -webkit-user-select: none;
+  /* Top Highlight Effect */
+  --hue: 200;
+  --sat: 0.54;
+  --glow-intensity: 0.8;
+}
+.header-glassy::after {
+  content: "";
+  position: absolute;
+  top: 4%;
+  left: 0.75em;
+  width: calc(100% - 1.5em);
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
+  border-radius: inherit;
+  transition: background 400ms ease;
+  pointer-events: none;
+}
+.header-glassy:hover,
+.header-glassy:focus {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+.header-glassy:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transform: translateY(1px);
+}
+.header-glassy.logo {
+  padding: 1em 3em;
+}
+.header-glassy.theme-toggle-container {
+  margin-right: 10px;
+}
+.themeToggle {
+  padding: 0.5rem;
+}
+.themeToggle .material-symbols-outlined {
+  font-size: 24px;
 }
