@@ -261,10 +261,10 @@ body {
 		background: url('../../media/backgrounds/frutiger-aero-land.jpeg');
 		background-size: cover;
 		z-index: -1;
-		mask-image: linear-gradient(to bottom, white 75%, transparent);
+		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 75%, transparent);
 
 		.dark-mode & {
-			mask-image: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent)!important;
+			mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent)!important;
 		}
 	}
 }
@@ -759,10 +759,10 @@ textarea {
 	max-width: var(--page-width);
 	position: fixed;
 	top: 0px;
-	background: oklch(from var(--page-bg) l c h / 80%);
+	/* background: oklch(from var(--page-bg) l c h / 80%);
 	border-radius: 10em;
 	backdrop-filter: blur(14px) saturate(1.1);
-	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); */
 	width: calc(100% - 2rem);
 	z-index: 999;
 
@@ -2598,5 +2598,28 @@ img.is-loaded {
 	&.large {
 	padding: 1em 3em;
 	font-size: 1.125rem;
+	}
+}
+
+.header-glassy {
+	.glassmorphism-button-mixin();
+	--hue: 200;
+	--sat: 0.54;
+	--glow-intensity: 0.8;
+	
+	&.logo {
+		padding: 1em 3em;
+	}
+
+	&.theme-toggle-container {
+		margin-right: 10px;
+	}
+}
+
+.themeToggle {
+	padding: 0.5rem;
+
+	.material-symbols-outlined {
+		font-size: 24px;
 	}
 }
