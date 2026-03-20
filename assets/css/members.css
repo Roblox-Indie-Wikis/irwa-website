@@ -25,9 +25,8 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 1.5rem;
+  padding: 1.2rem;
   text-decoration: none;
-  flex-grow: 1;
   color: var(--white) !important;
 }
 @media all and (min-width: 20em) {
@@ -49,8 +48,9 @@
   cursor: not-allowed;
 }
 .member-box-logo {
-  width: auto;
+  width: 100px;
   height: 100px;
+  object-fit: contain;
 }
 /* Modal Styles */
 .modal-overlay {
