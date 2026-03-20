@@ -7,7 +7,7 @@
 }
 .member-box {
   background: var(--secondary-7);
-  box-shadow: 0 8px 20px -3px oklch(from var(--neutral-9) l c h / 0.12);
+  box-shadow: 0 8px 20px -3px oklch(from #000 l c h / 0.12);
   border: none;
   border-radius: var(--border-radius);
   color: var(--white);
@@ -38,7 +38,7 @@
 .member-box:focus,
 .member-box:hover {
   color: var(--white);
-  box-shadow: 0 12px 20px 0 oklch(from var(--neutral-9) l c h / 0.12);
+  box-shadow: 0 12px 20px 0 oklch(from #000 l c h / 0.12);
   text-decoration: none;
   transform: translateY(-3px);
   outline: 0;
@@ -222,7 +222,7 @@
 }
 .btn-site-link {
   background: var(--neutral-9);
-  box-shadow: 0 8px 20px -3px oklch(from var(--neutral-9) l c h / 0.12);
+  box-shadow: 0 8px 20px -3px oklch(from #000 l c h / 0.12);
   border: none;
   border-radius: var(--border-radius);
   color: var(--white);
@@ -251,7 +251,7 @@
 .btn-site-link:focus,
 .btn-site-link:hover {
   color: var(--white);
-  box-shadow: 0 12px 20px 0 oklch(from var(--neutral-9) l c h / 0.12);
+  box-shadow: 0 12px 20px 0 oklch(from #000 l c h / 0.12);
   text-decoration: none;
   transform: translateY(-3px);
   outline: 0;
