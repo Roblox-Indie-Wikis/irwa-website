@@ -211,7 +211,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -585,7 +585,7 @@ button {
   align-items: center;
   gap: 5px;
   font: var(--font-weight-normal) 0.88888889rem var(--font-heading);
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0.75rem;
   vertical-align: top;
   text-align: center;
   transition: all 0.2s ease-out;
@@ -612,7 +612,6 @@ button:hover {
   background: linear-gradient(to bottom, oklch(0.8198 0.2429 260), oklch(0.6172 0.2099 260));
   box-shadow: 0 12px 20px 0 oklch(from #000 l c h / 0.12);
   text-decoration: none;
-  /* transform: translateY(-3px); */
   outline: 0;
 }
 .btn:disabled,
@@ -623,7 +622,7 @@ button:disabled {
   color: var(--neutral-9);
   cursor: not-allowed;
 }
-.btn--green {
+.btn--external {
   background: linear-gradient(to bottom, oklch(0.6653 0.2227 142.5), oklch(0.4724 0.1604 142.5));
   box-shadow: 0 8px 20px -3px oklch(from #000 l c h / 0.12);
   border: 1px solid oklch(0.4724 0.1604 142.5);
@@ -634,7 +633,7 @@ button:disabled {
   align-items: center;
   gap: 5px;
   font: var(--font-weight-normal) 0.88888889rem var(--font-heading);
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0.75rem;
   vertical-align: top;
   text-align: center;
   transition: all 0.2s ease-out;
@@ -642,20 +641,19 @@ button:disabled {
   width: 100%;
 }
 @media all and (min-width: 20em) {
-  .btn--green {
+  .btn--external {
     width: auto;
   }
 }
-.btn--green:focus,
-.btn--green:hover {
+.btn--external:focus,
+.btn--external:hover {
   color: var(--white);
   background: linear-gradient(to bottom, oklch(0.8198 0.2429 142.5), oklch(0.6172 0.2099 142.5));
   box-shadow: 0 12px 20px 0 oklch(from #000 l c h / 0.12);
   text-decoration: none;
-  /* transform: translateY(-3px); */
   outline: 0;
 }
-.btn--green:disabled {
+.btn--external:disabled {
   background: var(--neutral-2);
   color: var(--neutral-9);
   cursor: not-allowed;
@@ -2582,14 +2580,12 @@ img.is-loaded {
   box-shadow: unset;
   border-radius: unset;
   color: #fff;
-  /* .material-symbols-outlined {
-		font-size: 24px!important;
-	} */
 }
-#themeToggle:hover,
-#themeToggle:focus {
-  transform: unset;
+#themeToggle:hover {
   background: var(--navbar-hover-bg);
+}
+#themeToggle:focus {
+  background: transparent;
 }
 .theme-toggle-container {
   order: 2;

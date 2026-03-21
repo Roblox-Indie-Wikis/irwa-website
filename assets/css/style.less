@@ -564,7 +564,7 @@ button {
 	.button-mixin(260);
 }
 
-.btn--green {
+.btn--external {
 	.button-mixin(142.5);
 }
 
@@ -2650,14 +2650,13 @@ img.is-loaded {
 	border-radius: unset;
 	color: #fff;
 
-	&:hover, &:focus {
-		transform: unset;
+	&:hover {
 		background: var(--navbar-hover-bg);
 	}
 
-	/* .material-symbols-outlined {
-		font-size: 24px!important;
-	} */
+	&:focus {
+		background: transparent;
+	}
 }
 
 .theme-toggle-container {
