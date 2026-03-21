@@ -135,7 +135,7 @@
 	--page-margin: 8vmin;
 	--page-width: 1440px;
 	--entry-width: 66ch;
-	--navbar-height: 3rem;
+	--navbar-height: 36px;
 	--border-radius: 3px;
 	--cards-gap: 1rem;
 	--featured-image-height: 40vmin;
@@ -761,8 +761,8 @@ textarea {
 	align-items: center;
 	display: flex;
 	height: var(--navbar-height);
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
+	/* padding-top: 0.5rem;
+	padding-bottom: 0.5rem; */
 	max-width: var(--page-width);
 	position: fixed;
 	top: 0px;
@@ -794,13 +794,15 @@ textarea {
 	line-height: 1;
 	margin-right: auto;
 	white-space: nowrap;
+	padding: 2px 0;
+	filter: invert(1) hue-rotate(180deg);
 
 	@media all and (max-width:74.9375em) {
 		text-align: center
 	}
 
 	&>img {
-		height: 3rem;
+		height: 100%;
 		object-fit: contain;
 		/* padding: calc(var(--baseline) * 2) 0; */
 		width: auto
@@ -933,7 +935,8 @@ textarea {
 
 		& li {
 			display: block;
-			font-size: .8888888889rem;
+			font-size: 13px;
+			font-weight: bold;
 			font-family: var(--font-menu);
 			line-height: var(--line-height);
 			padding: 0;
@@ -944,14 +947,14 @@ textarea {
 			& span[aria-haspopup=true] {
 				color: #fff;
 				display: block;
-				padding: 0 .75rem;
+				padding: 0px 8px 0 8px;
 				transition: all .24s ease-out;
 
 				&:active,
 				&:focus,
 				&:hover {
 					color: #fff;
-					background: linear-gradient(to bottom, #ececec, transparent);
+					background: linear-gradient(to bottom, #ececec, transparent 40%);
 				}
 			}
 
@@ -1002,10 +1005,10 @@ textarea {
 
 			&:hover {
 
-				&>a,
+				/* &>a,
 				&>span[aria-haspopup=true] {
 					color: var(--link-color)
-				}
+				} */
 
 				&>[aria-haspopup=true] {
 					box-shadow: none
