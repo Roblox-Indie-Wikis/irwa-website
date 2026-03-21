@@ -272,7 +272,7 @@ body {
 	}
 
 	&.home-template::before {
-		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 75%, transparent);
+		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 25%, transparent);
 
 		.dark-mode & {
 			mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent)!important;
@@ -564,9 +564,8 @@ button {
 	.button-mixin(260);
 }
 
-.btn--external {
-	.button-mixin();
-	--hue: 142.5;
+.btn-external {
+	.button-mixin(142.5);
 }
 
 @media all and (max-width:19.9375em) {
@@ -2494,9 +2493,6 @@ img.is-loaded {
 }
 
 .btn {
-	font-family: var(--font-body);
-	font-weight: 600;
-	font-style: normal;
 	margin: 0 2px;
 	display: inline-flex;
 	justify-content: center;
