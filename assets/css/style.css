@@ -211,7 +211,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -584,14 +584,14 @@ button {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  font: var(--font-weight-normal) 0.88888889rem var(--font-heading);
+  font-style: normal;
+  font: 600 0.88888889rem var(--font-body);
   padding: 0.5rem 0.75rem;
   vertical-align: top;
   text-align: center;
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
-  --hue: 260;
 }
 @media all and (min-width: 20em) {
   .btn,
@@ -623,7 +623,7 @@ button:disabled {
   color: var(--neutral-9);
   cursor: not-allowed;
 }
-.btn--external {
+.btn-external {
   background: linear-gradient(to bottom, oklch(0.6653 0.2227 142.5), oklch(0.4724 0.1604 142.5));
   box-shadow: 0 8px 20px -3px oklch(from #000 l c h / 0.12);
   border: 1px solid oklch(0.4724 0.1604 142.5);
@@ -633,28 +633,30 @@ button:disabled {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  font: var(--font-weight-normal) 0.88888889rem var(--font-heading);
+  font-style: normal;
+  font: 600 0.88888889rem var(--font-body);
   padding: 0.5rem 0.75rem;
   vertical-align: top;
   text-align: center;
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
+  --hue: 142.5;
 }
 @media all and (min-width: 20em) {
-  .btn--external {
+  .btn-external {
     width: auto;
   }
 }
-.btn--external:focus,
-.btn--external:hover {
+.btn-external:focus,
+.btn-external:hover {
   color: var(--white);
   background: linear-gradient(to bottom, oklch(0.8198 0.2429 142.5), oklch(0.6172 0.2099 142.5));
   box-shadow: 0 12px 20px 0 oklch(from #000 l c h / 0.12);
   text-decoration: none;
   outline: 0;
 }
-.btn--external:disabled {
+.btn-external:disabled {
   background: var(--neutral-2);
   color: var(--neutral-9);
   cursor: not-allowed;
@@ -2371,9 +2373,6 @@ img.is-loaded {
   transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .btn {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-style: normal;
   margin: 0 2px;
   display: inline-flex;
   justify-content: center;
