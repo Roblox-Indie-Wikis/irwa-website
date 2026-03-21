@@ -578,7 +578,7 @@ button {
   background: linear-gradient(to bottom, oklch(0.6653 0.2227 260), oklch(0.4724 0.1604 260));
   box-shadow: 0 8px 20px -3px oklch(from #000 l c h / 0.12);
   border: 1px solid oklch(0.4724 0.1604 260);
-  color: var(--white);
+  color: #fff;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
@@ -609,7 +609,7 @@ button:focus,
 [type=button]:hover,
 [type=submit]:hover,
 button:hover {
-  color: var(--white);
+  color: #fff;
   background: linear-gradient(to bottom, oklch(0.8198 0.2429 260), oklch(0.6172 0.2099 260));
   box-shadow: 0 12px 20px 0 oklch(from #000 l c h / 0.12);
   text-decoration: none;
@@ -627,7 +627,7 @@ button:disabled {
   background: linear-gradient(to bottom, oklch(0.6653 0.2227 142.5), oklch(0.4724 0.1604 142.5));
   box-shadow: 0 8px 20px -3px oklch(from #000 l c h / 0.12);
   border: 1px solid oklch(0.4724 0.1604 142.5);
-  color: var(--white);
+  color: #fff;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
@@ -649,7 +649,7 @@ button:disabled {
 }
 .btn-external:focus,
 .btn-external:hover {
-  color: var(--white);
+  color: #fff;
   background: linear-gradient(to bottom, oklch(0.8198 0.2429 142.5), oklch(0.6172 0.2099 142.5));
   box-shadow: 0 12px 20px 0 oklch(from #000 l c h / 0.12);
   text-decoration: none;
