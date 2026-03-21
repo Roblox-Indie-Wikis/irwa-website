@@ -319,7 +319,7 @@ body::before {
   z-index: -1;
 }
 body.home-template::before {
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 75%, transparent);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 25%, transparent);
 }
 .dark-mode body.home-template::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent) !important;
@@ -641,7 +641,6 @@ button:disabled {
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
-  --hue: 142.5;
 }
 @media all and (min-width: 20em) {
   .btn-external {
