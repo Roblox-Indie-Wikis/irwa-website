@@ -136,6 +136,7 @@
 	--page-width: 1440px;
 	--entry-width: 66ch;
 	--navbar-height: 36px;
+	--navbar-hover-bg: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
 	--border-radius: 3px;
 	--cards-gap: 1rem;
 	--featured-image-height: 40vmin;
@@ -796,6 +797,7 @@ textarea {
 	white-space: nowrap;
 	padding: 2px 0;
 	filter: invert(1) hue-rotate(180deg);
+	height: 100%;
 
 	@media all and (max-width:74.9375em) {
 		text-align: center
@@ -806,6 +808,10 @@ textarea {
 		object-fit: contain;
 		/* padding: calc(var(--baseline) * 2) 0; */
 		width: auto
+	}
+
+	&:hover {
+		background: var(--navbar-hover-bg);
 	}
 }
 
@@ -954,7 +960,7 @@ textarea {
 				&:focus,
 				&:hover {
 					color: #fff;
-					background: linear-gradient(to bottom, #ececec, transparent 40%);
+					background: var(--navbar-hover-bg);
 				}
 			}
 
@@ -2636,9 +2642,26 @@ img.is-loaded {
 } */
 
 #themeToggle {
-	padding: 0.5rem;
+	padding: 5px 8px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	height: 100%;
+
+	&:hover {
+		transform: unset;
+		background: var(--navbar-hover-bg);
+	}
 
 	.material-symbols-outlined {
 		font-size: 24px!important;
 	}
+}
+
+.theme-toggle-container {
+	order: 2;
+	margin-left: auto;
+	height: 100%;
 }
