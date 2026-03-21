@@ -165,6 +165,12 @@
 	--box-shadow-hover: 0px 5.4px 4.5px -100px oklch(from #000 l c h / 0.174), 0px 15px 12.5px -100px oklch(from #000 l c h / 0.25), 0px 36.2px 30.1px -100px oklch(from #000 l c h / 0.326), 0px 120px 100px -100px oklch(from #000 l c h / 0.5);
 }
 
+@media screen and (max-width: 800px) {
+	:root {
+		--navbar-height: 40px;
+	}
+}
+
 @media all and (min-width:56.25em) {
 	:root {
 		--magic-number: 6rem
@@ -193,6 +199,7 @@ header,
 hgroup,
 main,
 nav,
+
 section {
 	display: block
 }
@@ -762,16 +769,11 @@ textarea {
 	align-items: center;
 	display: flex;
 	height: var(--navbar-height);
-	/* padding-top: 0.5rem;
-	padding-bottom: 0.5rem; */
 	max-width: var(--page-width);
 	position: fixed;
 	top: 0px;
 	background: linear-gradient(to bottom, #1952a6, #123f83);
 	border-bottom: 0.5px solid #0a2246;
-	/* border-radius: 10em;
-	backdrop-filter: blur(14px) saturate(1.1);
-	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); */
 	width: 100%;
 	z-index: 999;
 
@@ -779,11 +781,6 @@ textarea {
 		padding-top: 3rem;
 		padding-bottom: 3rem;
 	} */
-
-	@media screen and (max-width: 800px) {
-		padding-top: 0.3rem;
-		padding-bottom: 0.3rem;
-	}
 }
 
 .logo {
@@ -1075,9 +1072,10 @@ textarea {
 		background: transparent;
 		border: none;
 		box-shadow: none;
-		color: #000;
+		color: #fff;
 		cursor: pointer;
 		display: block;
+		font-family: var(--font-menu);
 		font-variation-settings: "wght" var(--font-weight-bold);
 		line-height: 1;
 		overflow: visible;
@@ -1092,7 +1090,8 @@ textarea {
 		&:hover {
 			box-shadow: none;
 			outline: 0;
-			transform: none
+			transform: none;
+			background: var(--navbar-hover-bg);
 		}
 	}
 }
@@ -1208,6 +1207,11 @@ textarea {
 
 .main {
 	margin-top: calc(var(--magic-number) * 0.7);
+
+	@media screen and (max-width: 800px) {
+		margin-top: var(--magic-number);
+	}
+
 	@media screen and (min-width: 1119px) {
 		padding-left: 0!important;
 		padding-right: 0!important;
