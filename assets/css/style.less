@@ -561,17 +561,11 @@ hr.separator--dot {
 [type=button],
 [type=submit],
 button {
-	.button-mixin();
+	.button-mixin(260);
 }
 
-.btn--white {
-	.button-mixin(var(--white));
-	color: var(--neutral-6);
-
-	&:focus,
-	&:hover {
-		color: var(--link-color)
-	}
+.btn--green {
+	.button-mixin(142.5);
 }
 
 @media all and (max-width:19.9375em) {
