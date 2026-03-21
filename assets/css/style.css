@@ -2595,9 +2595,6 @@ img.is-loaded {
   transform: unset;
   background: var(--navbar-hover-bg);
 }
-#themeToggle .material-symbols-outlined {
-  font-size: 24px!important;
-}
 .theme-toggle-container {
   order: 2;
   margin-left: auto;
