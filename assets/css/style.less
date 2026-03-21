@@ -147,7 +147,7 @@
 	--font-heading: 'Lora', serif;
 	--font-logo: var(--font-body);
 	--font-menu: var(--font-body);
-	--font-size: clamp(1rem, 1rem + (0.1499999999999999 * ((100vw - 20rem) / 80)), 1.15rem);
+	--font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
 	--font-weight-normal: 400;
 	--font-weight-bold: 700;
 	--line-height: 1.6;
@@ -565,7 +565,8 @@ button {
 }
 
 .btn--external {
-	.button-mixin(142.5);
+	.button-mixin();
+	--hue: 142.5;
 }
 
 @media all and (max-width:19.9375em) {
@@ -2506,10 +2507,6 @@ img.is-loaded {
 .btn-light {
 	background: var(--primary-2)!important;
 	color: var(--text-color)!important;
-}
-
-.btn-secondary {
-	background: var(--secondary-4)!important;
 }
 
 .body {

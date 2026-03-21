@@ -591,6 +591,7 @@ button {
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
+  --hue: 260;
 }
 @media all and (min-width: 20em) {
   .btn,
@@ -2382,9 +2383,6 @@ img.is-loaded {
 .btn-light {
   background: var(--primary-2) !important;
   color: var(--text-color) !important;
-}
-.btn-secondary {
-  background: var(--secondary-4) !important;
 }
 .body {
   font-weight: 400;
