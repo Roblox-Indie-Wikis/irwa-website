@@ -211,7 +211,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -227,6 +227,11 @@
   --link-color: var(--primary-base);
   --box-shadow: 0px 4.4px 4.5px -100px oklch(from #000 l c h / 0.174), 0px 12.3px 12.5px -100px oklch(from #000 l c h / 0.25), 0px 29.5px 30.1px -100px oklch(from #000 l c h / 0.326), 0px 98px 100px -100px oklch(from #000 l c h / 0.5);
   --box-shadow-hover: 0px 5.4px 4.5px -100px oklch(from #000 l c h / 0.174), 0px 15px 12.5px -100px oklch(from #000 l c h / 0.25), 0px 36.2px 30.1px -100px oklch(from #000 l c h / 0.326), 0px 120px 100px -100px oklch(from #000 l c h / 0.5);
+}
+@media screen and (max-width: 800px) {
+  :root {
+    --navbar-height: 40px;
+  }
 }
 @media all and (min-width: 56.25em) {
   :root {
@@ -849,28 +854,17 @@ textarea {
   align-items: center;
   display: flex;
   height: var(--navbar-height);
-  /* padding-top: 0.5rem;
-	padding-bottom: 0.5rem; */
   max-width: var(--page-width);
   position: fixed;
   top: 0px;
   background: linear-gradient(to bottom, #1952a6, #123f83);
   border-bottom: 0.5px solid #0a2246;
-  /* border-radius: 10em;
-	backdrop-filter: blur(14px) saturate(1.1);
-	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); */
   width: 100%;
   z-index: 999;
   /* @media all and (min-width:80.0625em) and (min-height:50em) {
 		padding-top: 3rem;
 		padding-bottom: 3rem;
 	} */
-}
-@media screen and (max-width: 800px) {
-  .header {
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-  }
 }
 .logo {
   order: 1;
@@ -1130,9 +1124,10 @@ textarea {
   background: transparent;
   border: none;
   box-shadow: none;
-  color: #000;
+  color: #fff;
   cursor: pointer;
   display: block;
+  font-family: var(--font-menu);
   font-variation-settings: "wght" var(--font-weight-bold);
   line-height: 1;
   overflow: visible;
@@ -1149,6 +1144,7 @@ textarea {
   box-shadow: none;
   outline: 0;
   transform: none;
+  background: var(--navbar-hover-bg);
 }
 .navbar_mobile_sidebar {
   background: var(--page-bg);
@@ -1259,6 +1255,11 @@ textarea {
 }
 .main {
   margin-top: calc(var(--magic-number) * 0.7);
+}
+@media screen and (max-width: 800px) {
+  .main {
+    margin-top: var(--magic-number);
+  }
 }
 @media screen and (min-width: 1119px) {
   .main {
