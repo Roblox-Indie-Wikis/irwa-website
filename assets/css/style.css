@@ -591,7 +591,6 @@ button {
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
-  --hue: 260;
 }
 @media all and (min-width: 20em) {
   .btn,
@@ -624,9 +623,9 @@ button:disabled {
   cursor: not-allowed;
 }
 .btn--external {
-  background: linear-gradient(to bottom, oklch(0.6653 0.2227 142.5), oklch(0.4724 0.1604 142.5));
+  background: linear-gradient(to bottom, oklch(0.6653 0.2227 var(--hue, 142.5)), oklch(0.4724 0.1604 var(--hue, 142.5)));
   box-shadow: 0 8px 20px -3px oklch(from #000 l c h / 0.12);
-  border: 1px solid oklch(0.4724 0.1604 142.5);
+  border: 1px solid oklch(0.4724 0.1604 var(--hue, 142.5));
   color: var(--white);
   cursor: pointer;
   display: inline-flex;
@@ -640,6 +639,7 @@ button:disabled {
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
+  --hue: 142.5;
 }
 @media all and (min-width: 20em) {
   .btn--external {
@@ -649,7 +649,7 @@ button:disabled {
 .btn--external:focus,
 .btn--external:hover {
   color: var(--white);
-  background: linear-gradient(to bottom, oklch(0.8198 0.2429 142.5), oklch(0.6172 0.2099 142.5));
+  background: linear-gradient(to bottom, oklch(0.8198 0.2429 var(--hue, 142.5)), oklch(0.6172 0.2099 var(--hue, 142.5)));
   box-shadow: 0 12px 20px 0 oklch(from #000 l c h / 0.12);
   text-decoration: none;
   outline: 0;
