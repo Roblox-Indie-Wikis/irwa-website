@@ -881,8 +881,7 @@ textarea {
   line-height: 1;
   margin-right: auto;
   white-space: nowrap;
-  padding: 2px 0;
-  filter: invert(1) hue-rotate(180deg);
+  padding: 2px 8px;
   height: 100%;
 }
 @media all and (max-width: 74.9375em) {
@@ -2584,6 +2583,14 @@ img.is-loaded {
   display: flex;
   align-items: center;
   height: 100%;
+  box-shadow: unset;
+  border-radius: unset;
+  color: #fff;
+}
+#themeToggle:hover,
+#themeToggle:focus {
+  transform: unset;
+  background: var(--navbar-hover-bg);
 }
 #themeToggle .material-symbols-outlined {
   font-size: 24px!important;
