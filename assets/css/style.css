@@ -128,7 +128,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -2505,6 +2505,8 @@ img.is-loaded {
   height: 100%;
 }
 .subtitle-below-heading {
+  display: flex;
+  gap: 5px 15px;
   margin-top: unset;
   font-size: medium;
   opacity: 0.75;
