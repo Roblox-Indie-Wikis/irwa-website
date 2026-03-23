@@ -265,7 +265,7 @@ a {
   filter: invert(1);
 }
 .dark-mode .img-invert {
-  filter: unset!important;
+  filter: unset;
 }
 .dark-mode .img-invert-dark {
   filter: invert(1);
@@ -324,11 +324,6 @@ h5 {
 .h6,
 h6 {
   font-size: clamp(1rem, calc(1rem + 0.125 * (100vw - 20rem) / 80), 1.125rem);
-}
-.material-symbols-outlined {
-  font-size: inherit;
-  width: inherit;
-  height: inherit;
 }
 h1 + *,
 h2 + *,
@@ -908,6 +903,7 @@ textarea {
 .navbar {
   order: 3;
   position: relative;
+  height: 100%;
 }
 @media all and (min-width: 56.25em) {
   .navbar {
@@ -1047,6 +1043,7 @@ textarea {
   overflow: visible;
   text-transform: none;
   z-index: 2004;
+  height: 100%;
 }
 @media all and (min-width: 56.25em) {
   .navbar .navbar__toggle {
@@ -2486,7 +2483,7 @@ img.is-loaded {
   font-size: 1.125rem;
 }
 #themeToggle {
-  padding: 10px 8px;
+  padding: 2px 8px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -2496,6 +2493,11 @@ img.is-loaded {
   box-shadow: unset;
   border-radius: unset;
   color: #fff;
+}
+#themeToggle > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 #themeToggle:hover {
   background: var(--navbar-hover-bg);

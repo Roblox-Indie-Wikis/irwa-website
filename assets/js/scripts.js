@@ -431,29 +431,34 @@
 (function() {
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
+    
+    // Define your paths (ensure these match your folder structure)
+    const sunIcon = "/media/icons/light_mode.svg";
+    const moonIcon = "/media/icons/dark_mode.svg";
+
     const syncThemeToggleState = (isDark) => {
         if (themeToggle) {
             themeToggle.setAttribute('aria-pressed', String(isDark));
         }
         if (themeIcon) {
-            themeIcon.textContent = isDark ? 'dark_mode' : 'light_mode';
+            // Update the image source and alt text
+            themeIcon.src = isDark ? moonIcon : sunIcon;
+            themeIcon.alt = isDark ? 'Dark Mode' : 'Light Mode';
         }
     };
 
-	syncThemeToggleState(document.documentElement.classList.contains('dark-mode'));
+    // Initial check based on current class
+    syncThemeToggleState(document.documentElement.classList.contains('dark-mode'));
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark-mode');
-
-            const isDark = document.documentElement.classList.contains('dark-mode');
+            const isDark = document.documentElement.classList.toggle('dark-mode');
+            
             syncThemeToggleState(isDark);
-
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
     }
 })();
-
 
 // Share buttons pop-up
 (function () {
