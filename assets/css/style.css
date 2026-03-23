@@ -2512,6 +2512,7 @@ img.is-loaded {
 }
 .subtitle-below-heading {
   display: flex;
+  flex-wrap: wrap;
   gap: 5px 15px;
   margin-top: unset;
   font-size: medium;
