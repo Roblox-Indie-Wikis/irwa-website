@@ -13,8 +13,7 @@
   cursor: pointer;
   display: inline-flex;
   gap: 5px;
-  font-style: normal;
-  font: 600 0.88888889rem var(--font-body);
+  font: normal 600 0.88888889rem var(--font-body);
   padding: 0.5rem 0.75rem;
   vertical-align: top;
   text-align: center;
@@ -27,7 +26,6 @@
   gap: 10px;
   padding: 1.2rem;
   text-decoration: none;
-  color: var(--white) !important;
 }
 @media all and (min-width: 20em) {
   .member-box {
@@ -229,8 +227,7 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  font-style: normal;
-  font: 600 0.88888889rem var(--font-body);
+  font: normal 600 0.88888889rem var(--font-body);
   padding: 0.5rem 0.75rem;
   vertical-align: top;
   text-align: center;

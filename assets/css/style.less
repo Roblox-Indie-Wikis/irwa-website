@@ -14,8 +14,6 @@
 	font-style: italic
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@1');
 @import "mixins.less";
 
 @view-transition {
@@ -952,9 +950,7 @@ textarea {
 				padding: 0px 8px 0 8px;
 				transition: all .24s ease-out;
 
-				&:active,
-				&:focus,
-				&:hover {
+				&:hover, &:focus-within {
 					color: #fff;
 					background: var(--navbar-hover-bg);
 				}

@@ -432,27 +432,30 @@
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     const body = document.body;
+    const syncThemeToggleState = (isDark) => {
+        if (themeToggle) {
+            themeToggle.setAttribute('aria-pressed', String(isDark));
+        }
+        if (themeIcon) {
+            themeIcon.textContent = isDark ? 'dark_mode' : 'light_mode';
+        }
+    };
 
     // Check for saved theme preference
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'dark') {
         document.documentElement.classList.add('dark-mode');
-        if (themeIcon) themeIcon.textContent = 'dark_mode';
     }
+	syncThemeToggleState(body.classList.contains('dark-mode'));
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark-mode');
 
-            let theme = 'light';
-            if (document.documentElement.classList.contains('dark-mode')) {
-                theme = 'dark';
-                if (themeIcon) themeIcon.textContent = 'dark_mode';
-            } else {
-                if (themeIcon) themeIcon.textContent = 'light_mode';
-            }
+            const isDark = body.classList.contains('dark-mode');
+            syncThemeToggleState(isDark);
 
-            localStorage.setItem('theme', theme);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
     }
 })();
