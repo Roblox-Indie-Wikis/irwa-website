@@ -293,6 +293,7 @@ body {
 		background-size: 200px 200px;
 		inset: 0;
 		opacity: .15;
+		mask-image: linear-gradient(to bottom, black 75%, transparent);
 	}
 }
 
@@ -406,7 +407,7 @@ blockquote {
 	}
 
 	&::before {
-		color: var(--tertiary-2);
+		color: var(--primary-base);
 		content: "“";
 		font: var(--font-weight-normal) 720%/0.9 Georgia, Times, Times New Roman, serif;
 		left: -15%;
@@ -1210,6 +1211,18 @@ textarea {
 
 	> table {
 		margin-bottom: unset;
+	}
+}
+
+.home-template .landing-blockquote {
+	padding: unset;
+    margin-left: unset;
+    margin-right: unset;
+    max-width: unset;
+    text-align: center;
+
+	strong {
+		color: var(--primary-7);
 	}
 }
 
@@ -2194,7 +2207,7 @@ textarea {
 	margin-top: var(--magic-number);
 	padding-top: calc(var(--magic-number)/ 3);
 	padding-bottom: calc(var(--magic-number)/ 3);
-	background: var(--tertiary-1);
+	background: var(--primary-1);
 
 	@media all and (max-width:56.1875em) {
 		padding-top: calc(var(--magic-number)/ 2);
@@ -2582,11 +2595,12 @@ img.is-loaded {
 .flex-container {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px;
+	gap: 60px;
 	width: 100%;
 
 	& > div {
 		flex: 1;
+		font-size: medium;
 	}
 }
 
@@ -2622,28 +2636,6 @@ img.is-loaded {
 	font-size: 1.125rem;
 	}
 }
-
-/* .header-glassy {
-	.glassmorphism-button-mixin();
-	--hue: 200;
-	--sat: 0.54;
-	--glow-intensity: 0.8;
-	backdrop-filter: blur(5px);
-	
-	&.logo {
-		padding: 0.5rem;
-	}
-
-	&.theme-toggle-container {
-		margin-right: 10px;
-	}
-
-	@media screen and (min-width: 1119px) {
-		&.navbar {
-			padding: 0 10px;
-		}
-	}
-} */
 
 #themeToggle {
 	padding: 10px 8px;
