@@ -275,6 +275,8 @@ body {
 		background-repeat: no-repeat;
 		background-position: center;
 		background-color: #000;
+		mask-image: unset!important;
+		filter: unset!important;
 	}
 
 	&.home-template::before {
@@ -1269,6 +1271,10 @@ body:not(.home-template) .main {
 	}
 }
 
+.error-template .hero {
+	color: white!important;
+}
+
 .hero--centered {
 	margin-left: auto;
 	margin-right: auto;
@@ -1905,7 +1911,7 @@ body:not(.home-template) .main {
 }
 
 .page--error__btn {
-	margin-top: calc(var(--baseline) * 7) !important
+	margin-top: calc(var(--baseline) * 2) !important
 }
 
 .page--search form {

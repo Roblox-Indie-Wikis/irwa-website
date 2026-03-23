@@ -128,7 +128,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -241,6 +241,8 @@ body.error-template::before {
   background-repeat: no-repeat;
   background-position: center;
   background-color: #000;
+  mask-image: unset!important;
+  filter: unset!important;
 }
 body.home-template::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 25%, transparent);
@@ -1226,6 +1228,9 @@ body:not(.home-template) .main {
 .hero p {
   margin-top: calc(var(--baseline) * 2);
 }
+.error-template .hero {
+  color: white!important;
+}
 .hero--centered {
   margin-left: auto;
   margin-right: auto;
@@ -1774,7 +1779,7 @@ body:not(.home-template) .main {
   font-size: clamp(6.58325017rem, calc(6.58325017rem + 8.43115102 * (100vw - 20rem) / 80), 15.01440119rem);
 }
 .page--error__btn {
-  margin-top: calc(var(--baseline) * 7) !important;
+  margin-top: calc(var(--baseline) * 2) !important;
 }
 .page--search form {
   align-items: flex-start;
