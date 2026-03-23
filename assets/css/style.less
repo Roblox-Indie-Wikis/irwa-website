@@ -1201,8 +1201,20 @@ textarea {
 	max-width: var(--entry-width)
 }
 
-.body-template .landing {
+.home-template .landing {
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    align-items: center;
 	height: 100vh;
+
+	&:first-child {
+		margin-top: unset;
+	}
+
+	&:last-child {
+		margin-bottom: unset;
+	}
 }
 
 .page-template .main {
