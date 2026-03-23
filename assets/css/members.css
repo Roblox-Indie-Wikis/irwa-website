@@ -100,6 +100,11 @@
   transform: translateY(20px);
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
+@media screen and (max-width: 800px) {
+  .modal-content {
+    max-height: 90svh;
+  }
+}
 .modal-close {
   position: absolute;
   top: 15px;
@@ -133,6 +138,15 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+@media screen and (max-width: 800px) {
+  .modal-left {
+    flex: unset;
+  }
+  .modal-left img {
+    width: unset;
+    height: 15vh;
+  }
 }
 .modal-right {
   flex: 1;
