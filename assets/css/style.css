@@ -1184,6 +1184,9 @@ textarea {
 .home-template .landing-blockquote strong {
   color: var(--primary-7);
 }
+.home-template .landing-blockquote::before {
+  display: none;
+}
 .page-template .main {
   margin-top: calc(var(--magic-number) * 0.7);
 }
