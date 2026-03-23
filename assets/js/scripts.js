@@ -432,9 +432,9 @@
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     
-    // Define your paths (ensure these match your folder structure)
-    const sunIcon = "/media/icons/light_mode.svg";
-    const moonIcon = "/media/icons/dark_mode.svg";
+    // Define your paths
+    const sunIcon = "/irwa-website/media/icons/light_mode.svg";
+    const moonIcon = "/irwa-website/media/icons/dark_mode.svg";
 
     const syncThemeToggleState = (isDark) => {
         if (themeToggle) {
