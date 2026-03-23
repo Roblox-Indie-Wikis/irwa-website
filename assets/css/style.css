@@ -2517,3 +2517,6 @@ img.is-loaded {
   font-size: medium;
   opacity: 0.75;
 }
+.material-symbols {
+  height: 20px;
+}
