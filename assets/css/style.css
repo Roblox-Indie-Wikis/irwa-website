@@ -128,7 +128,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -253,7 +253,7 @@ body::after {
   background-repeat: repeat;
   background-size: 200px 200px;
   inset: 0;
-  opacity: 0.15;
+  opacity: 0.1;
   mask-image: linear-gradient(to bottom, black 75%, transparent);
 }
 a {
