@@ -211,7 +211,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -849,17 +849,12 @@ textarea {
   align-items: center;
   display: flex;
   height: var(--navbar-height);
-  max-width: var(--page-width);
   position: fixed;
   top: 0px;
   background: linear-gradient(to bottom, #1952a6, #123f83);
   border-bottom: 0.5px solid #0a2246;
   width: 100%;
   z-index: 999;
-  /* @media all and (min-width:80.0625em) and (min-height:50em) {
-		padding-top: 3rem;
-		padding-bottom: 3rem;
-	} */
 }
 .logo {
   order: 1;
@@ -1236,9 +1231,6 @@ textarea {
 }
 .container {
   box-sizing: content-box;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: var(--page-width);
   overflow-x: hidden;
 }
 .container > * {
