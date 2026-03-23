@@ -128,7 +128,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -424,8 +424,8 @@ table th {
   padding: calc(var(--baseline) * 2.5) calc(var(--baseline) * 4);
 }
 table td {
-  border-top: 1px solid var(--neutral-2);
-  border-left: 1px solid var(--neutral-2);
+  border-top: 1px solid var(--black);
+  border-left: 1px solid var(--black);
   padding: calc(var(--baseline) * 2.5) calc(var(--baseline) * 4);
 }
 figcaption {
@@ -1185,22 +1185,22 @@ textarea {
 .home-template .landing-blockquote::before {
   display: none;
 }
-.page-template .main {
+body:not(.home-template) .main {
   margin-top: calc(var(--magic-number) * 0.7);
 }
 @media screen and (max-width: 800px) {
-  .page-template .main {
+  body:not(.home-template) .main {
     margin-top: var(--magic-number);
   }
 }
 @media screen and (min-width: 1119px) {
-  .page-template .main {
+  body:not(.home-template) .main {
     padding-left: 0!important;
     padding-right: 0!important;
   }
 }
 .hero {
-  color: var(--neutral-6);
+  opacity: 0.75;
   font-size: clamp(1rem, calc(1rem + 0.125 * (100vw - 20rem) / 80), 1.125rem);
   padding-bottom: var(--magic-number);
   max-width: var(--entry-width);
@@ -2309,7 +2309,7 @@ img.is-loaded {
   transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .btn {
-  margin: 0 2px;
+  margin: 2px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -2365,7 +2365,7 @@ img.is-loaded {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(var(--logo-slide-width) * -5));
+    transform: translateX(calc(var(--logo-slide-width) * -10));
   }
 }
 .flex-container {
