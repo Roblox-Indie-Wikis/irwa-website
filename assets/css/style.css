@@ -1257,10 +1257,7 @@ textarea {
   align-items: center;
   height: 100vh;
 }
-.home-template .landing:first-child {
-  margin-top: unset;
-}
-.home-template .landing:last-child {
+.home-template .landing > table {
   margin-bottom: unset;
 }
 .page-template .main {
