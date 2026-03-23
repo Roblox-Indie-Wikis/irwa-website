@@ -211,7 +211,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -316,7 +316,7 @@ body::before {
   inset: 0;
   background: url('../../media/backgrounds/futuristic-city.webp');
   background-size: cover;
-  z-index: -1;
+  z-index: -2;
 }
 body.home-template::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 25%, transparent);
@@ -327,6 +327,16 @@ body.home-template::before {
 body.page-template::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 75%, transparent);
   filter: blur(5px);
+}
+body::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background: url('../../media/backgrounds/frosted-texture.png');
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  inset: 0;
+  opacity: 0.15;
 }
 a {
   color: var(--link-color);
@@ -1240,16 +1250,19 @@ textarea {
 .container--narrow {
   max-width: var(--entry-width);
 }
-.main {
+.body-template .landing {
+  height: 100vh;
+}
+.page-template .main {
   margin-top: calc(var(--magic-number) * 0.7);
 }
 @media screen and (max-width: 800px) {
-  .main {
+  .page-template .main {
     margin-top: var(--magic-number);
   }
 }
 @media screen and (min-width: 1119px) {
-  .main {
+  .page-template .main {
     padding-left: 0!important;
     padding-right: 0!important;
   }
