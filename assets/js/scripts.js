@@ -19,7 +19,7 @@
 		 mobileMenuSidebarLogoSelector: null,
 		 mobileMenuSidebarLogoUrl: null,
 		 relatedContainerForOverlayMenuSelector: null,
-		 // attributes 
+		 // attributes
 		 ariaButtonAttribute: 'aria-haspopup',
 		 // CSS classes
 		 separatorItemClass: 'is-separator',
@@ -189,7 +189,7 @@
 						 relatedContainer.classList.remove(config.relatedContainerForOverlayMenuClass);
 					}
 			  }
-		 });   
+		 });
 	}
 
 	/**
@@ -291,9 +291,9 @@
 					var content = submenu.firstElementChild;
 
 					if (submenu.classList.contains(config.openedMenuClass)) {
-						 var height = content.clientHeight;   
+						 var height = content.clientHeight;
 						 submenu.style.height = height + 'px';
-						 
+
 						 setTimeout(function () {
 							  submenu.style.height = '0px';
 						 }, 0);
@@ -306,10 +306,10 @@
 						 content.setAttribute('aria-hidden', true);
 						 content.parentNode.firstElementChild.setAttribute('aria-expanded', false);
 					} else {
-						 var height = content.clientHeight;   
+						 var height = content.clientHeight;
 						 submenu.classList.add(config.openedMenuClass);
 						 submenu.style.height = '0px';
-						 
+
 						 setTimeout(function () {
 							  submenu.style.height = height + 'px';
 						 }, 0);
@@ -422,7 +422,7 @@
 	}
 
 	/**
-	 * Run menu scripts 
+	 * Run menu scripts
 	 */
 	init();
 })(window.publiiThemeMenuConfig);
@@ -431,7 +431,6 @@
 (function() {
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
-    const body = document.body;
     const syncThemeToggleState = (isDark) => {
         if (themeToggle) {
             themeToggle.setAttribute('aria-pressed', String(isDark));
@@ -441,18 +440,13 @@
         }
     };
 
-    // Check for saved theme preference
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-    }
-	syncThemeToggleState(body.classList.contains('dark-mode'));
+	syncThemeToggleState(document.documentElement.classList.contains('dark-mode'));
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark-mode');
 
-            const isDark = body.classList.contains('dark-mode');
+            const isDark = document.documentElement.classList.contains('dark-mode');
             syncThemeToggleState(isDark);
 
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
@@ -533,7 +527,7 @@
 	}
 })();
 
-// Back to top 
+// Back to top
 const backToTopButton = document.getElementById("backToTop");
 
 if (backToTopButton) {
@@ -575,7 +569,7 @@ if (backToTopButton) {
 		if (!w || !h) {
 			continue;
 		}
-		
+
 		if (w.indexOf('%') > -1 && h.indexOf('%') > -1) { // percentage mode
 			w = parseFloat(w.replace('%', ''));
 			h = parseFloat(h.replace('%', ''));
@@ -669,7 +663,7 @@ if (searchButton && searchOverlay) {
 			articles[i].classList.remove('c-card--rows');
 		}
 
-		localStorage.setItem('persona-theme-selected-layout', 'grid');	
+		localStorage.setItem('persona-theme-selected-layout', 'grid');
 		resetIsotopeLayout();
 	}
 
@@ -703,11 +697,11 @@ if (searchButton && searchOverlay) {
 		setTimeout(() => {
 			if (localStorage.getItem('persona-theme-selected-layout')) {
 				let savedLayout = localStorage.getItem('persona-theme-selected-layout');
-	
+
 				if (savedLayout === 'grid') {
 					setGridLayout();
 				}
-	
+
 				if (savedLayout === 'rows') {
 					setRowsLayout();
 				}
