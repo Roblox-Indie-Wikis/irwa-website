@@ -268,7 +268,7 @@ body {
 		inset: 0;
 		background: url('../../media/backgrounds/futuristic-city.webp');
 		background-size: cover;
-		z-index: -1;
+		z-index: -2;
 	}
 
 	&.home-template::before {
@@ -282,6 +282,17 @@ body {
 	&.page-template::before {
 		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 75%, transparent);
 		filter: blur(5px);
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		background: url('../../media/backgrounds/frosted-texture.png');
+		background-repeat: repeat;
+		background-size: 200px 200px;
+		inset: 0;
+		opacity: .15;
 	}
 }
 
@@ -1190,7 +1201,11 @@ textarea {
 	max-width: var(--entry-width)
 }
 
-.main {
+.body-template .landing {
+	height: 100vh;
+}
+
+.page-template .main {
 	margin-top: calc(var(--magic-number) * 0.7);
 
 	@media screen and (max-width: 800px) {
