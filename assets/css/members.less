@@ -68,6 +68,10 @@
     opacity: 0;
     transform: translateY(20px);
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+
+    @media screen and (max-width: 800px) {
+        max-height: 90svh;
+    }
 }
 
 .modal-close {
@@ -105,6 +109,15 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
+    }
+
+    @media screen and (max-width: 800px) {
+        flex: unset;
+
+        & img {
+            width: unset;
+            height: 15vh;
+        }
     }
 }
 
