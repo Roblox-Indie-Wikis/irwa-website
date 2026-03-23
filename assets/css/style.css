@@ -235,6 +235,13 @@ body::before {
   background-size: cover;
   z-index: -2;
 }
+body.error-template::before {
+  background: url('../../media/backgrounds/ohnoes.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000;
+}
 body.home-template::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 25%, transparent);
 }
@@ -1198,6 +1205,9 @@ body:not(.home-template) .main {
     padding-left: 0!important;
     padding-right: 0!important;
   }
+}
+.main.page--error {
+  min-height: calc(100vh - var(--magic-number) * 2);
 }
 .hero {
   opacity: 0.75;
