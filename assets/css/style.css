@@ -115,7 +115,7 @@
 :root {
   --page-margin: 8vmin;
   --page-width: 1440px;
-  --entry-width: 66ch;
+  --entry-width: 75ch;
   --navbar-height: 36px;
   --navbar-hover-bg: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
   --border-radius: 3px;
@@ -128,7 +128,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -1178,6 +1178,7 @@ textarea {
   padding: unset;
   margin-left: unset;
   margin-right: unset;
+  margin-bottom: calc(var(--baseline) * 35);
   max-width: unset;
   text-align: center;
 }
