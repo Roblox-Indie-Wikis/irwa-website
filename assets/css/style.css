@@ -1067,7 +1067,8 @@ textarea {
   background: var(--navbar-hover-bg);
 }
 .navbar_mobile_sidebar {
-  background: var(--page-bg);
+  background: oklch(from var(--page-bg) l c h / 80%);
+  backdrop-filter: blur(15px);
   box-shadow: 0 0 5px oklch(from var(--black) l c h / 0.25);
   height: 100vh;
   left: 0;
@@ -1208,8 +1209,13 @@ body:not(.home-template) .main {
     padding-right: 0!important;
   }
 }
-.main.page--error {
-  min-height: calc(100vh - var(--magic-number) * 2);
+.error-template .main.page--error {
+  min-height: calc(100vh - var(--magic-number) * 3);
+}
+.error-template .footer {
+  background: transparent;
+  border-top: unset;
+  color: white;
 }
 .hero {
   opacity: 0.75;
