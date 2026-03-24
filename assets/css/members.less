@@ -104,11 +104,41 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: -20px;
+        background-image: var(--logo-url);
+        background-size: cover;
+        background-position: center;
+        filter: blur(40px) saturate(2);
+        opacity: 0.15;
+        z-index: 0;
+
+        .dark-mode & {
+            opacity: 0.12;
+            filter: blur(40px) saturate(1.5) brightness(0.8);
+        }
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, transparent 30%, var(--neutral-2) 100%);
+        z-index: 1;
+    }
 
     & img {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        position: relative;
+        z-index: 2;
     }
 
     @media screen and (max-width: 800px) {
