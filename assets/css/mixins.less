@@ -35,13 +35,16 @@
         width: auto;
     }
 
-    &:focus,
     &:hover {
-        color: #fff;
-        background: linear-gradient(to bottom, oklch(0.8198 0.2429 @hue), oklch(0.6172 0.2099 @hue));
-        box-shadow: 0 12px 20px 0 oklch(from #000 l c h / 0.12);
+        color: `#fff`;
+        background: linear-gradient(to bottom, oklch(0.8198 0.2429 `@hue`), oklch(0.6172 0.2099 `@hue`));
+        box-shadow: 0 12px 20px 0 oklch(from `#000` l c h / 0.12);
         text-decoration: none;
-        outline: 0;
+    }
+
+    &:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
     }
 
     &:disabled {
