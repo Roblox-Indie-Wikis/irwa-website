@@ -104,6 +104,14 @@ function openMemberModal(element) {
     logo.src = element.dataset.logo;
     logo.alt = member.name + " logo";
 
+    const modalLeft = modal.querySelector('.modal-left');
+    const logoUrl = element.dataset.logo;
+    if (logoUrl) {
+        const safeLogoUrl = logoUrl.replace(/["\\]/g, '\\$&');
+        modalLeft.style.setProperty('--logo-url', `url("${safeLogoUrl}")`);
+    } else {
+        modalLeft.style.removeProperty('--logo-url');
+    }
     joined.textContent = member.joined || 'N/A';
 
     // Clear and populate team
