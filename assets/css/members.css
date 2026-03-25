@@ -111,7 +111,7 @@
   position: absolute;
   top: 15px;
   right: 15px;
-  background: var(--neutral-1);
+  background: var(--neutral-5);
   border: none;
   border-radius: 50%;
   width: 32px;
@@ -224,7 +224,7 @@
   gap: 5px;
 }
 .team-tag {
-  background: var(--neutral-1);
+  background: var(--neutral-3);
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -252,7 +252,6 @@
   transition: filter 0.2s, transform 0.2s;
 }
 .modal-socials a:hover .social-icon {
-  filter: none;
   transform: scale(1.1);
 }
 .btn-site-link {
