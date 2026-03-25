@@ -35,8 +35,7 @@ jobs:
       - name: Compile all LESS to CSS
         run: |
           # Find all .less files, excluding those starting with _ (common for partials)
-          # and also excluding mixins.less which is a known partial here
-          find . -name "*.less" ! -name "_*" ! -name "mixins.less" | while read -r file; do
+          find . -name "*.less" ! -name "_*" | while read -r file; do
             css_file="${file%.less}.css"
             echo "Compiling $file to $css_file"
             lessc --math=strict "$file" "$css_file"
@@ -46,7 +45,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add "**/*.css"
+          git add '**/*.css'
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

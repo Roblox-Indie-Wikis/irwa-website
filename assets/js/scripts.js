@@ -427,14 +427,65 @@
 	init();
 })(window.publiiThemeMenuConfig);
 
+/**
+ * Basic HTML sanitizer to allow safe formatting tags
+ */
+window.sanitizeHTML = function (html) {
+	// If the string starts with &lt;, it was escaped by Liquid.
+	// We need to unescape it first so DOMParser can see the tags.
+	let unescaped = html;
+	if (html.includes('&lt;') || html.includes('&gt;')) {
+		const temp = document.createElement('div');
+		temp.innerHTML = html;
+		unescaped = temp.textContent;
+	}
+
+	const doc = new DOMParser().parseFromString(unescaped, 'text/html');
+	const allowedTags = ['B', 'I', 'EM', 'STRONG', 'A', 'BR'];
+
+	function clean(node) {
+		for (let i = node.childNodes.length - 1; i >= 0; i--) {
+			const child = node.childNodes[i];
+			if (child.nodeType === 1) { // Element node
+				if (!allowedTags.includes(child.tagName)) {
+					const text = document.createTextNode(child.textContent);
+					child.parentNode.replaceChild(text, child);
+				} else {
+					if (child.tagName === 'A') {
+						const href = child.getAttribute('href');
+						if (href && (href.startsWith('http') || href.startsWith('/') || href.startsWith('#'))) {
+							// Strip all attributes except href
+							while (child.attributes.length > 0) {
+								child.removeAttribute(child.attributes[0].name);
+							}
+							child.setAttribute('href', href);
+							child.setAttribute('target', '_blank');
+							child.setAttribute('rel', 'noopener noreferrer');
+						} else {
+							const text = document.createTextNode(child.textContent);
+							child.parentNode.replaceChild(text, child);
+							continue;
+						}
+					}
+					clean(child);
+				}
+			}
+		}
+	}
+
+	clean(doc.body);
+	return doc.body.innerHTML;
+};
+
 // Theme Toggle
 (function() {
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     
     // Define your paths
-    const sunIcon = "/irwa-website/media/icons/light_mode.svg";
-    const moonIcon = "/irwa-website/media/icons/dark_mode.svg";
+    const baseUrl = document.documentElement.dataset.baseurl || "/";
+    const sunIcon = `${baseUrl}media/icons/light_mode.svg`;
+    const moonIcon = `${baseUrl}media/icons/dark_mode.svg`;
 
     const syncThemeToggleState = (isDark) => {
         if (themeToggle) {

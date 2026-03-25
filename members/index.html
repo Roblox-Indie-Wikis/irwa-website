@@ -14,7 +14,7 @@ description: Our members include wikis covering games from some of the most popu
     {% for member in site.data.members %}
     <button type="button" class="member-box btn-secondary"
             onclick="openMemberModal(this)"
-            data-member='{{ member | jsonify }}'
+            data-member='{{ member | jsonify | escape }}'
             data-logo="{{ member.logo | relative_url }}">
         <img src="{{ member.logo | relative_url }}" alt="{{ member.name }} logo" class="member-box-logo">
     </button>
@@ -96,7 +96,7 @@ function openMemberModal(element) {
     const socials = document.getElementById('modalSocials');
 
     name.textContent = member.name;
-    desc.innerHTML = member.description;
+    desc.innerHTML = window.sanitizeHTML(member.description);
 
     // Use the pre-resolved URL from the data attribute
     logo.hidden = true;
