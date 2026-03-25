@@ -545,7 +545,7 @@ button:hover {
 [type=button]:focus-visible,
 [type=submit]:focus-visible,
 button:focus-visible {
-  outline: 2px solid currentcolor;
+  outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 .btn:disabled,
@@ -586,7 +586,7 @@ button:disabled {
   text-decoration: none;
 }
 .btn-external:focus-visible {
-  outline: 2px solid currentcolor;
+  outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 .btn-external:disabled {

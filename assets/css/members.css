@@ -39,7 +39,7 @@
   text-decoration: none;
 }
 .member-box:focus-visible {
-  outline: 2px solid currentcolor;
+  outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 .member-box:disabled {
@@ -146,12 +146,8 @@
   background-size: cover;
   background-position: center;
   filter: blur(40px) saturate(2);
-  opacity: 0.15;
+  opacity: 0.5;
   z-index: 0;
-}
-.dark-mode .modal-left::before {
-  opacity: 0.12;
-  filter: blur(40px) saturate(1.5) brightness(0.8);
 }
 .modal-left::after {
   content: "";
@@ -293,7 +289,7 @@
   text-decoration: none;
 }
 .btn-site-link:focus-visible {
-  outline: 2px solid currentcolor;
+  outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 .btn-site-link:disabled {
