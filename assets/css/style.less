@@ -14,7 +14,7 @@
 	font-style: italic
 }
 
-@import "mixins.less";
+@import "_mixins.less";
 
 @view-transition {
 	navigation: auto;
@@ -121,8 +121,8 @@
 	--neutral-8: #B4B4B0;
 	--neutral-9: #EDEDE9;
 
-	--white: #000000;
-	--black: #FFFFFF;
+	--white: #FFFFFF;
+	--black: #000000;
 
 	--page-bg: var(--neutral-base);
 	--text-color: var(--neutral-9);
@@ -654,7 +654,6 @@ textarea {
 	border-radius: var(--border-radius);
 	color: var(--text-color);
 	font-size: 1rem;
-	outline: 0;
 	padding: .5rem .74rem;
 	width: 100%;
 	appearance: none;
@@ -835,7 +834,6 @@ textarea {
 
 		&:focus,
 		&:hover {
-			outline: 0;
 			transform: translateY(0);
 
 			&>svg {
@@ -973,6 +971,7 @@ textarea {
 
 				&:active,
 				&:focus,
+				&:focus-within,
 				&:hover {
 					&>.navbar__submenu {
 						left: 0;
@@ -993,6 +992,7 @@ textarea {
 
 					&:active,
 					&:focus,
+					&:focus-within,
 					&:hover {
 						&>.navbar__submenu {
 							top: 0;
@@ -1091,7 +1091,6 @@ textarea {
 		&:focus,
 		&:hover {
 			box-shadow: none;
-			outline: 0;
 			transform: none;
 			background: var(--navbar-hover-bg);
 		}
@@ -1531,7 +1530,6 @@ body:not(.home-template) .main {
 		&:active,
 		&:focus {
 			color: var(--link-color);
-			outline: 0
 		}
 
 		&+a {
@@ -1792,7 +1790,6 @@ body:not(.home-template) .main {
 	&:active,
 	&:focus {
 		color: var(--neutral-9);
-		outline: 0
 	}
 }
 
