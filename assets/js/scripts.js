@@ -482,10 +482,8 @@ window.sanitizeHTML = function (html) {
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     
-    // Define your paths
-    const baseUrl = document.documentElement.dataset.baseurl || "/";
-    const sunIcon = `${baseUrl}media/icons/light_mode.svg`;
-    const moonIcon = `${baseUrl}media/icons/dark_mode.svg`;
+    const sunIcon = "/irwa-website/media/icons/light_mode.svg";
+    const moonIcon = "/irwa-website/media/icons/dark_mode.svg";
 
     const syncThemeToggleState = (isDark) => {
         if (themeToggle) {
