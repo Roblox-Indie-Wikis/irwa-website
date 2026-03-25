@@ -16,7 +16,7 @@ body_class: home-template
       <a href="{{ "/joining/" | relative_url }}" class="btn" style="--hue: 330">Join Us</a>
     </p>
   </div>
-  <table style="border: none; border-collapse: collapse; width: 100%;">
+  <table style="border: none; border-collapse: collapse; width: 100%;" role="presentation">
     <tbody>
       <tr style="border: none;">
         <td style="width: 33.3%; border: none;"><strong>6.7K+ pages<br></strong><em>across all wikis</em></td>
@@ -44,7 +44,7 @@ body_class: home-template
       </a>
     </div>
     {% endfor %}
-    {% for member in site.data.members limit: 8 %}
+    {% for member in site.data.members limit: 10 %}
     <div class="logo-slide">
       <a href="{{ member.link }}" target="_blank" rel="noopener">
         <figure class="align-center">
