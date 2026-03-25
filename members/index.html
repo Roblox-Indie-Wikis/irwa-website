@@ -136,7 +136,16 @@ function openMemberModal(element) {
 
     // Set game link
     if (member.link) {
-        link.href = member.link;
+        try {
+            const url = new URL(member.link);
+            // adds ?utm_source= (or &utm_source= if ? exists)
+            url.searchParams.set('utm_source', 'irwa-website'); 
+            
+            link.href = url.toString();
+        } catch (e) {
+            // fallback 
+            link.href = member.link; 
+        }
         link.style.display = 'inline-flex';
     } else {
         link.removeAttribute('href');
