@@ -264,10 +264,10 @@ body {
 	}
 
 	&.home-template::before {
-		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 25%, transparent);
+		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 25%, transparent);
 
 		.dark-mode & {
-			mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent)!important;
+			mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent)!important;
 		}
 	}
 
@@ -2709,4 +2709,8 @@ img.is-loaded {
 
 .text-highlight {
 	background: var(--primary-5)
+}
+
+.landing-content h1 {
+	margin-top: unset;
 }
