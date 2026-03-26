@@ -231,10 +231,10 @@ body.error-template::before {
   filter: unset!important;
 }
 body.home-template::before {
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 25%, transparent);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 25%, transparent);
 }
 .dark-mode body.home-template::before {
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent) !important;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent) !important;
 }
 body:not(.home-template)::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 75%, transparent);
@@ -2549,4 +2549,7 @@ img.is-loaded {
 }
 .text-highlight {
   background: var(--primary-5);
+}
+.landing-content h1 {
+  margin-top: unset;
 }
