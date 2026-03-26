@@ -2401,10 +2401,22 @@ img.is-loaded {
   flex: 1;
   font-size: medium;
 }
+.flex-container.plain-simple-divs {
+  margin-top: calc(var(--baseline) * 4);
+}
 .flex-container.plain-simple-divs > div {
   background: var(--neutral-2);
   padding: 2rem;
   border-radius: 20px;
+  min-width: 35%;
+}
+.flex-container.plain-simple-divs > div > h5 {
+  margin-top: 0;
+}
+@media screen and (max-width: 800px) {
+  .flex-container.plain-simple-divs > div {
+    min-width: 100%;
+  }
 }
 .glass-section {
   --lightness: 255;
