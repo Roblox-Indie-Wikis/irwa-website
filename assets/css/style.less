@@ -2624,10 +2624,23 @@ img.is-loaded {
 		font-size: medium;
 	}
 
-	&.plain-simple-divs > div {
-		background: var(--neutral-2);
-    	padding: 2rem;
-    	border-radius: 20px;
+	&.plain-simple-divs {
+		margin-top: calc(var(--baseline) * 4);
+
+		> div {
+			background: var(--neutral-2);
+			padding: 2rem;
+			border-radius: 20px;
+			min-width: 35%;
+
+			> h5 {
+				margin-top: 0;
+			}
+
+			@media screen and (max-width: 800px) {
+				min-width: 100%;
+			}
+		}
 	}
 }
 
