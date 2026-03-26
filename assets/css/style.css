@@ -128,7 +128,7 @@
   --font-heading: 'Lora', serif;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -2400,6 +2400,11 @@ img.is-loaded {
 .flex-container > div {
   flex: 1;
   font-size: medium;
+}
+.flex-container.plain-simple-divs > div {
+  background: var(--neutral-2);
+  padding: 2rem;
+  border-radius: 20px;
 }
 .glass-section {
   --lightness: 255;
