@@ -134,8 +134,7 @@
 
 - name: Anime Vanguards Wiki
   link: https://wiki.vanguards.gg
-  logo: "/media/wiki-logos/AnimeVanguards_Black.png"
-  logo-white: "/media/wiki-logos/AnimeVanguards_White.png"
+  logo: "/media/wiki-logos/AnimeVanguards.png"
   description: ""
   game_link: https://www.roblox.com/games/16146832113/Anime-Vanguards
   discord: https://discord.gg/animevanguards
