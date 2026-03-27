@@ -515,6 +515,12 @@ window.sanitizeHTML = function (html) {
                 img.src = getCurrentLogo(box);
             }
         });
+
+        // Also update carousel logos
+        const carouselLogos = document.querySelectorAll('.carousel-logo');
+        carouselLogos.forEach(img => {
+            img.src = getCurrentLogo(img);
+        });
     };
 
     // Initial check based on current class

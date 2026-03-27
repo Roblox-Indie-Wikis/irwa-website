@@ -39,7 +39,7 @@ body_class: home-template
     <div class="logo-slide">
       <a href="{{ member.link }}" target="_blank" rel="noopener">
         <figure class="align-center">
-          <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100" height="100">
+          <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100" height="100" class="carousel-logo" data-logo="{{ member.logo | relative_url }}" {% if member.logo-white %}data-logo-white="{{ member.logo-white | relative_url }}"{% endif %}>
         </figure>
       </a>
     </div>
@@ -48,7 +48,7 @@ body_class: home-template
     <div class="logo-slide">
       <a href="{{ member.link }}" target="_blank" rel="noopener">
         <figure class="align-center">
-          <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100" height="100">
+          <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100" height="100" class="carousel-logo" data-logo="{{ member.logo | relative_url }}" {% if member.logo-white %}data-logo-white="{{ member.logo-white | relative_url }}"{% endif %}>
         </figure>
       </a>
     </div>
