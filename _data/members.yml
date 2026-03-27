@@ -23,7 +23,7 @@
 
 - name: Untitled Tag Game Wiki
   link: https://tagging.wiki
-  logo: /media/wiki-logos/UTGLogo.png
+  logo: /media/wiki-logos/UTG.png
   description: "The official <b><i>untitled tag game</i></b> wiki that anyone can edit! Spawn in maps, choose a gamemode, play with runners, and WIN!"
   game_link: https://www.roblox.com/games/14044547200/untitled-tag-game
   twitter: https://x.com/utgwiki
@@ -126,8 +126,22 @@
 
 - name: Roblox D-DAY Wiki
   link: https://robloxdday.miraheze.org
-  logo: "/media/wiki-logos/D-DAY-Temp.png"
+  logo: "/media/wiki-logos/D-DAY.png"
   description: "This officially-recognized wiki is dedicated to the Roblox game <b><i>D-DAY</i></b>, providing the most accurate information possible to its fans."
   joined: "December 2025"
   team:
     - name: poopy kibble
+
+- name: Anime Vanguards Wiki
+  link: https://wiki.vanguards.gg
+  logo: "/media/wiki-logos/AnimeVanguards.png"
+  description: ""
+  game_link: https://www.roblox.com/games/16176349371/Anime-Vanguards
+  joined: "March 2026"
+  team:
+    - name: lewisakura
+    - name: Salticidae44
+    - name: Sunny
+    - name: Digo
+    - name: .sh1zu
+    - name: Feverdream
