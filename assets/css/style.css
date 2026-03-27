@@ -212,7 +212,6 @@ body {
   padding: 0;
   overscroll-behavior: none;
   transition: 0.3s ease-out background;
-  /* frosted glass texture found the website you'd least expect; thank you https://www.microsoft.com/en-us/edge/welcome ! */
 }
 body::before {
   content: '';
@@ -245,6 +244,7 @@ body::after {
   content: '';
   position: absolute;
   z-index: -1;
+  /* frosted glass texture found the website you'd least expect; thank you https://www.microsoft.com/en-us/edge/welcome ! */
   background: url('../../media/backgrounds/frosted-texture.png');
   background-repeat: repeat;
   background-size: 200px 200px;
