@@ -212,6 +212,7 @@ body {
   padding: 0;
   overscroll-behavior: none;
   transition: 0.3s ease-out background;
+  /* frosted glass texture found the website you'd least expect; thank you https://www.microsoft.com/en-us/edge/welcome ! */
 }
 body::before {
   content: '';
