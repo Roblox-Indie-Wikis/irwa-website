@@ -1,0 +1,41 @@
+<!-- Shared entity modal for members and partners -->
+<div id="entityModal" class="modal-overlay" onclick="closeEntityModal(event)" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <div class="modal-content" onclick="event.stopPropagation()" tabindex="-1">
+        <button class="modal-close" onclick="closeEntityModal(event)" aria-label="Close Modal">&times;</button>
+
+        <div class="modal-left">
+            <img id="modalLogo" alt="Entity Logo" hidden>
+        </div>
+
+        <div class="modal-right">
+            <div class="modal-header-grid">
+                <div class="modal-title-area">
+                    <h2 id="modalName"></h2>
+                </div>
+
+                <p id="modalDescription"></p>
+
+                <div class="modal-meta-area">
+                    <div class="meta-item">
+                        <span class="meta-label">Joined</span>
+                        <span id="modalJoined" class="meta-value"></span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Team</span>
+                        <div id="modalTeam" class="meta-value team-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer-grid">
+                <div class="modal-socials" id="modalSocials"></div>
+                <div class="modal-cta">
+                    <a id="modalSiteLink" href="" target="_blank" rel="noopener noreferrer" class="btn-site-link">
+                        Visit site
+                        <img src="{{ "/media/icons/arrow_forward.svg" | relative_url }}" height="20" aria-hidden="true" class="img-invert img-invert-dark material-symbols">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
