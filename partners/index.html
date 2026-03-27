@@ -5,40 +5,29 @@ title: Alliance Partners
 description: Our partners are other wiki alliances and websites that have mutually partnered with us to support our mission.
 ---
 
-<h1 dir="auto">Alliance Partners</h1>
-<p dir="auto">Our partners are other wiki alliances and websites that have mutually partnered with us to support our mission and to promote collaboration towards our shared goals. Take a look at our partner sites here! </p>
-<p dir="auto">Interested in a partnership? Join our <a href="https://discord.com/invite/74qrU7qBqx" rel="nofollow">discord server</a> and get in contact!</p>
+<h1 class="align-left">Alliance Partners</h1>
+<p>Our partners are other wiki alliances and websites that have mutually partnered with us to support our mission and to promote collaboration towards our shared goals. Take a look at our partner sites here! </p>
 
-<table style="border-collapse: collapse; width: 100%; border-style: hidden;" border="0">
-  <tbody>
+<div class="members-grid">
     {% for partner in site.data.partners %}
-    <tr>
-      <td style="width: 32.3362%;">
-        <a href="{{ partner.link }}" target="_blank" rel="noopener noreferrer">
-          <figure class="post__image">
-            <img loading="lazy" src="{{ partner.logo | relative_url }}" alt="{{ partner.name }}" width="200">
-          </figure>
-        </a>
-      </td>
-      <td style="width: 67.6638%;">
-        <p><strong>{{ partner.name }}<br></strong>
-        {{ partner.description }}<br>
-        <a href="{{ partner.link }}" title="{{ partner.name }}" target="_blank" rel="noopener noreferrer">
-          <svg class="li li-book-open" width="24px" height="24px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><g><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></g></svg>
-        </a>
-        {% if partner.discord %}
-        <a href="{{ partner.discord }}" title="Discord Server" target="_blank" rel="noopener noreferrer">
-          <svg class="li li-message-circle" width="24px" height="24px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><g><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></g></svg>
-        </a>
-        {% endif %}
-        {% if partner.twitter %}
-        <a href="{{ partner.twitter }}" title="Twitter/X" target="_blank" rel="noopener noreferrer">
-          <svg class="li li-twitter" width="24px" height="24px" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><g><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></g></svg>
-        </a>
-        {% endif %}
-        </p>
-      </td>
-    </tr>
+    <button type="button" class="member-box btn-secondary" onclick="openEntityModal(this)"
+            data-entity='{{ partner | jsonify | escape }}'
+            data-logo="{{ partner.logo | relative_url }}">
+        <img src="{{ partner.logo | relative_url }}" alt="{{ partner.name }} logo" class="member-box-logo">
+        {{ partner.name }}
+    </button>
     {% endfor %}
-  </tbody>
-</table>
+</div>
+
+{% include entity-modal.html %}
+
+<div class="secondary-container">
+    <h2>Come be our partner</h2>
+    <p style="margin-top: unset">Interested in a partnership? Join our Discord server and get in contact!</p>
+    <p style="margin-top: 15px">
+        <a href="https://discord.com/invite/74qrU7qBqx" class="btn btn-external">
+          Join our Discord
+          <img src="{{ "/media/icons/arrow_forward.svg" | relative_url }}" height="20" aria-hidden="true" class="img-invert img-invert-dark material-symbols">
+        </a>
+    </p>
+</div>
