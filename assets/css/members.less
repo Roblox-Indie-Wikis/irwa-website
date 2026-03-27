@@ -159,7 +159,15 @@
     gap: 20px;
     grid-template-areas:
         "title title"
-        "desc meta"
+        "desc meta";
+}
+
+.modal-header-grid.no-meta {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "title"
+        "desc";
 }
 
 .modal-title-area {
