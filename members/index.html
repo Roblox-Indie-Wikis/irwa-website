@@ -18,6 +18,7 @@ description: Our members include wikis covering games from some of the most popu
             data-logo="{{ member.logo | relative_url }}"
             {% if member.logo-white %}data-logo-white="{{ member.logo-white | relative_url }}"{% endif %}>
         <img src="{{ member.logo | relative_url }}" alt="{{ member.name }} logo" class="member-box-logo">
+        {{ member.name }}
     </button>
     {% endfor %}
 </div>
