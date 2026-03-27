@@ -15,6 +15,7 @@ function openEntityModal(element) {
     const modalMeta = document.getElementById('modalMetaArea');
     const link = document.getElementById('modalSiteLink');
     const socials = document.getElementById('modalSocials');
+    const entityType = element.getAttribute('data-entity-type') || 'member';
 
     const baseUrl = document.documentElement.getAttribute('data-baseurl') || '/';
     const iconsBase = baseUrl.replace(/\/$/, '') + '/assets/svg/';
@@ -120,7 +121,7 @@ function openEntityModal(element) {
         socials.appendChild(a);
     };
 
-    addSocial(entity.game_link || entity.link || '', 'Game');
+    addSocial(entity.game_link || '', 'Game');
     addSocial(entity.discord, 'Discord');
     addSocial(entity.twitter, 'Twitter');
     addSocial(entity.kofi, 'Kofi');
