@@ -485,6 +485,15 @@ window.sanitizeHTML = function (html) {
     const sunIcon = "/irwa-website/media/icons/light_mode.svg";
     const moonIcon = "/irwa-website/media/icons/dark_mode.svg";
 
+    // Helper function to get the current logo URL for a member element
+    const getCurrentLogo = (element) => {
+        const isDark = document.documentElement.classList.contains('dark-mode');
+        return isDark && element.dataset.logoWhite ? element.dataset.logoWhite : element.dataset.logo;
+    };
+
+    // Make it globally available for the modal
+    window.getCurrentLogo = getCurrentLogo;
+
     const syncThemeToggleState = (isDark) => {
         if (themeToggle) {
             themeToggle.setAttribute('aria-pressed', String(isDark));
@@ -496,8 +505,21 @@ window.sanitizeHTML = function (html) {
         }
     };
 
+    // Function to update member logos based on theme
+    const updateMemberLogos = () => {
+        const memberBoxes = document.querySelectorAll('.member-box');
+        
+        memberBoxes.forEach(box => {
+            const img = box.querySelector('.member-box-logo');
+            if (img) {
+                img.src = getCurrentLogo(box);
+            }
+        });
+    };
+
     // Initial check based on current class
     syncThemeToggleState(document.documentElement.classList.contains('dark-mode'));
+    updateMemberLogos(); // Update logos on initial load
 
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
@@ -505,6 +527,7 @@ window.sanitizeHTML = function (html) {
             
             syncThemeToggleState(isDark);
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateMemberLogos(); // Update logos on theme change
         });
     }
 })();
