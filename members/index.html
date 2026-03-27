@@ -15,7 +15,8 @@ description: Our members include wikis covering games from some of the most popu
     <button type="button" class="member-box btn-secondary"
             onclick="openMemberModal(this)"
             data-member='{{ member | jsonify | escape }}'
-            data-logo="{{ member.logo | relative_url }}">
+            data-logo="{{ member.logo | relative_url }}"
+            {% if member.logo-white %}data-logo-white="{{ member.logo-white | relative_url }}"{% endif %}>
         <img src="{{ member.logo | relative_url }}" alt="{{ member.name }} logo" class="member-box-logo">
     </button>
     {% endfor %}
@@ -101,11 +102,11 @@ function openMemberModal(element) {
     // Use the pre-resolved URL from the data attribute
     logo.hidden = true;
     logo.onload = () => logo.hidden = false;
-    logo.src = element.dataset.logo;
+    logo.src = window.getCurrentLogo(element);
     logo.alt = member.name + " logo";
 
     const modalLeft = modal.querySelector('.modal-left');
-    const logoUrl = element.dataset.logo;
+    const logoUrl = window.getCurrentLogo(element);
     if (logoUrl) {
         const safeLogoUrl = logoUrl.replace(/["\\]/g, '\\$&');
         modalLeft.style.setProperty('--logo-url', `url("${safeLogoUrl}")`);
