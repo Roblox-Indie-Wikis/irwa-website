@@ -72,8 +72,10 @@ function openEntityModal(element) {
 
     if (hasJoined || hasTeam) {
         modalMeta.style.display = '';
+        modal.querySelector('.modal-header-grid')?.classList.remove('no-meta');
     } else {
         modalMeta.style.display = 'none';
+        modal.querySelector('.modal-header-grid')?.classList.add('no-meta');
     }
 
     if (entity.link) {
