@@ -9,9 +9,15 @@ function openEntityModal(element) {
     const desc = document.getElementById('modalDescription');
     const logo = document.getElementById('modalLogo');
     const joined = document.getElementById('modalJoined');
+    const joinedItem = document.getElementById('modalJoinedItem');
     const team = document.getElementById('modalTeam');
+    const teamItem = document.getElementById('modalTeamItem');
+    const modalMeta = document.getElementById('modalMetaArea');
     const link = document.getElementById('modalSiteLink');
     const socials = document.getElementById('modalSocials');
+
+    const baseUrl = document.documentElement.getAttribute('data-baseurl') || '/';
+    const iconsBase = baseUrl.replace(/\/$/, '') + '/assets/svg/';
 
     name.textContent = entity.name || 'Unknown';
     desc.innerHTML = window.sanitizeHTML(entity.description || 'No description available.');
@@ -30,10 +36,20 @@ function openEntityModal(element) {
         modalLeft.style.removeProperty('--logo-url');
     }
 
-    joined.textContent = entity.joined || 'N/A';
+    const hasJoined = Boolean(entity.joined);
+    const hasTeam = Boolean(entity.team && entity.team.length);
 
-    team.textContent = '';
-    if (entity.team && entity.team.length) {
+    if (hasJoined) {
+        joinedItem.style.display = '';
+        joined.textContent = entity.joined;
+    } else {
+        joinedItem.style.display = 'none';
+        joined.textContent = 'N/A';
+    }
+
+    if (hasTeam) {
+        teamItem.style.display = '';
+        team.textContent = '';
         entity.team.forEach(t => {
             const container = document.createElement('div');
             container.className = 'team-member';
@@ -49,6 +65,15 @@ function openEntityModal(element) {
 
             team.appendChild(container);
         });
+    } else {
+        teamItem.style.display = 'none';
+        team.textContent = '';
+    }
+
+    if (hasJoined || hasTeam) {
+        modalMeta.style.display = '';
+    } else {
+        modalMeta.style.display = 'none';
     }
 
     if (entity.link) {
@@ -76,7 +101,7 @@ function openEntityModal(element) {
 
         const img = document.createElement('img');
         const iconName = type.toLowerCase() === 'game' ? 'roblox' : type.toLowerCase();
-        img.src = `{{ "/assets/svg/" | relative_url }}${iconName}.svg`;
+        img.src = `${iconsBase}${iconName}.svg`;
         img.alt = type;
         img.className = 'social-icon';
         img.width = 24;
