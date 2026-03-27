@@ -1966,11 +1966,10 @@ body:not(.home-template) .main {
 }
 
 .msg {
-	background-color: var(--neutral-1);
-	border-left: 1px solid rgba(255, 255, 255, 0.5);
-	border-radius: var(--border-radius);
+	background: linear-gradient(to bottom, var(--primary-5), var(--primary-1));
+	border: 1px solid var(--primary-5);
 	font-size: .8888888889rem;
-	padding: calc(var(--baseline) * 6) calc(var(--baseline) * 8);
+	padding: calc(var(--baseline) * 5) calc(var(--baseline) * 5);
 }
 
 /* .msg--highlight {
@@ -2714,4 +2713,27 @@ img.is-loaded {
 
 .landing-content h1 {
 	margin-top: unset;
+}
+
+.secondary-container {
+	--lightness: 255;
+	background: oklch(from var(--primary-4) l c h / 40%);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(var(--lightness), var(--lightness), var(--lightness), 0.5), inset 0 -1px 0 rgba(var(--lightness), var(--lightness), var(--lightness), 0.1), inset 0 0 36px 18px rgba(var(--lightness), var(--lightness), var(--lightness), 1.8);
+	position: relative;
+	overflow: hidden;
+	padding: 2rem;
+
+	.dark-mode & {
+		--lightness: 0;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: url(https://i.imgur.com/jtAvt6O.png);
+		background-size: cover;
+		background-position: center;
+		border-radius: inherit;
+	}
 }
