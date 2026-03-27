@@ -12,6 +12,7 @@
   color: #fff;
   cursor: pointer;
   display: inline-flex;
+  justify-content: center;
   gap: 5px;
   font: normal 600 0.88888889rem var(--font-body);
   padding: 0.5rem 0.75rem;
@@ -21,11 +22,12 @@
   will-change: transform;
   width: 100%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: 10px;
   padding: 1.2rem;
   text-decoration: none;
+  max-width: 150px;
 }
 @media all and (min-width: 20em) {
   .member-box {
