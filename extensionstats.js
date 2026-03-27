@@ -1,19 +1,20 @@
-document.querySelectorAll('.extension-usage[data-extension]').forEach(element => {
-  const extension = element.getAttribute('data-extension');
-  const url = `https://meta.miraheze.org/w/api.php?action=expandtemplates&format=json&smaxage=21600&maxage=21600&text=%7B%7BNUMBEROFWIKISUSINGEXTENSION%3A%20${encodeURIComponent(extension)}%7D%7D&prop=wikitext&formatversion=2&origin=*`;
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.extension-usage[data-extension]').forEach(element => {
+    const extension = element.getAttribute('data-extension');
+    const url = `https://meta.miraheze.org/w/api.php?action=expandtemplates&format=json&smaxage=21600&maxage=21600&text=%7B%7BNUMBEROFWIKISUSINGEXTENSION%3A%20${encodeURIComponent(extension)}%7D%7D&prop=wikitext&formatversion=2&origin=*`;
 
-  fetch(url)
-    .then(response => {
-      if (!response.ok) throw new Error('Network response was not ok');
-      return response.json();
-    })
-    .then(data => {
-      if (data?.expandtemplates?.wikitext != null) {
-        element.textContent = data.expandtemplates.wikitext;
-      }
-    })
-    .catch(error => {
-      console.error('extensionstats fetch error', error);
-    });
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(data => {
+        if (data?.expandtemplates?.wikitext != null) {
+          element.textContent = data.expandtemplates.wikitext;
+        }
+      })
+      .catch(error => {
+        console.error('extensionstats fetch error', error);
+      });
+  });
 });
-
