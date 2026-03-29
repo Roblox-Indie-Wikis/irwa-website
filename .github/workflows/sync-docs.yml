@@ -21,29 +21,14 @@ jobs:
 
           sed '1d' usage_raw.md > usage_clean.md
           
+          # Install pandoc
+          sudo apt-get update && sudo apt-get install -y pandoc
+          
+          # Convert Markdown to HTML
+          pandoc usage_clean.md -f markdown -t html -o content.html
+          
           # Add table-wrap class to all tables
-          awk '
-          BEGIN { in_table = 0 }
-          /^|.*|$/ {
-            if (!in_table) {
-              in_table = 1
-            }
-            print
-            next
-          }
-          /^$/ || !/^|.*|$/ {
-            if (in_table) {
-              print "{: .table-wrap}"
-              in_table = 0
-            }
-            print
-          }
-          END {
-            if (in_table) {
-              print "{: .table-wrap}"
-            }
-          }
-          ' usage_clean.md > usage_with_tables.md
+          sed 's/<table>/<table class="table-wrap">/g' content.html > final.html
           
           # Create the final file with Jekyll Front Matter
           {
@@ -56,11 +41,11 @@ jobs:
             echo "# Roblox API Documentation"
             echo ""
             echo "The RobloxAPI extension provides easy access to the Roblox API via parser functions. The Roblox API is generally very poorly documented, and using the ExternalData extension or Lua modules can be a steep learning curve which may not be viable. This extension aims to make it easy for you to grab data from Roblox and put it on your wiki, using simple parser functions."
-            cat usage_with_tables.md
+            cat final.html
           } > docs/robloxapi/index.md
           
           # Clean up temporary files
-          rm usage_raw.md usage_clean.md usage_with_tables.md
+          rm usage_raw.md usage_clean.md content.html final.html
 
       - name: Commit and push if changed
         run: |
