@@ -8,3 +8,5 @@ group :jekyll_plugins do
 end
 
 gem "csv"
+gem "base64"
+gem "mutex_m"

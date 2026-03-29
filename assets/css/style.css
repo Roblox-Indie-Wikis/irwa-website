@@ -113,6 +113,7 @@
   --baseline: 0.25rem;
   --font-body: 'Instrument Sans', sans-serif;
   --font-heading: 'Bricolage Grotesque', serif;
+  --font-monospace: 'Cascadia Code', monospace;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
   --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
@@ -129,6 +130,7 @@
   --page-bg: var(--neutral-base);
   --text-color: var(--neutral-9);
   --link-color: var(--primary-base);
+  --monospace: var(--font-monospace);
   --box-shadow: 0px 4.4px 4.5px -100px oklch(from #000 l c h / 0.174), 0px 12.3px 12.5px -100px oklch(from #000 l c h / 0.25), 0px 29.5px 30.1px -100px oklch(from #000 l c h / 0.326), 0px 98px 100px -100px oklch(from #000 l c h / 0.5);
   --box-shadow-hover: 0px 5.4px 4.5px -100px oklch(from #000 l c h / 0.174), 0px 15px 12.5px -100px oklch(from #000 l c h / 0.25), 0px 36.2px 30.1px -100px oklch(from #000 l c h / 0.326), 0px 120px 100px -100px oklch(from #000 l c h / 0.5);
 }
