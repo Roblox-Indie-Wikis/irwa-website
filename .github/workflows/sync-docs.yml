@@ -1,0 +1,38 @@
+name: Sync External Docs
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch: # to run it manually from the Actions tab
+
+jobs:
+  retrieve-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repo
+        uses: actions/checkout@v4
+
+      - name: Fetch USAGE.md and add Front Matter
+        run: |
+          # Create the nested directory
+          mkdir -p docs/robloxapi
+            
+          # Download the raw file
+          curl -s https://raw.githubusercontent.com/Roblox-Indie-Wikis/mediawiki-extensions-RobloxAPI/master/USAGE.md -o usage_raw.md
+          
+          # Create the final file with Jekyll Front Matter
+          echo "---" > docs/robloxapi/index.md
+          echo "layout: page" >> docs/robloxapi/index.md
+          echo "body_class: page-template" >> docs/robloxapi/index.md
+          echo "title: Roblox API Documentation" >> docs/robloxapi/index.md
+          echo "---" >> docs/robloxapi/index.md
+          cat usage_raw.md >> docs/robloxapi/index.md
+          
+          # Clean up
+          rm usage_raw.md
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/robloxapi.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Roblox API Usage from source" && git push)
