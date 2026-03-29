@@ -3,7 +3,10 @@ layout: page
 body_class: page-template
 title: Roblox API Documentation
 ---
-# Usage
+# Roblox API Documentation
+
+The RobloxAPI extension provides easy access to the Roblox API via parser functions. The Roblox API is generally very poorly documented, and using the ExternalData extension or Lua modules can be a steep learning curve which may not be viable. This extension aims to make it easy for you to grab data from Roblox and put it on your wiki, using simple parser functions.
+{% raw %}
 
 - [Usage](#usage)
     * [Basic Usage](#basic-usage)
@@ -909,3 +912,4 @@ If you want to show errors in plain text format instead, you can set this variab
 ```php
 $wgRobloxAPIShowPlainErrors = true;
 ```
+{% endraw %}
