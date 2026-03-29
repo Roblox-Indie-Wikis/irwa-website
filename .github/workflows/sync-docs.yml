@@ -25,7 +25,7 @@ jobs:
           {
             echo "---"
             echo "layout: page"
-            echo "body_class: page-template"
+            echo "body_class: page-template robloxapi"
             echo "title: Roblox API Documentation"
             echo "description: Documentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions."
             echo "---"
