@@ -2563,14 +2563,6 @@ img.is-loaded {
   overflow: hidden;
   padding: 2rem;
 }
-@media screen and (min-width: 800px) {
-  .secondary-container {
-    display: grid;
-    grid-template-areas: "title desc" "title buttons";
-    gap: 16px;
-    grid-template-columns: 0.3fr 1fr;
-  }
-}
 .dark-mode .secondary-container {
   --lightness: 0;
 }
