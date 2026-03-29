@@ -114,6 +114,7 @@
 }
 
 :root {
+	--bg: url('../../media/backgrounds/futuristic-city.webp');
 	--page-margin: 8vmin;
 	--page-width: 1440px;
 	--entry-width: 75ch;
@@ -248,7 +249,7 @@ body {
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: url('../../media/backgrounds/futuristic-city.webp');
+		background: var(--bg);
 		background-size: cover;
 		z-index: -2;
 	}

@@ -28,6 +28,7 @@
   padding: 1.2rem;
   text-decoration: none;
   max-width: 150px;
+  width: 100%!important;
 }
 @media all and (min-width: 20em) {
   .member-box {
