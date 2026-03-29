@@ -1,0 +1,47 @@
+name: Sync External Docs
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs every hour
+  workflow_dispatch: # to run it manually from the Actions tab
+
+jobs:
+  retrieve-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repo
+        uses: actions/checkout@v4
+
+      - name: Fetch USAGE.md and add Front Matter
+        run: |
+          # Create the nested directory
+          mkdir -p docs/robloxapi
+            
+          # Download the raw file
+          curl -s https://raw.githubusercontent.com/Roblox-Indie-Wikis/mediawiki-extensions-RobloxAPI/master/USAGE.md -o usage_raw.md
+
+          sed '1d' usage_raw.md > usage_clean.md
+          
+          # Create the final file with Jekyll Front Matter
+          {
+            echo "---"
+            echo "layout: page"
+            echo "body_class: page-template"
+            echo "title: Roblox API Documentation"
+            echo "---"
+            echo "# Roblox API Documentation"
+            echo ""
+            echo "The RobloxAPI extension provides easy access to the Roblox API via parser functions. The Roblox API is generally very poorly documented, and using the ExternalData extension or Lua modules can be a steep learning curve which may not be viable. This extension aims to make it easy for you to grab data from Roblox and put it on your wiki, using simple parser functions."
+            echo "{% raw %}"
+            cat usage_clean.md
+            echo "{% endraw %}"
+          } > docs/robloxapi/index.md
+          
+          # Clean up temporary files
+          rm usage_raw.md usage_clean.md
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/robloxapi/index.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Roblox API Usage from source" && git push)
