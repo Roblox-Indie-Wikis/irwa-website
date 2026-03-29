@@ -41,7 +41,9 @@ jobs:
             echo "# Roblox API Documentation"
             echo ""
             echo "The RobloxAPI extension provides easy access to the Roblox API via parser functions. The Roblox API is generally very poorly documented, and using the ExternalData extension or Lua modules can be a steep learning curve which may not be viable. This extension aims to make it easy for you to grab data from Roblox and put it on your wiki, using simple parser functions."
+            echo "{% raw %}"
             cat final.html
+            echo "{% endraw %}"
           } > docs/robloxapi/index.md
           
           # Clean up temporary files
