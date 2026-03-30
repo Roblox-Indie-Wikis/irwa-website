@@ -21,9 +21,6 @@ jobs:
 
           sed '1d' usage_raw.md > usage_clean.md
           
-          # Remove the table of contents
-          sed '/^- \[Usage\]\(#usage\)/,$d' usage_clean.md > usage_no_toc.md
-          
           # Create the final file with Jekyll Front Matter
           {
             echo "---"
