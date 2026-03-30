@@ -1,6 +1,6 @@
 ---
 layout: page
-body_class: page-template robloxapi
+body_class: page-template robloxapi toc-enabled
 title: Roblox API Documentation
 description: Documentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions.
 ---
