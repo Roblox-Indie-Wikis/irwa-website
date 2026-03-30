@@ -21,6 +21,9 @@ jobs:
 
           sed '1d' usage_raw.md > usage_clean.md
           
+          # Remove the table of contents
+          sed '/^- \[Usage\]\(#usage\)/,/^## Basic Usage/{/^## Basic Usage/!d;}' usage_clean.md > usage_no_toc.md
+          
           # Create the final file with Jekyll Front Matter
           {
             echo "---"
@@ -33,12 +36,12 @@ jobs:
             echo ""
             echo "The RobloxAPI extension provides easy access to the Roblox API via parser functions. The Roblox API is generally very poorly documented, and using the ExternalData extension or Lua modules can be a steep learning curve which may not be viable. This extension aims to make it easy for you to grab data from Roblox and put it on your wiki, using simple parser functions."
             echo "{% raw %}"
-            cat usage_clean.md
+            cat usage_no_toc.md
             echo "{% endraw %}"
           } > docs/robloxapi/index.md
           
           # Clean up temporary files
-          rm usage_raw.md usage_clean.md
+          rm usage_raw.md usage_clean.md usage_no_toc.md
 
       - name: Commit and push if changed
         run: |
