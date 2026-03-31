@@ -499,7 +499,7 @@ body {
   font-variation-settings: "wght" var(--font-weight-normal);
   letter-spacing: var(--letter-spacing);
   line-height: var(--line-height);
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 0;
   overscroll-behavior: none;
   transition: 0.3s ease-out background;
@@ -520,6 +520,7 @@ body.error-template::before {
   background-color: #000;
   mask-image: unset!important;
   filter: unset!important;
+  position: fixed;
 }
 body.home-template::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 25%, transparent);
@@ -1500,7 +1501,16 @@ body:not(.home-template) .main {
 .error-template .footer {
   background: transparent;
   border-top: unset;
-  color: white;
+  position: relative;
+}
+.error-template .footer::before {
+  backdrop-filter: blur(16px);
+  background: rgba(0, 0, 0, 0.4);
+  mask-image: linear-gradient(to bottom, transparent, black 15%);
+  position: absolute;
+  content: "";
+  inset: 0;
+  z-index: -1;
 }
 .hero {
   opacity: 0.75;
@@ -2362,7 +2372,7 @@ body:not(.toc-enabled) .content__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4rem 12rem;
+    padding: 2rem 12rem;
   }
   .footer__right {
     flex-grow: 1;
@@ -2413,6 +2423,8 @@ body:not(.toc-enabled) .content__inner {
   display: block;
   padding: 0.5rem 1rem;
   border-radius: 4px;
+  color: var(--text-color);
+  font-variation-settings: "wght" 600;
 }
 .footer .footer__nav li a:hover {
   background-color: rgba(255, 255, 255, 0.03);
