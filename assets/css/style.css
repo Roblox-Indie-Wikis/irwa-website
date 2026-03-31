@@ -2936,3 +2936,34 @@ img.is-loaded {
 .secondary-container > p:last-child {
   grid-area: buttons;
 }
+.landing-project-showcase {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: calc(var(--baseline) * 35);
+  margin-bottom: calc(var(--baseline) * 70);
+  align-items: center;
+}
+@media screen and (min-width: 800px) {
+  .landing-project-showcase > div:first-child {
+    flex: 1;
+  }
+}
+@media screen and (max-width: 800px) {
+  .landing-project-showcase {
+    flex-direction: column;
+  }
+}
+.landing-project-showcase h1 {
+  margin-top: unset;
+}
+.landing-project-showcase > div {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+}
+.landing-project-showcase > div:last-child {
+  color: oklch(from var(--text-color) l c h / 0.6);
+}
