@@ -19,7 +19,12 @@ jobs:
           # Download the raw file
           curl -s https://raw.githubusercontent.com/Roblox-Indie-Wikis/mediawiki-extensions-RobloxAPI/master/USAGE.md -o usage_raw.md
 
-          sed '1d' usage_raw.md > usage_clean.md
+          # Remove the TOC and keep content starting from "## Basic Usage"
+          if ! grep -q '^## Basic Usage' usage_raw.md; then
+            echo "Expected heading '## Basic Usage' not found in USAGE.md" >&2
+            exit 1
+          fi
+          sed -n '/^## Basic Usage/,$p' usage_raw.md > usage_no_toc.md
           
           # Create the final file with Jekyll Front Matter
           {
@@ -38,7 +43,7 @@ jobs:
           } > docs/robloxapi/index.md
           
           # Clean up temporary files
-          rm usage_raw.md usage_clean.md usage_no_toc.md
+          rm usage_raw.md usage_no_toc.md
 
       - name: Commit and push if changed
         run: |
