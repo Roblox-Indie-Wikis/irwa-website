@@ -2688,7 +2688,7 @@ img.is-loaded {
 		margin-top: calc(var(--baseline) * 4);
 
 		> div {
-			background: var(--neutral-2);
+			background: oklch(from var(--neutral-2) l c h / 60%);
 			padding: 2rem;
 			border-radius: 20px;
 			min-width: 35%;
@@ -2861,5 +2861,23 @@ img.is-loaded {
 		&:last-child {
 			color: oklch(from var(--text-color) l c h / 0.6)
 		}
+	}
+}
+
+.project-container {
+	background: oklch(from var(--neutral-2) l c h / 60%);
+	backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    min-width: 35%;
+	font-size: medium;
+	margin: 2rem 1rem;
+
+	> h1, h2, h3, h4, h5 {
+		margin-top: 0;
+	}
+
+	.post__image--right {
+		margin-top: unset;
 	}
 }
