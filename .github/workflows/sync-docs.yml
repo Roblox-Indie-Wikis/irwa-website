@@ -1,8 +1,12 @@
 name: Sync External Docs
 on:
   schedule:
-    - cron: '0 * * * *' # Runs every hour
-  workflow_dispatch: # to run it manually from the Actions tab
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   retrieve-file:
@@ -45,9 +49,21 @@ jobs:
           # Clean up temporary files
           rm usage_raw.md usage_no_toc.md
 
-      - name: Commit and push if changed
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/robloxapi/index.md
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Roblox API Usage from source" && git push)
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "docs: sync external robloxapi docs"
+          committer: GitHub <noreply@github.com>
+          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          branch: patch/sync-docs
+          title: "Update Roblox API Documentation"
+          body: "This is an automated PR to sync documentation."
+          delete-branch: true
+
+      - name: Auto-merge PR
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --merge --admin
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
