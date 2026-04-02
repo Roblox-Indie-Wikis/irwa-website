@@ -804,6 +804,7 @@ button {
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
+  word-break: normal;
 }
 @media all and (min-width: 20em) {
   .btn,
@@ -854,6 +855,7 @@ button:disabled {
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
+  word-break: normal;
 }
 @media all and (min-width: 20em) {
   .btn-external {
