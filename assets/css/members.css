@@ -63,6 +63,11 @@
 .member-box:hover::before {
   opacity: 1;
 }
+@media screen and (max-width: 800px) {
+  .member-box {
+    flex: 1;
+  }
+}
 .member-box-logo {
   width: 100px;
   height: 100px;

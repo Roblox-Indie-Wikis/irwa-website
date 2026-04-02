@@ -2988,3 +2988,9 @@ img.is-loaded {
 .project-container .post__image--right {
   margin-top: unset;
 }
+@media screen and (max-width: 800px) {
+  .project-container {
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
