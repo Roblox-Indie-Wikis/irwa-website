@@ -21,6 +21,7 @@
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
+  word-break: normal;
   flex-direction: column;
   justify-content: start;
   align-items: center;
@@ -297,6 +298,7 @@
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
+  word-break: normal;
   padding: 8px 16px!important;
   font-size: 0.85rem !important;
   font-weight: bold;
