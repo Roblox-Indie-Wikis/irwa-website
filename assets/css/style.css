@@ -707,7 +707,7 @@ table {
   vertical-align: top;
   text-align: left;
   width: 100%;
-  word-break: normal;
+  overflow-wrap: normal;
 }
 table th {
   font-variation-settings: "wght" var(--font-weight-bold);
@@ -804,6 +804,7 @@ button {
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
+  word-break: normal;
 }
 @media all and (min-width: 20em) {
   .btn,
@@ -854,6 +855,7 @@ button:disabled {
   transition: all 0.2s ease-out;
   will-change: transform;
   width: 100%;
+  word-break: normal;
 }
 @media all and (min-width: 20em) {
   .btn-external {
@@ -1447,7 +1449,7 @@ textarea {
 }
 .container {
   box-sizing: content-box;
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .home-template .container {
   overflow-x: hidden;
