@@ -46,14 +46,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-color, #000000);
+  color: white;
   font-size: 1.2rem;
   transition: opacity 0.2s ease;
   flex-shrink: 0;
-}
-
-.dark-mode .toc-toggle {
-  color: var(--text-color-dark, #ffffff);
 }
 
 .toc-toggle:hover {
