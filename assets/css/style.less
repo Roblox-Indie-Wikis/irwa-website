@@ -2874,8 +2874,11 @@ img.is-loaded {
     min-width: 35%;
 	font-size: medium;
 	margin: 2rem 1rem;
+	display: grid;
+	gap: calc(var(--baseline) * 6);
+	grid-template-areas: "info image" "desc image";
 
-	> h1, h2, h3, h4, h5 {
+	h1, h2, h3, h4, h5 {
 		margin-top: 0;
 	}
 
@@ -2886,5 +2889,40 @@ img.is-loaded {
 	@media screen and (max-width: 800px) {
 		margin-left: unset;
 		margin-right: unset;
+		padding: 0 0 2rem 0;
+		grid-template-areas: "image" "info" "desc";
+		background: transparent;
+		backdrop-filter: unset;
+		border: 1px solid rgba(255, 255, 255, 0.03);
+
+		&-info,
+		&-desc {
+			padding: 0 1rem;
+			z-index: 1;
+		}
+
+		&-image {
+			width: 100%!important;
+			height: auto!important;
+			margin-bottom: -25%;
+			mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.75) 55%, transparent);
+			pointer-events: none;
+		}
+	}
+
+	&-image {
+		grid-area: image;
+	}
+
+	&-info {
+		grid-area: info;
+	}
+
+	&-desc {
+		grid-area: desc;
+
+		> p:first-child {
+			margin-top: unset;
+		}
 	}
 }
