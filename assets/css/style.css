@@ -2981,8 +2981,11 @@ img.is-loaded {
   min-width: 35%;
   font-size: medium;
   margin: 2rem 1rem;
+  display: grid;
+  gap: calc(var(--baseline) * 6);
+  grid-template-areas: "info image" "desc image";
 }
-.project-container > h1,
+.project-container h1,
 .project-container h2,
 .project-container h3,
 .project-container h4,
@@ -2996,5 +2999,34 @@ img.is-loaded {
   .project-container {
     margin-left: unset;
     margin-right: unset;
+    padding: 0 0 2rem 0;
+    grid-template-areas: "image" "info" "desc";
+    background: transparent;
+    backdrop-filter: unset;
+    border: 1px solid rgba(255, 255, 255, 0.03);
   }
+  .project-container-info,
+  .project-container-desc {
+    padding: 0 1rem;
+    z-index: 1;
+  }
+  .project-container-image {
+    width: 100%!important;
+    height: auto!important;
+    margin-bottom: -25%;
+    mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.75) 55%, transparent);
+    pointer-events: none;
+  }
+}
+.project-container-image {
+  grid-area: image;
+}
+.project-container-info {
+  grid-area: info;
+}
+.project-container-desc {
+  grid-area: desc;
+}
+.project-container-desc > p:first-child {
+  margin-top: unset;
 }
