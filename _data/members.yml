@@ -33,18 +33,6 @@
     - name: Concavz
     - name: splatched
 
-- name: Pressure Wiki
-  link: https://urbanshade.org
-  logo: /media/wiki-logos/Pressure.png
-  description: "The official wiki for <b><i>Pressure</i></b>, a horror survival game by Urbanshade: Hadal Division."
-  game_link: https://www.roblox.com/games/12411473842/Pressure
-  discord: https://discord.gg/t8mtkpxabp
-  joined: "February 2025"
-  team:
-    - name: Arrow
-    - name: Cool Leaf
-    - name: arandomcats
-
 - name: Dovedale Railway Wiki
   link: https://dovedale.wiki
   logo: /media/wiki-logos/Dovedale_Black.svg
