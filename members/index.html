@@ -14,7 +14,7 @@ description: Our members include wikis covering games from some of the most popu
             data-entity='{{ member | jsonify | escape }}'
             data-logo="{{ member.logo | relative_url }}"
             {% if member.logo-white %}data-logo-white="{{ member.logo-white | relative_url }}"{% endif %}>
-        <img src="{{ member.logo | relative_url }}" alt="{{ member.name }} logo" class="member-box-logo">
+        <img src="{{ member.logo | relative_url }}" alt="" aria-hidden="true" class="member-box-logo">
         {{ member.name }}
     </button>
     {% endfor %}
