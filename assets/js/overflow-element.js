@@ -157,10 +157,10 @@ function initializeOverflow( {
 	document, window, bodyContent, config
 } ) {
 	const nowrapClasses = config.nowrapClasses || [];
-	const table = bodyContent || document.body;
+	const container = bodyContent || document.body;
 
-	const tableSelector = bodyContent.classList.contains('robloxapi') ? 'table' : 'table.table-wrap';
-	const overflowElements = table.querySelectorAll(tableSelector);
+	const tableSelector = container.classList.contains('robloxapi') ? 'table' : 'table.table-wrap';
+	const overflowElements = container.querySelectorAll(tableSelector);
 	if ( !overflowElements.length ) {
 		return;
 	}

@@ -86,16 +86,15 @@ class TOCWrapper {
 
     this.headings.forEach((heading) => {
       const headingLevel = this.getHeadingLevel(heading);
+      const targetLevel = Math.min(headingLevel, currentLevel + 1);
 
       // If going deeper, create nested lists
-      while (headingLevel > currentLevel) {
+      while (targetLevel > currentLevel) {
         const newList = document.createElement('ul');
         if (currentList.lastElementChild) {
           currentList.lastElementChild.appendChild(newList);
         } else {
-          const li = document.createElement('li');
-          li.appendChild(newList);
-          currentList.appendChild(li);
+          currentList.appendChild(document.createElement('li')).appendChild(newList);
         }
         currentList = newList;
         currentLevel++;

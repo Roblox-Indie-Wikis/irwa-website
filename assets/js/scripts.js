@@ -482,8 +482,10 @@ window.sanitizeHTML = function (html) {
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
     
-    const sunIcon = "/irwa-website/media/icons/light_mode.svg";
-    const moonIcon = "/irwa-website/media/icons/dark_mode.svg";
+    const baseUrl = document.documentElement.getAttribute('data-baseurl') || '/';
+    const assetBase = baseUrl.replace(/\/$/, '');
+    const sunIcon = `${assetBase}/media/icons/light_mode.svg`;
+    const moonIcon = `${assetBase}/media/icons/dark_mode.svg`;
 
     // Helper function to get the current logo URL for a member element
     const getCurrentLogo = (element) => {
@@ -532,7 +534,11 @@ window.sanitizeHTML = function (html) {
             const isDark = document.documentElement.classList.toggle('dark-mode');
             
             syncThemeToggleState(isDark);
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            try {
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            } catch (e) {
+                // Persistence unavailable; keep the toggle working for this session.
+            }
             updateMemberLogos(); // Update logos on theme change
         });
     }
