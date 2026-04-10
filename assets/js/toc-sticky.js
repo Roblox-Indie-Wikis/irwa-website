@@ -8,7 +8,7 @@ class TOCSticky {
     this.toggleBtn = tocElement.querySelector('.toc-toggle');
     this.tocNav = tocElement.querySelector('.toc-nav');
     this.isOpen = true;
-    this.isMobile = window.innerWidth < 1024;
+    this.isMobile = null;
 
     this.init();
   }
@@ -37,14 +37,13 @@ class TOCSticky {
   setInitialState() {
     const newIsMobile = window.innerWidth < 1024;
 
-    if (newIsMobile !== this.isMobile) {
-      this.isMobile = newIsMobile;
+    if (newIsMobile === this.isMobile) return;
 
-      if (this.isMobile) {
-        this.closeToc();
-      } else {
-        this.openToc();
-      }
+    this.isMobile = newIsMobile;
+    if (this.isMobile) {
+      this.closeToc();
+    } else {
+      this.openToc();
     }
   }
 

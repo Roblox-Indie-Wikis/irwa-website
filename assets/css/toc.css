@@ -133,7 +133,8 @@
   border-left: 3px solid transparent;
   transition: all 0.2s ease;
   line-height: 1.4;
-  word-break: break-word;
+  overflow-wrap: anywhere;
+  word-break: normal
 }
 
 .dark-mode .toc-nav a {
@@ -197,7 +198,7 @@
   .toc-wrapper.is-closed {
     bottom: auto;
     top: 0;
-    max-height: auto;
+    max-height: none;
     border-radius: unset;
     width: max-content;
     margin: 0;
@@ -235,7 +236,7 @@
     position: static;
     max-height: none;
     border: 1px solid #ccc;
-    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   .toc-toggle {
