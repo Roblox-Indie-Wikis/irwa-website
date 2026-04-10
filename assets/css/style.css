@@ -2768,7 +2768,7 @@ img.is-loaded {
   -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
   border: 1px solid rgba(var(--lightness), var(--lightness), var(--lightness), 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(var(--lightness), var(--lightness), var(--lightness), 0.5), inset 0 -1px 0 rgba(var(--lightness), var(--lightness), var(--lightness), 0.1), inset 0 0 36px 18px rgba(var(--lightness), var(--lightness), var(--lightness), 1.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(var(--lightness), var(--lightness), var(--lightness), 0.5), inset 0 -1px 0 rgba(var(--lightness), var(--lightness), var(--lightness), 0.1), inset 0 0 36px 18px rgba(var(--lightness), var(--lightness), var(--lightness), 0.18);
   position: relative;
   overflow: hidden;
   padding: 2rem;
