@@ -66,7 +66,7 @@
 }
 @media screen and (max-width: 800px) {
   .member-box {
-    flex: 1;
+    flex: 1 1 30%;
   }
 }
 .member-box-logo {
