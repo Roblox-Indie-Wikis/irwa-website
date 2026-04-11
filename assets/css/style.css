@@ -2381,7 +2381,9 @@ body:not(.toc-enabled) .content__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem clamp(5rem, 5vw, 12rem);
+    padding: 2rem calc(clamp(8rem, 5vw, 12rem) - var(--entry-width));
+    max-width: var(--entry-width);
+    margin: auto;
   }
   .footer__right {
     flex-grow: 1;
