@@ -2,6 +2,7 @@
  * TOC Styles
  * Sticky table of contents for headings
  */
+
 .toc-wrapper {
   display: flex;
   flex-direction: column;
@@ -13,6 +14,7 @@
   z-index: 50;
   font-size: 0.95rem;
 }
+
 /* TOC Header */
 .toc-header {
   display: flex;
@@ -22,15 +24,18 @@
   flex-shrink: 0;
   font-size: small;
 }
+
 .toc-title {
   margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-color, #000000);
 }
+
 .dark-mode .toc-title {
   color: var(--text-color-dark, #ffffff);
 }
+
 /* TOC Toggle Button */
 .toc-toggle {
   background: none;
@@ -46,16 +51,20 @@
   transition: opacity 0.2s ease;
   flex-shrink: 0;
 }
+
 .toc-toggle:hover {
   opacity: 0.7;
 }
+
 .toc-toggle:active {
   opacity: 0.5;
 }
+
 .toc-toggle-icon {
   display: inline-block;
   line-height: 1;
 }
+
 /* TOC Navigation */
 .toc-nav {
   flex: 1;
@@ -65,45 +74,57 @@
   scrollbar-color: var(--scrollbar-thumb, #cccccc) var(--bg-color, #ffffff);
   font-size: 0.7rem;
 }
+
 .dark-mode .toc-nav {
   scrollbar-color: var(--scrollbar-thumb-dark, #444444) var(--bg-color-dark, #1a1a1a);
 }
+
 .toc-nav::-webkit-scrollbar {
   width: 6px;
 }
+
 .toc-nav::-webkit-scrollbar-track {
   background: var(--bg-color, #ffffff);
 }
+
 .dark-mode .toc-nav::-webkit-scrollbar-track {
   background: var(--bg-color-dark, #1a1a1a);
 }
+
 .toc-nav::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb, #cccccc);
   border-radius: 3px;
 }
+
 .toc-nav::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-hover, #999999);
 }
+
 .dark-mode .toc-nav::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb-dark, #444444);
 }
+
 .dark-mode .toc-nav::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-dark-hover, #666666);
 }
+
 /* TOC List Structure */
 .toc-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .toc-nav li {
   margin: 0;
   padding: 0;
 }
+
 .toc-nav ul ul {
   margin-left: 1rem;
   padding-left: 0;
 }
+
 .toc-nav a {
   display: block;
   padding: 0.5rem 0.75rem;
@@ -113,34 +134,41 @@
   transition: all 0.2s ease;
   line-height: 1.4;
   overflow-wrap: anywhere;
-  word-break: normal;
+  word-break: normal
 }
+
 .dark-mode .toc-nav a {
   color: var(--link-color-dark, #66b3ff);
 }
+
 .toc-nav a:hover {
   background-color: var(--link-hover-bg, #f0f0f0);
   border-left-color: var(--link-color, #0066cc);
 }
+
 .dark-mode .toc-nav a:hover {
   background-color: var(--link-hover-bg-dark, #333333);
   border-left-color: var(--link-color-dark, #66b3ff);
 }
+
 .toc-nav a.is-active {
   color: var(--link-active-color, #0052a3);
   font-weight: 600;
   background-color: var(--link-active-bg, #e8f0ff);
   border-left-color: var(--link-color, #0066cc);
 }
+
 .dark-mode .toc-nav a.is-active {
   color: var(--link-active-color-dark, #99ccff);
   background-color: var(--link-active-bg-dark, #1a3a52);
   border-left-color: var(--link-color-dark, #66b3ff);
 }
+
 /* Closed State (Mobile/Collapsed) */
 .toc-wrapper.is-closed .toc-nav {
   display: none;
 }
+
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
   .toc-wrapper {
@@ -157,6 +185,7 @@
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     background: oklch(from var(--primary-2) l c h / 0.7);
   }
+
   .toc-wrapper::before {
     content: "";
     position: absolute;
@@ -165,6 +194,7 @@
     border-radius: inherit;
     z-index: -1;
   }
+
   .toc-wrapper.is-closed {
     bottom: auto;
     top: 0;
@@ -180,21 +210,26 @@
     box-shadow: unset;
     border: unset;
   }
+
   .toc-wrapper.is-closed::before {
     backdrop-filter: unset;
   }
+
   .toc-wrapper.is-closed .toc-header {
     padding: 0;
     height: 100%;
   }
+
   .toc-wrapper.is-closed .toc-header .toc-title {
     display: none;
   }
+
   .toc-wrapper.is-closed .toc-header .toc-toggle {
     padding: 2px 8px;
     height: 100%;
   }
 }
+
 /* Print Styles */
 @media print {
   .toc-wrapper {
@@ -203,9 +238,11 @@
     border: 1px solid #ccc;
     break-inside: avoid;
   }
+
   .toc-toggle {
     display: none;
   }
+
   .toc-nav {
     max-height: none;
     overflow: visible;

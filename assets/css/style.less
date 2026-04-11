@@ -119,7 +119,7 @@
 	--page-margin: 8vmin;
 	--page-width: 1440px;
 	--entry-width: 95ch;
-	--navbar-height: 36px;
+	--navbar-height: 2.5rem;
 	--navbar-hover-bg: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
 	--border-radius: 3px;
 	--cards-gap: 1rem;
@@ -785,7 +785,7 @@ textarea {
 	line-height: 1;
 	margin-right: auto;
 	white-space: nowrap;
-	padding: 2px 8px;
+	padding: 5px 8px;
 	height: 100%;
 
 	@media all and (max-width:74.9375em) {
@@ -2269,7 +2269,7 @@ body:not(.home-template) .main {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 2rem 12rem;
+		padding: 2rem clamp(5rem, 5vw, 12rem);
 
 		&__right {
 			flex-grow: 1;
