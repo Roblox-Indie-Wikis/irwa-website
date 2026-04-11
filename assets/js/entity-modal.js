@@ -79,15 +79,33 @@ function openEntityModal(element) {
         modal.querySelector('.modal-header-grid')?.classList.add('no-meta');
     }
 
-    if (entity.link) {
+    const getSafeUrl = (value, { allowRelative = false } = {}) => {
+        if (!value) return null;
         try {
-            const url = new URL(entity.link);
+           const url = new URL(value, window.location.origin);
+            const allowedProtocols = new Set(['http:', 'https:']);
+            if (!allowedProtocols.has(url.protocol)) return null;
+            if (!allowRelative && url.origin === window.location.origin && !/^https?:/i.test(value)) {
+                return null;
+            }
+            return url;
+        } catch {
+            return null;
+        }
+    };
+
+    if (entity.link) {
+        const url = getSafeUrl(entity.link, { allowRelative: true });
+        if (url) {
             url.searchParams.set('utm_source', 'irwa-website');
             link.href = url.toString();
-        } catch (e) {
-            link.href = entity.link;
+        } else {
+            link.removeAttribute('href');
+            link.style.display = 'none';
         }
-        link.style.display = 'inline-flex';
+        if (url) {
+            link.style.display = 'inline-flex';
+        }
     } else {
         link.removeAttribute('href');
         link.style.display = 'none';
@@ -95,9 +113,10 @@ function openEntityModal(element) {
 
     socials.textContent = '';
     const addSocial = (href, type) => {
-        if (!href) return;
+        const url = getSafeUrl(href);
+        if (!url) return;
         const a = document.createElement('a');
-        a.href = href;
+        a.href = url.toString();
         a.target = '_blank';
         a.rel = 'noopener noreferrer';
         a.setAttribute('aria-label', type);
