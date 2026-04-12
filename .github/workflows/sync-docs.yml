@@ -59,7 +59,7 @@ jobs:
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
           branch: patch/sync-docs
           title: "Update Roblox API Documentation"
-          body: "This is an automated PR to sync documentation."
+          body: "This is an automated PR to sync documentation with Roblox-Indie-Wikis/mediawiki-extensions-RobloxAPI."
           delete-branch: true
 
       - name: Auto-merge PR
