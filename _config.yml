@@ -15,8 +15,6 @@ plugins:
 highlighter: rouge
 
 exclude:
-  - Gemfile
-  - Gemfile.lock
   - vendor/
   - README.md
   - .gitignore
