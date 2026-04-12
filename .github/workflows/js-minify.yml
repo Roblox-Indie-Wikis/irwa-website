@@ -1,9 +1,11 @@
-name: Minify JS
+name: Minify JS and CSS
 on:
   push:
     paths:
       - '**.js'
+      - '**.css'
       - '!**.min.js'
+      - '!**.min.css'
 
 permissions:
   contents: write
@@ -21,25 +23,28 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Terser
-        run: npm install terser -g
+      - name: Install Minifiers
+        run: npm install -g terser clean-css-cli
 
       - name: Minify JavaScript
-        # This find command locates all .js files (excluding .min.js) and minifies them
         run: |
           find . -name "*.js" ! -name "*.min.js" -type f -exec sh -c 'terser "$1" -o "${1%.js}.min.js"' _ {} \;
+
+      - name: Minify CSS
+        run: |
+          find . -name "*.css" ! -name "*.min.css" -type f -exec sh -c 'cleancss -o "${1%.css}.min.css" "$1"' _ {} \;
 
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "code: minify JS files"
+          commit-message: "docs: sync external robloxapi docs and minify"
           committer: GitHub <noreply@github.com>
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-          branch: patch/js-minify
-          title: "Update Minified JS Files"
-          body: "This is an automated PR to minify JS."
+          branch: patch/sync-assets
+          title: "Update Roblox API Documentation & Minified Assets"
+          body: "This is an automated PR to sync documentation and minify JS/CSS files."
           delete-branch: true
 
       - name: Auto-merge PR
