@@ -1,12 +1,8 @@
-name: Minify JS and CSS
+name: Minify JS
 on:
   push:
     paths:
-      - '**.js'
-      - '**.css'
-      - '!**.min.js'
-      - '!**.min.css'
-  workflow_dispatch:
+      - 'scripts.js' # Only trigger when scripts.js changes
 
 permissions:
   contents: write
@@ -24,28 +20,25 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Minifiers
-        run: npm install -g terser clean-css-cli
+      - name: Install Minifier
+        run: npm install -g terser
 
       - name: Minify JavaScript
         run: |
-          find . -name "*.js" ! -name "*.min.js" -type f -exec sh -c 'terser "$1" -o "${1%.js}.min.js"' _ {} \;
-
-      - name: Minify CSS
-        run: |
-          find . -name "*.css" ! -name "*.min.css" -type f -exec sh -c 'cleancss -o "${1%.css}.min.css" "$1"' _ {} \;
+          # Directly target scripts.js and output to scripts.min.js
+          terser scripts.js -o scripts.min.js
 
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "style: minify js & css"
+          commit-message: "style: minify scripts.js"
           committer: GitHub <noreply@github.com>
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-          branch: patch/sync-js-css
-          title: "Update Minified JS & CSS"
-          body: "This is an automated PR to minify JS/CSS files."
+          branch: patch/sync-scripts-js
+          title: "Update Minified scripts.js"
+          body: "Automated PR to update scripts.min.js"
           delete-branch: true
 
       - name: Auto-merge PR
