@@ -286,6 +286,41 @@
 .highlight .il {
   color: var(--secondary-8);
 }
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url('../fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz\,wdth\,wght.ttf') format('truetype');
+  font-weight: 200 800;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cascadia Code";
+  src: url('../fonts/Cascadia_Code/CascadiaCode-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cascadia Code";
+  src: url('../fonts/Cascadia_Code/CascadiaCode-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url('../fonts/Instrument_Sans/InstrumentSans-VariableFont_wdth\,wght.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url('../fonts/Instrument_Sans/InstrumentSans-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: italic;
+}
 @view-transition {
   navigation: auto;
 }
@@ -404,7 +439,7 @@
   --font-monospace: 'Cascadia Code', monospace;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -1018,6 +1053,13 @@ input[type=radio]:checked + label::after {
   position: absolute;
   top: calc(var(--baseline) * 3);
   transform: rotate(45deg) translate(0, -50%);
+}
+input[type=checkbox]:focus + label::before,
+input[type=radio]:focus + label::before,
+input[type=checkbox]:focus-visible + label::before,
+input[type=radio]:focus-visible + label::before {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
 }
 input[type=radio] + label::before {
   border-radius: 50%;
@@ -2809,8 +2851,8 @@ img.is-loaded {
   --bg: oklch(75% var(--sat) var(--hue) / 0.8);
   --bg-dark: oklch(45% var(--sat) var(--hue) / 0.75);
   --bottom-glow: radial-gradient(farthest-corner at bottom center, rgba(255, 255, 255, var(--glow-intensity)), transparent);
-  background-color: var(--bg);
   background: var(--bottom-glow), linear-gradient(to bottom, var(--bg-dark), var(--bg));
+  background-color: var(--bg);
   border: 1px solid var(--bg);
   border-radius: 9999px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
