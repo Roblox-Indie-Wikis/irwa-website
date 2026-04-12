@@ -13,7 +13,7 @@ description: Our partners are other wiki alliances and websites that have mutual
     <button type="button" class="member-box btn-secondary" onclick="openEntityModal(this)"
             data-entity='{{ partner | jsonify | escape }}'
             data-logo="{{ partner.logo | relative_url }}">
-        <img src="{{ partner.logo | relative_url }}" alt="{{ partner.name }} logo" class="member-box-logo">
+        <img src="{{ partner.logo | relative_url | cache_image }}" alt="{{ partner.name }} logo" class="member-box-logo">
         {{ partner.name }}
     </button>
     {% endfor %}
@@ -27,7 +27,7 @@ description: Our partners are other wiki alliances and websites that have mutual
     <p style="margin-top: 15px">
         <a href="https://dsc.gg/irwa" class="btn btn-external">
           Join our Discord
-          <img src="{{ "/media/icons/arrow_forward.svg" | relative_url }}" height="20" aria-hidden="true" class="img-invert img-invert-dark material-symbols">
+          <img src="{{ "/media/icons/arrow_forward.svg" | relative_url | cache-image }}" height="20" aria-hidden="true" class="img-invert img-invert-dark material-symbols">
         </a>
     </p>
 </div>
