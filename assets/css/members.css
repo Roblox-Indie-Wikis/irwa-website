@@ -31,6 +31,8 @@
   max-width: 150px;
   width: 100%!important;
   position: relative;
+  z-index: 0;
+  overflow: hidden;
 }
 @media all and (min-width: 20em) {
   .member-box {
@@ -87,15 +89,18 @@
   @starting-style {
     backdrop-filter: blur(0px);
   }
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10000;
+  visibility: hidden;
+  pointer-events: none;
   opacity: 0;
-  transition: opacity 0.3s, display 0.3s allow-discrete;
+  transition: opacity 0.3s, visibility 0.3s;
 }
 .modal-overlay.active {
-  display: flex;
+  visibility: visible;
+  pointer-events: auto;
   opacity: 1;
   @starting-style {
     opacity: 0;
