@@ -4,7 +4,7 @@
         <button class="modal-close" onclick="closeEntityModal(event)" aria-label="Close Modal">&times;</button>
 
         <div class="modal-left">
-            <img id="modalLogo" alt="Entity Logo" hidden>
+            <img id="modalLogo" alt="Entity Logo" class="u-photo" hidden>
         </div>
 
         <div class="modal-right">
@@ -32,7 +32,7 @@
                 <div class="modal-cta">
                     <a id="modalSiteLink" href="" target="_blank" rel="noopener noreferrer" class="btn-site-link">
                         Visit site
-                        <img src="{{ "/media/icons/arrow_forward.svg" | relative_url | cache-image }}" height="20" aria-hidden="true" class="img-invert img-invert-dark material-symbols">
+                        <img src="{{ "/media/icons/arrow_forward.svg" | relative_url }}" height="20" aria-hidden="true" class="img-invert img-invert-dark material-symbols">
                     </a>
                 </div>
             </div>
