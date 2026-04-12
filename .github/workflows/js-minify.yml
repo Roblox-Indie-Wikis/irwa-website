@@ -1,0 +1,49 @@
+name: Minify JS and Sync Docs
+on:
+  push:
+    paths:
+      - '**.js'
+      - '!**.min.js'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  minify-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Terser
+        run: npm install terser -g
+
+      - name: Minify JavaScript
+        # This find command locates all .js files (excluding .min.js) and minifies them
+        run: |
+          find . -name "*.js" ! -name "*.min.js" -type f -exec sh -c 'terser "$1" -o "${1%.js}.min.js"' _ {} \;
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "code: minify JS files"
+          committer: GitHub <noreply@github.com>
+          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          branch: patch/js-minify
+          title: "Update Minified JS Files"
+          body: "This is an automated PR to minify JS."
+          delete-branch: true
+
+      - name: Auto-merge PR
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --merge --admin
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
