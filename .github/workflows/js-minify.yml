@@ -1,4 +1,4 @@
-name: Minify JS and Sync Docs
+name: Minify JS
 on:
   push:
     paths:
