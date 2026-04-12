@@ -6,6 +6,7 @@ on:
       - '**.css'
       - '!**.min.js'
       - '!**.min.css'
+  workflow_dispatch:
 
 permissions:
   contents: write
