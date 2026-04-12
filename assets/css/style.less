@@ -710,6 +710,12 @@ input[type=radio] {
 		top: calc(var(--baseline) * 3);
 		transform: rotate(45deg) translate(0, -50%)
 	}
+
+	&:focus+label::before,
+	&:focus-visible+label::before {
+		outline: 2px solid var(--link-color);
+		outline-offset: 2px;
+	}
 }
 
 input[type=radio]+label::before {

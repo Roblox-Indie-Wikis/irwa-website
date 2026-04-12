@@ -39,7 +39,7 @@ function initializeTOC() {
   const tocWrapper = new TOCWrapper();
   const toc = tocWrapper.init();
 
-  if (toc) {
+  if (toc && typeof TOCSticky !== 'undefined') {
     new TOCSticky(toc);
   }
 }

@@ -459,8 +459,19 @@ window.sanitizeHTML = function (html) {
 								child.removeAttribute(child.attributes[0].name);
 							}
 							child.setAttribute('href', href);
-							child.setAttribute('target', '_blank');
-							child.setAttribute('rel', 'noopener noreferrer');
+
+							// Only add target="_blank" and rel for external absolute URLs
+							if (href.startsWith('http://') || href.startsWith('https://')) {
+								try {
+									const url = new URL(href);
+									if (url.origin !== window.location.origin) {
+										child.setAttribute('target', '_blank');
+										child.setAttribute('rel', 'noopener noreferrer');
+									}
+								} catch (e) {
+									// Invalid URL, don't add target/rel
+								}
+							}
 						} else {
 							const text = document.createTextNode(child.textContent);
 							child.parentNode.replaceChild(text, child);

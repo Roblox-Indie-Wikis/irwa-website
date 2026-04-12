@@ -1,6 +1,18 @@
 function openEntityModal(element) {
     const entityData = element.getAttribute('data-entity');
-    const entity = JSON.parse(entityData);
+
+    if (!entityData) {
+        console.warn('[Entity Modal] No data-entity attribute found on element:', element);
+        return;
+    }
+
+    let entity;
+    try {
+        entity = JSON.parse(entityData);
+    } catch (error) {
+        console.warn('[Entity Modal] Failed to parse entity data:', error, 'Element:', element, 'Data:', entityData);
+        return;
+    }
 
     window.lastFocusedEntityButton = element;
     const modal = document.getElementById('entityModal');

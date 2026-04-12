@@ -34,8 +34,8 @@ function createOverflowWrapper( { document, element, isPointerDevice, inheritedC
 				const button = document.createElement( 'button' );
 				button.type = 'button';
 				button.className = `overflow-navButton overflow-navButton-${ type } ui-icon mw-ui-icon-wikimedia-collapse`;
-				button.setAttribute( 'aria-hidden', 'true' );
-				button.setAttribute( 'tabindex', '-1' );
+				button.setAttribute( 'aria-label', `Scroll ${ type }` );
+				button.setAttribute( 'title', `Scroll ${ type }` );
 				return button;
 			};
 
