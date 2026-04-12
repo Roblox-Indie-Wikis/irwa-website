@@ -40,12 +40,12 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "docs: sync external robloxapi docs and minify"
+          commit-message: "style: minify js & css"
           committer: GitHub <noreply@github.com>
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-          branch: patch/sync-assets
-          title: "Update Roblox API Documentation & Minified Assets"
-          body: "This is an automated PR to sync documentation and minify JS/CSS files."
+          branch: patch/sync-js-css
+          title: "Update Minified JS & CSS"
+          body: "This is an automated PR to minify JS/CSS files."
           delete-branch: true
 
       - name: Auto-merge PR
