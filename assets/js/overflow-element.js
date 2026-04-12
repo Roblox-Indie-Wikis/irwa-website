@@ -139,8 +139,6 @@ class OverflowElement {
 			} );
 		} );
 		this.intersectionObserver.observe( this.element );
-
-		this.resume();
 	}
 }
 

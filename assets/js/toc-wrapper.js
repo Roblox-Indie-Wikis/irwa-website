@@ -139,6 +139,7 @@ class TOCWrapper {
     header.appendChild(title);
 
     const toggleBtn = document.createElement('button');
+    toggleBtn.type = 'button';
     toggleBtn.className = 'toc-toggle';
     toggleBtn.setAttribute('aria-label', 'Toggle table of contents');
     toggleBtn.setAttribute('aria-expanded', 'true');
