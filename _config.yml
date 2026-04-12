@@ -11,7 +11,6 @@ theme: null # We are using a custom layout
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-image-cache
 highlighter: rouge
 
 exclude:
