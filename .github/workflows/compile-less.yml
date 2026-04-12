@@ -2,9 +2,6 @@ name: Compile LESS to CSS
 
 on:
   push:
-    branches:
-      - main
-      - patch-1
     paths:
       - '**/*.less'
   workflow_dispatch:
