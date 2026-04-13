@@ -1,11 +1,11 @@
 - name: Indie Wiki Federation
   link: https://indiewikifederation.org/
-  logo: /media/wiki-logos/IWF Logo.png
+  logo: /assets/wiki-logos/IWF Logo.png
   description: The Independent Wiki Federation (IWF) welcomes independent wikis to join with the goal of growing our member communities, support and collaborating within. The IWF was formed with a mission to include gaming and non-gaming independent wikis, reaching independent wikis scattered throughout the internet, and to provide independent wikis with opportunities for growing their community's online reach.
   discord: https://discord.gg/kyAMMnCGa4
   twitter: https://x.com/indiewikifed
 
 - name: Roblox Fandom Interwiki
   link: https://community.fandom.com/wiki/Template:RobloxWikis/doc
-  logo: /media/wiki-logos/RobloxFandomInterwiki.webp
+  logo: /assets/wiki-logos/RobloxFandomInterwiki.webp
   description: The Roblox Fandom Interwiki is a project designed to bring numerous Roblox wiki communities on Fandom together through one main template. While revolving around the Fandom platform, the project supports the works and goals of the IRWA project.

@@ -495,8 +495,8 @@ window.sanitizeHTML = function (html) {
     
     const baseUrl = document.documentElement.getAttribute('data-baseurl') || '/';
     const assetBase = baseUrl.replace(/\/$/, '');
-    const sunIcon = `${assetBase}/media/icons/light_mode.svg`;
-    const moonIcon = `${assetBase}/media/icons/dark_mode.svg`;
+    const sunIcon = `${assetBase}/assets/icons/light_mode.svg`;
+    const moonIcon = `${assetBase}/assets/icons/dark_mode.svg`;
 
     // Helper function to get the current logo URL for a member element
     const getCurrentLogo = (element) => {
