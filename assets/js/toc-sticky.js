@@ -105,14 +105,14 @@ class TOCSticky {
       }
     );
 
-    // Observe all headings in the content
-    const contentEntry = document.querySelector('.content__entry');
-    if (contentEntry) {
-      const headings = contentEntry.querySelectorAll('h2, h3, h4, h5, h6');
-      headings.forEach((heading) => {
+    // Observe only headings that are actually represented in the TOC
+    this.tocElement.querySelectorAll('.toc-nav a[href^="#"]').forEach((link) => {
+      const id = link.getAttribute('href').slice(1);
+      const heading = document.getElementById(id);
+      if (heading) {
         observer.observe(heading);
-      });
-    }
+      }
+    });
   }
 
   /**

@@ -2,7 +2,7 @@ name: Minify JS
 on:
   push:
     paths:
-      - 'scripts.js' # Only trigger when scripts.js changes
+      - 'assets/js/scripts.js' # Only trigger when source JS changes
 
 permissions:
   contents: write
@@ -25,8 +25,8 @@ jobs:
 
       - name: Minify JavaScript
         run: |
-          # Directly target scripts.js and output to scripts.min.js
-          terser scripts.js -o scripts.min.js
+          # Minify the JS asset used by the site
+          terser assets/js/scripts.js -o assets/js/scripts.min.js
 
       - name: Create Pull Request
         id: cpr
@@ -43,6 +43,6 @@ jobs:
 
       - name: Auto-merge PR
         if: steps.cpr.outputs.pull-request-operation == 'created'
-        run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --merge --admin
+        run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --merge
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
