@@ -1292,7 +1292,11 @@ body:not(.home-template) .main {
 
 .error-template {
 	.main.page--error {
-		min-height: calc(100vh - var(--magic-number) * 3)
+		min-height: calc(100vh - calc(var(--magic-number) * 2.5));
+	}
+
+	.page--error__title {
+		display: none;
 	}
 
 	.footer {
@@ -2317,7 +2321,7 @@ body:not(.home-template) .main {
 		align-items: center;
 		padding: 2rem calc(clamp(8rem, 5vw, 12rem) - var(--entry-width));
 		max-width: var(--entry-width);
-		margin: auto;
+		margin: calc(var(--magic-number) * 2) auto auto auto;
 
 		&__right {
 			flex-grow: 1;
