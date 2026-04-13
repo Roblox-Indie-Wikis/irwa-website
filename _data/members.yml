@@ -1,6 +1,6 @@
 - name: Fischipedia
   link: https://fischipedia.org
-  logo: /media/wiki-logos/Fisch.png
+  logo: /assets/wiki-logos/Fisch.png
   description: "Explore a growing world with your trusty rod, and maybe even reel in some new friends along the way!"
   game_link: https://www.roblox.com/games/16732694052/Fisch-FISCHFEST
   discord: https://discord.gg/fischwiki
@@ -13,7 +13,7 @@
 
 - name: Guts & Blackpowder Wiki
   link: https://gbp.miraheze.org
-  logo: /media/wiki-logos/GBP.webp
+  logo: /assets/wiki-logos/GBP.webp
   description: "The official wiki of <b><i>Guts & Blackpowder</i></b>, housing comprehensive database for information regarding the game, such as Game Mechanics, Equipment, Maps, and much more. Created and maintained by the Developers, Game Staff, and Wiki Team."
   game_link: https://www.roblox.com/games/12334109280/Guts-Blackpowder
   twitter: https://x.com/gutsblackpowder
@@ -23,7 +23,7 @@
 
 - name: Untitled Tag Game Wiki
   link: https://tagging.wiki
-  logo: /media/wiki-logos/UTG.png
+  logo: /assets/wiki-logos/UTG.png
   description: "The official <b><i>untitled tag game</i></b> wiki that anyone can edit! Spawn in maps, choose a gamemode, play with runners, and WIN!"
   game_link: https://www.roblox.com/games/14044547200/untitled-tag-game
   twitter: https://x.com/utgwiki
@@ -35,8 +35,8 @@
 
 - name: Dovedale Railway Wiki
   link: https://dovedale.wiki
-  logo: /media/wiki-logos/Dovedale_Black.svg
-  logo-white: /media/wiki-logos/Dovedale_White.svg
+  logo: /assets/wiki-logos/Dovedale_Black.svg
+  logo-white: /assets/wiki-logos/Dovedale_White.svg
   description: "The official and independent community focused wiki site for <b><i>Dovedale Railway</i></b> that works with developers to provides the best in class information for the game."
   game_link: https://www.roblox.com/games/12018816388/2-0-Dovedale-Railway
   discord: https://discord.gg/RkaqNZKc
@@ -52,8 +52,8 @@
 
 - name: Hybrid Cafe Wiki
   link: https://hybridcafe.wiki
-  logo: /media/wiki-logos/HybridCafe_Black.svg
-  logo-white: /media/wiki-logos/HybridCafe_White.svg
+  logo: /assets/wiki-logos/HybridCafe_Black.svg
+  logo-white: /assets/wiki-logos/HybridCafe_White.svg
   description: "We write about <b><i>The Hybrid Café</i></b>, a game by ArenaDev. Staff and maintain the most dangerous café in town and uncover its secrets."
   game_link: https://www.roblox.com/games/132813250731469/QUESTS-The-Hybrid-Cafe
   discord: https://discord.gg/d69skQeKfg
@@ -66,7 +66,7 @@
 
 - name: Something Evil Will Happen Wiki
   link: https://sewh.miraheze.org/
-  logo: /media/wiki-logos/SEWH.png
+  logo: /assets/wiki-logos/SEWH.png
   description: "The wiki documenting the game <b><i>Something Evil Will Happen</i></b>, a chaotic survival-disaster party game."
   game_link: https://www.roblox.com/games/16991287194/RECODE-something-evil-will-happen
   discord: https://discord.com/invite/HbGJazBq9u
@@ -81,7 +81,7 @@
 
 - name: Restaurant Tycoon 3 Wiki
   link: https://rt3.ugwiki.org
-  logo: /media/wiki-logos/RT3.png
+  logo: /assets/wiki-logos/RT3.png
   description: "The officially endorsed <b><i>Restaurant Tycoon 3</i></b> Wiki, an encyclopedia that encompasses everything RT3! Find out about everything from codes and recent updates to worker and build mode information!"
   discord: https://discord.gg/42sSnpjV38
   joined: "October 2025"
@@ -91,7 +91,7 @@
 
 - name: 3D Planets Simulator Wiki
   link: https://3ps.miraheze.org
-  logo: /media/wiki-logos/3DPS.svg
+  logo: /assets/wiki-logos/3DPS.svg
   description: "The official database for <b><i>3D Planets Simulator</i></b>, A space-themed colonization and industry game based on Roblox. Join now and explore the Blue Galaxy!"
   discord: https://discord.gg/BetFzeDmcH
   joined: "November 2025"
@@ -103,7 +103,7 @@
 
 - name: PHIGHTING! Wiki
   link: https://phighting.wiki/
-  logo: /media/wiki-logos/PHIGHTING.png
+  logo: /assets/wiki-logos/PHIGHTING.png
   description: "The official wiki for <b><i>PHIGHTING!</i></b>, the character-driven class-based third person shooter that reimagines classic Roblox! Come enter the PHIGHT!"
   game_link: https://www.roblox.com/games/7138009149/PHIGHTING-ALPHA
   discord: https://discord.gg/boggio
@@ -115,7 +115,7 @@
 
 - name: Roblox D-DAY Wiki
   link: https://robloxdday.miraheze.org
-  logo: "/media/wiki-logos/D-DAY.png"
+  logo: "/assets/wiki-logos/D-DAY.png"
   description: "This officially-recognized wiki is dedicated to the Roblox game <b><i>D-DAY</i></b>, providing the most accurate information possible to its fans."
   joined: "December 2025"
   team:
@@ -123,8 +123,8 @@
 
 - name: Anime Vanguards Wiki
   link: https://wiki.vanguards.gg
-  logo: "/media/wiki-logos/AnimeVanguards_Black.svg"
-  logo-white: "/media/wiki-logos/AnimeVanguards_White.svg"
+  logo: "/assets/wiki-logos/AnimeVanguards_Black.svg"
+  logo-white: "/assets/wiki-logos/AnimeVanguards_White.svg"
   description: "With many fans to provide for in the Anime Tower Defense (ATD) scene, the Anime Vanguards Wiki aims to deliver, being officially developer supported and maintained by our in-house wiki staff. Whether its comprehensive information coverage or gorgeous UI elements, we always seek to bring the best experience possible to the players through our passion."
   game_link: https://www.roblox.com/games/16146832113/Anime-Vanguards
   discord: https://discord.gg/animevanguards
