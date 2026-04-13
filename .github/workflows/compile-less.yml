@@ -47,9 +47,10 @@ jobs:
           commit-message: "style: compile LESS to CSS"
           committer: GitHub <noreply@github.com>
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-          branch: patch/compile-less
+          branch: patch/compile-less/${{ github.ref_name }}
+          base: ${{ github.ref_name }}
           title: "Update Compiled CSS"
-          body: "This is an automated PR to compile LESS to CSS."
+          body: "This is an automated PR to compile LESS to3 CSS."
           delete-branch: true
 
       - name: Auto-merge PR

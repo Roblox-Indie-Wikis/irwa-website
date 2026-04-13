@@ -13,11 +13,15 @@ description: View all our branding assets in one place.
 
 <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
   <div style="flex: 1; text-align: center; margin: 10px;">
-    <img src="{{ "/assets/website/IRWA-Logo1-white.svg" | relative_url }}" alt="IRWA light icon" style="height: 200px">
+    <div style="display: inline-block; padding: 24px; background: #111; border-radius: var(--border-radius);">
+      <img src="{{ "/assets/website/IRWA-Logo1-white.svg" | relative_url }}" alt="IRWA light icon" style="height: 200px">
+    </div>
     <p>Light version</p>
   </div>
   <div style="flex: 1; text-align: center; margin: 10px;">
-    <img src="{{ "/assets/website/IRWA-Logo1.svg" | relative_url }}" alt="IRWA dark icon" style="height: 200px">
+    <div style="display: inline-block; padding: 24px; background: #eee; border-radius: var(--border-radius);">
+      <img src="{{ "/assets/website/IRWA-Logo1.svg" | relative_url }}" alt="IRWA dark icon" style="height: 200px">
+    </div>
     <p>Dark version</p>
   </div>
 </div>

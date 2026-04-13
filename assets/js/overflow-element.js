@@ -83,6 +83,7 @@ class OverflowElement {
 		this.state.updateState();
 		this.content.addEventListener( 'scroll', this.onScroll );
 		this.resizeObserver.observe( this.element );
+		this.resizeObserver.observe( this.content );
 		if ( this.isPointerDevice && this.nav ) {
 			this.nav.addEventListener( 'click', this.onClick );
 		}
@@ -94,6 +95,7 @@ class OverflowElement {
 	pause() {
 		this.content.removeEventListener( 'scroll', this.onScroll );
 		this.resizeObserver.unobserve( this.element );
+		this.resizeObserver.unobserve( this.content );
 		if ( this.isPointerDevice && this.nav ) {
 			this.nav.removeEventListener( 'click', this.onClick );
 		}
