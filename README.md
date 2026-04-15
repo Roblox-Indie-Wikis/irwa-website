@@ -1,5 +1,5 @@
 # About
-This is the repository for the Independent Roblox Wiki Alliance site, which you can view at https://indierobloxwikis.org. Join our [Discord server](https://dsc.gg/irwa)!
+This is the repository for the Independent Roblox Wiki Alliance site, which you can view at https://indierobloxwikis.org. Join our [Discord server](https://discord.com/invite/qZwvwnPZsd)!
 
 The site is built using [Jekyll](https://jekyllrb.com/).
 
