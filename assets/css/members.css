@@ -4,6 +4,7 @@
   gap: 15px;
   justify-content: center;
   padding: 20px 0;
+  margin-top: 1rem;
 }
 .member-box {
   background: linear-gradient(to bottom, oklch(0.6653 0.2227 260), oklch(0.4724 0.1604 260));
