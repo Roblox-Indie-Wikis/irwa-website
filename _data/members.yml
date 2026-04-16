@@ -136,3 +136,13 @@
     - name: Digo
     - name: .sh1zu
     - name: Feverdream
+
+- name: PARKOUR Reborn Wiki
+  link: https://parkourreborn.wiki
+  logo: "/assets/website/IRWA-Logo1.ico"
+  description: ""
+  game_link: https://www.roblox.com/games/11639495622/PARKOUR-Reborn
+  discord: https://discord.gg/eU8F9AUuSW
+  joined: "April 2026"
+  team:
+    - name: lightning
