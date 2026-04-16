@@ -391,7 +391,7 @@
   --font-monospace: 'Cascadia Code', monospace;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -510,10 +510,7 @@ body.error-template::before {
   position: fixed;
 }
 body.home-template::before {
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 25%, transparent);
-}
-.dark-mode body.home-template::before {
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent) !important;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 25%, transparent);
 }
 body:not(.home-template)::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 75%, transparent);
@@ -2640,28 +2637,6 @@ body:not(.toc-enabled) .content__inner {
   opacity: 1;
   transform: translate(-50%, 0);
 }
-.pswp--dark .pswp__bg {
-  background: var(--black);
-}
-.pswp--dark .pswp__button,
-.pswp--dark .pswp__button--arrow--left:before,
-.pswp--dark .pswp__button--arrow--right:before {
-  background-image: url(../svg/gallery-icons-light.svg);
-}
-.pswp--light .pswp__bg {
-  background: var(--white);
-}
-.pswp--light .pswp__counter {
-  color: var(--neutral-9);
-}
-.pswp--light .pswp__caption__center {
-  color: var(--text-color);
-}
-.pswp--light .pswp__button,
-.pswp--light .pswp__button--arrow--left:before,
-.pswp--light .pswp__button--arrow--right:before {
-  background-image: url(../svg/gallery-icons-dark.svg);
-}
 .pswp .pswp__button {
   box-shadow: none;
 }
@@ -2762,138 +2737,6 @@ img.is-loaded {
     min-width: 100%;
   }
 }
-.glass-section {
-  --lightness: 255;
-  background: rgba(var(--lightness), var(--lightness), var(--lightness), 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 20px;
-  border: 1px solid rgba(var(--lightness), var(--lightness), var(--lightness), 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(var(--lightness), var(--lightness), var(--lightness), 0.5), inset 0 -1px 0 rgba(var(--lightness), var(--lightness), var(--lightness), 0.1), inset 0 0 36px 18px rgba(var(--lightness), var(--lightness), var(--lightness), 0.18);
-  position: relative;
-  overflow: hidden;
-  padding: 2rem;
-}
-.glass-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(var(--lightness), var(--lightness), var(--lightness), 0.8), transparent);
-}
-.glass-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(var(--lightness), var(--lightness), var(--lightness), 0.8), transparent, rgba(var(--lightness), var(--lightness), var(--lightness), 0.3));
-}
-.glass-section h1,
-.glass-section h2,
-.glass-section h3,
-.glass-section h4,
-.glass-section h5,
-.glass-section h6 {
-  margin-top: unset;
-}
-.dark-mode .glass-section {
-  --lightness: 0;
-}
-.glass-button {
-  --fg: oklch(15% calc(var(--sat) * 0.5) var(--hue));
-  --bg: oklch(75% var(--sat) var(--hue) / 0.8);
-  --bg-dark: oklch(45% var(--sat) var(--hue) / 0.75);
-  --bottom-glow: radial-gradient(farthest-corner at bottom center, rgba(255, 255, 255, var(--glow-intensity)), transparent);
-  background: var(--bottom-glow), linear-gradient(to bottom, var(--bg-dark), var(--bg));
-  background-color: var(--bg);
-  border: 1px solid var(--bg);
-  border-radius: 9999px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-  color: var(--fg);
-  /* font-family: "Lucida Grande", "Lucida Sans Unicode", "Segoe UI", system-ui, sans-serif; */
-  font-weight: 700;
-  text-shadow: 0 2px 0.5em rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  position: relative;
-  transition: all 300ms ease;
-  user-select: none;
-  -webkit-user-select: none;
-  /* Top Highlight Effect */
-  --hue: 236;
-  --sat: 0.54;
-  --glow-intensity: 0.8;
-  margin: 0 2px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  /* Size Variations */
-}
-.glass-button::after {
-  content: "";
-  position: absolute;
-  top: 4%;
-  left: 0.75em;
-  width: calc(100% - 1.5em);
-  height: 40%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
-  border-radius: inherit;
-  transition: background 400ms ease;
-  pointer-events: none;
-}
-.glass-button:hover,
-.glass-button:focus {
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
-}
-.glass-button:active {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  transform: translateY(1px);
-}
-.glass-button.small {
-  padding: 0.5em 1.5em;
-  font-size: 0.875rem;
-}
-.glass-button.medium {
-  padding: 0.75em 2em;
-  font-size: 1rem;
-}
-.glass-button.large {
-  padding: 1em 3em;
-  font-size: 1.125rem;
-}
-#themeToggle {
-  padding: 2px 8px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  box-shadow: unset;
-  border-radius: unset;
-  color: #fff;
-}
-#themeToggle > img {
-  width: 100%;
-  height: 20px;
-  object-fit: contain;
-}
-#themeToggle:hover {
-  background: var(--navbar-hover-bg);
-}
-#themeToggle:focus {
-  background: transparent;
-}
-.theme-toggle-container {
-  order: 2;
-  margin-left: auto;
-  height: 100%;
-}
 .subtitle-below-heading {
   display: flex;
   flex-wrap: wrap;
@@ -2917,9 +2760,6 @@ img.is-loaded {
   position: relative;
   overflow: hidden;
   padding: 2rem;
-}
-.dark-mode .secondary-container {
-  --lightness: 0;
 }
 .secondary-container::before {
   content: "";
