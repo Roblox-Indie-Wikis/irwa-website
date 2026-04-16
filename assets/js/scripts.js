@@ -742,3 +742,13 @@ if (searchButton && searchOverlay) {
 		}, 0);
 	}, false);
 })();
+
+(function() {
+	// Helper function to get the current logo URL for a member element
+    const getCurrentLogo = (element) => {
+        return element.dataset.logoWhite;
+    };
+
+    // Make it globally available for the modal
+    window.getCurrentLogo = getCurrentLogo;
+})();
