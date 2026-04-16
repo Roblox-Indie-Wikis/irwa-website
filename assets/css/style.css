@@ -513,8 +513,7 @@ body.home-template::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 25%, transparent);
 }
 body:not(.home-template)::before {
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 75%, transparent);
-  filter: blur(5px);
+  display: none;
 }
 body::after {
   content: '';
