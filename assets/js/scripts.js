@@ -747,7 +747,7 @@ if (searchButton && searchOverlay) {
 	// Helper function to get the current logo URL for a member element
     const getCurrentLogo = (element) => {
         // Returns the logoWhite attribute directly
-        return element.dataset.logoWhite;
+        return element.dataset.logo;
     };
 
     // Make it globally available for the modal
