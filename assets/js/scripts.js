@@ -742,14 +742,3 @@ if (searchButton && searchOverlay) {
 		}, 0);
 	}, false);
 })();
-
-(function() {
-	// Helper function to get the current logo URL for a member element
-    const getCurrentLogo = (element) => {
-        const isDark = document.documentElement.classList.contains('dark-mode');
-        return isDark && element.dataset.logoWhite ? element.dataset.logoWhite : element.dataset.logo;
-    };
-
-    // Make it globally available for the modal
-    window.getCurrentLogo = getCurrentLogo;
-})();
