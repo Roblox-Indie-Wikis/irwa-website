@@ -47,49 +47,50 @@
 
 /* palette */
 :root {
-	--primary-base: #3167cd;
-	--primary-1: #E6EAF2;
-	--primary-2: #D9E3F3;
-	--primary-3: #C9DBF8;
-	--primary-4: #B7D0FA;
-	--primary-5: #A2C1F7;
-	--primary-6: #1A3D7E;
-	--primary-7: #2B4F92;
-	--primary-8: #2F5EB6;
-	--primary-9: #0D2F6F;
+	--social-icon-filter: invert(1) brightness(0.8);
+	--primary-base: #669cff;
+	--primary-1: #151C29;
+	--primary-2: #161F2F;
+	--primary-3: #162B52;
+	--primary-4: #15336C;
+	--primary-5: #1A3D7E;
+	--primary-6: #030303;
+	--primary-7: #3768C5;
+	--primary-8: #84B5FF;
+	--primary-9: #CFE2FF;
 
 	--secondary-base: #94651e;
-	--secondary-1: #FFD6A1;
-	--secondary-2: #FDC987;
-	--secondary-3: #ECBC7E;
-	--secondary-4: #D9AC74;
-	--secondary-5: #C69453;
+	--secondary-1: #1E170F;
+	--secondary-2: #311F06;
+	--secondary-3: #432500;
+	--secondary-4: #512E00;
+	--secondary-5: #5F3C00;
 	--secondary-6: #94651E;
 	--secondary-7: #865808;
-	--secondary-8: #8A5C11;
-	--secondary-9: #473928;
+	--secondary-8: #FECA87;
+	--secondary-9: #FFE2B1;
 
 	--tertiary-base: #1a7e2f;
-	--tertiary-1: #C8E1C9;
-	--tertiary-2: #B5D8B6;
-	--tertiary-3: #9DCDA0;
-	--tertiary-4: #7DBD82;
-	--tertiary-5: #4BA857;
+	--tertiary-1: #0B140B;
+	--tertiary-2: #162B18;
+	--tertiary-3: #123D18;
+	--tertiary-4: #154B1E;
+	--tertiary-5: #195B24;
 	--tertiary-6: #1A7E2F;
-	--tertiary-7: #006F20;
-	--tertiary-8: #006E1E;
-	--tertiary-9: #1E3D21;
+	--tertiary-7: #1D6D2C;
+	--tertiary-8: #74D07D;
+	--tertiary-9: #AEF7B3;
 
-	--neutral-base: #F5F2ED;
-	--neutral-1: #ECEAE8;
-	--neutral-2: #E3E0DB;
-	--neutral-3: #DBD7CF;
-	--neutral-4: #D2CEC7;
-	--neutral-5: #C8C4BD;
-	--neutral-6: #7C7972;
-	--neutral-7: #706C65;
-	--neutral-8: #57534D;
-	--neutral-9: #141210;
+	--neutral-base: #1C1C1A;
+	--neutral-1: #232321;
+	--neutral-2: #2C2C28;
+	--neutral-3: #32322F;
+	--neutral-4: #383835;
+	--neutral-5: #40403D;
+	--neutral-6: #5a5a57;
+	--neutral-7: #50504d;
+	--neutral-8: #B4B4B0;
+	--neutral-9: #EDEDE9;
 
 	--white: #FFFFFF;
 	--black: #000000;
@@ -255,7 +256,7 @@ body {
 	}
 
 	&.home-template::before {
-		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 25%, transparent);
+		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
 	}
 
 	&:not(.home-template)::before {
