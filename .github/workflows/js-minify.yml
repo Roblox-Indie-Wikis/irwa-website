@@ -44,6 +44,6 @@ jobs:
 
       - name: Auto-merge PR
         if: steps.cpr.outputs.pull-request-operation == 'created'
-        run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --merge
+        run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --merge --admin
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
