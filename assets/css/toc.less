@@ -32,10 +32,6 @@
   color: var(--text-color, #000000);
 }
 
-.dark-mode .toc-title {
-  color: var(--text-color-dark, #ffffff);
-}
-
 /* TOC Toggle Button */
 .toc-toggle {
   background: none;
@@ -75,20 +71,12 @@
   font-size: 0.7rem;
 }
 
-.dark-mode .toc-nav {
-  scrollbar-color: var(--scrollbar-thumb-dark, #444444) var(--bg-color-dark, #1a1a1a);
-}
-
 .toc-nav::-webkit-scrollbar {
   width: 6px;
 }
 
 .toc-nav::-webkit-scrollbar-track {
   background: var(--bg-color, #ffffff);
-}
-
-.dark-mode .toc-nav::-webkit-scrollbar-track {
-  background: var(--bg-color-dark, #1a1a1a);
 }
 
 .toc-nav::-webkit-scrollbar-thumb {
@@ -98,14 +86,6 @@
 
 .toc-nav::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-hover, #999999);
-}
-
-.dark-mode .toc-nav::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb-dark, #444444);
-}
-
-.dark-mode .toc-nav::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-thumb-dark-hover, #666666);
 }
 
 /* TOC List Structure */
@@ -137,18 +117,9 @@
   word-break: normal
 }
 
-.dark-mode .toc-nav a {
-  color: var(--link-color-dark, #66b3ff);
-}
-
 .toc-nav a:hover {
   background-color: var(--link-hover-bg, #f0f0f0);
   border-left-color: var(--link-color, #0066cc);
-}
-
-.dark-mode .toc-nav a:hover {
-  background-color: var(--link-hover-bg-dark, #333333);
-  border-left-color: var(--link-color-dark, #66b3ff);
 }
 
 .toc-nav a.is-active {
@@ -156,12 +127,6 @@
   font-weight: 600;
   background-color: var(--link-active-bg, #e8f0ff);
   border-left-color: var(--link-color, #0066cc);
-}
-
-.dark-mode .toc-nav a.is-active {
-  color: var(--link-active-color-dark, #99ccff);
-  background-color: var(--link-active-bg-dark, #1a3a52);
-  border-left-color: var(--link-color-dark, #66b3ff);
 }
 
 /* Closed State (Mobile/Collapsed) */

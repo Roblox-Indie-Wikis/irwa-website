@@ -255,11 +255,7 @@ body {
 	}
 
 	&.home-template::before {
-		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 25%, transparent);
-
-		.dark-mode & {
-			mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent)!important;
-		}
+		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 25%, transparent);
 	}
 
 	&:not(.home-template)::before {
@@ -2556,34 +2552,6 @@ body:not(.home-template) .main {
 	}
 }
 
-.pswp--dark .pswp__bg {
-	background: var(--black)
-}
-
-.pswp--dark .pswp__button,
-.pswp--dark .pswp__button--arrow--left:before,
-.pswp--dark .pswp__button--arrow--right:before {
-	background-image: url(../svg/gallery-icons-light.svg)
-}
-
-.pswp--light .pswp__bg {
-	background: var(--white)
-}
-
-.pswp--light .pswp__counter {
-	color: var(--neutral-9)
-}
-
-.pswp--light .pswp__caption__center {
-	color: var(--text-color)
-}
-
-.pswp--light .pswp__button,
-.pswp--light .pswp__button--arrow--left:before,
-.pswp--light .pswp__button--arrow--right:before {
-	background-image: url(../svg/gallery-icons-dark.svg)
-}
-
 .pswp .pswp__button {
 	box-shadow: none
 }
@@ -2705,72 +2673,6 @@ img.is-loaded {
 	}
 }
 
-.glass-section {
-	.glassmorphism-mixin();
-}
-
-.glass-button {
-	.glassmorphism-button-mixin();
-	--hue: 236;
-	--sat: 0.54;
-	--glow-intensity: 0.8;
-
-	margin: 0 2px;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	gap: 5px;
-
-	/* Size Variations */
-	&.small {
-	padding: 0.5em 1.5em;
-	font-size: 0.875rem;
-	}
-
-	&.medium {
-	padding: 0.75em 2em;
-	font-size: 1rem;
-	}
-
-	&.large {
-	padding: 1em 3em;
-	font-size: 1.125rem;
-	}
-}
-
-#themeToggle {
-	padding: 2px 8px;
-	background: transparent;
-	border: none;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	height: 100%;
-	box-shadow: unset;
-	border-radius: unset;
-	color: #fff;
-
-	> img {
-		width: 100%;
-		height: 20px;
-		object-fit: contain;
-	}
-
-	&:hover {
-		background: var(--navbar-hover-bg);
-	}
-
-	&:focus {
-		background: transparent;
-	}
-}
-
-.theme-toggle-container {
-	order: 2;
-	margin-left: auto;
-	height: 100%;
-}
-
 .subtitle-below-heading {
 	display: flex;
 	flex-wrap: wrap;
@@ -2798,10 +2700,6 @@ img.is-loaded {
 	position: relative;
 	overflow: hidden;
 	padding: 2rem;
-
-	.dark-mode & {
-		--lightness: 0;
-	}
 
 	&::before {
 		content: "";
