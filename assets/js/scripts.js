@@ -488,73 +488,6 @@ window.sanitizeHTML = function (html) {
 	return doc.body.innerHTML;
 };
 
-// Theme Toggle
-(function() {
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    
-    const baseUrl = document.documentElement.getAttribute('data-baseurl') || '/';
-    const assetBase = baseUrl.replace(/\/$/, '');
-    const sunIcon = `${assetBase}/assets/icons/light_mode.svg`;
-    const moonIcon = `${assetBase}/assets/icons/dark_mode.svg`;
-
-    // Helper function to get the current logo URL for a member element
-    const getCurrentLogo = (element) => {
-        const isDark = document.documentElement.classList.contains('dark-mode');
-        return isDark && element.dataset.logoWhite ? element.dataset.logoWhite : element.dataset.logo;
-    };
-
-    // Make it globally available for the modal
-    window.getCurrentLogo = getCurrentLogo;
-
-    const syncThemeToggleState = (isDark) => {
-        if (themeToggle) {
-            themeToggle.setAttribute('aria-pressed', String(isDark));
-        }
-        if (themeIcon) {
-            // Update the image source and alt text
-            themeIcon.src = isDark ? moonIcon : sunIcon;
-            themeIcon.alt = isDark ? 'Dark Mode' : 'Light Mode';
-        }
-    };
-
-    // Function to update member logos based on theme
-    const updateMemberLogos = () => {
-        const memberBoxes = document.querySelectorAll('.member-box');
-        
-        memberBoxes.forEach(box => {
-            const img = box.querySelector('.member-box-logo');
-            if (img) {
-                img.src = getCurrentLogo(box);
-            }
-        });
-
-        // Also update carousel logos
-        const carouselLogos = document.querySelectorAll('.carousel-logo');
-        carouselLogos.forEach(img => {
-            img.src = getCurrentLogo(img);
-        });
-    };
-
-    // Initial check based on current class
-    syncThemeToggleState(document.documentElement.classList.contains('dark-mode'));
-    updateMemberLogos(); // Update logos on initial load
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.toggle('dark-mode');
-            
-            syncThemeToggleState(isDark);
-            try {
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            } catch (e) {
-                // Persistence unavailable; keep the toggle working for this session.
-            }
-            updateMemberLogos(); // Update logos on theme change
-        });
-    }
-})();
-
 // Share buttons pop-up
 (function () {
 	// share popup
@@ -808,4 +741,15 @@ if (searchButton && searchOverlay) {
 			}
 		}, 0);
 	}, false);
+})();
+
+(function() {
+	// Helper function to get the current logo URL for a member element
+    const getCurrentLogo = (element) => {
+        const isDark = document.documentElement.classList.contains('dark-mode');
+        return isDark && element.dataset.logoWhite ? element.dataset.logoWhite : element.dataset.logo;
+    };
+
+    // Make it globally available for the modal
+    window.getCurrentLogo = getCurrentLogo;
 })();

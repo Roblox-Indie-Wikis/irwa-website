@@ -373,54 +373,6 @@
   --red: #EB7F9B;
   --yellow: #FFC76B;
 }
-.dark-mode {
-  --social-icon-filter: invert(1) brightness(0.8);
-  --primary-base: #669cff;
-  --primary-1: #151C29;
-  --primary-2: #161F2F;
-  --primary-3: #162B52;
-  --primary-4: #15336C;
-  --primary-5: #1A3D7E;
-  --primary-6: #030303;
-  --primary-7: #3768C5;
-  --primary-8: #84B5FF;
-  --primary-9: #CFE2FF;
-  --secondary-base: #94651e;
-  --secondary-1: #1E170F;
-  --secondary-2: #311F06;
-  --secondary-3: #432500;
-  --secondary-4: #512E00;
-  --secondary-5: #5F3C00;
-  --secondary-6: #94651E;
-  --secondary-7: #865808;
-  --secondary-8: #FECA87;
-  --secondary-9: #FFE2B1;
-  --tertiary-base: #1a7e2f;
-  --tertiary-1: #0B140B;
-  --tertiary-2: #162B18;
-  --tertiary-3: #123D18;
-  --tertiary-4: #154B1E;
-  --tertiary-5: #195B24;
-  --tertiary-6: #1A7E2F;
-  --tertiary-7: #1D6D2C;
-  --tertiary-8: #74D07D;
-  --tertiary-9: #AEF7B3;
-  --neutral-base: #1C1C1A;
-  --neutral-1: #232321;
-  --neutral-2: #2C2C28;
-  --neutral-3: #32322F;
-  --neutral-4: #383835;
-  --neutral-5: #40403D;
-  --neutral-6: #5a5a57;
-  --neutral-7: #50504d;
-  --neutral-8: #B4B4B0;
-  --neutral-9: #EDEDE9;
-  --white: #FFFFFF;
-  --black: #000000;
-  --page-bg: var(--neutral-base);
-  --text-color: var(--neutral-9);
-  --link-color: var(--primary-base);
-}
 :root {
   --bg: url('../../assets/backgrounds/futuristic-city.webp');
   --page-margin: 8vmin;
@@ -439,7 +391,7 @@
   --font-monospace: 'Cascadia Code', monospace;
   --font-logo: var(--font-body);
   --font-menu: var(--font-body);
-  --font-size: clamp(1rem, 1rem + 0.15vw, 1.15rem);
+  --font-size: clamp(1rem, 1.15rem, 1.15rem);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --line-height: 1.6;
@@ -585,12 +537,6 @@ a {
   transition: all 0.12s linear;
 }
 .img-invert {
-  filter: invert(1);
-}
-.dark-mode .img-invert {
-  filter: unset;
-}
-.dark-mode .img-invert-dark {
   filter: invert(1);
 }
 dl,
