@@ -1433,6 +1433,9 @@ textarea {
   pointer-events: none;
 }
 .container {
+  /* thank you stella sora wiki! https://stellasora.miraheze.org */
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, #7070e00a 1px, transparent 1px), linear-gradient(to bottom, #7070e00a 1px, transparent 1px);
   box-sizing: content-box;
   overflow-wrap: break-word;
 }
