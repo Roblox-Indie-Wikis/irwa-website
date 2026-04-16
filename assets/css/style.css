@@ -2417,8 +2417,8 @@ body:not(.toc-enabled) .content__inner {
   .footer {
     text-align: center;
   }
-  .footer__left {
-    display: none;
+  .footer__links {
+    justify-content: center;
   }
 }
 @media all and (min-width: 56.25em) {
