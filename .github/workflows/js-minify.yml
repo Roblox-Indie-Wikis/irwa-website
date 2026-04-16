@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'assets/js/scripts.js' # Only trigger when source JS changes
+  workflow_dispatch:
 
 permissions:
   contents: write
