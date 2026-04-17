@@ -1202,7 +1202,7 @@ textarea {
 }
 .navbar .navbar__menu li {
   display: block;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: bold;
   font-family: var(--font-menu);
   line-height: var(--line-height);
