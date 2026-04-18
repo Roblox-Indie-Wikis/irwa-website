@@ -1,0 +1,77 @@
+name: Request Wiki Addition
+description: Request to have your wiki added to the IRWA website. 
+title: "[New Wiki] <Replace with your wiki name> "
+labels: ["wiki addition request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome! Please only request wikis to be added that are part of the Indie Roblox Wiki Alliance (IRWA). To join the alliance, please see [this page](https://indierobloxwikis.org/joining/) for more information.
+        Note that a bureaucrat on the wiki must either submit this request or confirm it for it to be handled. You should only continue with this form if you have applied and have been accepted via our Discord Server. 
+
+  - type: input
+    id: wiki-url
+    attributes:
+      label: Wiki URL
+      description: The URL to your wiki.
+      placeholder: https://dovedale.wiki
+    validations:
+      required: true
+
+  - type: input
+    id: wiki-name
+    attributes:
+      label: Wiki Name
+      description: Your chosen display name for the wiki
+      placeholder: Dovedale Railway Wiki
+    validations:
+      required: true
+
+  - type: textarea
+    id: wiki-logo
+    attributes:
+      label: Wiki Logo
+      description: |
+        Please attach your wiki logo image here. The image will be displayed as **400x400px**. 
+        You can drag and drop the file into this text box, or click the attachment icon to upload it.
+      placeholder: Drag and drop your chosen logo image here...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: social-links
+    attributes:
+      label: Wiki Social Links
+      description: Your wiki listing includes some social links. Please select what you would like to add. 
+      options:
+        - label: Wiki Discord
+        - label: Game/Community Discord
+        - label: Twitter / X
+        - label: Ko-fi/Patreon/Donation Page (Only for self-hosted sites to cover costs) 
+        - label: Other (please describe in the additional info field below)
+
+  - type: textarea
+    id: social-links-urls
+    attributes:
+      label: Social Link URLs
+      description: Provide the URLs for each social link you selected above. One per line.
+      placeholder: |
+        Wiki Discord: https://discord.gg/hmqCYg4P23 
+        Game Discord: https://discord.gg/dovedale
+        Twitter: https://twitter.com/DovedaleRailway
+        Ko-fi: https://ko-fi.com/Dovedale
+
+  - type: textarea
+    id: wiki-description
+    attributes:
+      label: Wiki Description
+      description: Please give a short and succint description of your wiki for others. We may edit this for clarity or to fix grammar. 
+      placeholder: The official and independent community focused wiki site for Dovedale Railway that works with developers to provide the best in class information for the game.
+      
+  - type: checkboxes
+    id: captchas
+    attributes:
+      label: Before you submit...
+      description: Please complete the following decleration
+      options:
+        - label: I confirm my wiki that I am submitting is already an existing approved IRWA member, and all the information I am submitting is true and accurate. 
