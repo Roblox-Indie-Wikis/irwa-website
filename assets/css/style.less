@@ -230,7 +230,6 @@ body {
 	font-variation-settings: "wght" var(--font-weight-normal);
 	letter-spacing: var(--letter-spacing);
 	line-height: var(--line-height);
-	/* min-height: 100vh; */
 	padding: 0;
 	overscroll-behavior: none;
 	transition: .3s ease-out background;
@@ -242,17 +241,6 @@ body {
 		background: var(--bg);
 		background-size: cover;
 		z-index: -2;
-	}
-
-	&.error-template::before {
-		background: url('../../assets/backgrounds/ohnoes.jpg');
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center;
-		background-color: #000;
-		mask-image: unset!important;
-		filter: unset!important;
-		position: fixed;
 	}
 
 	&.home-template::before {
