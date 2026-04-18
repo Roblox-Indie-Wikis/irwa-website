@@ -7,7 +7,9 @@ body:
     attributes:
       value: |
         elcome! Please only request wikis to be added that are part of the Indie Roblox Wiki Alliance (IRWA). To join the alliance, please see [this page](https://indierobloxwikis.org/joining/) for more information.
-        Note that a bureaucrat on the wiki must either submit this request or confirm it for it to be handled. You should only continue with this form if you have applied and have been accepted via our Discord Server. 
+        Note that a bureaucrat on the wiki must either submit this request or confirm it for it to be handled. You should only continue with this form if you have applied and have been accepted via our Discord Server.
+
+        Here is a preview of how a listing looks like: <img width="800" alt="Image" src="https://github.com/user-attachments/assets/4c786d63-e44a-411b-be75-cfbd0a5bc1ed" />
 
   - type: input
     id: wiki-url
@@ -62,11 +64,23 @@ body:
         Ko-fi: https://ko-fi.com/Dovedale
 
   - type: textarea
+    id: wiki-staff
+    attributes:
+      label: Wiki Staff Information
+      description: Let us know the names of your staff team 
+      placeholder: |
+      - Billie
+      - Jaiden
+      - Bonnie
+      - Uchuu
+
+  - type: textarea
     id: wiki-description
     attributes:
       label: Wiki Description
       description: Please give a short and succint description of your wiki for others. We may edit this for clarity or to fix grammar. 
       placeholder: The official and independent community focused wiki site for Dovedale Railway that works with developers to provide the best in class information for the game.
+
       
   - type: checkboxes
     id: captchas
