@@ -1,0 +1,73 @@
+name: Request Wiki Addition
+description: Request to have your wiki added to the IRWA website.
+title: "[Wiki Addition Request] "
+labels: ["wiki addition request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest in being listed on the IRWA website! Please fill out the form below.
+
+  - type: input
+    id: wiki-url
+    attributes:
+      label: Wiki URL
+      description: The full URL of your wiki.
+      placeholder: https://example.wiki.gg/wiki/Main_Page
+    validations:
+      required: true
+
+  - type: input
+    id: wiki-name
+    attributes:
+      label: Wiki Name
+      description: The display name of your wiki.
+      placeholder: My Awesome Wiki
+    validations:
+      required: true
+
+  - type: textarea
+    id: wiki-logo
+    attributes:
+      label: Wiki Logo
+      description: |
+        Please attach your wiki logo image here. The image must be **400x400px**.
+        You can drag and drop the file into this text box, or click the attachment icon to upload it.
+      placeholder: Drag and drop your 400x400px logo image here...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: social-links
+    attributes:
+      label: Wiki Social Links
+      description: Select all the social links you would like to display alongside your wiki listing.
+      options:
+        - label: Discord
+        - label: Twitter / X
+        - label: Ko-fi
+        - label: Patreon
+        - label: YouTube
+        - label: Twitch
+        - label: Reddit
+        - label: Bluesky
+        - label: Instagram
+        - label: Facebook
+        - label: TikTok
+        - label: Other (please describe in the additional info field below)
+
+  - type: textarea
+    id: social-links-urls
+    attributes:
+      label: Social Link URLs
+      description: Provide the URLs for each social link you selected above. One per line.
+      placeholder: |
+        Discord: https://discord.gg/example
+        Twitter: https://twitter.com/example
+        Ko-fi: https://ko-fi.com/example
+
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: Anything else you'd like to share about your wiki or listing request.
