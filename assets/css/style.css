@@ -380,7 +380,6 @@
   --page-width: 1440px;
   --entry-width: 95ch;
   --navbar-height: 4rem;
-  --navbar-hover-bg: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
   --border-radius: 3px;
   --cards-gap: 1rem;
   --featured-image-height: 40vmin;
@@ -1065,8 +1064,8 @@ textarea {
   line-height: 1;
   margin-right: auto;
   white-space: nowrap;
-  padding: 1rem 8px;
-  height: 100%;
+  height: 60%;
+  aspect-ratio: 1;
 }
 @media all and (max-width: 74.9375em) {
   .logo {
@@ -1076,11 +1075,11 @@ textarea {
 .logo > img {
   height: 100%;
   object-fit: contain;
-  /* padding: calc(var(--baseline) * 2) 0; */
   width: auto;
 }
-.logo:hover {
-  background: var(--navbar-hover-bg);
+.logo:hover > img,
+.logo:focus-within > img {
+  transform: rotate(5deg);
 }
 .search {
   margin-right: 1.5rem;
@@ -1212,7 +1211,6 @@ textarea {
 .navbar .navbar__menu li a,
 .navbar .navbar__menu li span[aria-haspopup=true] {
   color: #fff;
-  display: block;
   padding: 0px 10px;
   transition: all 0.24s ease-out;
 }
@@ -1220,14 +1218,16 @@ textarea {
 .navbar .navbar__menu li span[aria-haspopup=true]:hover,
 .navbar .navbar__menu li a:focus-within,
 .navbar .navbar__menu li span[aria-haspopup=true]:focus-within {
-  color: #fff;
-  background: var(--navbar-hover-bg);
+  text-decoration: underline;
 }
 .navbar .navbar__menu li span {
   color: var(--neutral-9);
   cursor: default;
   display: block;
   padding: 0 0.5rem;
+}
+.navbar .navbar__menu li.active {
+  opacity: 0.5;
 }
 .navbar .navbar__menu li.has-submenu {
   position: relative;
