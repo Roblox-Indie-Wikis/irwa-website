@@ -7,7 +7,7 @@ Check out the existing [issues](https://github.com/Roblox-Indie-Wikis/irwa-websi
 
 # Adding your wiki
 
-If you have been accepted into the alliance, your request should automatically be processed by a coordinator. If you don't see it within 3 days on the website, open an issue with all the details. 
+Please open [an issue using this template](https://github.com/Roblox-Indie-Wikis/irwa-website/issues/new?template=request-wiki-addition.yml). Read this guide for more information: https://telegra.ph/IRWA-Onboarding-Guide-04-17
 
 # Internal steps to adding wiki 
 3 Places to update: 
