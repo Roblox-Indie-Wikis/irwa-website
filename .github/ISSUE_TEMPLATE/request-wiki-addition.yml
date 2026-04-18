@@ -1,19 +1,19 @@
 name: Request Wiki Addition
-description: Request to have your wiki added to the IRWA website.
-title: "[Wiki Addition Request] "
+description: Request to have your wiki added to the IRWA website. 
+title: "[New Wiki] <Replace with your wiki name> "
 labels: ["wiki addition request"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for your interest in being listed on the IRWA website! Please fill out the form below.
+        You should only continue with this form if you have applied and have been accepted via our Discord Server. 
 
   - type: input
     id: wiki-url
     attributes:
       label: Wiki URL
-      description: The full URL of your wiki.
-      placeholder: https://example.wiki.gg/wiki/Main_Page
+      description: The URL to your wiki.
+      placeholder: https://dovedale.wiki
     validations:
       required: true
 
@@ -21,8 +21,8 @@ body:
     id: wiki-name
     attributes:
       label: Wiki Name
-      description: The display name of your wiki.
-      placeholder: My Awesome Wiki
+      description: Your chosen display name for the wiki
+      placeholder: Dovedale Railway Wiki
     validations:
       required: true
 
@@ -31,9 +31,9 @@ body:
     attributes:
       label: Wiki Logo
       description: |
-        Please attach your wiki logo image here. The image must be **400x400px**.
+        Please attach your wiki logo image here. The image will be displayed as **400x400px**. 
         You can drag and drop the file into this text box, or click the attachment icon to upload it.
-      placeholder: Drag and drop your 400x400px logo image here...
+      placeholder: Drag and drop your chosen logo image here...
     validations:
       required: true
 
@@ -41,19 +41,12 @@ body:
     id: social-links
     attributes:
       label: Wiki Social Links
-      description: Select all the social links you would like to display alongside your wiki listing.
+      description: Your wiki listing includes some social links. Please select what you would like to add. 
       options:
-        - label: Discord
+        - label: Wiki Discord
+        - label: Game/Community Discord
         - label: Twitter / X
-        - label: Ko-fi
-        - label: Patreon
-        - label: YouTube
-        - label: Twitch
-        - label: Reddit
-        - label: Bluesky
-        - label: Instagram
-        - label: Facebook
-        - label: TikTok
+        - label: Ko-fi/Patreon/Donation Page (Only for self-hosted sites to cover costs) 
         - label: Other (please describe in the additional info field below)
 
   - type: textarea
@@ -62,12 +55,14 @@ body:
       label: Social Link URLs
       description: Provide the URLs for each social link you selected above. One per line.
       placeholder: |
-        Discord: https://discord.gg/example
-        Twitter: https://twitter.com/example
-        Ko-fi: https://ko-fi.com/example
+        Wiki Discord: https://discord.gg/hmqCYg4P23 
+        Game Discord: https://discord.gg/dovedale
+        Twitter: https://twitter.com/DovedaleRailway
+        Ko-fi: https://ko-fi.com/Dovedale
 
   - type: textarea
-    id: additional-info
+    id: wiki-description
     attributes:
-      label: Additional Information
-      description: Anything else you'd like to share about your wiki or listing request.
+      label: Wiki Description
+      description: Please give a short and succint description of your wiki for others. We may edit this for clarity or to fix grammar. 
+      placeholder: The official and independent community focused wiki site for Dovedale Railway that works with developers to provide the best in class information for the game.
