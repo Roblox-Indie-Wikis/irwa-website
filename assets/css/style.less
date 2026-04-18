@@ -106,7 +106,7 @@
 	--page-margin: 8vmin;
 	--page-width: 1440px;
 	--entry-width: 95ch;
-	--navbar-height: 2.5rem;
+	--navbar-height: 2rem;
 	--navbar-hover-bg: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
 	--border-radius: 3px;
 	--cards-gap: 1rem;
@@ -751,7 +751,7 @@ textarea {
 	position: fixed;
 	top: 0px;
 	background: linear-gradient(to bottom, #1952a6, #123f83);
-	border-bottom: 0.5px solid #0a2246;
+	border-bottom: 2px solid #0a2246;
 	width: 100%;
 	z-index: 999;
 }
@@ -765,7 +765,7 @@ textarea {
 	line-height: 1;
 	margin-right: auto;
 	white-space: nowrap;
-	padding: 5px 8px;
+	padding: 0px 8px;
 	height: 100%;
 
 	@media all and (max-width:74.9375em) {
@@ -910,9 +910,9 @@ textarea {
 
 		& li {
 			display: block;
-			font-size: 13px;
+			font-size: 14px;
 			font-weight: bold;
-			font-family: var(--font-menu);
+			font-family: Arial, sans-serif, var(--font-menu);
 			line-height: var(--line-height);
 			padding: 0;
 			position: relative;
@@ -1620,10 +1620,10 @@ body:not(.home-template) .main {
 	}
 }
 
-.content__title {
+/* .content__title {
 	margin-top: 0;
 	display: none
-}
+} */
 
 .content__meta {
 	color: var(--neutral-6);
@@ -2277,6 +2277,10 @@ body:not(.home-template) .main {
 		&__right {
 			flex-grow: 1;
 			max-width: 35ch;
+		}
+
+		.home-template & {
+			margin: -2rem auto auto auto!important;
 		}
 	}
 
