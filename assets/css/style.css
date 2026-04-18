@@ -1046,7 +1046,6 @@ textarea {
   padding-right: 1.5rem !important;
   width: 100%;
   z-index: 999;
-  transition: 0.5s backdrop-filter;
 }
 .site-header.scrolled::before {
   content: '';
