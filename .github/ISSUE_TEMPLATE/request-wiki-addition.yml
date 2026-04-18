@@ -68,7 +68,7 @@ body:
     attributes:
       label: Wiki Staff
       description: Let us know the names of your staff team. 
-      placeholder: The official and independent community focused wiki site for Dovedale Railway that works with developers to provide the best in class information for the game.
+      placeholder: Billie, Jaiden, Uchu, Bonnie
 
   - type: textarea
     id: wiki-description
