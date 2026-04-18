@@ -29,7 +29,7 @@ function openEntityModal(element) {
     const socials = document.getElementById('modalSocials');
     const entityType = element.getAttribute('data-entity-type') || 'member';
 
-    const iconsBase = '../assets/svg/';
+    const iconsBase = 'assets/svg/';
 
     name.textContent = entity.name || 'Unknown';
     desc.innerHTML = window.sanitizeHTML(entity.description || 'No description available.');
