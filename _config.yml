@@ -11,6 +11,7 @@ theme: null # We are using a custom layout
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-redirect-from
 highlighter: rouge
 
 exclude:
