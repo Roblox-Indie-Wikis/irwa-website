@@ -379,7 +379,7 @@
   --page-margin: 8vmin;
   --page-width: 1440px;
   --entry-width: 95ch;
-  --navbar-height: 2rem;
+  --navbar-height: 4rem;
   --navbar-hover-bg: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent);
   --border-radius: 3px;
   --cards-gap: 1rem;
@@ -515,18 +515,6 @@ body.home-template::before {
 }
 body:not(.home-template)::before {
   display: none;
-}
-body::after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  /* frosted glass texture found the website you'd least expect; thank you https://www.microsoft.com/en-us/edge/welcome ! */
-  background: url('../../assets/backgrounds/frosted-texture.png');
-  background-repeat: repeat;
-  background-size: 200px 200px;
-  inset: 0;
-  opacity: 0.1;
-  mask-image: linear-gradient(to bottom, black 75%, transparent);
 }
 a {
   color: var(--link-color);
@@ -1052,10 +1040,33 @@ textarea {
   height: var(--navbar-height);
   position: fixed;
   top: 0px;
-  background: linear-gradient(to bottom, #1952a6, #123f83);
-  border-bottom: 2px solid #0a2246;
+  /* background: linear-gradient(to bottom, #1952a6, #123f83);
+	border-bottom: 2px solid #0a2246; */
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
   width: 100%;
   z-index: 999;
+  transition: 0.5s backdrop-filter;
+}
+.site-header.scrolled::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* frosted glass texture found the website you'd least expect; thank you https://www.microsoft.com/en-us/edge/welcome ! */
+  background: url('../../assets/backgrounds/frosted-texture.png');
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.1;
+  mask-image: linear-gradient(to bottom, black 75%, transparent);
+  z-index: -1;
+}
+.site-header.scrolled::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(14px);
+  mask-image: linear-gradient(to bottom, black 75%, transparent);
+  z-index: -2;
 }
 .logo {
   order: 1;
@@ -1066,7 +1077,7 @@ textarea {
   line-height: 1;
   margin-right: auto;
   white-space: nowrap;
-  padding: 0px 8px;
+  padding: 1rem 8px;
   height: 100%;
 }
 @media all and (max-width: 74.9375em) {
@@ -1204,7 +1215,7 @@ textarea {
   display: block;
   font-size: 14px;
   font-weight: bold;
-  font-family: Arial, sans-serif, var(--font-menu);
+  font-family: var(--font-menu);
   line-height: var(--line-height);
   padding: 0;
   position: relative;

@@ -753,3 +753,12 @@ if (searchButton && searchOverlay) {
     // Make it globally available for the modal
     window.getCurrentLogo = getCurrentLogo;
 })();
+
+window.onscroll = function() {
+  const header = document.querySelector('.site-header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+};
