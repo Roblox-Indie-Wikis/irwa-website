@@ -1,10 +1,6 @@
 title: Independent Roblox Wiki Alliance
 description: We support independent wikis. Putting wiki management back to communities, not corporations.
 url: "https://indierobloxwikis.org"
-# baseurl: ""
-# Set baseurl to the subpath of the GitHub Pages URL if hosting on a subpath.
-# Currently set to "/irwa-website" for testing at https://whostacking.github.io/irwa-website/
-baseurl: "/irwa-website"
 
 # Build settings
 theme: null # We are using a custom layout
