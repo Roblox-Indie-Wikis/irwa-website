@@ -21,7 +21,7 @@ There are two ways to add your wiki. You may open an issue request and have us d
 If you wish to add it yourself, please open a pull request doing the following: 
 1. Insert logo into `/assets/wiki-logos`
 2. Add wiki details to `_data/members.yml` (the carousel on the front page and the members list are both generated from this file). This is the format:
-```
+```yaml
 - name: 
   link: 
   logo: "/assets/wiki-logos/LogoHere.svg" (svg if recommended if logo is basic; if monochrome, place the black version here)
