@@ -180,6 +180,13 @@ li {
 	list-style: none
 }
 
+.li {
+	fill: none;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	vertical-align: middle;
+}
+
 img {
 	height: auto;
 	max-width: 100%;
@@ -738,15 +745,25 @@ textarea {
 	width: 100%;
 	z-index: 999;
 
-	&::before, &::after {
+	&::before,
+	&::after {
 		content: '';
 		position: absolute;
 		inset: 0;
 		mask-image: linear-gradient(to bottom, black 75%, transparent);
+		z-index: -1;
 	}
 
 	&::before {
-		opacity: 0.1
+		background: transparent;
+		opacity: 0.1;
+		transition: .5s background, .5s opacity;
+	}
+
+	&::after {
+		opacity: 0;
+		backdrop-filter: blur(0);
+		transition: .5s backdrop-filter, .5s opacity;
 	}
 
 	&.scrolled {
@@ -757,14 +774,12 @@ textarea {
 			background-size: 200px 200px;
 			opacity: .1;
 			z-index: -1;
-			transition: .5s background;
 		}
 
 		&::after {
 			opacity: 1;
 			backdrop-filter: blur(14px);
 			z-index: -2;
-			transition: .5s backdrop-filter;
 		}
 	}
 }

@@ -18,7 +18,7 @@ jobs:
       - name: Fetch USAGE.md and add Front Matter
         run: |
           # Create the nested directory
-          mkdir -p docs/robloxapi
+          mkdir -p pages
             
           # Download the raw file
           curl -s https://raw.githubusercontent.com/Roblox-Indie-Wikis/mediawiki-extensions-RobloxAPI/master/USAGE.md -o usage_raw.md
@@ -37,7 +37,8 @@ jobs:
             echo "body_class: page-template robloxapi toc-enabled"
             echo "title: Roblox API Documentation"
             echo "description: Documentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions."
-            echo "redirect_from: /robloxapi"
+            echo "redirect_from: /docs/robloxapi"
+            echo "permalink: /robloxapi/"
             echo "---"
             echo "# Roblox API Documentation"
             echo ""
@@ -45,7 +46,7 @@ jobs:
             echo "{% raw %}"
             cat usage_no_toc.md
             echo "{% endraw %}"
-          } > docs/robloxapi/index.md
+          } > pages/robloxapi.md
           
           # Clean up temporary files
           rm usage_raw.md usage_no_toc.md
