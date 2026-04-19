@@ -17,7 +17,7 @@ If you'd like to preview your changes before publishing a PR, follow these steps
 3. Run `bundle exec jekyll serve` to run the site locally
 
 ## Adding your wiki
-There are two ways to add your wiki. You may open a issue request and have us do the work for you, or you may add it yourself via a pull request. To open an issue, use [this form]( https://github.com/Roblox-Indie-Wikis/irwa-website/issues/new?template=request-wiki-addition.yml). 
+There are two ways to add your wiki. You may open an issue request and have us do the work for you, or you may add it yourself via a pull request. To open an issue, use [this form](https://github.com/Roblox-Indie-Wikis/irwa-website/issues/new?template=request-wiki-addition.yml).
 If you wish to add it yourself, please open a pull request doing the following: 
 1. Insert logo into `/assets/wiki-logos`
 2. Add wiki details to `_data/members.yml` (the carousel on the front page and the members list are both generated from this file). This is the format:

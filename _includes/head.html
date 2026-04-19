@@ -2,18 +2,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
-<meta name="description" content="{{ page.description | default: site.description }}">
-<meta name="generator" content="Jekyll v{{ jekyll.version }}">
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 <link rel="alternate" type="application/atom+xml" href="{{ "/feed.xml" | relative_url }}">
-<meta property="og:title" content="{{ page.title | default: site.title }}">
 <meta property="og:image" content="{{ "/assets/website/IRWA-Logo1.svg" | absolute_url }}">
 <meta property="og:image:width" content="500">
 <meta property="og:image:height" content="500">
-<meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:description" content="{{ page.description | default: site.description }}">
-<meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:type" content="article">
 <link rel="shortcut icon" href="{{ "/assets/website/IRWA-Logo1.ico" | relative_url }}" type="image/x-icon">
 <link rel="preload" href="{{ '/assets/fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="{{ '/assets/fonts/Instrument_Sans/InstrumentSans-VariableFont_wdth,wght.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
@@ -34,3 +26,4 @@
 <style>
   .li { fill: none; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
 </style>
+{% seo title=false %}
