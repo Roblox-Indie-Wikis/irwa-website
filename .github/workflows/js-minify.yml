@@ -37,7 +37,8 @@ jobs:
           commit-message: "style: minify scripts.js"
           committer: GitHub <noreply@github.com>
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-          branch: patch/sync-scripts-js
+          branch: patch/sync-scripts-js/${{ github.ref_name }}
+          base: ${{ github.ref_name }}
           title: "Update Minified scripts.js"
           body: "Automated PR to update scripts.min.js"
           delete-branch: true
