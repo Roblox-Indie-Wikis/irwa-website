@@ -3,7 +3,8 @@ layout: page
 body_class: page-template robloxapi toc-enabled
 title: Roblox API Documentation
 description: Documentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions.
-redirect_from: /robloxapi
+redirect_from: /docs/robloxapi
+permalink: /robloxapi/
 ---
 # Roblox API Documentation
 

@@ -445,6 +445,12 @@ section {
 li {
   list-style: none;
 }
+.li {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: middle;
+}
 img {
   height: auto;
   max-width: 100%;
@@ -1041,9 +1047,17 @@ textarea {
   position: absolute;
   inset: 0;
   mask-image: linear-gradient(to bottom, black 75%, transparent);
+  z-index: -1;
 }
 .site-header::before {
+  background: transparent;
   opacity: 0.1;
+  transition: 0.5s background, 0.5s opacity;
+}
+.site-header::after {
+  opacity: 0;
+  backdrop-filter: blur(0);
+  transition: 0.5s backdrop-filter, 0.5s opacity;
 }
 .site-header.scrolled::before {
   /* frosted glass texture found the website you'd least expect; thank you https://www.microsoft.com/en-us/edge/welcome ! */
@@ -1052,13 +1066,11 @@ textarea {
   background-size: 200px 200px;
   opacity: 0.1;
   z-index: -1;
-  transition: 0.5s background;
 }
 .site-header.scrolled::after {
   opacity: 1;
   backdrop-filter: blur(14px);
   z-index: -2;
-  transition: 0.5s backdrop-filter;
 }
 .logo {
   order: 1;

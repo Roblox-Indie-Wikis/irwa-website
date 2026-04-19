@@ -8,7 +8,7 @@ To contribute, you can open a Pull Request with your changes. If you haven't alr
 ### Development Guidelines
 To ensure the site remains maintainable and synchronized, please follow these rules:
 - Do **not** edit the `.css` files located in `/assets/css` directly. This project uses LESS for styling. Please make all style changes in the `.less` files; these will be automatically compiled and converted via a GitHub Actions process upon deployment.
-- Do **not** manually edit the `/docs/robloxapi` page. This page is automatically synced with the [RobloxAPI extension](https://github.com/Roblox-Indie-Wikis/mediawiki-extensions-RobloxAPI) repository. Any manual changes made here will be overwritten during the next sync.
+- Do **not** manually edit the `/robloxapi` page. This page is automatically synced with the [RobloxAPI extension](https://github.com/Roblox-Indie-Wikis/mediawiki-extensions-RobloxAPI) repository. Any manual changes made here will be overwritten during the next sync.
 
 ### Locally host the site
 If you'd like to preview your changes before publishing a PR, follow these steps:
