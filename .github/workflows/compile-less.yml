@@ -50,7 +50,7 @@ jobs:
           branch: patch/compile-less/${{ github.ref_name }}
           base: ${{ github.ref_name }}
           title: "Update Compiled CSS"
-          body: "This is an automated PR to compile LESS to3 CSS."
+          body: "This is an automated PR to compile LESS to CSS."
           delete-branch: true
 
       - name: Auto-merge PR
