@@ -1225,6 +1225,7 @@ textarea {
 	height: 100vh;
 	max-width: 75ch;
 	margin: auto;
+	position: relative;
 
 	&-stats {
 		display: flex;
@@ -1238,6 +1239,41 @@ textarea {
 			gap: .5rem;
 			justify-content: center;
 		}
+	}
+
+	&-scroll-chevron {
+		position: absolute;
+		bottom: 20px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		opacity: .2;
+		transition: .5s all;
+		transition-delay: .1s;
+
+		animation: auto linear hidechevronsoon both;
+		animation-timeline: scroll(root block);
+		animation-range: entry 5% cover 15%;
+
+		@starting-style {
+			transform: translateY(-15px);
+		}
+	}
+
+	.highlight {
+		background: transparent;
+		padding: unset;
+	}
+}
+
+@keyframes hidechevronsoon {
+	from {
+		opacity: .2
+	}
+
+	to {
+		opacity: 0
 	}
 }
 
