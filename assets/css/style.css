@@ -1489,22 +1489,24 @@ textarea {
     justify-content: center;
   }
 }
-.home-template .landing-scroll-chevron {
+.home-template .landing-scroll-chevron-wrapper {
   position: absolute;
   bottom: 20px;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  opacity: 0.2;
+  width: 50px;
   transition: 0.5s all;
   transition-delay: 0.1s;
   animation: auto linear hidechevronsoon both;
   animation-timeline: scroll(root block);
   animation-range: entry 5% cover 15%;
-  @starting-style {
-    transform: translateY(-15px);
-  }
+}
+.home-template .landing-scroll-chevron-wrapper .landing-scroll-chevron {
+  width: 100%;
+  aspect-ratio: 1;
+  animation: chevronloop 2s infinite forwards;
 }
 .home-template .landing .highlight {
   background: transparent;
@@ -1515,6 +1517,20 @@ textarea {
     opacity: 0.2;
   }
   to {
+    opacity: 0;
+  }
+}
+@keyframes chevronloop {
+  0% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(15px);
     opacity: 0;
   }
 }

@@ -1241,14 +1241,14 @@ textarea {
 		}
 	}
 
-	&-scroll-chevron {
+	&-scroll-chevron-wrapper {
 		position: absolute;
 		bottom: 20px;
 		left: 0;
 		right: 0;
 		margin-left: auto;
 		margin-right: auto;
-		opacity: .2;
+		width: 50px;
 		transition: .5s all;
 		transition-delay: .1s;
 
@@ -1256,8 +1256,10 @@ textarea {
 		animation-timeline: scroll(root block);
 		animation-range: entry 5% cover 15%;
 
-		@starting-style {
-			transform: translateY(-15px);
+		.landing-scroll-chevron {
+			width: 100%;
+			aspect-ratio: 1;
+			animation: chevronloop 2s infinite forwards;
 		}
 	}
 
@@ -1275,6 +1277,12 @@ textarea {
 	to {
 		opacity: 0
 	}
+}
+
+@keyframes chevronloop {
+	0% { transform: translateY(-15px); opacity: 0 }
+	50% { transform: translateY(0); opacity: 0.5 }
+	100% { transform: translateY(15px); opacity: 0 }
 }
 
 .home-template .landing-blockquote {
