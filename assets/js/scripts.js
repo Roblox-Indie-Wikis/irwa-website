@@ -781,17 +781,20 @@ function initHomeBackgroundRotation() {
 		baseUrl + 'assets/backgrounds/futuristic-city.webp',
 
 		baseUrl + 'assets/backgrounds/Fisch_Place.png',
+		baseUrl + 'assets/backgrounds/Fisch_Toxic_Grove.png',
         baseUrl + 'assets/backgrounds/GBP_San_Sebastian.png',
 		baseUrl + 'assets/backgrounds/UTG_Raven_Ranch.png',
+		baseUrl + 'assets/backgrounds/UTG_Tokyo_Town.png',
 		// baseUrl + 'assets/backgrounds/Dovedale_BG.png',
 		// baseUrl + 'assets/backgrounds/Hybrid_Cafe_BG.png',
         baseUrl + 'assets/backgrounds/SEWH_Ravenrock_Island.png',
 		// baseUrl + 'assets/backgrounds/RT3_BG.png',
-		// baseUrl + 'assets/backgrounds/3PS_BG.png',
+		baseUrl + 'assets/backgrounds/3PS_Earth_Town.png',
         baseUrl + 'assets/backgrounds/Phighting_KOTH.png',
+		baseUrl + 'assets/backgrounds/Phighting_Craterdust_Capital.png',
 		// baseUrl + 'assets/backgrounds/D-DAY_BG.png',
 		// baseUrl + 'assets/backgrounds/Anime_Vanguards_BG.png',
-		// baseUrl + 'assets/backgrounds/Parkour_Reborn_BG.png',
+		baseUrl + 'assets/backgrounds/Parkour_Reborn_Stack.png',
 	];
 
 	var randomIndex = Math.floor(Math.random() * backgroundImages.length);
