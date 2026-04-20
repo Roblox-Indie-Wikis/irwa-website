@@ -238,7 +238,6 @@ body {
 	line-height: var(--line-height);
 	padding: 0;
 	overscroll-behavior: none;
-	transition: .3s ease-out background;
 
 	&::before {
 		content: '';
@@ -246,7 +245,13 @@ body {
 		inset: 0;
 		background: var(--bg);
 		background-size: cover;
+		opacity: 1;
 		z-index: -2;
+		transition: 1s opacity;
+
+		@starting-style {
+			opacity: 0;
+		}
 	}
 
 	&.home-template::before {
