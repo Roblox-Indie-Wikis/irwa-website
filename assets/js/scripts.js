@@ -762,3 +762,39 @@ window.onscroll = function() {
     header.classList.remove('scrolled');
   }
 };
+
+/**
+ * Randomize the home page background image on each page load
+ */
+function initHomeBackgroundRotation() {
+	var body = document.body;
+	if (!body.classList.contains('home-template')) {
+		return;
+	}
+
+	var baseUrl = document.documentElement.getAttribute('data-baseurl') || '/';
+	if (!baseUrl.endsWith('/')) {
+		baseUrl += '/';
+	}
+
+	var backgroundImages = [
+		baseUrl + 'assets/backgrounds/futuristic-city.webp',
+		baseUrl + 'assets/backgrounds/Dovedale_British_Countryside.png',
+        baseUrl + 'assets/backgrounds/UTG_Raven_Ranch.png',
+        baseUrl + 'assets/backgrounds/Fisch_Place.png',
+        baseUrl + 'assets/backgrounds/GBP_San_Sebastian.png',
+        baseUrl + 'assets/backgrounds/SEWH_Ravenrock_Island.png',
+        baseUrl + 'assets/backgrounds/Phighting_KOTH.png',
+	];
+
+	var randomIndex = Math.floor(Math.random() * backgroundImages.length);
+	var selectedImage = backgroundImages[randomIndex];
+
+	document.documentElement.style.setProperty('--bg', "url('" + selectedImage + "')");
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', initHomeBackgroundRotation);
+} else {
+	initHomeBackgroundRotation();
+}
