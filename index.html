@@ -9,27 +9,33 @@ body_class: home-template
     <h1 class="mp-header">Supporting <em>Independent</em><br>Roblox Wikis</h1>
     <p class="align-center">We assist wikis with their work and ensure communities are at the frontier of control.</p>
     <p class="align-center">
-      <a href="{{ "/about/" | relative_url }}" class="btn">
+      <a href="{{ " /about/" | relative_url }}" class="btn">
         About Us
-        <img src="{{ "/assets/icons/arrow_forward.svg" | relative_url }}" height="20" aria-hidden="true" class="img-invert material-symbols">
+        <img src="{{ " /assets/icons/arrow_forward.svg" | relative_url }}" height="20" aria-hidden="true"
+          class="img-invert material-symbols">
       </a>
-      <a href="{{ "/joining/" | relative_url }}" class="btn" style="--hue: 330">Join Us</a>
+      <a href="{{ " /joining/" | relative_url }}" class="btn" style="--hue: 330">Join Us</a>
     </p>
   </div>
+
+  <img loading="lazy" src="{{ " /assets/icons/scroll_chevron.svg" | relative_url }}" alt="" aria-hidden="true"
+    width="50" class="landing-scroll-chevron">
 </div>
 
 <div class="landing-huge-quote">
-<blockquote class="landing-blockquote">
-  <p>Our mission is to <strong>support and help independent wikis find their footing</strong> in the Roblox wiki space. We provide support, develop tools and help emerging wikis find their style.</p>
-</blockquote>
-<div class="landing-stats">
+  <blockquote class="landing-blockquote">
+    <p>Our mission is to <strong>support and help independent wikis find their footing</strong> in the Roblox wiki
+      space. We provide support, develop tools and help emerging wikis find their style.</p>
+  </blockquote>
+  <div class="landing-stats">
     <div><strong>12 members<br></strong><em>in IRWA</em></div>
-    <div><strong><span class="extension-usage" data-extension="robloxapi">500</span>+ wikis<br></strong><em>using our extension</em></div>
+    <div><strong><span class="extension-usage" data-extension="robloxapi">500</span>+ wikis<br></strong><em>using our
+        extension</em></div>
     <div><strong>214K+ edits<br></strong><em>across all wikis</em></div>
   </div>
 </div>
 
-<h1 class="align-center">Working with <a href="{{ "/members/" | relative_url }}">teams</a> from</h1>
+<h1 class="align-center">Working with <a href="{{ " /members/" | relative_url }}">teams</a> from</h1>
 <p> </p>
 <div class="logo-carousel">
   <div class="logo-track align-center">
@@ -37,7 +43,9 @@ body_class: home-template
     <div class="logo-slide">
       <a href="{{ member.link }}" target="_blank" rel="noopener">
         <figure class="align-center">
-          <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100" height="100" class="carousel-logo" data-logo="{{ member.logo | relative_url }}" {% if member.logo-white %}data-logo-white="{{ member.logo-white | relative_url }}"{% endif %}>
+          <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100"
+            height="100" class="carousel-logo" data-logo="{{ member.logo | relative_url }}" {% if member.logo-white
+            %}data-logo-white="{{ member.logo-white | relative_url }}" {% endif %}>
         </figure>
       </a>
     </div>
@@ -46,7 +54,9 @@ body_class: home-template
     <div class="logo-slide">
       <a href="{{ member.link }}" target="_blank" rel="noopener">
         <figure class="align-center">
-          <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100" height="100" class="carousel-logo" data-logo="{{ member.logo | relative_url }}" {% if member.logo-white %}data-logo-white="{{ member.logo-white | relative_url }}"{% endif %}>
+          <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100"
+            height="100" class="carousel-logo" data-logo="{{ member.logo | relative_url }}" {% if member.logo-white
+            %}data-logo-white="{{ member.logo-white | relative_url }}" {% endif %}>
         </figure>
       </a>
     </div>
@@ -57,31 +67,37 @@ body_class: home-template
 <div class="landing-project-showcase">
   <div>
     <h1><i>Promoting and supporting</i> the future of independent wikis</h1>
-    <!--edit this !-->Our aim is to support wikis in achieving the freedom to govern themselves and make their own choices without the interference of external influences. 
+    <!--edit this !-->Our aim is to support wikis in achieving the freedom to govern themselves and make their own
+    choices without the interference of external influences.
   </div>
   <div>
-    <img loading="lazy" src="{{ "/assets/promofiles/sewh-robloxapi.png" | relative_url }}" alt="Something Evil Will Happen using RobloxAPI for game statistics" width="450" >
-    <sup><i><a href="https://sewh.miraheze.org?utm_source=irwa-website">Something Evil Will Happen Wiki</a> using <a href="{{ "/robloxapi/" | relative_url }}">RobloxAPI</a> for game statistics</i></sup>
+    <img loading="lazy" src="{{ " /assets/promofiles/sewh-robloxapi.png" | relative_url }}"
+      alt="Something Evil Will Happen using RobloxAPI for game statistics" width="450">
+    <sup><i><a href="https://sewh.miraheze.org?utm_source=irwa-website">Something Evil Will Happen Wiki</a> using <a
+          href="{{ " /robloxapi/" | relative_url }}">RobloxAPI</a> for game statistics</i></sup>
   </div>
 </div>
 
 <div class="landing-project-showcase">
   <div>
-    <img loading="lazy" src="{{ "/assets/promofiles/Different Wikis Illust.png" | relative_url }}" alt="An image showing two Roblox games, Dovedale Railway and Anime Vanguards, as well as their respective wiki sites." width="450">
+    <img loading="lazy" src="{{ " /assets/promofiles/Different Wikis Illust.png" | relative_url }}"
+      alt="An image showing two Roblox games, Dovedale Railway and Anime Vanguards, as well as their respective wiki sites."
+      width="450">
   </div>
-    <div>
+  <div>
     <h1>Regardless of size, everyone's welcome</h1>
-     Whatever your size or traffic, we have tools and support that can help your wiki thrive. 
+    Whatever your size or traffic, we have tools and support that can help your wiki thrive.
   </div>
 </div>
 
 <div class="landing-project-showcase">
   <div>
-    <h1>Building <a href="{{ "/projects/" | relative_url }}">projects</a> for the <i>public good</i></h1>
-    We work on Roblox-oriented wiki tools to help you build a better, more informative wiki for your community. 
+    <h1>Building <a href="{{ " /projects/" | relative_url }}">projects</a> for the <i>public good</i></h1>
+    We work on Roblox-oriented wiki tools to help you build a better, more informative wiki for your community.
   </div>
   <div>
-    <img loading="lazy" src="{{ "/assets/promofiles/sewh-robloxapi.png" | relative_url }}" alt="Something Evil Will Happen using RobloxAPI for game statistics" width="450" >
+    <img loading="lazy" src="{{ " /assets/promofiles/sewh-robloxapi.png" | relative_url }}"
+      alt="Something Evil Will Happen using RobloxAPI for game statistics" width="450">
   </div>
 </div>
 
