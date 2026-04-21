@@ -1,4 +1,4 @@
-const { computePosition, offset, flip, shift } = window.FloatingUIDOM;
+import {computePosition, offset, flip, shift} from 'https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.7.5/+esm';
 const floating = document.getElementById("floating");
 
 document.addEventListener("mousemove", (event) => {
