@@ -788,6 +788,7 @@ function initHomeBackgroundRotation() {
 		// baseUrl + 'assets/backgrounds/Dovedale_BG.png',
 		// baseUrl + 'assets/backgrounds/Hybrid_Cafe_BG.png',
         baseUrl + 'assets/backgrounds/SEWH_Ravenrock_Island.png',
+        baseUrl + 'assets/backgrounds/SEWH_Mountain_Lodge.png',
 		// baseUrl + 'assets/backgrounds/RT3_BG.png',
 		baseUrl + 'assets/backgrounds/3PS_Earth_Town.png',
         baseUrl + 'assets/backgrounds/Phighting_KOTH.png',
