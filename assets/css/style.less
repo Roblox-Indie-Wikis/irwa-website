@@ -1285,9 +1285,20 @@ textarea {
 }
 
 @keyframes chevronloop {
-	0% { transform: translateY(-15px); opacity: 0 }
-	50% { transform: translateY(0); opacity: 0.5 }
-	100% { transform: translateY(15px); opacity: 0 }
+	0% {
+		transform: translateY(-15px);
+		opacity: 0
+	}
+
+	50% {
+		transform: translateY(0);
+		opacity: 0.5
+	}
+
+	100% {
+		transform: translateY(15px);
+		opacity: 0
+	}
 }
 
 .home-template .landing-blockquote {
@@ -2672,10 +2683,20 @@ img.is-loaded {
 .logo-track {
 	display: flex;
 	animation: scroll 23s linear infinite;
-	width: calc(var(--logo-slide-width) * 10);
+	width: calc(var(--logo-slide-width) * 12);
 
 	&:hover {
 		animation-play-state: paused
+	}
+}
+
+@keyframes scroll {
+	0% {
+		transform: translateX(0)
+	}
+
+	100% {
+		transform: translateX(calc(var(--logo-slide-width) * -12))
 	}
 }
 
@@ -2696,16 +2717,6 @@ img.is-loaded {
 
 	& a:hover img {
 		opacity: 1
-	}
-}
-
-@keyframes scroll {
-	0% {
-		transform: translateX(0)
-	}
-
-	100% {
-		transform: translateX(calc(var(--logo-slide-width) * -10))
 	}
 }
 
@@ -2900,5 +2911,24 @@ img.is-loaded {
 		>p:first-child {
 			margin-top: unset;
 		}
+	}
+}
+
+#floating {
+	position: absolute;
+	background: oklch(from var(--neutral-2) l c h / 60%);
+	padding: 0.5rem;
+	box-sizing: border-box;
+	font-size: 0.8rem;
+	margin: 10px;
+	backdrop-filter: blur(10px);
+	pointer-events: none;
+	opacity: 0;
+	transform: translateY(-30px);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+
+	&.visible {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }

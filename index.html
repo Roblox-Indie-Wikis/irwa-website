@@ -41,9 +41,9 @@ body_class: home-template
 <p> </p>
 <div class="logo-carousel">
   <div class="logo-track align-center">
-    {% for member in site.data.members limit: 10 %}
-    <div class="logo-slide">
-      <a href="{{ member.link }}" target="_blank" rel="noopener">
+    {% for member in site.data.members limit: 12 %}
+    <div class="logo-slide" data-wiki-name="{{ member.name }}">
+      <a href="{{ member.link }}?utm_source=irwa-website" target="_blank" rel="noopener">
         <figure class="align-center">
           <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100"
             height="100" class="carousel-logo" data-logo="{{ member.logo | relative_url }}" {% if member.logo-white
@@ -52,9 +52,9 @@ body_class: home-template
       </a>
     </div>
     {% endfor %}
-    {% for member in site.data.members limit: 10 %}
-    <div class="logo-slide">
-      <a href="{{ member.link }}" target="_blank" rel="noopener">
+    {% for member in site.data.members limit: 12 %}
+    <div class="logo-slide" data-wiki-name="{{ member.name }}">
+      <a href="{{ member.link }}?utm_source=irwa-website" target="_blank" rel="noopener">
         <figure class="align-center">
           <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100"
             height="100" class="carousel-logo" data-logo="{{ member.logo | relative_url }}" {% if member.logo-white
@@ -65,6 +65,8 @@ body_class: home-template
     {% endfor %}
   </div>
 </div>
+
+<div id="floating"></div>
 
 <div class="landing-project-showcase">
   <div>
