@@ -778,8 +778,6 @@ function initHomeBackgroundRotation() {
 	}
 
 	var backgroundImages = [
-		baseUrl + 'assets/backgrounds/futuristic-city.webp',
-
 		baseUrl + 'assets/backgrounds/Fisch_Place.png',
 		baseUrl + 'assets/backgrounds/Fisch_Toxic_Grove.png',
 		baseUrl + 'assets/backgrounds/GBP_San_Sebastian.png',
