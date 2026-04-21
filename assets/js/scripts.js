@@ -802,9 +802,17 @@ function initHomeBackgroundRotation() {
 		baseUrl + 'assets/backgrounds/Parkour_Reborn_Stack.png',
 	];
 
-	var randomIndex = Math.floor(Math.random() * backgroundImages.length);
-	var selectedImage = backgroundImages[randomIndex];
+	var lastIndex = localStorage.getItem('lastBgIndex');
+	var randomIndex;
 
+	// keep picking a random number until it's different from the last one
+	do {
+		randomIndex = Math.floor(Math.random() * backgroundImages.length);
+	} while (backgroundImages.length > 1 && randomIndex == lastIndex);
+
+	localStorage.setItem('lastBgIndex', randomIndex);
+
+	var selectedImage = backgroundImages[randomIndex];
 	document.documentElement.style.setProperty('--bg', "url('" + selectedImage + "')");
 }
 
