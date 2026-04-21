@@ -786,6 +786,8 @@ function initHomeBackgroundRotation() {
 		baseUrl + 'assets/backgrounds/UTG_Raven_Ranch.png',
 		baseUrl + 'assets/backgrounds/UTG_Tokyo_Town.png',
 		baseUrl + 'assets/backgrounds/Dovedale_Central.png',
+		baseUrl + 'assets/backgrounds/Dovedale_Sunset.png',
+		baseUrl + 'assets/backgrounds/Dovedale_Tunnel.png',
 		// baseUrl + 'assets/backgrounds/Hybrid_Cafe_BG.png',
 		baseUrl + 'assets/backgrounds/SEWH_Ravenrock_Island.png',
 		baseUrl + 'assets/backgrounds/SEWH_Mountain_Lodge.png',
