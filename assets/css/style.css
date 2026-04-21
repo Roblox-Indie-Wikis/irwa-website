@@ -375,7 +375,7 @@
   --yellow: #FFC76B;
 }
 :root {
-  --bg: url('../../assets/backgrounds/futuristic-city.webp');
+  --bg: url('../../assets/backgrounds/futuristic-city.png');
   --page-margin: 8vmin;
   --page-width: 1440px;
   --entry-width: 95ch;
