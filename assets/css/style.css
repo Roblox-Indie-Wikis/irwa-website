@@ -2536,8 +2536,8 @@ body:not(.toc-enabled) .content__inner {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* width: 44px !important;
-		height: 44px; */
+  width: 44px !important;
+  height: 44px;
   padding: 0.5rem;
   line-height: 1;
   opacity: 0;
