@@ -77,6 +77,9 @@
   height: 100px;
   object-fit: contain;
 }
+.member-box:hover .member-box-logo {
+  transform: scale(1.1);
+}
 /* Modal Styles */
 .modal-overlay {
   position: fixed;
