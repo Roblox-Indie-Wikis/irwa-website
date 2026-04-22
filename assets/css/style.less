@@ -469,9 +469,6 @@ kbd {
 	font-size: .8888em;
 	padding: .125rem .375rem
 }
-	font-size: .8888em;
-	padding: .125rem .375rem
-}
 
 sub,
 sup {
@@ -2441,28 +2438,27 @@ body:not(.home-template) .main {
 	}
 
 	.footer__bttop {
-		background: var(--link-color);
-		border: 2px solid var(--white) !important;
+		background: oklch(from var(--primary-3) l c h / 0.6);
+		border: unset !important;
+		/* border: 2px solid var(--white) !important; */
 		bottom: calc(var(--baseline) * 5);
 		border-radius: 50%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 44px;
+		/* width: 44px !important;
+		height: 44px; */
+		padding: 0.5rem;
 		line-height: 1;
 		opacity: 0;
-		padding: 0;
 		position: fixed;
 		right: 2rem;
 		text-align: center;
-		width: 44px !important;
 		visibility: hidden;
 		z-index: 999;
 		transform: translateY(1rem);
 
-		@media all and (min-width:56.25em) {
-			bottom: calc(var(--baseline) * 10)
-		}
+		
 
 		&:hover {
 			opacity: 1;
@@ -2838,8 +2834,9 @@ img.is-loaded {
 		align-items: start;
 		gap: 0.5rem;
 
-		&:last-child {
-			color: oklch(from var(--text-color) l c h / 0.6)
+		>p {
+			color: oklch(from var(--text-color) l c h / 0.6);
+			margin-top: unset;
 		}
 	}
 
@@ -2851,6 +2848,17 @@ img.is-loaded {
 		margin-bottom: calc(var(--baseline) * 70) !important;
 	}
 }
+
+@keyframes appear {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
 
 .project-container {
 	background: oklch(from var(--neutral-2) l c h / 60%);
