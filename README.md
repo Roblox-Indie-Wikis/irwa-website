@@ -24,8 +24,7 @@ If you wish to add it yourself, please open a pull request doing the following:
 ```yaml
 - name: 
   link: 
-  logo: "/assets/wiki-logos/LogoHere.svg" (svg is recommended if logo is basic; if monochrome, place the black version here)
-  logo-white: "/assets/wiki-logos/LogoHere.svg" (can remove if logo is not monochrome)
+  logo: "/assets/wiki-logos/LogoHere.svg" (svg is recommended if logo is basic; if monochrome, place the white version here)
   description: "Lorem ipsum"
   game_link: 
   discord: 
