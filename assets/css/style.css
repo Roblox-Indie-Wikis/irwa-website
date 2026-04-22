@@ -508,11 +508,15 @@ body::before {
     opacity: 0;
   }
 }
-body.home-template::before {
+body.home-template::before,
+body.bg-include::before {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
 }
-body:not(.home-template)::before {
+body:not(.home-template):not(.bg-include)::before {
   display: none;
+}
+body.page-onboarding::before {
+  --bg: url('../../assets/promofiles/OnboardingMainThumbnail.png');
 }
 a {
   color: var(--link-color);
@@ -521,6 +525,9 @@ a {
 }
 .img-invert {
   filter: invert(1);
+}
+.img-rounded {
+  border-radius: 20px;
 }
 dl,
 ol,
@@ -2953,4 +2960,11 @@ img.is-loaded {
 #floating.visible {
   opacity: 1;
   transform: translateY(0);
+}
+.aspect-ratio-169 {
+  aspect-ratio: 16 / 9;
+}
+.size-cover {
+  object-fit: cover;
+  background-size: cover;
 }

@@ -254,12 +254,17 @@ body {
 		}
 	}
 
-	&.home-template::before {
+	&.home-template::before,
+	&.bg-include::before {
 		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
 	}
 
-	&:not(.home-template)::before {
+	&:not(.home-template):not(.bg-include)::before {
 		display: none;
+	}
+
+	&.page-onboarding::before {
+		--bg: url('../../assets/promofiles/OnboardingMainThumbnail.png');
 	}
 }
 
@@ -271,6 +276,10 @@ a {
 
 .img-invert {
 	filter: invert(1);
+}
+
+.img-rounded {
+	border-radius: 20px;
 }
 
 dl,
@@ -2942,4 +2951,13 @@ img.is-loaded {
 		opacity: 1;
 		transform: translateY(0);
 	}
+}
+
+.aspect-ratio-169 {
+	aspect-ratio: 16 / 9;
+}
+
+.size-cover {
+	object-fit: cover;
+	background-size: cover;
 }
