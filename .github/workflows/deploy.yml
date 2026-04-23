@@ -2,7 +2,7 @@ name: Deploy Jekyll site to Pages
 
 on:
   push:
-    branches: ["patch-1"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
