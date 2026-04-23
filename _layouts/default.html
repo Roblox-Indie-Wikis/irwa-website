@@ -23,15 +23,22 @@
   </script>
   <script src="{{ "/assets/js/scripts.min.js" | relative_url }}" defer></script>
   <script src="{{ "/assets/js/entity-modal.js" | relative_url }}" defer></script>
-  <!-- Table overflow wrapper scripts -->
-  <script src="{{ "/assets/js/overflow-wrapper.js" | relative_url }}" defer></script>
-  <script src="{{ "/assets/js/overflow-state.js" | relative_url }}" defer></script>
-  <script src="{{ "/assets/js/overflow-element.js" | relative_url }}" defer></script>
-  <script src="{{ "/assets/js/overflow-init.js" | relative_url }}" defer></script>
-  <!-- Table of contents scripts -->
-  <script src="{{ "/assets/js/toc-wrapper.js" | relative_url }}" defer></script>
-  <script src="{{ "/assets/js/toc-sticky.js" | relative_url }}" defer></script>
-  <script src="{{ "/assets/js/toc-init.js" | relative_url }}" defer></script>
+  
+  {% if page.body_class contains 'robloxapi' %}
+    <!-- Table overflow wrapper scripts -->
+    <script src="{{ "/assets/js/overflow-wrapper.js" | relative_url }}" defer></script>
+    <script src="{{ "/assets/js/overflow-state.js" | relative_url }}" defer></script>
+    <script src="{{ "/assets/js/overflow-element.js" | relative_url }}" defer></script>
+    <script src="{{ "/assets/js/overflow-init.js" | relative_url }}" defer></script>
+  {% endif %}
+
+  {% if page.body_class contains 'toc-enabled' %}
+    <!-- Table of contents scripts -->
+    <script src="{{ "/assets/js/toc-wrapper.js" | relative_url }}" defer></script>
+    <script src="{{ "/assets/js/toc-sticky.js" | relative_url }}" defer></script>
+    <script src="{{ "/assets/js/toc-init.js" | relative_url }}" defer></script>
+  {% endif %}
+  
   <script>
     function publiiDetectLoadedImages () {
       var images = document.querySelectorAll('img[loading]:not(.is-loaded)');
