@@ -13,8 +13,7 @@ permalink: /members/
     <button type="button" class="member-box btn-secondary"
             onclick="openEntityModal(this)"
             data-entity='{{ member | jsonify | escape }}'
-            data-logo="{{ member.logo | relative_url }}"
-            {% if member["logo-white"] %}data-logo-white="{{ member["logo-white"] | relative_url }}"{% endif %}>
+            data-logo="{{ member.logo | relative_url }}">
         <img src="{{ member.logo | relative_url }}" alt="" aria-hidden="true" class="member-box-logo">
         {{ member.name }}
     </button>
