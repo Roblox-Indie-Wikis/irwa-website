@@ -5,7 +5,6 @@
   <nav class="navbar js-navbar">
     <button class="navbar__toggle js-toggle" aria-label="Menu">Menu</button>
     <ul class="navbar__menu">
-      <!-- <li{% if page.url == "/" %} class="active"{% endif %}><a href="{{ "/" | relative_url }}">Home</a></li> -->
       <li{% if page.url == "/about/" %} class="active"{% endif %}><a href="{{ "/about/" | relative_url }}">About</a></li>
       <li{% if page.url == "/members/" %} class="active"{% endif %}><a href="{{ "/members/" | relative_url }}">Members</a></li>
       <li class="main-menu-partners{% if page.url == "/partners/" %} active{% endif %}"><a href="{{ "/partners/" | relative_url }}" title="Partners">Partners</a></li>
