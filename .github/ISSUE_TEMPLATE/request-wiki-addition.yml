@@ -47,10 +47,8 @@ body:
       description: Your wiki listing includes some social links. Please select what you would like to add. 
       options:
         - label: Wiki Discord
-        - label: Game/Community Discord
         - label: Twitter / X
-        - label: Ko-fi/Patreon/Donation Page (Only for self-hosted sites to cover costs) 
-        - label: Other (please describe in the additional info field below)
+        - label: Donation page; Ko-fi/Patreon (only for self-hosted sites to cover costs) 
 
   - type: textarea
     id: social-links-urls
@@ -59,7 +57,6 @@ body:
       description: Provide the URLs for each social link you selected above. One per line.
       placeholder: |
         Wiki Discord: https://discord.gg/hmqCYg4P23 
-        Game Discord: https://discord.gg/dovedale
         Twitter: https://twitter.com/DovedaleRailway
         Ko-fi: https://ko-fi.com/Dovedale
 
@@ -77,7 +74,6 @@ body:
       description: Please give a short and succinct description of your wiki for others. We may edit this for clarity or to fix grammar. 
       placeholder: The official and independent community focused wiki site for Dovedale Railway that works with developers to provide the best in class information for the game.
 
-      
   - type: checkboxes
     id: captchas
     attributes:
