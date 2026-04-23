@@ -1,12 +1,17 @@
 ---
 layout: page
-body_class: page-template robloxapi toc-enabled
+body_class: page-template robloxapi toc-enabled bg-include page-robloxapi
 title: Roblox API Documentation
 description: Documentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions.
 redirect_from: /docs/robloxapi
 permalink: /robloxapi/
+image: /assets/promofiles/RobloxAPIMainThumbnail.png
+twitter:
+  card: summary_large_image
 ---
 # Roblox API Documentation
+
+<figure class="post__image align-center"><img loading="lazy" src="{{ "/assets/promofiles/RobloxAPIMainThumbnail.png" | relative_url }}" alt="" aria-hidden="true" width="800" class="img-rounded aspect-ratio-169 size-cover"></figure>
 
 The RobloxAPI extension provides easy access to the Roblox API via parser functions. The Roblox API is generally very poorly documented, and using the ExternalData extension or Lua modules can be a steep learning curve which may not be viable. This extension aims to make it easy for you to grab data from Roblox and put it on your wiki, using simple parser functions.
 {% raw %}

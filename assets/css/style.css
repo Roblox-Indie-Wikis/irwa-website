@@ -519,6 +519,9 @@ body:not(.home-template):not(.bg-include)::before {
 body.page-onboarding::before {
   --bg: url('../../assets/promofiles/OnboardingMainThumbnail.png');
 }
+body.page-robloxapi::before {
+  --bg: url('../../assets/backgrounds/RobloxAPI_Mesh_Gradient.webp');
+}
 a {
   color: var(--link-color);
   text-decoration: none;
