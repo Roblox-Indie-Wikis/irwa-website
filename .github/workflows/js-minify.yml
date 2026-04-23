@@ -1,0 +1,50 @@
+name: Minify JS
+on:
+  push:
+    paths:
+      - 'assets/js/scripts.js' # Only trigger when source JS changes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  minify-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Minifier
+        run: npm install -g terser
+
+      - name: Minify JavaScript
+        run: |
+          # Minify the JS asset used by the site
+          terser assets/js/scripts.js -o assets/js/scripts.min.js
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "style: minify scripts.js"
+          committer: GitHub <noreply@github.com>
+          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          branch: patch/sync-scripts-js/${{ github.ref_name }}
+          base: ${{ github.ref_name }}
+          title: "Update Minified scripts.js"
+          body: "Automated PR to update scripts.min.js"
+          delete-branch: true
+
+      - name: Auto-merge PR
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --squash --admin
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,60 @@
+name: Compile LESS to CSS
+
+on:
+  push:
+    paths:
+      - '**/*.less'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install LESS compiler
+        run: npm install -g less@4.6.4
+
+      - name: Compile all LESS to CSS
+        run: |
+          # Find all .less files, excluding those starting with _ (common for partials)
+          find . -name "*.less" ! -name "_*" | while read -r file; do
+            css_file="${file%.less}.css"
+            echo "Compiling $file to $css_file"
+            lessc --math=strict "$file" "$css_file"
+          done
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "style: compile LESS to CSS"
+          committer: GitHub <noreply@github.com>
+          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          branch: patch/compile-less/${{ github.ref_name }}
+          base: ${{ github.ref_name }}
+          title: "Update Compiled CSS"
+          body: "This is an automated PR to compile LESS to CSS."
+          delete-branch: true
+
+      - name: Auto-merge PR
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --squash --admin
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

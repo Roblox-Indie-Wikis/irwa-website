@@ -4,429 +4,489 @@
 	 * Merge default config with the theme overrided ones
 	 */
 	var defaultConfig = {
-		 // behaviour
-		 mobileMenuMode: 'overlay',
-		 animationSpeed: 300,
-		 submenuWidth: 300,
-		 doubleClickTime: 500,
-		 mobileMenuExpandableSubmenus: false,
-		 isHoverMenu: true,
-		 // selectors
-		 wrapperSelector: '.navbar',
-		 buttonSelector: '.navbar__toggle',
-		 menuSelector: '.navbar__menu',
-		 submenuSelector: '.navbar__submenu',
-		 mobileMenuSidebarLogoSelector: null,
-		 mobileMenuSidebarLogoUrl: null,
-		 relatedContainerForOverlayMenuSelector: null,
-		 // attributes 
-		 ariaButtonAttribute: 'aria-haspopup',
-		 // CSS classes
-		 separatorItemClass: 'is-separator',
-		 parentItemClass: 'has-submenu',
-		 submenuLeftPositionClass: 'is-left-submenu',
-		 submenuRightPositionClass: 'is-right-submenu',
-		 mobileMenuOverlayClass: 'navbar_mobile_overlay',
-		 mobileMenuSubmenuWrapperClass: 'navbar__submenu_wrapper',
-		 mobileMenuSidebarClass: 'navbar_mobile_sidebar',
-		 mobileMenuSidebarOverlayClass: 'navbar_mobile_sidebar__overlay',
-		 hiddenElementClass: 'is-hidden',
-		 openedMenuClass: 'is-active',
-		 noScrollClass: 'no-scroll',
-		 relatedContainerForOverlayMenuClass: 'is-visible'
+		// behaviour
+		mobileMenuMode: 'overlay',
+		animationSpeed: 300,
+		submenuWidth: 300,
+		doubleClickTime: 500,
+		mobileMenuExpandableSubmenus: false,
+		isHoverMenu: true,
+		// selectors
+		wrapperSelector: '.navbar',
+		buttonSelector: '.navbar__toggle',
+		menuSelector: '.navbar__menu',
+		submenuSelector: '.navbar__submenu',
+		mobileMenuSidebarLogoSelector: null,
+		mobileMenuSidebarLogoUrl: null,
+		relatedContainerForOverlayMenuSelector: null,
+		// attributes
+		ariaButtonAttribute: 'aria-haspopup',
+		// CSS classes
+		separatorItemClass: 'is-separator',
+		parentItemClass: 'has-submenu',
+		submenuLeftPositionClass: 'is-left-submenu',
+		submenuRightPositionClass: 'is-right-submenu',
+		mobileMenuOverlayClass: 'navbar_mobile_overlay',
+		mobileMenuSubmenuWrapperClass: 'navbar__submenu_wrapper',
+		mobileMenuSidebarClass: 'navbar_mobile_sidebar',
+		mobileMenuSidebarOverlayClass: 'navbar_mobile_sidebar__overlay',
+		hiddenElementClass: 'is-hidden',
+		openedMenuClass: 'is-active',
+		noScrollClass: 'no-scroll',
+		relatedContainerForOverlayMenuClass: 'is-visible'
 	};
 
 	var config = {};
 
-	Object.keys(defaultConfig).forEach(function(key) {
-		 config[key] = defaultConfig[key];
+	Object.keys(defaultConfig).forEach(function (key) {
+		config[key] = defaultConfig[key];
 	});
 
 	if (typeof menuConfig === 'object') {
-		 Object.keys(menuConfig).forEach(function(key) {
-			  config[key] = menuConfig[key];
-		 });
+		Object.keys(menuConfig).forEach(function (key) {
+			config[key] = menuConfig[key];
+		});
 	}
 
 	/**
 	 * Menu initializer
 	 */
-	function init () {
-		 if (!document.querySelectorAll(config.wrapperSelector).length) {
-			  return;
-		 }
+	function init() {
+		if (!document.querySelectorAll(config.wrapperSelector).length) {
+			return;
+		}
 
-		 initSubmenuPositions();
+		initSubmenuPositions();
 
-		 if (config.mobileMenuMode === 'overlay') {
-			  initMobileMenuOverlay();
-		 } else if (config.mobileMenuMode === 'sidebar') {
-			  initMobileMenuSidebar();
-		 }
+		if (config.mobileMenuMode === 'overlay') {
+			initMobileMenuOverlay();
+		} else if (config.mobileMenuMode === 'sidebar') {
+			initMobileMenuSidebar();
+		}
 
-		 initClosingMenuOnClickLink();
+		initClosingMenuOnClickLink();
 
-		 if (!config.isHoverMenu) {
-			  initAriaAttributes();
-		 }
+		if (!config.isHoverMenu) {
+			initAriaAttributes();
+		}
 	};
 
 	/**
 	 * Function responsible for the submenu positions
 	 */
-	function initSubmenuPositions () {
-		 var submenuParents = document.querySelectorAll(config.wrapperSelector + ' .' + config.parentItemClass);
+	function initSubmenuPositions() {
+		var submenuParents = document.querySelectorAll(config.wrapperSelector + ' .' + config.parentItemClass);
 
-		 for (var i = 0; i < submenuParents.length; i++) {
-			  var eventTrigger = config.isHoverMenu ? 'mouseenter' : 'click';
+		for (var i = 0; i < submenuParents.length; i++) {
+			var eventTrigger = config.isHoverMenu ? 'mouseenter' : 'click';
 
-			  submenuParents[i].addEventListener(eventTrigger, function () {
-					var submenu = this.querySelector(config.submenuSelector);
-					var itemPosition = this.getBoundingClientRect().left;
-					var widthMultiplier = 2;
+			submenuParents[i].addEventListener(eventTrigger, function () {
+				var submenu = this.querySelector(config.submenuSelector);
+				var itemPosition = this.getBoundingClientRect().left;
+				var widthMultiplier = 2;
 
-					if (this.parentNode === document.querySelector(config.menuSelector)) {
-						 widthMultiplier = 1;
-					}
+				if (this.parentNode === document.querySelector(config.menuSelector)) {
+					widthMultiplier = 1;
+				}
 
-					if (config.submenuWidth !== 'auto') {
-						 var submenuPotentialPosition = itemPosition + (config.submenuWidth * widthMultiplier);
+				if (config.submenuWidth !== 'auto') {
+					var submenuPotentialPosition = itemPosition + (config.submenuWidth * widthMultiplier);
 
-						 if (window.innerWidth < submenuPotentialPosition) {
-							  submenu.classList.remove(config.submenuLeftPositionClass);
-							  submenu.classList.add(config.submenuRightPositionClass);
-						 } else {
-							  submenu.classList.remove(config.submenuRightPositionClass);
-							  submenu.classList.add(config.submenuLeftPositionClass);
-						 }
+					if (window.innerWidth < submenuPotentialPosition) {
+						submenu.classList.remove(config.submenuLeftPositionClass);
+						submenu.classList.add(config.submenuRightPositionClass);
 					} else {
-						 var submenuPotentialPosition = 0;
-						 var submenuPosition = 0;
+						submenu.classList.remove(config.submenuRightPositionClass);
+						submenu.classList.add(config.submenuLeftPositionClass);
+					}
+				} else {
+					var submenuPotentialPosition = 0;
+					var submenuPosition = 0;
 
-						 if (widthMultiplier === 1) {
-							  submenuPotentialPosition = itemPosition + submenu.clientWidth;
-						 } else {
-							  submenuPotentialPosition = itemPosition + this.clientWidth + submenu.clientWidth;
-						 }
-
-						 if (window.innerWidth < submenuPotentialPosition) {
-							  submenu.classList.remove(config.submenuLeftPositionClass);
-							  submenu.classList.add(config.submenuRightPositionClass);
-							  submenuPosition = -1 * submenu.clientWidth;
-							  submenu.removeAttribute('style');
-
-							  if (widthMultiplier === 1) {
-									submenuPosition = 0;
-									submenu.style.right = submenuPosition + 'px';
-							  } else {
-									submenu.style.right = this.clientWidth + 'px';
-							  }
-						 } else {
-							  submenu.classList.remove(config.submenuRightPositionClass);
-							  submenu.classList.add(config.submenuLeftPositionClass);
-							  submenuPosition = this.clientWidth;
-
-							  if (widthMultiplier === 1) {
-									submenuPosition = 0;
-							  }
-
-							  submenu.removeAttribute('style');
-							  submenu.style.left = submenuPosition + 'px';
-						 }
+					if (widthMultiplier === 1) {
+						submenuPotentialPosition = itemPosition + submenu.clientWidth;
+					} else {
+						submenuPotentialPosition = itemPosition + this.clientWidth + submenu.clientWidth;
 					}
 
-					submenu.setAttribute('aria-hidden', false);
-			  });
+					if (window.innerWidth < submenuPotentialPosition) {
+						submenu.classList.remove(config.submenuLeftPositionClass);
+						submenu.classList.add(config.submenuRightPositionClass);
+						submenuPosition = -1 * submenu.clientWidth;
+						submenu.removeAttribute('style');
 
-			  if (config.isHoverMenu) {
-					submenuParents[i].addEventListener('mouseleave', function () {
-						 var submenu = this.querySelector(config.submenuSelector);
-						 submenu.removeAttribute('style');
-						 submenu.setAttribute('aria-hidden', true);
-					});
-			  }
-		 }
+						if (widthMultiplier === 1) {
+							submenuPosition = 0;
+							submenu.style.right = submenuPosition + 'px';
+						} else {
+							submenu.style.right = this.clientWidth + 'px';
+						}
+					} else {
+						submenu.classList.remove(config.submenuRightPositionClass);
+						submenu.classList.add(config.submenuLeftPositionClass);
+						submenuPosition = this.clientWidth;
+
+						if (widthMultiplier === 1) {
+							submenuPosition = 0;
+						}
+
+						submenu.removeAttribute('style');
+						submenu.style.left = submenuPosition + 'px';
+					}
+				}
+
+				submenu.setAttribute('aria-hidden', false);
+			});
+
+			if (config.isHoverMenu) {
+				submenuParents[i].addEventListener('mouseleave', function () {
+					var submenu = this.querySelector(config.submenuSelector);
+					submenu.removeAttribute('style');
+					submenu.setAttribute('aria-hidden', true);
+				});
+			}
+		}
 	}
 
 	/**
 	 * Function used to init mobile menu - overlay mode
 	 */
-	function initMobileMenuOverlay () {
-		 var menuWrapper = document.createElement('div');
-		 menuWrapper.classList.add(config.mobileMenuOverlayClass);
-		 menuWrapper.classList.add(config.hiddenElementClass);
-		 var menuContentHTML = document.querySelector(config.menuSelector).outerHTML;
-		 menuWrapper.innerHTML = menuContentHTML;
-		 document.body.appendChild(menuWrapper);
+	function initMobileMenuOverlay() {
+		var menuWrapper = document.createElement('div');
+		menuWrapper.classList.add(config.mobileMenuOverlayClass);
+		menuWrapper.classList.add(config.hiddenElementClass);
+		var menuContentHTML = document.querySelector(config.menuSelector).outerHTML;
+		menuWrapper.innerHTML = menuContentHTML;
+		document.body.appendChild(menuWrapper);
 
-		 // Init toggle submenus
-		 if (config.mobileMenuExpandableSubmenus) {
-			  wrapSubmenusIntoContainer(menuWrapper);
-			  initToggleSubmenu(menuWrapper);
-		 } else {
-			  setAriaForSubmenus(menuWrapper);
-		 }
+		// Init toggle submenus
+		if (config.mobileMenuExpandableSubmenus) {
+			wrapSubmenusIntoContainer(menuWrapper);
+			initToggleSubmenu(menuWrapper);
+		} else {
+			setAriaForSubmenus(menuWrapper);
+		}
 
-		 // Init button events
-		 var button = document.querySelector(config.buttonSelector);
+		// Init button events
+		var button = document.querySelector(config.buttonSelector);
 
-		 button.addEventListener('click', function () {
-			  var relatedContainer = document.querySelector(config.relatedContainerForOverlayMenuSelector);
-			  menuWrapper.classList.toggle(config.hiddenElementClass);
-			  button.classList.toggle(config.openedMenuClass);
-			  button.setAttribute(config.ariaButtonAttribute, button.classList.contains(config.openedMenuClass));
+		button.addEventListener('click', function () {
+			var relatedContainer = document.querySelector(config.relatedContainerForOverlayMenuSelector);
+			menuWrapper.classList.toggle(config.hiddenElementClass);
+			button.classList.toggle(config.openedMenuClass);
+			button.setAttribute(config.ariaButtonAttribute, button.classList.contains(config.openedMenuClass));
 
-			  if (button.classList.contains(config.openedMenuClass)) {
-					document.documentElement.classList.add(config.noScrollClass);
+			if (button.classList.contains(config.openedMenuClass)) {
+				document.documentElement.classList.add(config.noScrollClass);
 
-					if (relatedContainer) {
-						 relatedContainer.classList.add(config.relatedContainerForOverlayMenuClass);
-					}
-			  } else {
-					document.documentElement.classList.remove(config.noScrollClass);
+				if (relatedContainer) {
+					relatedContainer.classList.add(config.relatedContainerForOverlayMenuClass);
+				}
+			} else {
+				document.documentElement.classList.remove(config.noScrollClass);
 
-					if (relatedContainer) {
-						 relatedContainer.classList.remove(config.relatedContainerForOverlayMenuClass);
-					}
-			  }
-		 });   
+				if (relatedContainer) {
+					relatedContainer.classList.remove(config.relatedContainerForOverlayMenuClass);
+				}
+			}
+		});
 	}
 
 	/**
 	 * Function used to init mobile menu - sidebar mode
 	 */
-	function initMobileMenuSidebar () {
-		 // Create menu structure
-		 var menuWrapper = document.createElement('div');
-		 menuWrapper.classList.add(config.mobileMenuSidebarClass);
-		 menuWrapper.classList.add(config.hiddenElementClass);
-		 var menuContentHTML = '';
+	function initMobileMenuSidebar() {
+		// Create menu structure
+		var menuWrapper = document.createElement('div');
+		menuWrapper.classList.add(config.mobileMenuSidebarClass);
+		menuWrapper.classList.add(config.hiddenElementClass);
+		var menuContentHTML = '';
 
-		 if (config.mobileMenuSidebarLogoSelector !== null) {
-			  menuContentHTML = document.querySelector(config.mobileMenuSidebarLogoSelector).outerHTML;
-		 } else if (config.mobileMenuSidebarLogoUrl !== null) {
-			  menuContentHTML = '<img src="' + config.mobileMenuSidebarLogoUrl + '" alt="" />';
-		 }
+		if (config.mobileMenuSidebarLogoSelector !== null) {
+			menuContentHTML = document.querySelector(config.mobileMenuSidebarLogoSelector).outerHTML;
+		} else if (config.mobileMenuSidebarLogoUrl !== null) {
+			menuContentHTML = '<img src="' + config.mobileMenuSidebarLogoUrl + '" alt="" />';
+		}
 
-		 menuContentHTML += document.querySelector(config.menuSelector).outerHTML;
-		 menuWrapper.innerHTML = menuContentHTML;
+		menuContentHTML += document.querySelector(config.menuSelector).outerHTML;
+		menuWrapper.innerHTML = menuContentHTML;
 
-		 var menuOverlay = document.createElement('div');
-		 menuOverlay.classList.add(config.mobileMenuSidebarOverlayClass);
-		 menuOverlay.classList.add(config.hiddenElementClass);
+		var menuOverlay = document.createElement('div');
+		menuOverlay.classList.add(config.mobileMenuSidebarOverlayClass);
+		menuOverlay.classList.add(config.hiddenElementClass);
 
-		 document.body.appendChild(menuOverlay);
-		 document.body.appendChild(menuWrapper);
+		document.body.appendChild(menuOverlay);
+		document.body.appendChild(menuWrapper);
 
-		 // Init toggle submenus
-		 if (config.mobileMenuExpandableSubmenus) {
-			  wrapSubmenusIntoContainer(menuWrapper);
-			  initToggleSubmenu(menuWrapper);
-		 } else {
-			  setAriaForSubmenus(menuWrapper);
-		 }
+		// Init toggle submenus
+		if (config.mobileMenuExpandableSubmenus) {
+			wrapSubmenusIntoContainer(menuWrapper);
+			initToggleSubmenu(menuWrapper);
+		} else {
+			setAriaForSubmenus(menuWrapper);
+		}
 
-		 // Menu events
-		 menuWrapper.addEventListener('click', function (e) {
-			  e.stopPropagation();
-		 });
+		// Menu events
+		menuWrapper.addEventListener('click', function (e) {
+			e.stopPropagation();
+		});
 
-		 menuOverlay.addEventListener('click', function () {
-			  menuWrapper.classList.add(config.hiddenElementClass);
-			  menuOverlay.classList.add(config.hiddenElementClass);
-			  button.classList.remove(config.openedMenuClass);
-			  button.setAttribute(config.ariaButtonAttribute, false);
-			  document.documentElement.classList.remove(config.noScrollClass);
-		 });
+		menuOverlay.addEventListener('click', function () {
+			menuWrapper.classList.add(config.hiddenElementClass);
+			menuOverlay.classList.add(config.hiddenElementClass);
+			button.classList.remove(config.openedMenuClass);
+			button.setAttribute(config.ariaButtonAttribute, false);
+			document.documentElement.classList.remove(config.noScrollClass);
+		});
 
-		 // Init button events
-		 var button = document.querySelector(config.buttonSelector);
+		// Init button events
+		var button = document.querySelector(config.buttonSelector);
 
-		 button.addEventListener('click', function () {
-			  menuWrapper.classList.toggle(config.hiddenElementClass);
-			  menuOverlay.classList.toggle(config.hiddenElementClass);
-			  button.classList.toggle(config.openedMenuClass);
-			  button.setAttribute(config.ariaButtonAttribute, button.classList.contains(config.openedMenuClass));
-			  document.documentElement.classList.toggle(config.noScrollClass);
-		 });
+		button.addEventListener('click', function () {
+			menuWrapper.classList.toggle(config.hiddenElementClass);
+			menuOverlay.classList.toggle(config.hiddenElementClass);
+			button.classList.toggle(config.openedMenuClass);
+			button.setAttribute(config.ariaButtonAttribute, button.classList.contains(config.openedMenuClass));
+			document.documentElement.classList.toggle(config.noScrollClass);
+		});
 	}
 
 	/**
 	 * Set aria-hidden="false" for submenus
 	 */
-	function setAriaForSubmenus (menuWrapper) {
-		 var submenus = menuWrapper.querySelectorAll(config.submenuSelector);
+	function setAriaForSubmenus(menuWrapper) {
+		var submenus = menuWrapper.querySelectorAll(config.submenuSelector);
 
-		 for (var i = 0; i < submenus.length; i++) {
-			  submenus[i].setAttribute('aria-hidden', false);
-		 }
+		for (var i = 0; i < submenus.length; i++) {
+			submenus[i].setAttribute('aria-hidden', false);
+		}
 	}
 
 	/**
 	 * Wrap all submenus into div wrappers
 	 */
-	function wrapSubmenusIntoContainer (menuWrapper) {
-		 var submenus = menuWrapper.querySelectorAll(config.submenuSelector);
+	function wrapSubmenusIntoContainer(menuWrapper) {
+		var submenus = menuWrapper.querySelectorAll(config.submenuSelector);
 
-		 for (var i = 0; i < submenus.length; i++) {
-			  var submenuWrapper = document.createElement('div');
-			  submenuWrapper.classList.add(config.mobileMenuSubmenuWrapperClass);
-			  submenus[i].parentNode.insertBefore(submenuWrapper, submenus[i]);
-			  submenuWrapper.appendChild(submenus[i]);
-		 }
+		for (var i = 0; i < submenus.length; i++) {
+			var submenuWrapper = document.createElement('div');
+			submenuWrapper.classList.add(config.mobileMenuSubmenuWrapperClass);
+			submenus[i].parentNode.insertBefore(submenuWrapper, submenus[i]);
+			submenuWrapper.appendChild(submenus[i]);
+		}
 	}
 
 	/**
 	 * Initialize submenu toggle events
 	 */
-	function initToggleSubmenu (menuWrapper) {
-		 // Init parent menu item events
-		 var parents = menuWrapper.querySelectorAll('.' + config.parentItemClass);
+	function initToggleSubmenu(menuWrapper) {
+		// Init parent menu item events
+		var parents = menuWrapper.querySelectorAll('.' + config.parentItemClass);
 
-		 for (var i = 0; i < parents.length; i++) {
-			  // Add toggle events
-			  parents[i].addEventListener('click', function (e) {
-					e.stopPropagation();
-					var submenu = this.querySelector('.' + config.mobileMenuSubmenuWrapperClass);
-					var content = submenu.firstElementChild;
+		for (var i = 0; i < parents.length; i++) {
+			// Add toggle events
+			parents[i].addEventListener('click', function (e) {
+				e.stopPropagation();
+				var submenu = this.querySelector('.' + config.mobileMenuSubmenuWrapperClass);
+				var content = submenu.firstElementChild;
 
-					if (submenu.classList.contains(config.openedMenuClass)) {
-						 var height = content.clientHeight;   
-						 submenu.style.height = height + 'px';
-						 
-						 setTimeout(function () {
-							  submenu.style.height = '0px';
-						 }, 0);
+				if (submenu.classList.contains(config.openedMenuClass)) {
+					var height = content.clientHeight;
+					submenu.style.height = height + 'px';
 
-						 setTimeout(function () {
-							  submenu.removeAttribute('style');
-							  submenu.classList.remove(config.openedMenuClass);
-						 }, config.animationSpeed);
+					setTimeout(function () {
+						submenu.style.height = '0px';
+					}, 0);
 
-						 content.setAttribute('aria-hidden', true);
-						 content.parentNode.firstElementChild.setAttribute('aria-expanded', false);
-					} else {
-						 var height = content.clientHeight;   
-						 submenu.classList.add(config.openedMenuClass);
-						 submenu.style.height = '0px';
-						 
-						 setTimeout(function () {
-							  submenu.style.height = height + 'px';
-						 }, 0);
+					setTimeout(function () {
+						submenu.removeAttribute('style');
+						submenu.classList.remove(config.openedMenuClass);
+					}, config.animationSpeed);
 
-						 setTimeout(function () {
-							  submenu.removeAttribute('style');
-						 }, config.animationSpeed);
+					content.setAttribute('aria-hidden', true);
+					content.parentNode.firstElementChild.setAttribute('aria-expanded', false);
+				} else {
+					var height = content.clientHeight;
+					submenu.classList.add(config.openedMenuClass);
+					submenu.style.height = '0px';
 
-						 content.setAttribute('aria-hidden', false);
-						 content.parentNode.firstElementChild.setAttribute('aria-expanded', true);
-					}
-			  });
+					setTimeout(function () {
+						submenu.style.height = height + 'px';
+					}, 0);
 
-			  // Block links
-			  var childNodes = parents[i].children;
+					setTimeout(function () {
+						submenu.removeAttribute('style');
+					}, config.animationSpeed);
 
-			  for (var j = 0; j < childNodes.length; j++) {
-					if (childNodes[j].tagName === 'A') {
-						 childNodes[j].addEventListener('click', function (e) {
-							  var lastClick = parseInt(this.getAttribute('data-last-click'), 10);
-							  var currentTime = +new Date();
+					content.setAttribute('aria-hidden', false);
+					content.parentNode.firstElementChild.setAttribute('aria-expanded', true);
+				}
+			});
 
-							  if (isNaN(lastClick)) {
-									e.preventDefault();
-									this.setAttribute('data-last-click', currentTime);
-							  } else if (lastClick + config.doubleClickTime <= currentTime) {
-									e.preventDefault();
-									this.setAttribute('data-last-click', currentTime);
-							  } else if (lastClick + config.doubleClickTime > currentTime) {
-									e.stopPropagation();
-									closeMenu(this, true);
-							  }
-						 });
-					}
-			  }
-		 }
+			// Block links
+			var childNodes = parents[i].children;
+
+			for (var j = 0; j < childNodes.length; j++) {
+				if (childNodes[j].tagName === 'A') {
+					childNodes[j].addEventListener('click', function (e) {
+						var lastClick = parseInt(this.getAttribute('data-last-click'), 10);
+						var currentTime = +new Date();
+
+						if (isNaN(lastClick)) {
+							e.preventDefault();
+							this.setAttribute('data-last-click', currentTime);
+						} else if (lastClick + config.doubleClickTime <= currentTime) {
+							e.preventDefault();
+							this.setAttribute('data-last-click', currentTime);
+						} else if (lastClick + config.doubleClickTime > currentTime) {
+							e.stopPropagation();
+							closeMenu(this, true);
+						}
+					});
+				}
+			}
+		}
 	}
 
 	/**
 	 * Set aria-* attributes according to the current activity state
 	 */
-	function initAriaAttributes () {
-		 var allAriaElements = document.querySelectorAll(config.wrapperSelector + ' ' + '*[aria-hidden]');
+	function initAriaAttributes() {
+		var allAriaElements = document.querySelectorAll(config.wrapperSelector + ' ' + '*[aria-hidden]');
 
-		 for (var i = 0; i < allAriaElements.length; i++) {
-			  var ariaElement = allAriaElements[i];
+		for (var i = 0; i < allAriaElements.length; i++) {
+			var ariaElement = allAriaElements[i];
 
-			  if (
-					ariaElement.parentNode.classList.contains('active') ||
-					ariaElement.parentNode.classList.contains('active-parent')
-			  ) {
-					ariaElement.setAttribute('aria-hidden', 'false');
-					ariaElement.parentNode.firstElementChild.setAttribute('aria-expanded', true);
-			  } else {
-					ariaElement.setAttribute('aria-hidden', 'true');
-					ariaElement.parentNode.firstElementChild.setAttribute('aria-expanded', false);
-			  }
-		 }
+			if (
+				ariaElement.parentNode.classList.contains('active') ||
+				ariaElement.parentNode.classList.contains('active-parent')
+			) {
+				ariaElement.setAttribute('aria-hidden', 'false');
+				ariaElement.parentNode.firstElementChild.setAttribute('aria-expanded', true);
+			} else {
+				ariaElement.setAttribute('aria-hidden', 'true');
+				ariaElement.parentNode.firstElementChild.setAttribute('aria-expanded', false);
+			}
+		}
 	}
 
 	/**
 	 * Close menu on click link
 	 */
-	function initClosingMenuOnClickLink () {
-		 var links = document.querySelectorAll(config.menuSelector + ' a');
+	function initClosingMenuOnClickLink() {
+		var links = document.querySelectorAll(config.menuSelector + ' a');
 
-		 for (var i = 0; i < links.length; i++) {
-			  if (links[i].parentNode.classList.contains(config.parentItemClass)) {
-					continue;
-			  }
+		for (var i = 0; i < links.length; i++) {
+			if (links[i].parentNode.classList.contains(config.parentItemClass)) {
+				continue;
+			}
 
-			  links[i].addEventListener('click', function (e) {
-					closeMenu(this, false);
-			  });
-		 }
+			links[i].addEventListener('click', function (e) {
+				closeMenu(this, false);
+			});
+		}
 	}
 
 	/**
 	 * Close menu
 	 */
-	function closeMenu (clickedLink, forceClose) {
-		 if (forceClose === false) {
-			  if (clickedLink.parentNode.classList.contains(config.parentItemClass)) {
-					return;
-			  }
-		 }
+	function closeMenu(clickedLink, forceClose) {
+		if (forceClose === false) {
+			if (clickedLink.parentNode.classList.contains(config.parentItemClass)) {
+				return;
+			}
+		}
 
-		 var relatedContainer = document.querySelector(config.relatedContainerForOverlayMenuSelector);
-		 var button = document.querySelector(config.buttonSelector);
-		 var menuWrapper = document.querySelector('.' + config.mobileMenuOverlayClass);
+		var relatedContainer = document.querySelector(config.relatedContainerForOverlayMenuSelector);
+		var button = document.querySelector(config.buttonSelector);
+		var menuWrapper = document.querySelector('.' + config.mobileMenuOverlayClass);
 
-		 if (!menuWrapper) {
-			  menuWrapper = document.querySelector('.' + config.mobileMenuSidebarClass);
-		 }
+		if (!menuWrapper) {
+			menuWrapper = document.querySelector('.' + config.mobileMenuSidebarClass);
+		}
 
-		 menuWrapper.classList.add(config.hiddenElementClass);
-		 button.classList.remove(config.openedMenuClass);
-		 button.setAttribute(config.ariaButtonAttribute, false);
-		 document.documentElement.classList.remove(config.noScrollClass);
+		menuWrapper.classList.add(config.hiddenElementClass);
+		button.classList.remove(config.openedMenuClass);
+		button.setAttribute(config.ariaButtonAttribute, false);
+		document.documentElement.classList.remove(config.noScrollClass);
 
-		 if (relatedContainer) {
-			  relatedContainer.classList.remove(config.relatedContainerForOverlayMenuClass);
-		 }
+		if (relatedContainer) {
+			relatedContainer.classList.remove(config.relatedContainerForOverlayMenuClass);
+		}
 
-		 var menuOverlay = document.querySelector('.' + config.mobileMenuSidebarOverlayClass);
+		var menuOverlay = document.querySelector('.' + config.mobileMenuSidebarOverlayClass);
 
-		 if (menuOverlay) {
-			  menuOverlay.classList.add(config.hiddenElementClass);
-		 }
+		if (menuOverlay) {
+			menuOverlay.classList.add(config.hiddenElementClass);
+		}
 	}
 
 	/**
-	 * Run menu scripts 
+	 * Run menu scripts
 	 */
 	init();
 })(window.publiiThemeMenuConfig);
 
+/**
+ * Basic HTML sanitizer to allow safe formatting tags
+ */
+window.sanitizeHTML = function (html) {
+	// If the string starts with &lt;, it was escaped by Liquid.
+	// We need to unescape it first so DOMParser can see the tags.
+	let unescaped = html;
+	if (html.includes('&lt;') || html.includes('&gt;')) {
+		const temp = document.createElement('div');
+		temp.innerHTML = html;
+		unescaped = temp.textContent;
+	}
+
+	const doc = new DOMParser().parseFromString(unescaped, 'text/html');
+	const allowedTags = ['B', 'I', 'EM', 'STRONG', 'A', 'BR'];
+
+	function clean(node) {
+		for (let i = node.childNodes.length - 1; i >= 0; i--) {
+			const child = node.childNodes[i];
+			if (child.nodeType === 1) { // Element node
+				if (!allowedTags.includes(child.tagName)) {
+					const text = document.createTextNode(child.textContent);
+					child.parentNode.replaceChild(text, child);
+				} else {
+					if (child.tagName === 'A') {
+						const href = child.getAttribute('href');
+						if (href && (href.startsWith('http') || href.startsWith('/') || href.startsWith('#'))) {
+							// Strip all attributes except href
+							while (child.attributes.length > 0) {
+								child.removeAttribute(child.attributes[0].name);
+							}
+							child.setAttribute('href', href);
+
+							// Only add target="_blank" and rel for external absolute URLs
+							if (href.startsWith('http://') || href.startsWith('https://')) {
+								try {
+									const url = new URL(href);
+									if (url.origin !== window.location.origin) {
+										child.setAttribute('target', '_blank');
+										child.setAttribute('rel', 'noopener noreferrer');
+									}
+								} catch (e) {
+									// Invalid URL, don't add target/rel
+								}
+							}
+						} else {
+							const text = document.createTextNode(child.textContent);
+							child.parentNode.replaceChild(text, child);
+							continue;
+						}
+					}
+					clean(child);
+				}
+			}
+		}
+	}
+
+	clean(doc.body);
+	return doc.body.innerHTML;
+};
 
 // Share buttons pop-up
 (function () {
@@ -435,53 +495,53 @@
 	const sharePopup = document.querySelector('.js-content__share-popup');
 
 	if (shareButton && sharePopup) {
-		 sharePopup.addEventListener('click', function (e) {
-			  e.stopPropagation();
-		 });
+		sharePopup.addEventListener('click', function (e) {
+			e.stopPropagation();
+		});
 
-		 shareButton.addEventListener('click', function (e) {
-			  e.preventDefault();
-			  e.stopPropagation();
-			  sharePopup.classList.toggle('is-visible');
-		 });
+		shareButton.addEventListener('click', function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+			sharePopup.classList.toggle('is-visible');
+		});
 
-		 document.body.addEventListener('click', function () {
-			  sharePopup.classList.remove('is-visible');
-		 });
+		document.body.addEventListener('click', function () {
+			sharePopup.classList.remove('is-visible');
+		});
 	}
 
 	// link selector and pop-up window size
 	const Config = {
-		 Link: ".js-share",
-		 Width: 500,
-		 Height: 500
+		Link: ".js-share",
+		Width: 500,
+		Height: 500
 	};
 
 	// add handler to links
 	const shareLinks = document.querySelectorAll(Config.Link);
 	shareLinks.forEach(link => {
-		 link.addEventListener('click', PopupHandler);
+		link.addEventListener('click', PopupHandler);
 	});
 
 	// create popup
 	function PopupHandler(e) {
-		 e.preventDefault();
+		e.preventDefault();
 
-		 const target = e.target.closest(Config.Link);
-		 if (!target) return;
+		const target = e.target.closest(Config.Link);
+		if (!target) return;
 
-		 // hide share popup
-		 if (sharePopup) {
-			  sharePopup.classList.remove('is-visible');
-		 }
+		// hide share popup
+		if (sharePopup) {
+			sharePopup.classList.remove('is-visible');
+		}
 
-		 // popup position
-		 const px = Math.floor((window.innerWidth - Config.Width) / 2);
-		 const py = Math.floor((window.innerHeight - Config.Height) / 2);
+		// popup position
+		const px = Math.floor((window.innerWidth - Config.Width) / 2);
+		const py = Math.floor((window.innerHeight - Config.Height) / 2);
 
-		 // open popup
-		 const linkHref = target.href;
-		 const popup = window.open(linkHref, "social", `
+		// open popup
+		const linkHref = target.href;
+		const popup = window.open(linkHref, "social", `
 			  width=${Config.Width},
 			  height=${Config.Height},
 			  left=${px},
@@ -494,34 +554,34 @@
 			  resizable=1
 		 `);
 
-		 if (popup) {
-			  popup.focus();
-		 }
+		if (popup) {
+			popup.focus();
+		}
 	}
 })();
 
-// Back to top 
+// Back to top
 const backToTopButton = document.getElementById("backToTop");
 
 if (backToTopButton) {
-    window.addEventListener('scroll', () => {
-        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-            backToTopButton.classList.add("is-visible");
-        } else {
-            backToTopButton.classList.remove("is-visible");
-        }
-    });
+	window.addEventListener('scroll', () => {
+		if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+			backToTopButton.classList.add("is-visible");
+		} else {
+			backToTopButton.classList.remove("is-visible");
+		}
+	});
 
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+	backToTopButton.addEventListener('click', () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	});
 }
 
 
 /**
  * Responsive embeds script
  */
- (function () {
+(function () {
 	let wrappers = document.querySelectorAll('.post__video, .post__iframe');
 
 	for (let i = 0; i < wrappers.length; i++) {
@@ -531,9 +591,9 @@ if (backToTopButton) {
 			continue;
 		}
 
-        if (embed.getAttribute('data-responsive') === 'false') {
-            continue;
-        }
+		if (embed.getAttribute('data-responsive') === 'false') {
+			continue;
+		}
 
 		let w = embed.getAttribute('width');
 		let h = embed.getAttribute('height');
@@ -542,7 +602,7 @@ if (backToTopButton) {
 		if (!w || !h) {
 			continue;
 		}
-		
+
 		if (w.indexOf('%') > -1 && h.indexOf('%') > -1) { // percentage mode
 			w = parseFloat(w.replace('%', ''));
 			h = parseFloat(h.replace('%', ''));
@@ -566,33 +626,33 @@ const searchOverlay = document.querySelector('.js-search-overlay');
 const searchInput = document.querySelector('.search__input');
 
 if (searchButton && searchOverlay) {
-    searchButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        searchOverlay.classList.toggle('expanded');
+	searchButton.addEventListener('click', (e) => {
+		e.stopPropagation();
+		searchOverlay.classList.toggle('expanded');
 
-        if (searchInput) {
-            setTimeout(() => {
-                if (searchOverlay.classList.contains('expanded')) {
-                    searchInput.focus();
-                }
-            }, 60);
-        }
-    });
+		if (searchInput) {
+			setTimeout(() => {
+				if (searchOverlay.classList.contains('expanded')) {
+					searchInput.focus();
+				}
+			}, 60);
+		}
+	});
 
-    searchOverlay.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
+	searchOverlay.addEventListener('click', (e) => {
+		e.stopPropagation();
+	});
 
-    document.body.addEventListener('click', () => {
-        searchOverlay.classList.remove('expanded');
-    });
+	document.body.addEventListener('click', () => {
+		searchOverlay.classList.remove('expanded');
+	});
 }
 
 
 /**
  * Layout switcher
  */
- (function () {
+(function () {
 	let layoutButtons = document.querySelectorAll('.switchers__item');
 	let contentWrapper = document.querySelector('.l-grid');
 	let articles;
@@ -626,7 +686,7 @@ if (searchButton && searchOverlay) {
 		}
 	});
 
-	function setGridLayout () {
+	function setGridLayout() {
 		gridBtn.classList.add('is-active');
 		rowsBtn.classList.remove('is-active');
 		contentWrapper.classList.remove('l-grid--1');
@@ -636,11 +696,11 @@ if (searchButton && searchOverlay) {
 			articles[i].classList.remove('c-card--rows');
 		}
 
-		localStorage.setItem('persona-theme-selected-layout', 'grid');	
+		localStorage.setItem('persona-theme-selected-layout', 'grid');
 		resetIsotopeLayout();
 	}
 
-	function setRowsLayout () {
+	function setRowsLayout() {
 		gridBtn.classList.remove('is-active');
 		rowsBtn.classList.add('is-active');
 		contentWrapper.classList.add('l-grid--1');
@@ -654,7 +714,7 @@ if (searchButton && searchOverlay) {
 		resetIsotopeLayout();
 	}
 
-	function resetIsotopeLayout () {
+	function resetIsotopeLayout() {
 		if (window.personaThemeIsotopeInstance) {
 			if (document.querySelector('.filter__item.is-active')) {
 				window.personaThemeIsotopeInstance.arrange({
@@ -670,11 +730,11 @@ if (searchButton && searchOverlay) {
 		setTimeout(() => {
 			if (localStorage.getItem('persona-theme-selected-layout')) {
 				let savedLayout = localStorage.getItem('persona-theme-selected-layout');
-	
+
 				if (savedLayout === 'grid') {
 					setGridLayout();
 				}
-	
+
 				if (savedLayout === 'rows') {
 					setRowsLayout();
 				}
@@ -682,3 +742,87 @@ if (searchButton && searchOverlay) {
 		}, 0);
 	}, false);
 })();
+
+(function () {
+	// Helper function to get the current logo URL for a member element
+	const getCurrentLogo = (element) => {
+		// Returns the logoWhite attribute directly
+		return element.dataset.logo;
+	};
+
+	// Make it globally available for the modal
+	window.getCurrentLogo = getCurrentLogo;
+})();
+
+(function () {
+	const header = document.querySelector('.site-header');
+	if (!header) return;
+	window.addEventListener('scroll', () => {
+		header.classList.toggle('scrolled', window.scrollY > 50);
+	}, { passive: true });
+})();
+
+/**
+ * Randomize the home page background image on each page load
+ */
+function initHomeBackgroundRotation() {
+	var body = document.body;
+	if (!body.classList.contains('home-template')) {
+		return;
+	}
+
+	var baseUrl = document.documentElement.getAttribute('data-baseurl') || '/';
+	if (!baseUrl.endsWith('/')) {
+		baseUrl += '/';
+	}
+
+	var backgroundImages = [
+		baseUrl + 'assets/backgrounds/Fisch_Ancient_Isle.png',
+		baseUrl + 'assets/backgrounds/Fisch_Trade_Plaza.png',
+		baseUrl + 'assets/backgrounds/Fisch_Toxic_Grove.png',
+		baseUrl + 'assets/backgrounds/GBP_San_Sebastian.png',
+		baseUrl + 'assets/backgrounds/GBP_London.png',
+		baseUrl + 'assets/backgrounds/UTG_Raven_Ranch.png',
+		baseUrl + 'assets/backgrounds/UTG_Tokyo_Town.png',
+		baseUrl + 'assets/backgrounds/UTG_Skylands.png',
+		baseUrl + 'assets/backgrounds/Dovedale_Central.png',
+		baseUrl + 'assets/backgrounds/Dovedale_Sunset.png',
+		baseUrl + 'assets/backgrounds/Dovedale_Tunnel.png',
+		// baseUrl + 'assets/backgrounds/Hybrid_Cafe_BG.png',
+		baseUrl + 'assets/backgrounds/SEWH_Ravenrock_Island.png',
+		baseUrl + 'assets/backgrounds/SEWH_Mountain_Lodge.png',
+		baseUrl + 'assets/backgrounds/SEWH_Town.png',
+		baseUrl + 'assets/backgrounds/Restaurant_Tycoon_3_Farm.png',
+		baseUrl + 'assets/backgrounds/Restaurant_Tycoon_3_Restaurant.png',
+		baseUrl + 'assets/backgrounds/3PS_Nature.png',
+		baseUrl + 'assets/backgrounds/3PS_Sun.png',
+		baseUrl + 'assets/backgrounds/3PS_Dirt_Thing.png',
+		baseUrl + 'assets/backgrounds/PHIGHTING_Crossroads_v2.png',
+		baseUrl + 'assets/backgrounds/PHIGHTING_Crossroads_v2_2.png',
+		baseUrl + 'assets/backgrounds/PHIGHTING_Crossroads_v2_3.png',
+		baseUrl + 'assets/backgrounds/D-DAY_Omaha_Beach.png',
+		baseUrl + 'assets/backgrounds/Anime_Vanguards_BG.png',
+		baseUrl + 'assets/backgrounds/Parkour_Reborn_Stack.png',
+		baseUrl + 'assets/backgrounds/Parkour_Reborn_Fragment.png',
+	];
+
+	var lastIndex = null;
+	try { lastIndex = localStorage.getItem('lastBgIndex'); } catch (e) { /* storage unavailable */ }
+	var randomIndex;
+
+	// keep picking a random number until it's different from the last one
+	do {
+		randomIndex = Math.floor(Math.random() * backgroundImages.length);
+	} while (backgroundImages.length > 1 && String(randomIndex) === lastIndex);
+
+	try { localStorage.setItem('lastBgIndex', randomIndex); } catch (e) { /* storage unavailable */ }
+
+	var selectedImage = backgroundImages[randomIndex];
+	document.documentElement.style.setProperty('--bg', "url('" + selectedImage + "')");
+}
+
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', initHomeBackgroundRotation);
+} else {
+	initHomeBackgroundRotation();
+}

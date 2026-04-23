@@ -1,0 +1,37 @@
+title: Independent Roblox Wiki Alliance
+description: We support independent wikis. Putting wiki management back to communities, not corporations.
+image: /assets/website/IRWA-Logo1.svg
+url: "https://indierobloxwikis.org"
+
+twitter:
+  card: summary
+
+# Build settings
+theme: null # We are using a custom layout
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+highlighter: rouge
+
+social:
+  links:
+    - https://github.com/Roblox-Indie-Wikis
+
+exclude:
+  - vendor/
+  - README.md
+  - .gitignore
+  - AGENTS.md
+  - .python_history
+  - verify_migration.py
+  - README-PUBLII.md
+
+# Permalinks
+# Default to directory-based structure to maintain consistency with original paths
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
