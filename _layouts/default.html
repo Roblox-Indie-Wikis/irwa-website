@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-gb" data-baseurl="{{ "/" | relative_url }}">
+<head>
+  {% include head.html %}
+</head>
+<body class="{{ page.body_class | default: 'page-template' }}">
+  <div class="container">
+    {% include header.html %}
+    <main class="main {{ page.main_class | default: 'page' }}">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+  </div>
+  <script>
+    window.publiiThemeMenuConfig = {
+      mobileMenuMode: 'sidebar',
+      animationSpeed: 300,
+      submenuWidth: 'auto',
+      doubleClickTime: 500,
+      mobileMenuExpandableSubmenus: true,
+      relatedContainerForOverlayMenuSelector: '.navbar',
+    };
+  </script>
+  <script src="{{ "/assets/js/scripts.min.js" | relative_url }}" defer></script>
+  <script src="{{ "/assets/js/entity-modal.js" | relative_url }}" defer></script>
+  
+  {% if page.body_class contains 'robloxapi' %}
+    <!-- Table overflow wrapper scripts -->
+    <script src="{{ "/assets/js/overflow-wrapper.js" | relative_url }}" defer></script>
+    <script src="{{ "/assets/js/overflow-state.js" | relative_url }}" defer></script>
+    <script src="{{ "/assets/js/overflow-element.js" | relative_url }}" defer></script>
+    <script src="{{ "/assets/js/overflow-init.js" | relative_url }}" defer></script>
+  {% endif %}
+
+  {% if page.body_class contains 'toc-enabled' %}
+    <!-- Table of contents scripts -->
+    <script src="{{ "/assets/js/toc-wrapper.js" | relative_url }}" defer></script>
+    <script src="{{ "/assets/js/toc-sticky.js" | relative_url }}" defer></script>
+    <script src="{{ "/assets/js/toc-init.js" | relative_url }}" defer></script>
+  {% endif %}
+  
+  <script>
+    function publiiDetectLoadedImages () {
+      var images = document.querySelectorAll('img[loading]:not(.is-loaded)');
+      for (var i = 0; i < images.length; i++) {
+        if (images[i].complete) {
+          images[i].classList.add('is-loaded');
+          images[i].parentNode.classList.remove('is-img-loading');
+        } else {
+          images[i].addEventListener('load', function () {
+            this.classList.add('is-loaded');
+            this.parentNode.classList.remove('is-img-loading');
+          }, false);
+        }
+      }
+    }
+    publiiDetectLoadedImages();
+  </script>
+  <script src="{{ "/assets/plugins/pagePrefetching/quicklink.umd.js" | relative_url }}"></script>
+  <script>
+    window.addEventListener('load', () => {
+      quicklink.listen({
+        prerender: false,
+        el: document.querySelector('body'),
+        delay: 0,
+        limit: Infinity,
+        throttle: Infinity,
+        timeout: 2000
+      });
+    });
+  </script>
+</body>
+</html>

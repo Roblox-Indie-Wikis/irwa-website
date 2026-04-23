@@ -1,0 +1,34 @@
+---
+layout: page
+body_class: page-template
+title: Partners
+description: Our partners are wiki alliances and websites that we've mutually partnered with to support our missions and to promote collaboration. Take a look!
+permalink: /partners/
+---
+
+<h1 class="align-center">Partners</h1>
+<p class="align-center">Our partners are wiki alliances and websites that we've mutually partnered with to support our missions and to promote collaboration. Take a look!</p>
+
+<div class="members-grid">
+    {% for partner in site.data.partners %}
+    <button type="button" class="member-box btn-secondary" onclick="openEntityModal(this)"
+            data-entity="{{ partner | jsonify | escape }}"
+            data-logo="{{ partner.logo | relative_url | escape }}">
+        <img src="{{ partner.logo | relative_url | escape }}" alt="{{ partner.name | escape }} logo" class="member-box-logo">
+        {{ partner.name | escape }}
+    </button>
+    {% endfor %}
+</div>
+
+{% include entity-modal.html %}
+
+<div class="secondary-container">
+    <h2>Interested in partnership?</h2>
+    <p style="margin-top: unset">Join our Discord server and get in contact!</p>
+    <p style="margin-top: 15px">
+        <a href="https://discord.com/invite/qZwvwnPZsd" class="btn btn-external">
+          Join our Discord
+          <img src="{{ "/assets/icons/arrow_forward.svg" | relative_url }}" height="20" alt="" aria-hidden="true" class="img-invert material-symbols">
+        </a>
+    </p>
+</div>
