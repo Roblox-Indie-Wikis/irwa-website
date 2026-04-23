@@ -111,15 +111,16 @@ function openEntityModal(element) {
         if (url) {
             url.searchParams.set('utm_source', 'irwa-website');
             link.href = url.toString();
+            link.hidden = false;
+            link.style.display = 'inline-flex';
         } else {
             link.removeAttribute('href');
+            link.hidden = true;
             link.style.display = 'none';
-        }
-        if (url) {
-            link.style.display = 'inline-flex';
         }
     } else {
         link.removeAttribute('href');
+        link.hidden = true;
         link.style.display = 'none';
     }
 
@@ -170,10 +171,14 @@ function closeEntityModal() {
     const cleanup = () => {
         if (transitionFinished) return;
         transitionFinished = true;
-        document.removeEventListener('keydown', trapEntityModalFocus);
-        if (window.lastFocusedEntityButton) window.lastFocusedEntityButton.focus();
+
         modal.removeEventListener('transitionend', cleanup);
         modal.removeEventListener('animationend', cleanup);
+
+        if (modal.classList.contains('active')) return;
+
+        document.removeEventListener('keydown', trapEntityModalFocus);
+        if (window.lastFocusedEntityButton) window.lastFocusedEntityButton.focus();
     };
 
     modal.addEventListener('transitionend', cleanup);
