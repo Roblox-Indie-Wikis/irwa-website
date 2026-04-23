@@ -4,7 +4,7 @@ body_class: page-template robloxapi toc-enabled bg-include page-robloxapi
 title: Roblox API Documentation
 description: Documentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions.
 redirect_from: /docs/robloxapi
-permalink: /robloxapi/
+permalink: /robloxapi
 image: /assets/promofiles/RobloxAPIMainThumbnail.png
 twitter:
   card: summary_large_image

@@ -5,11 +5,11 @@
   <nav class="navbar js-navbar">
     <button class="navbar__toggle js-toggle" aria-label="Menu">Menu</button>
     <ul class="navbar__menu">
-      <li{% if page.url == "/about/" %} class="active"{% endif %}><a href="{{ "/about/" | relative_url }}">About</a></li>
-      <li{% if page.url == "/members/" %} class="active"{% endif %}><a href="{{ "/members/" | relative_url }}">Members</a></li>
-      <li class="main-menu-partners{% if page.url == "/partners/" %} active{% endif %}"><a href="{{ "/partners/" | relative_url }}" title="Partners">Partners</a></li>
-      <li{% if page.url == "/joining/" %} class="active"{% endif %}><a href="{{ "/joining/" | relative_url }}">Joining</a></li>
-      <li{% if page.url == "/projects/" %} class="active"{% endif %}><a href="{{ "/projects/" | relative_url }}">Projects</a></li>
+      <li{% if page.url == "/about" %} class="active"{% endif %}><a href="{{ "/about" | relative_url }}">About</a></li>
+      <li{% if page.url == "/members" %} class="active"{% endif %}><a href="{{ "/members" | relative_url }}">Members</a></li>
+      <li{% if page.url == "/partners" %} class="active"{% endif %}><a href="{{ "/partners" | relative_url }}">Partners</a></li>
+      <li{% if page.url == "/joining" %} class="active"{% endif %}><a href="{{ "/joining" | relative_url }}">Joining</a></li>
+      <li{% if page.url == "/projects" %} class="active"{% endif %}><a href="{{ "/projects" | relative_url }}">Projects</a></li>
       <li><a href="https://discord.com/invite/qZwvwnPZsd">Discord</a></li>
     </ul>
   </nav>
