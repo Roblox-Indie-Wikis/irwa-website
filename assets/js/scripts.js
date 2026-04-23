@@ -754,14 +754,13 @@ if (searchButton && searchOverlay) {
 	window.getCurrentLogo = getCurrentLogo;
 })();
 
-window.onscroll = function () {
+(function () {
 	const header = document.querySelector('.site-header');
-	if (window.scrollY > 50) {
-		header.classList.add('scrolled');
-	} else {
-		header.classList.remove('scrolled');
-	}
-};
+	if (!header) return;
+	window.addEventListener('scroll', () => {
+		header.classList.toggle('scrolled', window.scrollY > 50);
+	}, { passive: true });
+})();
 
 /**
  * Randomize the home page background image on each page load
@@ -807,15 +806,16 @@ function initHomeBackgroundRotation() {
 		baseUrl + 'assets/backgrounds/Parkour_Reborn_Fragment.png',
 	];
 
-	var lastIndex = localStorage.getItem('lastBgIndex');
+	var lastIndex = null;
+	try { lastIndex = localStorage.getItem('lastBgIndex'); } catch (e) { /* storage unavailable */ }
 	var randomIndex;
 
 	// keep picking a random number until it's different from the last one
 	do {
 		randomIndex = Math.floor(Math.random() * backgroundImages.length);
-	} while (backgroundImages.length > 1 && randomIndex == lastIndex);
+	} while (backgroundImages.length > 1 && String(randomIndex) === lastIndex);
 
-	localStorage.setItem('lastBgIndex', randomIndex);
+	try { localStorage.setItem('lastBgIndex', randomIndex); } catch (e) { /* storage unavailable */ }
 
 	var selectedImage = backgroundImages[randomIndex];
 	document.documentElement.style.setProperty('--bg', "url('" + selectedImage + "')");

@@ -8,6 +8,11 @@
 			return;
 		}
 
+		if ( typeof initializeOverflow !== 'function' ) {
+			console.warn( '[Overflow] initializeOverflow is not loaded' );
+			return;
+		}
+
 		initializeOverflow( {
 			document: document,
 			window: window,
