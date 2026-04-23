@@ -38,7 +38,7 @@ jobs:
             echo "title: Roblox API Documentation"
             echo "description: Documentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions."
             echo "redirect_from: /docs/robloxapi"
-            echo "permalink: /robloxapi/"
+            echo "permalink: /robloxapi"
             echo "image: /assets/promofiles/RobloxAPIMainThumbnail.png"
             echo "twitter:"
             echo "  card: summary_large_image"
