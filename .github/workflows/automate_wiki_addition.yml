@@ -57,29 +57,36 @@ jobs:
               print(f"Error: Found name '{name}'. Check if 'Wiki Name' matches the template label.")
               exit(1)
 
-          # 4. Clean up Date and Logo
-          current_date = datetime.now().strftime("%B %Y")
-          logo_url = re.findall(r'\((http[s]?://.*?)\)', logo_raw)
-          logo = logo_url[0] if logo_url else logo_raw
+          # 4. Clean up Logo: Extract ONLY the URL from the <img> tag or markdown
+          # This looks for src="url" or (url)
+          img_url_match = re.search(r'src="([^"]+)"', logo_raw)
+          if img_url_match:
+              logo = img_url_match.group(1)
+          else:
+              # Fallback for markdown format ![alt](url)
+              markdown_url = re.findall(r'\((http[s]?://.*?)\)', logo_raw)
+              logo = markdown_url[0] if markdown_url else logo_raw
 
-          # 5. Build the YAML string
-          new_entry = f'\n- name: "{name}"\n'
-          new_entry += f'  link: "{url}"\n'
+          # 5. Build the YAML string manually with specific quoting
+          # name and link = No quotes
+          # logo, description, joined = Double quotes
+          new_entry = f'\n- name: {name}\n'
+          new_entry += f'  link: {url}\n'
           new_entry += f'  logo: "{logo}"\n'
           new_entry += f'  description: "{desc}"\n'
           new_entry += f'  joined: "{current_date}"\n'
 
-          # 6. Map Socials
+          # 6. Map Socials (Value wrapped in quotes)
           for line in socials_raw.split('\n'):
               line_l = line.lower()
               u = re.search(r'http[s]?://\S+', line)
               if not u: continue
-              link = u.group()
+              link = u.group().rstrip('"') # Clean trailing quotes if any
               if "discord" in line_l: new_entry += f'  discord: "{link}"\n'
               elif "twitter" in line_l or "x.com" in line_l: new_entry += f'  twitter: "{link}"\n'
               elif "ko-fi" in line_l or "patreon" in line_l: new_entry += f'  kofi: "{link}"\n'
 
-          # 7. Handle Staff
+          # 7. Handle Staff (Value wrapped in quotes)
           if staff_raw and staff_raw != "_No response_":
               new_entry += '  team:\n'
               for staff in staff_raw.split(','):
@@ -99,6 +106,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Add ${{ env.WIKI_NAME }} to directory"
-          title: "[Wiki Addition] ${{ env.WIKI_NAME }}"
+          title: "Add ${{ env.WIKI_NAME }} to member data"
           branch: "wiki-addition-${{ github.event.issue.number }}"
           body: "Automated wiki addition for **${{ env.WIKI_NAME }}**. Closes #${{ github.event.issue.number }}"
+          labels: "wiki addition request"
