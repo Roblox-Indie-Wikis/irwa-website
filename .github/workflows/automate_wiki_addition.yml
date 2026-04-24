@@ -15,47 +15,54 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Parse Issue Form
-        uses: stefanbuck/github-issue-parser@v3
+      - name: Parse Issue Body
+        uses: eddiehubcommunity/issue-forms-body-parser@v2.2.0
         id: issue-parser
         with:
-          template-path: .github/ISSUE_TEMPLATE/request-wiki-addition.yml
+          issue_id: ${{ github.event.issue.number }}
+          separator: '###' # This is the standard separator for GitHub Issue Forms
 
       - name: Process Data and Update YAML
         shell: python
         env:
-          WIKI_NAME: ${{ steps.issue-parser.outputs.wiki-name }}
-          WIKI_URL: ${{ steps.issue-parser.outputs.wiki-url }}
-          WIKI_DESC: ${{ steps.issue-parser.outputs.wiki-description }}
-          WIKI_LOGO: ${{ steps.issue-parser.outputs.wiki-logo }}
-          WIKI_SOCIALS: ${{ steps.issue-parser.outputs.social-links-urls }}
-          WIKI_STAFF: ${{ steps.issue-parser.outputs.wiki-staff }}
+          # The parser above outputs JSON. We grab the specific IDs from your form.
+          # Note: IDs must match your .yml form exactly.
+          WIKI_DATA: ${{ steps.issue-parser.outputs.payload }}
         run: |
+          import json
           import re
           import os
           from datetime import datetime
 
-          # 1. Collect and Clean Data
-          name = os.getenv("WIKI_NAME", "").strip()
-          url = os.getenv("WIKI_URL", "").strip()
-          desc = os.getenv("WIKI_DESC", "").strip()
-          logo_raw = os.getenv("WIKI_LOGO", "").strip()
-          socials_raw = os.getenv("WIKI_SOCIALS", "").strip()
-          staff_raw = os.getenv("WIKI_STAFF", "").strip()
+          # 1. Load the JSON payload from the parser
+          data = json.loads(os.getenv("WIKI_DATA", "{}"))
           
+          # Map form IDs to variables (Verify these IDs match your issue template!)
+          name = data.get("wiki-name", "").strip()
+          url = data.get("wiki-url", "").strip()
+          desc = data.get("wiki-description", "").strip()
+          logo_raw = data.get("wiki-logo", "").strip()
+          socials_raw = data.get("social-links-urls", "").strip()
+          staff_raw = data.get("wiki-staff", "").strip()
+
+          # 2. Critical Check: If Name is blank, the parser failed or form is empty
+          if not name or name == "_No response_":
+              print("Error: Could not parse Wiki Name. Check form IDs.")
+              exit(1)
+
+          # 3. Clean up Date and Logo
           current_date = datetime.now().strftime("%B %Y")
           logo_url = re.findall(r'\((http[s]?://.*?)\)', logo_raw)
           logo = logo_url[0] if logo_url else logo_raw
 
-          # 2. Build the YAML string manually to guarantee formatting
-          # Using f-strings to force the " " where you want them
+          # 4. Build the YAML string manually
           new_entry = f'\n- name: "{name}"\n'
           new_entry += f'  link: "{url}"\n'
           new_entry += f'  logo: "{logo}"\n'
           new_entry += f'  description: "{desc}"\n'
           new_entry += f'  joined: "{current_date}"\n'
 
-          # 3. Handle Socials manually
+          # 5. Map Socials
           for line in socials_raw.split('\n'):
               line_l = line.lower()
               u = re.search(r'http[s]?://\S+', line)
@@ -65,29 +72,26 @@ jobs:
               elif "twitter" in line_l or "x.com" in line_l: new_entry += f'  twitter: "{link}"\n'
               elif "ko-fi" in line_l or "patreon" in line_l: new_entry += f'  kofi: "{link}"\n'
 
-          # 4. Handle Staff/Team
-          new_entry += '  team:\n'
-          for staff in staff_raw.split(','):
-              s_name = staff.strip()
-              if s_name:
-                  new_entry += f'    - name: "{s_name}"\n'
+          # 6. Handle Staff
+          if staff_raw and staff_raw != "_No response_":
+              new_entry += '  team:\n'
+              for staff in staff_raw.split(','):
+                  s_name = staff.strip()
+                  if s_name:
+                      new_entry += f'    - name: "{s_name}"\n'
 
-          # 5. Append directly to file without loading/saving the whole thing
+          # 7. Append to file
           with open('_data/members.yml', 'a', encoding='utf-8') as f:
               f.write(new_entry)
+          
+          # Pass the name back to the shell for the PR title
+          with open(os.environ['GITHUB_ENV'], 'a') as f:
+              f.write(f"PROCESSED_WIKI_NAME={name}\n")
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: "Add ${{ steps.issue-parser.outputs.wiki-name }} to directory"
-          title: "[Wiki Addition] ${{ steps.issue-parser.outputs.wiki-name }}"
+          commit-message: "Add ${{ env.PROCESSED_WIKI_NAME }} to directory"
+          title: "[Wiki Addition] ${{ env.PROCESSED_WIKI_NAME }}"
           branch: "wiki-addition-${{ github.event.issue.number }}"
-          body: |
-            ### 🛡️ New Wiki Addition Request
-            
-            **Wiki Name:** ${{ steps.issue-parser.outputs.wiki-name }}
-            **Submitted By:** @${{ github.event.issue.user.login }}
-            
-            This is an automated PR. Closes #${{ github.event.issue.number }}
-          labels: |
-            automated-pr
+          body: "Automated wiki addition for **${{ env.PROCESSED_WIKI_NAME }}**. Closes #${{ github.event.issue.number }}"
