@@ -15,8 +15,6 @@ plugins:
   - jekyll-seo-tag
 highlighter: rouge
 
-permalink: /:categories/:title
-
 social:
   links:
     - https://github.com/Roblox-Indie-Wikis
