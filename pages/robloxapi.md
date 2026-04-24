@@ -5,7 +5,6 @@ title: Roblox API Documentation
 description: Documentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions.
 redirect_from: 
   - /docs/robloxapi
-  - /robloxapi/
 permalink: /robloxapi
 image: /assets/promofiles/RobloxAPIMainThumbnail.png
 twitter:

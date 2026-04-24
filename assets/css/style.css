@@ -1829,7 +1829,7 @@ body:not(.home-template) .main {
   }
   body.toc-enabled .content {
     display: grid;
-    gap: var(--magic-number);
+    gap: 1rem;
     grid-template-areas: "content toc";
     grid-template-columns: minmax(0, 1300px) 240px;
   }
