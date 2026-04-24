@@ -31,77 +31,50 @@ jobs:
           WIKI_SOCIALS: ${{ steps.issue-parser.outputs.social-links-urls }}
           WIKI_STAFF: ${{ steps.issue-parser.outputs.wiki-staff }}
         run: |
-          import yaml
           import re
           import os
           from datetime import datetime
 
-          # Custom Dumper to quote ONLY values, not keys
-          class ValueQuoter(yaml.SafeDumper):
-              def represent_data(self, data):
-                  # This forces strings to use double quotes
-                  if isinstance(data, str):
-                      return self.represent_scalar('tag:yaml.org,2002:str', data, style='"')
-                  return super().represent_data(data)
-
-          # Prevent quoting of dictionary keys
-          ValueQuoter.add_representer(dict, lambda dumper, data: 
-              dumper.represent_mapping('tag:yaml.org,2002:map', data, flow_style=False))
-
-          # 1. Collect Data
+          # 1. Collect and Clean Data
           name = os.getenv("WIKI_NAME", "").strip()
           url = os.getenv("WIKI_URL", "").strip()
           desc = os.getenv("WIKI_DESC", "").strip()
           logo_raw = os.getenv("WIKI_LOGO", "").strip()
           socials_raw = os.getenv("WIKI_SOCIALS", "").strip()
           staff_raw = os.getenv("WIKI_STAFF", "").strip()
-
-          # 2. Date and Logo Cleanup
+          
           current_date = datetime.now().strftime("%B %Y")
           logo_url = re.findall(r'\((http[s]?://.*?)\)', logo_raw)
           logo = logo_url[0] if logo_url else logo_raw
 
-          # 3. Build the Entry
-          new_entry = {
-              "name": name,
-              "link": url,
-              "logo": logo,
-              "description": desc,
-              "joined": current_date,
-              "team": [{"name": s.strip()} for s in staff_raw.split(',') if s.strip()]
-          }
+          # 2. Build the YAML string manually to guarantee formatting
+          # Using f-strings to force the " " where you want them
+          new_entry = f'\n- name: "{name}"\n'
+          new_entry += f'  link: "{url}"\n'
+          new_entry += f'  logo: "{logo}"\n'
+          new_entry += f'  description: "{desc}"\n'
+          new_entry += f'  joined: "{current_date}"\n'
 
-          # 4. Map Socials
+          # 3. Handle Socials manually
           for line in socials_raw.split('\n'):
               line_l = line.lower()
               u = re.search(r'http[s]?://\S+', line)
               if not u: continue
               link = u.group()
-              if "discord" in line_l: new_entry["discord"] = link
-              elif "twitter" in line_l or "x.com" in line_l: new_entry["twitter"] = link
-              elif "ko-fi" in line_l or "patreon" in line_l: new_entry["kofi"] = link
+              if "discord" in line_l: new_entry += f'  discord: "{link}"\n'
+              elif "twitter" in line_l or "x.com" in line_l: new_entry += f'  twitter: "{link}"\n'
+              elif "ko-fi" in line_l or "patreon" in line_l: new_entry += f'  kofi: "{link}"\n'
 
-          # 5. Load and Append
-          file_path = '_data/members.yml'
-          if os.path.exists(file_path):
-              with open(file_path, 'r', encoding='utf-8') as f:
-                  data = yaml.safe_load(f) or []
-          else:
-              data = []
+          # 4. Handle Staff/Team
+          new_entry += '  team:\n'
+          for staff in staff_raw.split(','):
+              s_name = staff.strip()
+              if s_name:
+                  new_entry += f'    - name: "{s_name}"\n'
 
-          data.append(new_entry)
-
-          # 6. Write back
-          with open(file_path, 'w', encoding='utf-8') as f:
-              yaml.dump(
-                  data, 
-                  f, 
-                  Dumper=ValueQuoter, 
-                  sort_keys=False, 
-                  allow_unicode=True, 
-                  default_flow_style=False,
-                  width=1000  # Prevents the backslash line-wrapping
-              )
+          # 5. Append directly to file without loading/saving the whole thing
+          with open('_data/members.yml', 'a', encoding='utf-8') as f:
+              f.write(new_entry)
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
@@ -109,4 +82,12 @@ jobs:
           commit-message: "Add ${{ steps.issue-parser.outputs.wiki-name }} to directory"
           title: "[Wiki Addition] ${{ steps.issue-parser.outputs.wiki-name }}"
           branch: "wiki-addition-${{ github.event.issue.number }}"
-          body: "Closes #${{ github.event.issue.number }}"
+          body: |
+            ### 🛡️ New Wiki Addition Request
+            
+            **Wiki Name:** ${{ steps.issue-parser.outputs.wiki-name }}
+            **Submitted By:** @${{ github.event.issue.user.login }}
+            
+            This is an automated PR. Closes #${{ github.event.issue.number }}
+          labels: |
+            automated-pr
