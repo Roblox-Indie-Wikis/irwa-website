@@ -23,7 +23,6 @@ jobs:
 
       - name: Process Data and Update YAML
         shell: python
-        # We map outputs to ENV variables to prevent empty string issues/injection
         env:
           WIKI_NAME: ${{ steps.issue-parser.outputs.wiki-name }}
           WIKI_URL: ${{ steps.issue-parser.outputs.wiki-url }}
@@ -37,14 +36,19 @@ jobs:
           import os
           from datetime import datetime
 
-          # Custom Dumper to force double quotes on specific fields
-          class QuotedDumper(yaml.SafeDumper):
+          # Custom Dumper to quote ONLY values, not keys
+          class ValueQuoter(yaml.SafeDumper):
               def represent_data(self, data):
+                  # This forces strings to use double quotes
                   if isinstance(data, str):
                       return self.represent_scalar('tag:yaml.org,2002:str', data, style='"')
                   return super().represent_data(data)
 
-          # 1. Collect Data from Env
+          # Prevent quoting of dictionary keys
+          ValueQuoter.add_representer(dict, lambda dumper, data: 
+              dumper.represent_mapping('tag:yaml.org,2002:map', data, flow_style=False))
+
+          # 1. Collect Data
           name = os.getenv("WIKI_NAME", "").strip()
           url = os.getenv("WIKI_URL", "").strip()
           desc = os.getenv("WIKI_DESC", "").strip()
@@ -58,7 +62,6 @@ jobs:
           logo = logo_url[0] if logo_url else logo_raw
 
           # 3. Build the Entry
-          # We use normal strings here; the Dumper handles the quotes
           new_entry = {
               "name": name,
               "link": url,
@@ -78,23 +81,27 @@ jobs:
               elif "twitter" in line_l or "x.com" in line_l: new_entry["twitter"] = link
               elif "ko-fi" in line_l or "patreon" in line_l: new_entry["kofi"] = link
 
-          # 5. Load and Append (Preserving existing file content)
+          # 5. Load and Append
           file_path = '_data/members.yml'
           if os.path.exists(file_path):
               with open(file_path, 'r', encoding='utf-8') as f:
-                  try:
-                      data = yaml.safe_load(f)
-                      if not isinstance(data, list): data = []
-                  except:
-                      data = []
+                  data = yaml.safe_load(f) or []
           else:
               data = []
 
           data.append(new_entry)
 
-          # 6. Write back with forced quoting
+          # 6. Write back
           with open(file_path, 'w', encoding='utf-8') as f:
-              yaml.dump(data, f, Dumper=QuotedDumper, sort_keys=False, allow_unicode=True, default_flow_style=False)
+              yaml.dump(
+                  data, 
+                  f, 
+                  Dumper=ValueQuoter, 
+                  sort_keys=False, 
+                  allow_unicode=True, 
+                  default_flow_style=False,
+                  width=1000  # Prevents the backslash line-wrapping
+              )
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
