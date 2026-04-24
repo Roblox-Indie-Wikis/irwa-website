@@ -1,0 +1,51 @@
+name: Add Wiki to IRWA Directory
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  update-directory:
+    if: github.event.label.name == 'wiki addition request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Parse Issue Form
+        uses: stefanbuck/github-issue-parser@v3
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/request-wiki-addition.yml 
+
+      - name: Update members.yml
+        run: |
+          # Use 'yq' to append a new item to the end of the YAML list
+          # We sanitize the data and map the form IDs to your YAML keys
+          
+          yq -i '. += [{
+            "name": "${{ steps.issue-parser.outputs.wiki-name }}",
+            "url": "${{ steps.issue-parser.outputs.wiki-url }}",
+            "description": "${{ steps.issue-parser.outputs.wiki-description }}",
+            "staff": "${{ steps.issue-parser.outputs.wiki-staff }}",
+            "logo": "${{ steps.issue-parser.outputs.wiki-logo }}",
+            "socials": "${{ steps.issue-parser.outputs.social-links-urls }}"
+          }]' _data/members.yml
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Add ${{ steps.issue-parser.outputs.wiki-name }} to directory"
+          title: "[Wiki Addition] ${{ steps.issue-parser.outputs.wiki-name }}"
+          branch: "wiki-addition-${{ github.event.issue.number }}"
+          body: |
+            Automated addition request from Issue #${{ github.event.issue.number }}.
+            
+            **Wiki:** ${{ steps.issue-parser.outputs.wiki-name }}
+            **Submitter:** @${{ github.event.issue.user.login }}
+          labels: |
+            automated-pr
