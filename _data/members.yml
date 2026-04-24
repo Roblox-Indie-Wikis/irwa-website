@@ -143,3 +143,16 @@
   joined: "April 2026"
   team:
     - name: lightning
+
+- name: Ultimate Mining Tycoon Wiki
+  link: https://umt.miraheze.org/
+  logo: "https://github.com/user-attachments/assets/f4dd8366-d59c-4163-a79d-dc5422144e90"
+  description: "This is the official wiki for <b><i>Ultimate Mining Tycoon</i></b>, a Roblox game about digging into the mines for resources and building elaborate factories to process them!"
+  joined: "April 2026"
+  game_link: "https://www.roblox.com/games/18680867089/Ultimate-Mining-Tycoon"
+  discord: "https://discord.gg/nyyRcqx4NH"
+  team:
+    - name: "Sardi"
+    - name: "Justy"
+    - name: "Cipher"
+    - name: "Water"
