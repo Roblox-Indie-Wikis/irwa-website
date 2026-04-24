@@ -12,7 +12,6 @@ concurrency:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   build:
@@ -39,22 +38,17 @@ jobs:
             lessc --math=strict "$file" "$css_file"
           done
 
-      - name: Create Pull Request
-        id: cpr
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "style: compile LESS to CSS"
-          committer: GitHub <noreply@github.com>
-          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-          branch: patch/compile-less/${{ github.ref_name }}
-          base: ${{ github.ref_name }}
-          title: "Update Compiled CSS"
-          body: "This is an automated PR to compile LESS to CSS."
-          delete-branch: true
-
-      - name: Auto-merge PR
-        if: steps.cpr.outputs.pull-request-operation == 'created'
-        run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --squash --admin
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit and Push CSS
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add .
+          
+          # Check if there are changes to commit to avoid workflow errors
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "style: compile LESS to CSS [skip ci]"
+            git push
+          fi
