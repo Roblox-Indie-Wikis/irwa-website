@@ -15,7 +15,7 @@ body:
     id: wiki-name
     attributes:
       label: Wiki Name
-      description: Your chosen display name for the wiki
+      description: Chosen display name for the wiki.
       placeholder: My Awesome Wiki
     validations:
       required: true
@@ -24,7 +24,7 @@ body:
     id: wiki-url
     attributes:
       label: Wiki URL
-      description: The URL to your wiki.
+      description: URL to the wiki.
       placeholder: https://awesome.wiki
     validations:
       required: true
@@ -36,6 +36,9 @@ body:
       description: |
         Please attach your wiki logo image here. The image will be displayed as **400x400px**. 
         You can drag and drop the file into this text box, or click the attachment icon to upload it.
+
+        Should your wiki logo be monochrome, please insert the **white version**. Should your wiki logo be basic and does not have multiple colours, .svg is recommended.
+        **Do not insert any other text; only insert an image**.
       placeholder: Drag and drop your chosen logo image here...
     validations:
       required: true
@@ -44,7 +47,7 @@ body:
     id: social-links
     attributes:
       label: Social Links
-      description: Your wiki listing includes some social links. Please select what you would like to add. 
+      description: Wiki listings typically include some social links. Please select what you would like to add. 
       options:
         - label: Wiki Discord
         - label: Twitter / X
@@ -55,7 +58,9 @@ body:
     id: social-links-urls
     attributes:
       label: Social Link URLs
-      description: Provide the URLs for each social link you selected above. One per line.
+      description: |
+        Provide the URLs for each social link you selected above. One per line.
+        Along with social links, you must link to the Roblox game you are documenting. Should you be documenting multiple games on your wiki, you don't have to link the games at all.
       placeholder: |
         Roblox Game: https://roblox.com/games/1818/
         Wiki Discord: https://discord.gg/hmqCYg4P23 
@@ -66,7 +71,7 @@ body:
     id: wiki-staff
     attributes:
       label: Wiki Staff
-      description: Let us know the names of your staff team. It should be comma-seperated.
+      description: Let us know the names of your staff team. Please ensure that it stays comma-seperated.
       placeholder: Shedletsky, Telamon, Brighteyes, MrDoomBringer
 
   - type: textarea
