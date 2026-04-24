@@ -26,16 +26,21 @@ jobs:
           import re
           import os
           import subprocess
+          import requests
           from datetime import datetime
 
-          # use GitHub CLI to get issue data in JSON format
+          def md_to_html(text):
+              text = re.sub(r'(\*\*|__)(.*?)\1', r'<b>\2</b>', text)
+              text = re.sub(r'(\*|_)(.*?)\1', r'<i>\2</i>', text)
+              return text
+
+          # Get issue data
           result = subprocess.run(
               ['gh', 'issue', 'view', os.environ['ISSUE_NUMBER'], '--json', 'body'],
               capture_output=True, text=True
           )
           issue_body = json.loads(result.stdout)['body']
 
-          # extract data using headers (###)
           def get_section(header, body):
               pattern = f"### {header}\\s+(.*?)(?=\\n###|$)"
               match = re.search(pattern, body, re.DOTALL)
@@ -43,43 +48,71 @@ jobs:
 
           name = get_section("Wiki Name", issue_body)
           url = get_section("Wiki URL", issue_body)
-          desc = get_section("Wiki Description", issue_body)
+          desc = md_to_html(get_section("Wiki Description", issue_body))
           logo_raw = get_section("Wiki Logo", issue_body)
           socials_raw = get_section("Social Link URLs", issue_body)
           staff_raw = get_section("Wiki Staff", issue_body)
 
-          # validation
           if not name or name == "_No response_":
-              print(f"Error: Found name '{name}'. Check if 'Wiki Name' matches the template label.")
+              print(f"Error: Found name '{name}'")
               exit(1)
 
-          current_date = datetime.now().strftime("%B %Y")
-          
+          # image handling
           img_url_match = re.search(r'src="([^"]+)"', logo_raw)
           if img_url_match:
-              logo = img_url_match.group(1)
+              logo_url = img_url_match.group(1)
           else:
-              # Fallback for markdown format ![alt](url)
               markdown_url = re.findall(r'\((http[s]?://.*?)\)', logo_raw)
-              logo = markdown_url[0] if markdown_url else logo_raw
+              logo_url = markdown_url[0] if markdown_url else logo_raw
 
-          new_entry = f'\n- name: {name}\n'
-          new_entry += f'  link: {url}\n'
-          new_entry += f'  logo: "{logo}"\n'
+          # Clean filename for local storage
+          clean_filename = re.sub(r'\s+[Ww]iki$', '', name).strip()
+          clean_filename = re.sub(r'[^a-zA-Z0-9]', '', clean_filename.replace(" ", ""))
+          
+          final_logo_path = logo_url # Default back to URL if download fails
+          
+          if logo_url.startswith("http"):
+              try:
+                  os.makedirs("assets/wiki-logos", exist_ok=True)
+                  ext = os.path.splitext(logo_url.split('?')[0])[1] or ".png"
+                  filename = f"{clean_filename}{ext}"
+                  save_path = os.path.join("assets/wiki-logos", filename)
+                  
+                  response = requests.get(logo_url, timeout=10)
+                  if response.status_code == 200:
+                      with open(save_path, "wb") as f:
+                          f.write(response.content)
+                      final_logo_path = f"assets/wiki-logos/{filename}"
+                      print(f"Saved logo: {filename}")
+              except Exception as e:
+                  print(f"Warning: Logo download failed: {e}")
+
+          # --- Construct Entry ---
+          current_date = datetime.now().strftime("%B %Y")
+          new_entry = f'\n- name: "{name}"\n'
+          new_entry += f'  link: "{url}"\n'
+          new_entry += f'  logo: "{final_logo_path}"\n'
           new_entry += f'  description: "{desc}"\n'
           new_entry += f'  joined: "{current_date}"\n'
 
-          # map socials
+          # Socials mapping
           for line in socials_raw.split('\n'):
               line_l = line.lower()
               u = re.search(r'http[s]?://\S+', line)
               if not u: continue
-              link = u.group().rstrip('"') # Clean trailing quotes if any
-              if "discord" in line_l: new_entry += f'  discord: "{link}"\n'
-              elif "twitter" in line_l or "x.com" in line_l: new_entry += f'  twitter: "{link}"\n'
-              elif "ko-fi" in line_l or "patreon" in line_l: new_entry += f'  kofi: "{link}"\n'
+              link = u.group().rstrip(')"') # Clean trailing markdown parens
+              
+              if "roblox.com/games/" in line_l:
+                  new_entry += f'  game_link: "{link}"\n'
+              elif "discord" in line_l:
+                  new_entry += f'  discord: "{link}"\n'
+              elif "twitter" in line_l or "x.com" in line_l:
+                  new_entry += f'  twitter: "{link}"\n'
+              elif "ko-fi" in line_l:
+                  new_entry += f'  kofi: "{link}"\n'
+              elif "patreon" in line_l:
+                  new_entry += f'  patreon: "{link}"\n'
 
-          # handle staff
           if staff_raw and staff_raw != "_No response_":
               new_entry += '  team:\n'
               for staff in staff_raw.split(','):
@@ -87,10 +120,11 @@ jobs:
                   if s_name:
                       new_entry += f'    - name: "{s_name}"\n'
 
-          # append to file
+          # Write to file
           with open('_data/members.yml', 'a', encoding='utf-8') as f:
               f.write(new_entry)
           
+          # Pass variable to GitHub Environment
           with open(os.environ['GITHUB_ENV'], 'a') as f:
               f.write(f"WIKI_NAME={name}\n")
 
