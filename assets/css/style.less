@@ -1331,9 +1331,15 @@ textarea {
 	}
 }
 
+
 .home-template .landing-huge-quote {
+	@media screen and (max-width: 1119px) {
+		margin-bottom: calc(var(--baseline) * 40);
+	}
+
 	margin-bottom: calc(var(--baseline) * 60);
 }
+
 
 body:not(.home-template) .main {
 	margin-top: var(--magic-number);
@@ -2852,12 +2858,14 @@ img.is-loaded {
 		}
 	}
 
-	&:nth-child(1 of .landing-project-showcase) {
-		margin-top: calc(var(--baseline) * 50) !important;
-	}
+	@media screen and (min-width: 1119px) {
+		&:nth-child(1 of .landing-project-showcase) {
+			margin-top: calc(var(--baseline) * 50) !important;
+		}
 
-	&:last-of-type {
-		margin-bottom: calc(var(--baseline) * 70) !important;
+		&:last-of-type {
+			margin-bottom: calc(var(--baseline) * 70) !important;
+		}
 	}
 }
 

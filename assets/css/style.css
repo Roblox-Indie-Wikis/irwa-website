@@ -1565,6 +1565,11 @@ textarea {
 .home-template .landing-huge-quote {
   margin-bottom: calc(var(--baseline) * 60);
 }
+@media screen and (max-width: 1119px) {
+  .home-template .landing-huge-quote {
+    margin-bottom: calc(var(--baseline) * 40);
+  }
+}
 body:not(.home-template) .main {
   margin-top: var(--magic-number);
 }
@@ -2877,11 +2882,13 @@ img.is-loaded {
   color: oklch(from var(--text-color) l c h / 0.6);
   margin-top: unset;
 }
-.landing-project-showcase:nth-child(1 of .landing-project-showcase) {
-  margin-top: calc(var(--baseline) * 50) !important;
-}
-.landing-project-showcase:last-of-type {
-  margin-bottom: calc(var(--baseline) * 70) !important;
+@media screen and (min-width: 1119px) {
+  .landing-project-showcase:nth-child(1 of .landing-project-showcase) {
+    margin-top: calc(var(--baseline) * 50) !important;
+  }
+  .landing-project-showcase:last-of-type {
+    margin-bottom: calc(var(--baseline) * 70) !important;
+  }
 }
 @keyframes appear {
   from {
