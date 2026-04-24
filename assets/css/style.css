@@ -520,7 +520,7 @@ body.page-onboarding::before {
   --bg: url('../../assets/promofiles/OnboardingMainThumbnail.png');
 }
 body.page-robloxapi::before {
-  --bg: url('../../assets/backgrounds/RobloxAPI_Mesh_Gradient.webp');
+  --bg: url('../../assets/backgrounds/RobloxAPI_Mesh_Gradient.png');
 }
 a {
   color: var(--link-color);
