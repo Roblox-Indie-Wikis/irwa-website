@@ -1,7 +1,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-{% seo %}
+{% unless page.url == "/" %}
+    {% seo %}
+{% endunless %}
+{% if page.url == "/" %}
+    {% seo title=false %}
+    <title>{{ site.title }}</title>
+{% endif %}
 <link rel="alternate" type="application/atom+xml" href="{{ "/feed.xml" | relative_url }}">
 {% unless page.image %}
     <meta property="og:image" content="{{ "/assets/website/IRWA-Logo-stroke.png" | absolute_url }}">
