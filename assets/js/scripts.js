@@ -828,3 +828,7 @@ if (document.readyState === 'loading') {
 } else {
 	initHomeBackgroundRotation();
 }
+
+if (window.location.pathname.endsWith('/') && window.location.pathname !== '/') {
+	window.location.replace(window.location.pathname.slice(0, -1));
+}
