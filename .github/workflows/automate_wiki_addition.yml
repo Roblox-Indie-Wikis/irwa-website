@@ -19,33 +19,84 @@ jobs:
         uses: stefanbuck/github-issue-parser@v3
         id: issue-parser
         with:
-          template-path: .github/ISSUE_TEMPLATE/request-wiki-addition.yml 
+          template-path: .github/ISSUE_TEMPLATE/member_request.yml
 
-      - name: Update members.yml
+      - name: Process Data and Update YAML
+        shell: python
         run: |
-          # Use 'yq' to append a new item to the end of the YAML list
-          # We sanitize the data and map the form IDs to your YAML keys
+          import yaml
+          import re
+          import os
+          from datetime import datetime
+
+          # 1. Load the parsed data
+          # Using triple quotes to handle multi-line strings from the issue
+          raw_data = {
+              "name": """${{ steps.issue-parser.outputs.wiki-name }}""",
+              "link": """${{ steps.issue-parser.outputs.wiki-url }}""",
+              "description": """${{ steps.issue-parser.outputs.wiki-description }}""",
+              "logo_raw": """${{ steps.issue-parser.outputs.wiki-logo }}""",
+              "socials_raw": """${{ steps.issue-parser.outputs.social-links-urls }}""",
+              "staff_raw": """${{ steps.issue-parser.outputs.wiki-staff }}"""
+          }
+
+          # 2. Get Dynamic Date (e.g., "April 2026")
+          current_date = datetime.now().strftime("%B %Y")
+
+          # 3. Clean up Logo (extract URL from Markdown ![alt](url))
+          logo_url = re.findall(r'\((http[s]?://.*?)\)', raw_data["logo_raw"])
+          logo = logo_url[0] if logo_url else raw_data["logo_raw"]
+
+          # 4. Create the new entry dictionary
+          new_entry = {
+              "name": raw_data["name"].strip(),
+              "link": raw_data["link"].strip(),
+              "logo": logo.strip(),
+              "description": raw_data["description"].strip(),
+              "joined": current_date,
+              "team": [{"name": s.strip()} for s in raw_data["staff_raw"].split(',') if s.strip()]
+          }
+
+          # 5. Map Socials
+          social_lines = raw_data["socials_raw"].split('\n')
+          for line in social_lines:
+              line_lower = line.lower()
+              url_match = re.search(r'http[s]?://\S+', line)
+              if not url_match: continue
+              url = url_match.group()
+              
+              if "discord" in line_lower:
+                  new_entry["discord"] = url
+              elif "twitter" in line_lower or "x.com" in line_lower:
+                  new_entry["twitter"] = url
+              elif "ko-fi" in line_lower or "patreon" in line_lower:
+                  new_entry["kofi"] = url
+
+          # 6. Read, Append, and Write
+          file_path = '_data/members.yml'
           
-          yq -i '. += [{
-            "name": "${{ steps.issue-parser.outputs.wiki-name }}",
-            "url": "${{ steps.issue-parser.outputs.wiki-url }}",
-            "description": "${{ steps.issue-parser.outputs.wiki-description }}",
-            "staff": "${{ steps.issue-parser.outputs.wiki-staff }}",
-            "logo": "${{ steps.issue-parser.outputs.wiki-logo }}",
-            "socials": "${{ steps.issue-parser.outputs.social-links-urls }}"
-          }]' _data/members.yml
+          # Load existing data (handling empty files)
+          if os.path.exists(file_path):
+              with open(file_path, 'r', encoding='utf-8') as f:
+                  current_list = yaml.safe_load(f) or []
+          else:
+              current_list = []
+          
+          current_list.append(new_entry)
+          
+          with open(file_path, 'w', encoding='utf-8') as f:
+              # sort_keys=False preserves the order of our dictionary
+              yaml.dump(current_list, f, sort_keys=False, allow_unicode=True, default_flow_style=False)
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Add ${{ steps.issue-parser.outputs.wiki-name }} to directory"
           title: "[Wiki Addition] ${{ steps.issue-parser.outputs.wiki-name }}"
           branch: "wiki-addition-${{ github.event.issue.number }}"
           body: |
-            Automated addition request from Issue #${{ github.event.issue.number }}.
-            
-            **Wiki:** ${{ steps.issue-parser.outputs.wiki-name }}
-            **Submitter:** @${{ github.event.issue.user.login }}
+            Automated wiki addition for **${{ steps.issue-parser.outputs.wiki-name }}**.
+            This PR was generated from Issue #${{ github.event.issue.number }}.
           labels: |
             automated-pr
+            wiki addition request
