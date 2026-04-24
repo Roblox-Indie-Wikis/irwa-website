@@ -805,6 +805,7 @@ function initHomeBackgroundRotation() {
 		baseUrl + 'assets/backgrounds/Anime_Vanguards_BG.png',
 		baseUrl + 'assets/backgrounds/Parkour_Reborn_Stack.png',
 		baseUrl + 'assets/backgrounds/Parkour_Reborn_Fragment.png',
+		baseUrl + 'assets/backgrounds/Parkour_Reborn_Day.png',
 	];
 
 	var lastIndex = null;
