@@ -23,70 +23,78 @@ jobs:
 
       - name: Process Data and Update YAML
         shell: python
+        # We map outputs to ENV variables to prevent empty string issues/injection
+        env:
+          WIKI_NAME: ${{ steps.issue-parser.outputs.wiki-name }}
+          WIKI_URL: ${{ steps.issue-parser.outputs.wiki-url }}
+          WIKI_DESC: ${{ steps.issue-parser.outputs.wiki-description }}
+          WIKI_LOGO: ${{ steps.issue-parser.outputs.wiki-logo }}
+          WIKI_SOCIALS: ${{ steps.issue-parser.outputs.social-links-urls }}
+          WIKI_STAFF: ${{ steps.issue-parser.outputs.wiki-staff }}
         run: |
           import yaml
           import re
           import os
           from datetime import datetime
 
-          # 1. Load the parsed data
-          # Using triple quotes to handle multi-line strings from the issue
-          raw_data = {
-              "name": """${{ steps.issue-parser.outputs.wiki-name }}""",
-              "link": """${{ steps.issue-parser.outputs.wiki-url }}""",
-              "description": """${{ steps.issue-parser.outputs.wiki-description }}""",
-              "logo_raw": """${{ steps.issue-parser.outputs.wiki-logo }}""",
-              "socials_raw": """${{ steps.issue-parser.outputs.social-links-urls }}""",
-              "staff_raw": """${{ steps.issue-parser.outputs.wiki-staff }}"""
-          }
+          # Custom Dumper to force double quotes on specific fields
+          class QuotedDumper(yaml.SafeDumper):
+              def represent_data(self, data):
+                  if isinstance(data, str):
+                      return self.represent_scalar('tag:yaml.org,2002:str', data, style='"')
+                  return super().represent_data(data)
 
-          # 2. Get Dynamic Date (e.g., "April 2026")
+          # 1. Collect Data from Env
+          name = os.getenv("WIKI_NAME", "").strip()
+          url = os.getenv("WIKI_URL", "").strip()
+          desc = os.getenv("WIKI_DESC", "").strip()
+          logo_raw = os.getenv("WIKI_LOGO", "").strip()
+          socials_raw = os.getenv("WIKI_SOCIALS", "").strip()
+          staff_raw = os.getenv("WIKI_STAFF", "").strip()
+
+          # 2. Date and Logo Cleanup
           current_date = datetime.now().strftime("%B %Y")
+          logo_url = re.findall(r'\((http[s]?://.*?)\)', logo_raw)
+          logo = logo_url[0] if logo_url else logo_raw
 
-          # 3. Clean up Logo (extract URL from Markdown ![alt](url))
-          logo_url = re.findall(r'\((http[s]?://.*?)\)', raw_data["logo_raw"])
-          logo = logo_url[0] if logo_url else raw_data["logo_raw"]
-
-          # 4. Create the new entry dictionary
+          # 3. Build the Entry
+          # We use normal strings here; the Dumper handles the quotes
           new_entry = {
-              "name": raw_data["name"].strip(),
-              "link": raw_data["link"].strip(),
-              "logo": logo.strip(),
-              "description": raw_data["description"].strip(),
+              "name": name,
+              "link": url,
+              "logo": logo,
+              "description": desc,
               "joined": current_date,
-              "team": [{"name": s.strip()} for s in raw_data["staff_raw"].split(',') if s.strip()]
+              "team": [{"name": s.strip()} for s in staff_raw.split(',') if s.strip()]
           }
 
-          # 5. Map Socials
-          social_lines = raw_data["socials_raw"].split('\n')
-          for line in social_lines:
-              line_lower = line.lower()
-              url_match = re.search(r'http[s]?://\S+', line)
-              if not url_match: continue
-              url = url_match.group()
-              
-              if "discord" in line_lower:
-                  new_entry["discord"] = url
-              elif "twitter" in line_lower or "x.com" in line_lower:
-                  new_entry["twitter"] = url
-              elif "ko-fi" in line_lower or "patreon" in line_lower:
-                  new_entry["kofi"] = url
+          # 4. Map Socials
+          for line in socials_raw.split('\n'):
+              line_l = line.lower()
+              u = re.search(r'http[s]?://\S+', line)
+              if not u: continue
+              link = u.group()
+              if "discord" in line_l: new_entry["discord"] = link
+              elif "twitter" in line_l or "x.com" in line_l: new_entry["twitter"] = link
+              elif "ko-fi" in line_l or "patreon" in line_l: new_entry["kofi"] = link
 
-          # 6. Read, Append, and Write
+          # 5. Load and Append (Preserving existing file content)
           file_path = '_data/members.yml'
-          
-          # Load existing data (handling empty files)
           if os.path.exists(file_path):
               with open(file_path, 'r', encoding='utf-8') as f:
-                  current_list = yaml.safe_load(f) or []
+                  try:
+                      data = yaml.safe_load(f)
+                      if not isinstance(data, list): data = []
+                  except:
+                      data = []
           else:
-              current_list = []
-          
-          current_list.append(new_entry)
-          
+              data = []
+
+          data.append(new_entry)
+
+          # 6. Write back with forced quoting
           with open(file_path, 'w', encoding='utf-8') as f:
-              # sort_keys=False preserves the order of our dictionary
-              yaml.dump(current_list, f, sort_keys=False, allow_unicode=True, default_flow_style=False)
+              yaml.dump(data, f, Dumper=QuotedDumper, sort_keys=False, allow_unicode=True, default_flow_style=False)
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
@@ -94,9 +102,4 @@ jobs:
           commit-message: "Add ${{ steps.issue-parser.outputs.wiki-name }} to directory"
           title: "[Wiki Addition] ${{ steps.issue-parser.outputs.wiki-name }}"
           branch: "wiki-addition-${{ github.event.issue.number }}"
-          body: |
-            Automated wiki addition for **${{ steps.issue-parser.outputs.wiki-name }}**.
-            This PR was generated from Issue #${{ github.event.issue.number }}.
-          labels: |
-            automated-pr
-            wiki addition request
+          body: "Closes #${{ github.event.issue.number }}"
