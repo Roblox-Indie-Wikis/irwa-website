@@ -102,3 +102,4 @@ jobs:
           branch: "wiki-addition-${{ github.event.issue.number }}"
           body: "Automated wiki addition for **${{ env.WIKI_NAME }}** 🥳 Closes #${{ github.event.issue.number }}"
           labels: "wiki addition request"
+          delete-branch: true
