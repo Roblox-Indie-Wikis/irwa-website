@@ -28,23 +28,19 @@ jobs:
           import subprocess
           from datetime import datetime
 
-          # 1. Use GitHub CLI to get issue data in JSON format
-          # This is the most robust way to parse Issue Forms
+          # use GitHub CLI to get issue data in JSON format
           result = subprocess.run(
               ['gh', 'issue', 'view', os.environ['ISSUE_NUMBER'], '--json', 'body'],
               capture_output=True, text=True
           )
           issue_body = json.loads(result.stdout)['body']
 
-          # 2. Extract data using headers (###)
-          # This helper finds the text between a specific header and the next one
+          # extract data using headers (###)
           def get_section(header, body):
               pattern = f"### {header}\\s+(.*?)(?=\\n###|$)"
               match = re.search(pattern, body, re.DOTALL)
               return match.group(1).strip() if match else ""
 
-          # Mapping your specific form Labels to variables
-          # Note: Use the 'label' text from your YAML template here
           name = get_section("Wiki Name", issue_body)
           url = get_section("Wiki URL", issue_body)
           desc = get_section("Wiki Description", issue_body)
@@ -52,15 +48,13 @@ jobs:
           socials_raw = get_section("Social Link URLs", issue_body)
           staff_raw = get_section("Wiki Staff", issue_body)
 
-          # 3. Validation
+          # validation
           if not name or name == "_No response_":
               print(f"Error: Found name '{name}'. Check if 'Wiki Name' matches the template label.")
               exit(1)
 
-          # 4. Clean up Logo: Extract ONLY the URL from the <img> tag or markdown
           current_date = datetime.now().strftime("%B %Y")
           
-          # This looks for src="url" or (url)
           img_url_match = re.search(r'src="([^"]+)"', logo_raw)
           if img_url_match:
               logo = img_url_match.group(1)
@@ -69,16 +63,13 @@ jobs:
               markdown_url = re.findall(r'\((http[s]?://.*?)\)', logo_raw)
               logo = markdown_url[0] if markdown_url else logo_raw
 
-          # 5. Build the YAML string manually with specific quoting
-          # name and link = No quotes
-          # logo, description, joined = Double quotes
           new_entry = f'\n- name: {name}\n'
           new_entry += f'  link: {url}\n'
           new_entry += f'  logo: "{logo}"\n'
           new_entry += f'  description: "{desc}"\n'
           new_entry += f'  joined: "{current_date}"\n'
 
-          # 6. Map Socials (Value wrapped in quotes)
+          # map socials
           for line in socials_raw.split('\n'):
               line_l = line.lower()
               u = re.search(r'http[s]?://\S+', line)
@@ -88,7 +79,7 @@ jobs:
               elif "twitter" in line_l or "x.com" in line_l: new_entry += f'  twitter: "{link}"\n'
               elif "ko-fi" in line_l or "patreon" in line_l: new_entry += f'  kofi: "{link}"\n'
 
-          # 7. Handle Staff (Value wrapped in quotes)
+          # handle staff
           if staff_raw and staff_raw != "_No response_":
               new_entry += '  team:\n'
               for staff in staff_raw.split(','):
@@ -96,11 +87,10 @@ jobs:
                   if s_name:
                       new_entry += f'    - name: "{s_name}"\n'
 
-          # 8. Append to file
+          # append to file
           with open('_data/members.yml', 'a', encoding='utf-8') as f:
               f.write(new_entry)
           
-          # Pass data to GitHub Env for the next step
           with open(os.environ['GITHUB_ENV'], 'a') as f:
               f.write(f"WIKI_NAME={name}\n")
 
@@ -110,5 +100,5 @@ jobs:
           commit-message: "Add ${{ env.WIKI_NAME }} to directory"
           title: "Add ${{ env.WIKI_NAME }} to member data"
           branch: "wiki-addition-${{ github.event.issue.number }}"
-          body: "Automated wiki addition for **${{ env.WIKI_NAME }}**. Closes #${{ github.event.issue.number }}"
+          body: "Automated wiki addition for **${{ env.WIKI_NAME }}** 🥳 Closes #${{ github.event.issue.number }}"
           labels: "wiki addition request"
