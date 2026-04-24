@@ -12,20 +12,20 @@ body:
         Here is a preview of how a listing looks like: <img width="800" alt="Image" src="https://indierobloxwikis.org/assets/promofiles/wiki-listing.png" />
 
   - type: input
-    id: wiki-url
-    attributes:
-      label: Wiki URL
-      description: The URL to your wiki.
-      placeholder: https://dovedale.wiki
-    validations:
-      required: true
-
-  - type: input
     id: wiki-name
     attributes:
       label: Wiki Name
       description: Your chosen display name for the wiki
-      placeholder: Dovedale Railway Wiki
+      placeholder: My Awesome Wiki
+    validations:
+      required: true
+
+  - type: input
+    id: wiki-url
+    attributes:
+      label: Wiki URL
+      description: The URL to your wiki.
+      placeholder: https://awesome.wiki
     validations:
       required: true
 
@@ -43,12 +43,13 @@ body:
   - type: checkboxes
     id: social-links
     attributes:
-      label: Wiki Social Links
+      label: Social Links
       description: Your wiki listing includes some social links. Please select what you would like to add. 
       options:
         - label: Wiki Discord
         - label: Twitter / X
-        - label: Donation page; Ko-fi/Patreon (only for self-hosted sites to cover costs) 
+        - label: Ko-fi
+        - label: Patreon
 
   - type: textarea
     id: social-links-urls
@@ -56,16 +57,17 @@ body:
       label: Social Link URLs
       description: Provide the URLs for each social link you selected above. One per line.
       placeholder: |
+        Roblox Game: https://roblox.com/games/1818/
         Wiki Discord: https://discord.gg/hmqCYg4P23 
-        Twitter: https://twitter.com/DovedaleRailway
+        Twitter: https://twitter.com/roblox
         Ko-fi: https://ko-fi.com/Dovedale
 
   - type: textarea
     id: wiki-staff
     attributes:
       label: Wiki Staff
-      description: Let us know the names of your staff team. 
-      placeholder: Billie, Jaiden, Uchu, Bonnie
+      description: Let us know the names of your staff team. It should be comma-seperated.
+      placeholder: Shedletsky, Telamon, Brighteyes, MrDoomBringer
 
   - type: textarea
     id: wiki-description
