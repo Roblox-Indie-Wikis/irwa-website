@@ -58,6 +58,8 @@ jobs:
               exit(1)
 
           # 4. Clean up Logo: Extract ONLY the URL from the <img> tag or markdown
+          current_date = datetime.now().strftime("%B %Y")
+          
           # This looks for src="url" or (url)
           img_url_match = re.search(r'src="([^"]+)"', logo_raw)
           if img_url_match:
