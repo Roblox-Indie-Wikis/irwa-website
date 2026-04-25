@@ -89,5 +89,5 @@ body:
       description: Please complete the following declaration
       options:
         - label: I confirm my wiki that I am submitting is already an existing approved IRWA member, and all the information I am submitting is true and accurate. 
-      validations:
-        required: true
+    validations:
+      required: true
