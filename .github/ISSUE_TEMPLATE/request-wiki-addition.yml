@@ -1,6 +1,7 @@
 name: Request Wiki Addition
 description: Request to have your wiki added to the IRWA website. 
 title: "[New Wiki] <Replace with your wiki name> "
+assignees: ["whostacking", "enews"]
 labels: ["wiki addition request"]
 body:
   - type: markdown
