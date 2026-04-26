@@ -768,6 +768,7 @@ button {
   background: linear-gradient(to bottom, oklch(0.6653 0.2227 260), oklch(0.4724 0.1604 260));
   box-shadow: 0 8px 20px -3px oklch(from #000 l c h / 0.12);
   border: 1px solid oklch(0.4724 0.1604 260);
+  border-radius: 1.5rem;
   color: #fff;
   cursor: pointer;
   display: inline-flex;
@@ -819,6 +820,7 @@ button:disabled {
   background: linear-gradient(to bottom, oklch(0.6653 0.2227 142.5), oklch(0.4724 0.1604 142.5));
   box-shadow: 0 8px 20px -3px oklch(from #000 l c h / 0.12);
   border: 1px solid oklch(0.4724 0.1604 142.5);
+  border-radius: 1.5rem;
   color: #fff;
   cursor: pointer;
   display: inline-flex;
