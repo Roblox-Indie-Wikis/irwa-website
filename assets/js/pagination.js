@@ -27,7 +27,7 @@ function showPanel(next) {
         currentPanel.classList.remove('exit-left', 'exit-right');
         current = next;
         locked = false;
-    }, 200);
+    }, 460);
 }
 
 tabs.forEach((tab, index) => tab.addEventListener('click', () => showPanel(index)));
