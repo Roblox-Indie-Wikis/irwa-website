@@ -154,3 +154,16 @@
     - name: "Justy"
     - name: "Cipher"
     - name: "Water"
+
+- name: "The Depth Spelunking Wiki"
+  link: "https://depthspelunking.miraheze.org/"
+  logo: "assets/wiki-logos/TheDepthSpelunking.png"
+  description: "The Depth Spelunking Wiki aims to provide useful information about Depth Spelunking, a delver-like fangame inspired by Minus Elevation and Minus Descendance. Descend into the Void, explore endless floors, and avoid dangerous entities on your journey to reach The Heart! Are you willing to take on the challenge?"
+  joined: "April 2026"
+  game_link: "https://www.roblox.com/games/8253643436/Depth-Spelunking"
+  discord: "https://discord.gg/foxxive"
+  team:
+    - name: "TheAbsolute"
+    - name: "RolledOut34"
+    - name: "Zenvote"
+    - name: "yusttyy"
