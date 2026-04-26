@@ -536,9 +536,11 @@ a {
 dl,
 ol,
 p,
-pre,
-ul {
+pre {
   margin-top: calc(var(--baseline) * 7);
+}
+ul {
+  margin-top: calc(var(--baseline) * 3);
 }
 blockquote,
 figure,
@@ -2723,6 +2725,7 @@ img.is-loaded {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  border-radius: 1rem;
 }
 .btn-light {
   background: var(--primary-2) !important;
