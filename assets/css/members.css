@@ -10,6 +10,7 @@
   background: linear-gradient(to bottom, oklch(0.6653 0.2227 260), oklch(0.4724 0.1604 260));
   box-shadow: 0 8px 20px -3px oklch(from #000 l c h / 0.12);
   border: 1px solid oklch(0.4724 0.1604 260);
+  border-radius: 1.5rem;
   color: #fff;
   cursor: pointer;
   display: inline-flex;
@@ -34,6 +35,8 @@
   position: relative;
   z-index: 0;
   overflow: hidden;
+  background: #333 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 @media all and (min-width: 20em) {
   .member-box {
@@ -63,6 +66,9 @@
   z-index: -1;
   opacity: 0;
   transition: 0.5s opacity;
+}
+.member-box:hover {
+  background: #444 !important;
 }
 .member-box:hover::before {
   opacity: 1;
@@ -294,6 +300,7 @@
   background: linear-gradient(to bottom, oklch(0.6653 0.2227 142.5), oklch(0.4724 0.1604 142.5));
   box-shadow: 0 8px 20px -3px oklch(from #000 l c h / 0.12);
   border: 1px solid oklch(0.4724 0.1604 142.5);
+  border-radius: 1.5rem;
   color: #fff;
   cursor: pointer;
   display: inline-flex;

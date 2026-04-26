@@ -22,6 +22,8 @@
     position: relative;
     z-index: 0;
     overflow: hidden;
+    background: #333!important;
+    border: 1px solid rgba(255, 255, 255, 0.1)!important;
     
     &::before {
         content: '';
@@ -34,6 +36,8 @@
     }
 
     &:hover {
+        background: #444!important;
+
         &::before {
             opacity: 1;
         }

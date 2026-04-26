@@ -2725,7 +2725,6 @@ img.is-loaded {
   justify-content: center;
   align-items: center;
   gap: 5px;
-  border-radius: 1rem;
 }
 .btn-light {
   background: var(--primary-2) !important;
