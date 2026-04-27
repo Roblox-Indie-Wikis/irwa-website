@@ -64,9 +64,6 @@
   opacity: 0;
   transition: 0.5s opacity;
 }
-.member-box:hover {
-  background: #444 !important;
-}
 .member-box:hover::before {
   opacity: 1;
 }
