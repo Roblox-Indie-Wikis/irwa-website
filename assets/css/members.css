@@ -119,7 +119,7 @@
   }
 }
 .modal-content {
-  background: var(--neutral-base);
+  background: oklch(from var(--neutral-base) l c h / 0.95);
   width: 90%;
   max-width: 900px;
   max-height: 80svh;
@@ -160,36 +160,46 @@
   background: var(--neutral-2);
 }
 .modal-left {
-  flex: 0 0 300px;
-  background: var(--neutral-2);
+  flex: 0 0 30%;
+  /* background: var(--neutral-2); */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 40px;
   position: relative;
-  overflow: hidden;
+  gap: 40px;
+  /* overflow: hidden; */
+  /* &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, transparent 30%, var(--neutral-2) 100%);
+        z-index: 1;
+    } */
 }
 .modal-left::before {
   content: "";
   position: absolute;
   inset: -20px;
   background-image: var(--logo-url);
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   filter: blur(40px) saturate(2);
+  height: 100%;
   opacity: 0.5;
-  z-index: 0;
+  z-index: -1;
 }
-.modal-left::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, transparent 30%, var(--neutral-2) 100%);
-  z-index: 1;
+@media screen and (max-width: 800px) {
+  .modal-left::before {
+    width: 100%;
+    height: 150%!important;
+  }
 }
 .modal-left img {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  aspect-ratio: 1;
   object-fit: contain;
   position: relative;
   z-index: 2;
@@ -197,6 +207,9 @@
 @media screen and (max-width: 800px) {
   .modal-left {
     flex: unset;
+    gap: 20px!important;
+    text-align: center;
+    padding: 40px 40px 0 40px!important;
   }
   .modal-left img {
     width: unset;
@@ -206,6 +219,8 @@
 .modal-right {
   flex: 1;
   padding: 40px;
+  display: flex;
+  flex-direction: column;
 }
 /* Grid Layout for Modal Content */
 .modal-header-grid {
@@ -213,19 +228,25 @@
   grid-template-columns: 1fr 200px;
   grid-template-rows: auto auto auto;
   gap: 20px;
-  grid-template-areas: "title title" "desc meta";
+  grid-template-areas: "desc meta";
+  flex: 1;
 }
 .modal-header-grid.no-meta {
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  grid-template-areas: "title" "desc";
+  grid-template-areas: "title" "meta" "desc";
 }
 .modal-title-area {
   grid-area: title;
+  width: 100%;
 }
-.modal-title-area h2 {
-  margin: 0 0 10px 0;
-  font-size: 2rem;
+.modal-title-area > * {
+  margin: 0;
+}
+@media screen and (max-width: 800px) {
+  .modal-title-area > * {
+    font-size: 1.5rem;
+  }
 }
 #modalDescription {
   margin: 0;
@@ -245,10 +266,10 @@
 }
 .meta-label {
   font-size: 0.75rem;
-  font-weight: bold;
+  font-variation-settings: "wght" 900;
   text-transform: uppercase;
   color: var(--neutral-8);
-  margin-bottom: 2px;
+  /* margin-bottom: 2px; */
 }
 .meta-value {
   font-size: 0.9rem;
@@ -266,12 +287,17 @@
   font-size: 0.8rem;
 }
 .modal-footer-grid {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid var(--neutral-2);
+  /* margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--neutral-2); */
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media screen and (max-width: 800px) {
+  .modal-footer-grid {
+    margin-top: 30px;
+  }
 }
 .modal-socials {
   display: flex;
@@ -339,9 +365,6 @@
 @media (max-width: 850px) {
   .modal-content {
     flex-direction: column;
-  }
-  .modal-left {
-    flex: 0 0 200px;
   }
   .modal-header-grid {
     grid-template-columns: 1fr;
