@@ -67,10 +67,6 @@ function openEntityModal(element) {
             const container = document.createElement('div');
             container.className = 'team-member';
 
-            const icon = document.createElement('div');
-            icon.className = 'team-member-icon';
-            container.appendChild(icon);
-
             const span = document.createElement('span');
             span.className = 'team-tag';
             span.textContent = t.name;
