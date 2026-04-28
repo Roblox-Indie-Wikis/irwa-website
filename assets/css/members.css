@@ -121,7 +121,7 @@
 .modal-content {
   background: oklch(from var(--neutral-base) l c h / 0.95);
   width: 90%;
-  min-height: 350px;
+  min-height: min(350px, 80svh);
   max-width: 900px;
   max-height: 80svh;
   display: flex;
@@ -136,6 +136,7 @@
 }
 @media screen and (max-width: 800px) {
   .modal-content {
+    min-height: min(350px, 90svh);
     max-height: 90svh;
   }
 }
@@ -364,7 +365,7 @@
 .btn-site-link:hover {
   transform: translateY(-2px);
 }
-@media (max-width: 850px) {
+@media (max-width: 800px) {
   .modal-content {
     flex-direction: column;
   }

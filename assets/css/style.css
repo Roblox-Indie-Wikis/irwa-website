@@ -1831,8 +1831,8 @@ body:not(.home-template) .main {
 }
 @media screen and (min-width: 1119px) {
   .content {
-    padding-left: calc(var(--magic-number) * 1);
-    padding-right: calc(var(--magic-number) * 1);
+    padding-left: var(--magic-number);
+    padding-right: var(--magic-number);
   }
   body.toc-enabled .content {
     display: grid;
