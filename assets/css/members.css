@@ -239,7 +239,6 @@
   grid-template-areas: "desc";
 }
 .modal-title-area {
-  grid-area: title;
   width: 100%;
 }
 .modal-title-area > * {
@@ -268,6 +267,7 @@
 }
 .meta-label {
   font-size: 0.75rem;
+  font-weight: 900;
   font-variation-settings: "wght" 900;
   text-transform: uppercase;
   color: var(--neutral-8);
