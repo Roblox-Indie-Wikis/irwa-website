@@ -829,6 +829,12 @@ if (document.readyState === 'loading') {
 	initHomeBackgroundRotation();
 }
 
-if (window.location.pathname.endsWith('/') && window.location.pathname !== '/') {
-	window.location.replace(window.location.pathname.slice(0, -1));
+if (window.location.hostname === 'indierobloxwikis.org') {
+    if (window.location.pathname.endsWith('/') && window.location.pathname !== '/') {
+		window.location.replace(
+            window.location.pathname.slice(0, -1) +
+            window.location.search +
+            window.location.hash
+        );
+    }
 }

@@ -68,12 +68,12 @@ body:
         Twitter: https://twitter.com/roblox
         Ko-fi: https://ko-fi.com/Dovedale
 
-  - type: textarea
+  - type: input
     id: wiki-staff
     attributes:
-      label: Wiki Staff
-      description: Let us know the names of your staff team. Please ensure that it stays comma-seperated.
-      placeholder: Shedletsky, Telamon, Brighteyes, MrDoomBringer
+      label: Wiki Representative
+      description: Let us know the representative for the wiki.
+      placeholder: Shedletsky
 
   - type: textarea
     id: wiki-description
