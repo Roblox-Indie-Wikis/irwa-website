@@ -88,8 +88,9 @@
 }
 
 .modal-content {
-    background: var(--neutral-base);
+    background: oklch(from var(--neutral-base) l c h / 0.95);
     width: 90%;
+    min-height: min(350px, 80svh);
     max-width: 900px;
     max-height: 80svh;
     display: flex;
@@ -103,6 +104,7 @@
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 
     @media screen and (max-width: 800px) {
+        min-height: min(350px, 90svh);
         max-height: 90svh;
     }
 }
@@ -131,49 +133,62 @@
 }
 
 .modal-left {
-    flex: 0 0 300px;
-    background: var(--neutral-2);
+    flex: 0 0 30%;
+    /* background: var(--neutral-2); */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 40px 0 40px 40px;
     position: relative;
-    overflow: hidden;
+    gap: 20px;
+    /* overflow: hidden; */
 
     &::before {
         content: "";
         position: absolute;
         inset: -20px;
         background-image: var(--logo-url);
-        background-size: cover;
+        background-size: contain;
         background-position: center;
         filter: blur(40px) saturate(2);
+        height: 100%;
         opacity: 0.5;
-        z-index: 0;
+        z-index: -1;
+
+        @media screen and (max-width: 800px) {
+            width: 100%;
+            height: 150%!important;
+        }
     }
 
-    &::after {
+    /* &::after {
         content: "";
         position: absolute;
         inset: 0;
         background: radial-gradient(circle at center, transparent 30%, var(--neutral-2) 100%);
         z-index: 1;
-    }
+    } */
 
     & img {
         width: 100%;
-        height: 100%;
+        /* height: 100%;
+        aspect-ratio: 1; */ 
         object-fit: contain;
         position: relative;
         z-index: 2;
+        flex: 1;
     }
 
     @media screen and (max-width: 800px) {
         flex: unset;
+        text-align: center;
+        padding: 40px 40px 0 40px!important;
 
         & img {
             width: unset;
             height: 15vh;
+            flex: unset!important;
         }
     }
 }
@@ -181,6 +196,8 @@
 .modal-right {
     flex: 1;
     padding: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Grid Layout for Modal Content */
@@ -189,25 +206,26 @@
     grid-template-columns: 1fr 200px;
     grid-template-rows: auto auto auto;
     gap: 20px;
-    grid-template-areas:
-        "title title"
-        "desc meta";
+    grid-template-areas: "desc meta";
+    flex: 1;
 }
 
 .modal-header-grid.no-meta {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     grid-template-areas:
-        "title"
         "desc";
 }
 
 .modal-title-area {
-    grid-area: title;
+    width: 100%;
 
-    & h2 {
-        margin: 0 0 10px 0;
-        font-size: 2rem;
+    > * {
+        margin: 0;
+
+        @media screen and (max-width: 800px) {
+            font-size: 1.5rem;
+        }
     }
 }
 
@@ -232,10 +250,11 @@
 
 .meta-label {
     font-size: 0.75rem;
-    font-weight: bold;
+    font-weight: 900;
+    font-variation-settings: "wght" 900;
     text-transform: uppercase;
     color: var(--neutral-8);
-    margin-bottom: 2px;
+    /* margin-bottom: 2px; */
 }
 
 .meta-value {
@@ -253,16 +272,20 @@
     background: var(--neutral-3);
     padding: 2px 8px;
     border-radius: 4px;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .modal-footer-grid {
-    margin-top: 30px;
+    /* margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid var(--neutral-2);
+    border-top: 1px solid var(--neutral-2); */
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 800px) {
+        margin-top: 30px;
+    }
 }
 
 .modal-socials {
@@ -298,13 +321,9 @@
     }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 800px) {
     .modal-content {
         flex-direction: column;
-    }
-
-    .modal-left {
-        flex: 0 0 200px;
     }
 
     .modal-header-grid {
