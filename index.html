@@ -41,7 +41,7 @@ body_class: home-template
 <p> </p>
 <div class="logo-carousel">
   <div class="logo-track align-center">
-    {% for member in site.data.members limit: 12 %}
+    {% for member in site.data.members %}
     <div class="logo-slide" data-wiki-name="{{ member.name }}">
       <a href="{{ member.link }}?utm_source=irwa-website" target="_blank" rel="noopener">
         <figure class="align-center">
@@ -51,7 +51,7 @@ body_class: home-template
       </a>
     </div>
     {% endfor %}
-    {% for member in site.data.members limit: 12 %}
+    {% for member in site.data.members %}
     <div class="logo-slide" data-wiki-name="{{ member.name }}">
       <a href="{{ member.link }}?utm_source=irwa-website" target="_blank" rel="noopener">
         <figure class="align-center">

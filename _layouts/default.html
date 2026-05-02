@@ -3,7 +3,7 @@
 <head>
   {% include head.html %}
 </head>
-<body class="{{ page.body_class | default: 'page-template' }}">
+<body class="{{ page.body_class | default: 'page-template' }}" style="--member-count: {{ site.data.members | size }}">
   <div class="container">
     {% include header.html %}
     <main class="main {{ page.main_class | default: 'page' }}">
