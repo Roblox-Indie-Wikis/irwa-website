@@ -2604,8 +2604,8 @@ img.is-loaded {
 
 .logo-track {
 	display: flex;
-	animation: scroll 23s linear infinite;
-	width: calc(var(--logo-slide-width) * 12);
+	animation: scroll calc(2s * var(--member-count)) linear infinite;
+	width: calc(var(--logo-slide-width) * var(--member-count));
 
 	&:hover {
 		animation-play-state: paused
@@ -2618,7 +2618,7 @@ img.is-loaded {
 	}
 
 	100% {
-		transform: translateX(calc(var(--logo-slide-width) * -12))
+		transform: translateX(calc(var(--logo-slide-width) * (var(--member-count) * -1)))
 	}
 }
 
