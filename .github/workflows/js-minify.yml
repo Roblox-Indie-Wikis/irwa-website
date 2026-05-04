@@ -39,6 +39,6 @@ jobs:
           if git diff --quiet && git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore: minify scripts.js [skip ci]"
+            git commit -m "chore: minify scripts.js"
             git push
           fi
