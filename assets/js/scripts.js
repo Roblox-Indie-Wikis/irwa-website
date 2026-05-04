@@ -806,6 +806,9 @@ function initHomeBackgroundRotation() {
 		baseUrl + 'assets/backgrounds/Parkour_Reborn_Stack.png',
 		baseUrl + 'assets/backgrounds/Parkour_Reborn_Fragment.png',
 		baseUrl + 'assets/backgrounds/Parkour_Reborn_Day.png',
+		baseUrl + 'assets/backgrounds/Ultimate_Mining_Tycoon_Billboard.png',
+		baseUrl + 'assets/backgrounds/Ultimate_Mining_Tycoon_Outside.png',
+		baseUrl + 'assets/backgrounds/Ultimate_Mining_Tycoon_Waterfall.png',
 	];
 
 	var lastIndex = null;
