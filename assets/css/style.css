@@ -2897,3 +2897,57 @@ img.is-loaded {
   object-fit: cover;
   background-size: cover;
 }
+.blog-list {
+  list-style: none;
+  margin-left: unset;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.blog-list > * {
+  flex: 0 1 calc(100% / 3 - 2rem);
+}
+.blog-list__date {
+  font-size: medium;
+  opacity: 0.6;
+  font-variation-settings: "wght" 600;
+}
+.blog-list__readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3rem!important;
+}
+.blog-list > a {
+  color: inherit!important;
+}
+.blog-list > a:hover {
+  text-decoration: none!important;
+}
+.blog-list li {
+  background: var(--neutral-2);
+  padding: 1rem;
+  box-shadow: var(--box-shadow);
+  display: block;
+}
+@supports (corner-shape: bevel) {
+  .blog-list li {
+    border-radius: 0 2rem 2rem 0;
+    corner-shape: bevel;
+  }
+}
+.blog-list li:hover {
+  background: var(--neutral-4);
+}
+.blog-list li:first-child {
+  margin-top: unset;
+}
+.blog-list li > *:not(h2) {
+  margin-top: unset;
+}
+.post-page__tagline {
+  margin-top: unset!important;
+  font-size: medium;
+  font-variation-settings: "wght" 600;
+  opacity: 0.6;
+}
