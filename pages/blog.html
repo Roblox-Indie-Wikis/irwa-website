@@ -1,0 +1,20 @@
+---
+layout: page
+body_class: page-template bg-include
+title: Blog
+permalink: /blog
+---
+<h1>Blog</h1>
+
+<ul class="blog-list">
+  {% for post in site.posts %}
+    <a href="{{ post.url }}">
+      <li>
+        <div class="blog-list__date">{{ post.date | date_to_string: "ordinal", "US" }}</div>
+        <h4>{{ post.title }}</h4>
+        <div class="blog-list__readmore">Read more <img src="{{ "/assets/icons/arrow_forward.svg" | relative_url }}" height="20" aria-hidden="true"
+          class="img-invert material-symbols"></div>
+      </li>
+    </a>
+  {% endfor %}
+</ul>
