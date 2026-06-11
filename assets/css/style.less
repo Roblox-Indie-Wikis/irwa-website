@@ -164,6 +164,19 @@
 	padding: 0
 }
 
+::-webkit-scrollbar,
+::-webkit-scrollbar:vertical,
+::-webkit-scrollbar:horizontal {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-base);
+    border-radius: 12px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
 article,
 aside,
 footer,
@@ -190,7 +203,7 @@ li {
 img {
 	height: auto;
 	max-width: 100%;
-	vertical-align: top
+	vertical-align: middle
 }
 
 button,
