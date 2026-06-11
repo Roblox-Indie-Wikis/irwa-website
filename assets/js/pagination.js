@@ -32,10 +32,17 @@ function showPanel(next) {
 
 tabs.forEach((tab, index) => tab.addEventListener('click', () => showPanel(index)));
 
-document.getElementById('prev').addEventListener('click', () => {
-    showPanel((current - 1 + panels.length) % panels.length);
-});
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
 
-document.getElementById('next').addEventListener('click', () => {
-    showPanel((current + 1) % panels.length);
-});
+if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+        showPanel((current - 1 + panels.length) % panels.length);
+    });
+}
+
+if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+        showPanel((current + 1) % panels.length);
+    });
+}

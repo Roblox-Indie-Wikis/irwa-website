@@ -61,7 +61,6 @@
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0) scale(1);
-  overflow: hidden auto;
   transition: transform 0.45s ease, opacity 0.45s ease;
   height: 100%;
   padding: 48px;
@@ -155,8 +154,7 @@
 @media screen and (max-width: 800px) {
   .tabs {
     width: 100%;
-    /* overflow: auto hidden; */
-    overflow: hidden;
+    overflow: auto hidden;
     margin-top: unset;
     margin-bottom: 24px;
     justify-content: flex-start;
