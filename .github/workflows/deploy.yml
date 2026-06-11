@@ -31,6 +31,19 @@ jobs:
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+      - name: Install WebP tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y webp
+      - name: Convert PNGs to WebP in generated site
+        run: |
+          find _site -type f -name '*.png' -print0 | while IFS= read -r -d '' png; do
+            cwebp -q 90 "$png" -o "${png%.png}.webp"
+          done
+      - name: Replace PNG references
+        run: |
+          find _site -type f \( -name '*.html' -o -name '*.css' -o -name '*.js' \) \
+            -exec sed -i 's/\.png/\.webp/g' {} +
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
