@@ -24,14 +24,16 @@ function walk(dir) {
 
     let content = fs.readFileSync(fullPath, "utf8");
 
-    // Replace local .png references with .webp
-    content = content.replace(
-      /(?<!https?:\/\/[^"'()\s]*)\.png\b/gi,
-      ".webp"
-    );
+    content = content.replace(/([^\s"'()]+)\.png\b/gi, (match, file) => {
+      const pngPath = path.join("_site", file + ".png");
+      const webpPath = path.join("_site", file + ".webp");
+
+      return fs.existsSync(webpPath)
+        ? file + ".webp"
+        : file + ".png";
+    });
 
     fs.writeFileSync(fullPath, content);
-    console.log(`Updated ${fullPath}`);
   }
 }
 
