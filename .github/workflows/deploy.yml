@@ -39,7 +39,7 @@ jobs:
         run: |
           find _site -type f -name '*.png' -print0 |
           while IFS= read -r -d '' png; do
-            magick "$png" "${png%.png}.webp" || \
+            convert "$png" "${png%.png}.webp" || \
             echo "::warning::Failed to convert $png"
           done
       - name: Setup Node
