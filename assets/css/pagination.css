@@ -27,14 +27,15 @@
   position: relative;
   height: 60vh;
   border-radius: 24px;
-  overflow: hidden;
   background: #222;
+  overflow: hidden auto;
 }
 @media screen and (max-width: 800px) {
   .stage {
     background: transparent;
     height: max-content;
     border-radius: 0!important;
+    overflow: hidden;
   }
 }
 .panel {
