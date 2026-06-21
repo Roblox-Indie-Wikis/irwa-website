@@ -1,20 +1,29 @@
 ---
 layout: page
-body_class: page-template bg-include
+body_class: page-template 
 title: Blog
 permalink: /blog
 ---
 <h1>Blog</h1>
 
-<ul class="blog-list">
+<div class="irwa-article-wrapper">
   {% for post in site.posts %}
-    <a href="{{ post.url }}">
-      <li>
-        <div class="blog-list__date">{{ post.date | date_to_string: "ordinal", "US" }}</div>
-        <h4>{{ post.title }}</h4>
-        <div class="blog-list__readmore">Read more <img src="{{ "/assets/icons/arrow_forward.svg" | relative_url }}" height="20" aria-hidden="true"
-          class="img-invert material-symbols"></div>
-      </li>
-    </a>
+  <a href="{{ post.url }}" rel="noopener noreferrer" class="irwa-article-link">
+      <div class="irwa-article">
+          <div class="irwa-article__image">
+            {% if post.image %}
+                <img src="{{ post.image | relative_url }}" alt="Image for {{ post.title }}">
+            {% else %}
+                <img src="{{ "/assets/promofiles/irwa-banner.png" | relative_url }}" alt="Default image for {{ post.title }}">
+            {% endif %}
+          </div>
+          <div class="irwa-article__title">
+              {{ post.title }}
+              <img src="{{ "/assets/icons/arrow_forward.svg" | relative_url }}" height="20" aria-hidden="true"
+                  class="img-invert material-symbols">
+          </div>
+          <div class="irwa-article__category">{{ post.date | date_to_string: "ordinal", "US" }}</div>
+      </div>
+  </a>
   {% endfor %}
-</ul>
+</div>
