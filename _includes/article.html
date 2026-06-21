@@ -1,0 +1,17 @@
+<a href="{{ include.link }}" target="_blank" rel="noopener noreferrer" class="irwa-article-link">
+    <div class="irwa-article">
+        <div class="irwa-article__image">
+            {% if include.image %}
+                <img src="{{ include.image | relative_url }}" alt="Image for {{ include.title }}">
+            {% else %}
+                <img src="{{ "/assets/promofiles/irwa-banner.png" | relative_url }}" alt="Default image for {{ include.title }}">
+            {% endif %}
+        </div>
+        <div class="irwa-article__title">
+            {{ include.title }}
+            <img src="{{ "/assets/icons/arrow_forward.svg" | relative_url }}" height="20" aria-hidden="true"
+                class="img-invert material-symbols">
+        </div>
+        <div class="irwa-article__category">{{ include.category }}</div>
+    </div>
+</a>
