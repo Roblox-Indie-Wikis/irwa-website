@@ -12,17 +12,26 @@ sitemap: false
 ---
 
   <div class="slider">
+    <div class="tabs">
+        <button class="tab active" style="--accent:#8fb4ff">Welcome</button>
+        <button class="tab" style="--accent:#f0d27a">Context</button>
+        <button class="tab" style="--accent:#ceb6e9">Listing</button>
+        <button class="tab" style="--accent:#f0d27a">Applications</button>
+
+        <!-- <div class="nav">
+            <button id="prev">‹</button>
+            <button id="next">›</button>
+        </div> -->
+    </div>
+
     <div class="stage" id="stage">
-      <section class="panel active" data-index="0">
+      <section class="panel active no-image" data-index="0">
         <div class="text">
-            <h2>Welcome to the club</h2>
+            <h2 class="welcome-to-the-club">Welcome to the club</h2>
             <p>Welcome to our alliance, and congratulations for passing through the application stage! This article serves as an
   orientation on your next steps, as well as some important things to take note as a member wiki.</p>
             <p>As a member of our alliance, you are expected to maintain a certain standard of quality and activity. Your wiki, by extension, also represents our alliance, and we aim to be associated with high quality wikis. This also ensures that you are in a good position to benefit from being in our alliance.</p>
-            <p>We maintain these standards through our policies, which can be found on its respective <a href="{{ "/policies" | relative_url }}">page</a>(hyperlinked). Our Inactivity policy ensures a timely time frame for our applications, and ensures sufficient representation is provided from our members. Our AI policy ensures that we stay true to what we stand for — creativity, shared effort, and collaboration, of which we believe is not present with AI usage. If you have any questions about them, feel free to ask in our Discord server!</p>
-        </div>
-        <div class="visual">
-            <img loading="lazy" src="{{ "/assets/promofiles/OnboardingMainThumbnail.png" | relative_url }}" alt="" aria-hidden="true" width="800" class="img-rounded aspect-ratio-169 size-cover">
+            <p>We maintain these standards through our policies, which can be found on its respective <a href="{{ "/policies" | relative_url }}">page</a>. Our Inactivity policy ensures a timely time frame for our applications, and ensures sufficient representation is provided from our members. Our AI policy ensures that we stay true to what we stand for — creativity, shared effort, and collaboration, of which we believe is not present with AI usage. If you have any questions about them, feel free to ask in our Discord server!</p>
         </div>
       </section>
 
@@ -49,12 +58,16 @@ sitemap: false
 
             <p>Each member wiki must appoint one staff member, usually an administrator or bureaucrat, to serve as its representative. This representative speaks on behalf of the wiki during discussions and application threads, communicating the team’s views and position to the alliance. While a person may be listed as staff on more than one wiki, they cannot hold representative roles for multiple member wikis at the same time.</p>
         </div>
-        <!-- <div class="visual">📄</div> -->
       </section>
 
-      <section class="panel" data-index="2">
+      <section class="panel no-image" data-index="2">
         <div class="text">
             <h2>Shared template</h2>
+
+            <img
+  src="https://assets.st-note.com/img/1776438538-ten19M7kBFGwujI0P8RvJSKz.png?width=4000&height=4000&fit=bounds&format=jpg&quality=90"
+  alt="Shared template example" class="img-rounded">
+  
             <p>The alliance uses a shared template that is automatically synced across all member wikis through GitHub Actions, updating both icons and wiki text from the repository’s <code>template.wikitext</code> file.</p>
 
             <p>To join the system:</p>
@@ -74,17 +87,14 @@ sitemap: false
 
             <a href="https://github.com/Roblox-Indie-Wikis/irwa-templates/issues/new?template=add_wiki.yml" class="btn"
             style="--hue: 330">Add your wiki to the template</a>
-        </div>
-        <div class="visual">
-            <img
-  src="https://assets.st-note.com/img/1776438538-ten19M7kBFGwujI0P8RvJSKz.png?width=4000&height=4000&fit=bounds&format=jpg&quality=90"
-  alt="Shared template example" class="img-rounded">
-        </div>
-      </section>
 
-      <section class="panel" data-index="3">
-        <div class="text">
+            <hr/>
+
             <h2>IRWA Website</h2>
+
+            <img
+  src="https://camo.githubusercontent.com/53df9dc1e0082ec1162a3dca4885c74133a527c3007b6d31773ff83db8d15718/68747470733a2f2f696e646965726f626c6f7877696b69732e6f72672f6173736574732f70726f6d6f66696c65732f77696b692d6c697374696e672e706e67"
+  alt="Shared template example" class="img-rounded">
 
             <p>The IRWA runs a website that showcases its purpose and lists all member wikis. To get your wiki added:</p>
 
@@ -103,16 +113,9 @@ sitemap: false
 
             <a href="https://github.com/Roblox-Indie-Wikis/irwa-website/issues/new?template=request-wiki-addition.yml" class="btn"
             style="--hue: 330">Add your wiki to the website</a>
-        </div>
-        <div class="visual">
-            <img
-  src="https://camo.githubusercontent.com/53df9dc1e0082ec1162a3dca4885c74133a527c3007b6d31773ff83db8d15718/68747470733a2f2f696e646965726f626c6f7877696b69732e6f72672f6173736574732f70726f6d6f66696c65732f77696b692d6c697374696e672e706e67"
-  alt="Shared template example" class="img-rounded">
-        </div>
-      </section>
+        
+            <hr/>
 
-      <section class="panel no-image" data-index="4">
-        <div class="text">
             <h2>Discord Server</h2>
 
             <p>Each wiki in the IRWA Discord server receives its own server role and is included in both the roles directory and the <code>#wiki-listings</code> channel.</p>
@@ -131,7 +134,6 @@ sitemap: false
                 <li>You are encouraged to announce the alliance to your own community and invite members to join the server.</li>
             </ul>
         </div>
-        <!-- <div class="visual">📄</div> -->
       </section>
 
       <section class="panel" data-index="5">
@@ -205,17 +207,5 @@ sitemap: false
       </section>
     </div>
 
-    <div class="tabs">
-        <button class="tab active" style="--accent:#8fb4ff">Welcome</button>
-        <button class="tab" style="--accent:#f0d27a">Context</button>
-        <button class="tab" style="--accent:#9fddb2">Template</button>
-        <button class="tab" style="--accent:#efb0ab">Website</button>
-        <button class="tab" style="--accent:#ceb6e9">Listing</button>
-        <button class="tab" style="--accent:#f0d27a">Applications</button>
-
-        <!-- <div class="nav">
-            <button id="prev">‹</button>
-            <button id="next">›</button>
-        </div> -->
-    </div>
+    
   </div>
