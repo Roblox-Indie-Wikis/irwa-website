@@ -131,8 +131,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: "Add ${{ env.WIKI_NAME }} to directory"
-          title: "Add ${{ env.WIKI_NAME }} to member data"
+          commit-message: "feat(data): add ${{ env.WIKI_NAME }}"
+          title: "feat(data): add ${{ env.WIKI_NAME }}"
           branch: "wiki-addition-${{ github.event.issue.number }}"
           body: "Automated wiki addition for **${{ env.WIKI_NAME }}** ^_^ Closes #${{ github.event.issue.number }}"
           labels: "wiki addition request"
