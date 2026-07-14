@@ -19,7 +19,7 @@
     - name: Einc
 
 - name: Untitled Tag Game Wiki
-  link: https://tagging.wiki
+  link: https://utg.miraheze.org
   logo: /assets/wiki-logos/UTG.png
   description: "The official <b><i>untitled tag game</i></b> wiki that anyone can edit! Spawn in maps, choose a gamemode, play with runners, and WIN!"
   game_link: https://www.roblox.com/games/14044547200/untitled-tag-game
@@ -41,7 +41,7 @@
     - name: Dgox
 
 - name: Hybrid Cafe Wiki
-  link: https://hybridcafe.wiki
+  link: https://cafe.miraheze.org
   logo: /assets/wiki-logos/HybridCafe_White.svg
   description: "We write about <b><i>The Hybrid Café</i></b>, a game by ArenaDev. Staff and maintain the most dangerous café in town and uncover its secrets."
   game_link: https://www.roblox.com/games/132813250731469/QUESTS-The-Hybrid-Cafe
@@ -52,7 +52,7 @@
     - name: enews
 
 - name: Something Evil Will Happen Wiki
-  link: https://sewh.miraheze.org/
+  link: https://sewh.miraheze.org
   logo: /assets/wiki-logos/SEWH.png
   description: "The wiki documenting the game <b><i>Something Evil Will Happen</i></b>, a chaotic survival-disaster party game."
   game_link: https://www.roblox.com/games/16991287194/RECODE-something-evil-will-happen
@@ -80,7 +80,7 @@
     - name: Crimrix
 
 - name: PHIGHTING! Wiki
-  link: https://phighting.wiki/
+  link: https://phighting.wiki
   logo: /assets/wiki-logos/PHIGHTING.png
   description: "The official wiki for <b><i>PHIGHTING!</i></b>, the character-driven class-based third person shooter that reimagines classic Roblox! Come enter the PHIGHT!"
   game_link: https://www.roblox.com/games/7138009149/PHIGHTING-ALPHA
@@ -118,7 +118,7 @@
     - name: lightning
 
 - name: Ultimate Mining Tycoon Wiki
-  link: https://umt.miraheze.org/
+  link: https://umt.miraheze.org
   logo: "/assets/wiki-logos/UltimateMiningTycoon.png"
   description: "This is the official wiki for <b><i>Ultimate Mining Tycoon</i></b>, a Roblox game about digging into the mines for resources and building elaborate factories to process them!"
   joined: "April 2026"
@@ -127,8 +127,8 @@
   team:
     - name: "Sardi"
 
-- name: "The Depth Spelunking Wiki"
-  link: "https://depthspelunking.miraheze.org/"
+- name: The Depth Spelunking Wiki
+  link: https://depthspelunking.miraheze.org
   logo: "assets/wiki-logos/TheDepthSpelunking.png"
   description: "The Depth Spelunking Wiki aims to provide useful information about Depth Spelunking, a delver-like fangame inspired by Minus Elevation and Minus Descendance. Descend into the Void, explore endless floors, and avoid dangerous entities on your journey to reach The Heart! Are you willing to take on the challenge?"
   joined: "April 2026"
