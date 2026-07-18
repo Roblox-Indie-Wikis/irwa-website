@@ -154,3 +154,5 @@
   description: "The Bots & Muskets Wiki, your source for everything related to the game series Bots & Muskets. This wiki is a collaborative effort that anyone is welcome to contribute to. Wikis like ours depend on readers getting involved and adding content."
   joined: "July 2026"
   discord: "https://discord.com/invite/dtjXQuEw3c"
+  team:
+     - name: "rando"
