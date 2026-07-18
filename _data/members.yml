@@ -140,7 +140,7 @@
 
 - name: "Item Asylum Wiki"
   link: "https://itemasylum.wiki"
-  logo: "assets/wiki-logos/ItemAsylum.png"
+  logo: "assets/wiki-logos/ItemAsylum.svg"
   description: "The official wiki for the Roblox experience item asylum, a meme and reference-filled randomizer fighting experience with many chat tags, emotes, gamemodes, bosses and more!"
   joined: "July 2026"
   game_link: "https://www.roblox.com/games/5670218884/item-asylum"
