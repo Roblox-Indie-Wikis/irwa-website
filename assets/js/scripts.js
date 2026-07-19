@@ -809,6 +809,9 @@ function initHomeBackgroundRotation() {
 		baseUrl + 'assets/backgrounds/Ultimate_Mining_Tycoon_Billboard.png',
 		baseUrl + 'assets/backgrounds/Ultimate_Mining_Tycoon_Outside.png',
 		baseUrl + 'assets/backgrounds/Ultimate_Mining_Tycoon_Waterfall.png',
+		baseUrl + 'assets/backgrounds/Item_Asylum_Dorfic.png',
+		baseUrl + 'assets/backgrounds/Item_Asylum_Baseplate.png',
+		baseUrl + 'assets/backgrounds/Item_Asylum_Final_Destination.png',
 	];
 
 	var lastIndex = null;
