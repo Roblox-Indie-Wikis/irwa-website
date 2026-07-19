@@ -27,14 +27,17 @@ jobs:
           bundler-cache: true
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
       - name: Build with Jekyll
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+
       - name: Install tools
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick
+
       - name: Convert PNGs to WebP
         run: |
           find _site -type f -name '*.png' -print0 |
@@ -42,10 +45,21 @@ jobs:
             convert "$png" "${png%.png}.webp" || \
             echo "::warning::Failed to convert $png"
           done
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      - name: Install Terser
+        run: npm install -g terser
+      - name: Minify scripts.js
+        run: |
+          terser assets/js/scripts.js \
+            --compress \
+            --mangle \
+            -o _site/assets/js/scripts.js
+
       - name: Rewrite PNG references
         run: node assets/js/png-to-webp.js
       - name: Upload artifact
