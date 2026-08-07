@@ -164,19 +164,6 @@
 	padding: 0
 }
 
-::-webkit-scrollbar,
-::-webkit-scrollbar:vertical,
-::-webkit-scrollbar:horizontal {
-	background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-	background: var(--primary-base);
-	border-radius: 12px;
-	border: 3px solid transparent;
-	background-clip: content-box;
-}
-
 article,
 aside,
 footer,
@@ -236,6 +223,7 @@ html {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	scroll-behavior: smooth;
+	scrollbar-color: var(--primary-base) var(--page-bg);
 
 	&.no-scroll {
 		overflow: hidden
@@ -2267,9 +2255,14 @@ body:not(.home-template) .main {
 		max-width: var(--entry-width);
 		margin: calc(var(--magic-number) * 2) auto auto auto;
 
+		&__left {
+			display: flex;
+			align-items: center;
+		}
+
 		&__right {
 			flex-grow: 1;
-			max-width: 35ch;
+			max-width: 50ch;
 		}
 
 		.home-template & {
@@ -2304,15 +2297,15 @@ body:not(.home-template) .main {
 	.footer__nav {
 		display: flex;
 		flex-wrap: wrap;
-		font-size: .8888888889rem;
-		margin: 0 0 calc(var(--baseline) * 2);
+		font-size: .7rem;
+		margin: 0;
 
-		@media all and (min-width:56.25em) {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-			font-size: .7901234568rem;
-			margin: 0
-		}
+		// @media all and (min-width:56.25em) {
+		// 	display: grid;
+		// 	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+		// 	font-size: .7901234568rem;
+		// 	margin: 0
+		// }
 
 		& li {
 			display: inline-block;
@@ -2648,8 +2641,6 @@ img.is-loaded {
 	& img {
 		width: 100%;
 		height: auto;
-		aspect-ratio: 1;
-		object-fit: contain;
 		opacity: .8;
 		transition: opacity .3s ease
 	}

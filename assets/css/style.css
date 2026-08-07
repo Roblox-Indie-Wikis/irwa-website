@@ -432,17 +432,6 @@
   margin: 0;
   padding: 0;
 }
-::-webkit-scrollbar,
-::-webkit-scrollbar:vertical,
-::-webkit-scrollbar:horizontal {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--primary-base);
-  border-radius: 12px;
-  border: 3px solid transparent;
-  background-clip: content-box;
-}
 article,
 aside,
 footer,
@@ -492,6 +481,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  scrollbar-color: var(--primary-base) var(--page-bg);
 }
 html.no-scroll {
   overflow: hidden;
@@ -2371,9 +2361,13 @@ body:not(.toc-enabled) .content__inner {
     max-width: var(--entry-width);
     margin: calc(var(--magic-number) * 2) auto auto auto;
   }
+  .footer__left {
+    display: flex;
+    align-items: center;
+  }
   .footer__right {
     flex-grow: 1;
-    max-width: 35ch;
+    max-width: 50ch;
   }
   .home-template .footer {
     margin: -2rem auto auto auto !important;
@@ -2402,16 +2396,8 @@ body:not(.toc-enabled) .content__inner {
 .footer .footer__nav {
   display: flex;
   flex-wrap: wrap;
-  font-size: 0.88888889rem;
-  margin: 0 0 calc(var(--baseline) * 2);
-}
-@media all and (min-width: 56.25em) {
-  .footer .footer__nav {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    font-size: 0.79012346rem;
-    margin: 0;
-  }
+  font-size: 0.7rem;
+  margin: 0;
 }
 .footer .footer__nav li {
   display: inline-block;
@@ -2704,8 +2690,6 @@ img.is-loaded {
 .logo-slide img {
   width: 100%;
   height: auto;
-  aspect-ratio: 1;
-  object-fit: contain;
   opacity: 0.8;
   transition: opacity 0.3s ease;
 }
