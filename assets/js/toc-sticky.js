@@ -130,6 +130,15 @@ class TOCSticky {
     );
     if (activeLink) {
       activeLink.classList.add('is-active');
+
+      // Keep the active entry visible when the TOC itself has overflow.
+      const navRect = this.tocNav.getBoundingClientRect();
+      const linkRect = activeLink.getBoundingClientRect();
+      if (linkRect.top < navRect.top || linkRect.bottom > navRect.bottom) {
+        // Scroll only the TOC's own frame. `scrollIntoView()` can also move
+        // the document viewport, which causes jumps during fast page scrolls.
+        this.tocNav.scrollTop += linkRect.top - navRect.top;
+      }
     }
   }
 }

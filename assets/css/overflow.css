@@ -4,6 +4,12 @@
   display: flex;
   max-width: max-content;
 }
+.overflow-wrapper table,
+.overflow-wrapper code,
+.overflow-wrapper pre,
+.overflow-wrapper {
+  font-size: 0.75rem;
+}
 .overflow-wrapper:has(.overflow-content > .wikitable) {
   margin-block: var(--space-md);
   margin-inline: var(--border-width-base);
@@ -18,6 +24,11 @@
   overflow: auto hidden;
   border: 1px solid oklch(from var(--text-color) l c h / 0.1);
   border-radius: 1rem;
+}
+@media screen and (max-width: 800px) {
+  .overflow-content {
+    font-size: 0.75rem;
+  }
 }
 .overflow-content > table {
   display: table;

@@ -29,6 +29,17 @@ jobs:
             exit 1
           fi
           sed -n '/^## Basic Usage/,$p' usage_raw.md > usage_no_toc.md
+
+          # Add separators before level-3 headings, except when they begin a level-2 section.
+          awk '
+            /^## [^#]/ { last_heading = $0; print; next }
+            /^### / {
+              if (last_heading !~ /^## [^#]/) print "<hr />"
+              last_heading = $0
+            }
+            { print }
+          ' usage_no_toc.md > usage_no_toc_with_separators.md
+          mv usage_no_toc_with_separators.md usage_no_toc.md
           
           # Create the final file with Jekyll Front Matter
           {

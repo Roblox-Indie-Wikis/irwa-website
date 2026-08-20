@@ -3,7 +3,11 @@
 .overflow-wrapper {
     position: relative;
     display: flex;
-    max-width: max-content
+    max-width: max-content;
+
+    table, code, pre, & {
+        font-size: 0.75rem;
+    }
 }
 
 .overflow-wrapper:has(.overflow-content > .wikitable) {
@@ -21,6 +25,10 @@
     overflow: auto hidden;
 	border: 1px solid oklch(from var(--text-color) l c h / 0.1);
 	border-radius: 1rem;
+
+    @media screen and (max-width: 800px) {
+        font-size: .75rem;
+    }
 
 	> table {
 		display: table;

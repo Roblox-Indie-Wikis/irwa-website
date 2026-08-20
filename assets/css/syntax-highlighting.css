@@ -68,6 +68,14 @@
   /* Name.Variable.Magic */
   /* Literal.Number.Integer.Long */
 }
+@media screen and (max-width: 800px) {
+  .highlight {
+    padding: calc(var(--baseline) * 3);
+  }
+  .highlight pre {
+    font-size: 0.75rem;
+  }
+}
 .highlight pre {
   background: transparent;
   padding: 0;
