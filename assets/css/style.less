@@ -282,7 +282,7 @@ a {
 }
 
 .img-invert {
-	filter: invert(1);
+	filter: invert(1) hue-rotate(180deg);
 }
 
 .img-rounded {
@@ -2608,25 +2608,21 @@ img.is-loaded {
 	mask-image: linear-gradient(to right, oklch(from var(--black) l c h / 0), var(--black) 20%, var(--black) 80%, oklch(from var(--black) l c h / 0));
 	position: relative;
 	--logo-slide-width: 150px;
+	cursor: grab;
+	touch-action: pan-y;
 }
 
 .logo-track {
 	display: flex;
-	animation: scroll calc(2s * var(--member-count)) linear infinite;
 	width: calc(var(--logo-slide-width) * var(--member-count));
 
-	&:hover {
-		animation-play-state: paused
-	}
-}
+	&.is-dragging {
+		cursor: grabbing;
+		user-select: none;
 
-@keyframes scroll {
-	0% {
-		transform: translateX(0)
-	}
-
-	100% {
-		transform: translateX(calc(var(--logo-slide-width) * (var(--member-count) * -1)))
+		a {
+			pointer-events: none;
+		}
 	}
 }
 
@@ -2637,16 +2633,38 @@ img.is-loaded {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
 
-	& img {
+	.carousel-logo {
 		width: 100%;
 		height: auto;
-		opacity: .8;
-		transition: opacity .3s ease
+		opacity: 1;
+		transition: opacity .25s ease
 	}
 
-	& a:hover img {
-		opacity: 1
+	a:hover {
+		.carousel-logo {
+			opacity: 0;
+		}
+
+		.irwa-member-hover {
+			opacity: 1;
+		}
+	}
+
+	.irwa-member-hover {
+		position: absolute;
+		inset: 0;
+		opacity: 0;
+		color: var(--text-color);
+		display: flex;
+		align-items: center;
+		text-wrap: pretty;
+		line-height: 140%;
+		gap: .5rem;
+		font-variation-settings: "wght" 600;
+		padding: .5rem;
+		transition: opacity .3s ease;
 	}
 }
 
@@ -2853,25 +2871,6 @@ img.is-loaded {
 		>p:first-child {
 			margin-top: unset;
 		}
-	}
-}
-
-#floating {
-	position: absolute;
-	background: oklch(from var(--neutral-2) l c h / 60%);
-	padding: 0.5rem;
-	box-sizing: border-box;
-	font-size: 0.8rem;
-	margin: 10px;
-	backdrop-filter: blur(10px);
-	pointer-events: none;
-	opacity: 0;
-	transform: translateY(-30px);
-	transition: opacity 0.2s ease, transform 0.2s ease;
-
-	&.visible {
-		opacity: 1;
-		transform: translateY(0);
 	}
 }
 

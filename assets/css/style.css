@@ -530,7 +530,7 @@ a {
   transition: all 0.12s linear;
 }
 .img-invert {
-  filter: invert(1);
+  filter: invert(1) hue-rotate(180deg);
 }
 .img-rounded {
   border-radius: 20px;
@@ -2662,22 +2662,19 @@ img.is-loaded {
   mask-image: linear-gradient(to right, oklch(from var(--black) l c h / 0), var(--black) 20%, var(--black) 80%, oklch(from var(--black) l c h / 0));
   position: relative;
   --logo-slide-width: 150px;
+  cursor: grab;
+  touch-action: pan-y;
 }
 .logo-track {
   display: flex;
-  animation: scroll calc(2s * var(--member-count)) linear infinite;
   width: calc(var(--logo-slide-width) * var(--member-count));
 }
-.logo-track:hover {
-  animation-play-state: paused;
+.logo-track.is-dragging {
+  cursor: grabbing;
+  user-select: none;
 }
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(var(--logo-slide-width) * (var(--member-count) * -1)));
-  }
+.logo-track.is-dragging a {
+  pointer-events: none;
 }
 .logo-slide {
   width: var(--logo-slide-width);
@@ -2686,15 +2683,33 @@ img.is-loaded {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
-.logo-slide img {
+.logo-slide .carousel-logo {
   width: 100%;
   height: auto;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-.logo-slide a:hover img {
   opacity: 1;
+  transition: opacity 0.25s ease;
+}
+.logo-slide a:hover .carousel-logo {
+  opacity: 0;
+}
+.logo-slide a:hover .irwa-member-hover {
+  opacity: 1;
+}
+.logo-slide .irwa-member-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  text-wrap: pretty;
+  line-height: 140%;
+  gap: 0.5rem;
+  font-variation-settings: "wght" 600;
+  padding: 0.5rem;
+  transition: opacity 0.3s ease;
 }
 .flex-container {
   display: flex;
@@ -2871,23 +2886,6 @@ img.is-loaded {
 }
 .project-container-desc > p:first-child {
   margin-top: unset;
-}
-#floating {
-  position: absolute;
-  background: oklch(from var(--neutral-2) l c h / 60%);
-  padding: 0.5rem;
-  box-sizing: border-box;
-  font-size: 0.8rem;
-  margin: 10px;
-  backdrop-filter: blur(10px);
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(-30px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-#floating.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 .aspect-ratio-169 {
   aspect-ratio: 16 / 9;

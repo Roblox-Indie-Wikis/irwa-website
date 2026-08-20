@@ -48,6 +48,12 @@ body_class: home-template
           <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100"
             height="100" class="carousel-logo" data-logo="{{ member.logo | relative_url }}">
         </figure>
+        <div class="irwa-member-hover">
+          <div>
+            {{ member.name }} <img src="{{ "/assets/icons/north_east.svg" | relative_url }}" height="20" aria-hidden="true"
+              class="img-invert material-symbols">
+          </div>
+        </div>
       </a>
     </div>
     {% endfor %}
@@ -58,13 +64,102 @@ body_class: home-template
           <img loading="lazy" src="{{ member.logo | relative_url }}" alt="{{ member.name }} Logo" width="100"
             height="100" class="carousel-logo" data-logo="{{ member.logo | relative_url }}">
         </figure>
+        <div class="irwa-member-hover">
+          <div>
+            {{ member.name }} <img src="{{ "/assets/icons/north_east.svg" | relative_url }}" height="20" aria-hidden="true"
+              class="img-invert material-symbols">
+          </div>
+        </div>
       </a>
     </div>
     {% endfor %}
   </div>
 </div>
 
-<div id="floating"></div>
+<script>
+  (() => {
+    const carousel = document.querySelector('.logo-carousel');
+    const track = carousel?.querySelector('.logo-track');
+
+    if (!carousel || !track) return;
+
+    const memberCount = Number(getComputedStyle(document.body).getPropertyValue('--member-count'));
+    const speed = 150 / 2000;
+    let position = 0;
+    let loopDistance = 0;
+    let lastTime = performance.now();
+    let isDragging = false;
+    let startX = 0;
+    let startPosition = 0;
+    let moved = false;
+    let suppressClick = false;
+
+    const updateDimensions = () => {
+      loopDistance = parseFloat(getComputedStyle(track).width) || (150 * memberCount);
+    };
+
+    const render = () => {
+      track.style.transform = `translate3d(${position}px, 0, 0)`;
+    };
+
+    const animate = (time) => {
+      const elapsed = Math.min(time - lastTime, 50);
+      lastTime = time;
+
+      if (!isDragging && loopDistance) {
+        position -= speed * elapsed;
+        if (position <= -loopDistance) position += loopDistance;
+        render();
+      }
+
+      requestAnimationFrame(animate);
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+
+    carousel.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+      startX = event.clientX;
+      startPosition = position;
+      moved = false;
+      isDragging = true;
+      track.classList.add('is-dragging');
+      carousel.setPointerCapture(event.pointerId);
+    });
+
+    carousel.addEventListener('pointermove', (event) => {
+      if (!carousel.hasPointerCapture(event.pointerId)) return;
+
+      const distance = event.clientX - startX;
+      if (Math.abs(distance) > 5) moved = true;
+      position = Math.max(-loopDistance, Math.min(0, startPosition + distance));
+      render();
+    });
+
+    const finishDrag = (event) => {
+      if (!carousel.hasPointerCapture(event.pointerId)) return;
+
+      if (moved) suppressClick = true;
+      isDragging = false;
+      track.classList.remove('is-dragging');
+      carousel.releasePointerCapture(event.pointerId);
+    };
+
+    carousel.addEventListener('pointerup', finishDrag);
+    carousel.addEventListener('pointercancel', finishDrag);
+    carousel.addEventListener('click', (event) => {
+      if (!suppressClick) return;
+      event.preventDefault();
+      event.stopPropagation();
+      suppressClick = false;
+    }, true);
+
+    render();
+    requestAnimationFrame(animate);
+  })();
+</script>
 
 <div class="landing-project-showcase">
   <div>
