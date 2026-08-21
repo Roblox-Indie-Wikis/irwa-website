@@ -55,7 +55,7 @@ jobs:
           desc = md_to_html(get_section("Wiki Description", issue_body))
           logo_raw = get_section("Wiki Logo", issue_body)
           socials_raw = get_section("Social Link URLs", issue_body)
-          staff_raw = get_section("Wiki Staff", issue_body)
+          staff_raw = get_section("Wiki Representative", issue_body)
 
           if not name or name == "_No response_":
               print(f"Error: Found name '{name}'")
@@ -176,6 +176,8 @@ jobs:
                   new_entry += f'  kofi: "{link}"\n'
               elif "patreon" in line_l:
                   new_entry += f'  patreon: "{link}"\n'
+              elif "github" in line_l:
+                  new_entry += f'  github: "{link}"\n'
 
           if staff_raw and staff_raw != "_No response_":
               new_entry += "  team:\n"

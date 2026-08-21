@@ -153,6 +153,7 @@ function openEntityModal(element) {
     addSocial(entity.discord, 'Discord');
     addSocial(entity.twitter, 'Twitter');
     addSocial(entity.kofi, 'Kofi');
+    addSocial(entity.github, 'GitHub');
 
     modal.classList.add('active');
     modalContent.focus();

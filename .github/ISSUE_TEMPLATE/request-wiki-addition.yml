@@ -54,6 +54,7 @@ body:
         - label: Twitter / X
         - label: Ko-fi
         - label: Patreon
+        - label: GitHub organisation
 
   - type: textarea
     id: social-links-urls
@@ -67,6 +68,7 @@ body:
         Wiki Discord: https://discord.gg/hmqCYg4P23 
         Twitter: https://twitter.com/roblox
         Ko-fi: https://ko-fi.com/Dovedale
+        GitHub organisation: https://github.com/Roblox-Indie-Wikis
 
   - type: input
     id: wiki-staff
