@@ -159,3 +159,13 @@
   discord: "https://discord.com/invite/dtjXQuEw3c"
   team:
      - name: "rando"
+
+- name: "Oaklands Wiki"
+  link: "https://oaklandsrblxwiki.miraheze.org"
+  logo: "assets/wiki-logos/Oaklands.svg"
+  description: "A wiki documenting all things about the Oaklands, describing every material, location and prices of items."
+  joined: "September 2026"
+  game_link: "https://roblox.com/games/9938675423/"
+  discord: "https://discord.gg/9ZF5YzVpDT"
+  team:
+    - name: "piw-piw"
