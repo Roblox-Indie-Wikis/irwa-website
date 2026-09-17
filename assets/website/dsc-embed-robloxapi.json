@@ -5,7 +5,7 @@
       "components": [
         {
           "type": 10,
-          "content": "## Roblox API Documentation\nDocumentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions."
+          "content": "# Roblox API Documentation\nDocumentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions."
         },
         {
           "type": 12,
