@@ -24,22 +24,19 @@
               "type": 2,
               "style": 5,
               "label": "Data Sources",
-              "url": "https://indierobloxwikis.org/robloxapi#data-sources",
-              "custom_id": "p_347794804412780548"
+              "url": "https://indierobloxwikis.org/robloxapi#data-sources"
             },
             {
               "type": 2,
               "style": 5,
               "label": "FAQ",
-              "url": "https://indierobloxwikis.org/robloxapi#faqs",
-              "custom_id": "p_347794876940685318"
+              "url": "https://indierobloxwikis.org/robloxapi#faqs"
             },
             {
               "type": 2,
               "style": 5,
               "label": "Configuration",
-              "url": "https://indierobloxwikis.org/robloxapi#configuration",
-              "custom_id": "p_347794950655578120"
+              "url": "https://indierobloxwikis.org/robloxapi#configuration"
             }
           ]
         }
