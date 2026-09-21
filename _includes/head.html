@@ -7,6 +7,8 @@
 {% if page.url == "/" %}
     {% seo title=false %}
     <title>{{ site.title }}</title>
+    <link rel="discord:component-embed" type="application/json" href="{{ "/assets/website/dsc-embed.json" | relative_url }}">
+    <!-- <script type="module" src="{{ "/assets/js/wiki-name-tooltip.js" | relative_url }}"></script> -->
 {% endif %}
 <link rel="alternate" type="application/atom+xml" href="{{ "/feed.xml" | relative_url }}">
 {% unless page.image %}
@@ -30,6 +32,6 @@
 {% endif %}
 <script data-collect-dnt="true" async src="https://sa-staging.indierobloxwikis.org/latest.js"></script>
 <script src="{{ "/assets/js/extensionstats.js" | relative_url }}" defer></script>
-<!-- {% if page.url == "/" %}
-<script type="module" src="{{ "/assets/js/wiki-name-tooltip.js" | relative_url }}"></script>
-{% endif %} -->
+{% if page.url == "/robloxapi" %}
+    <link rel="discord:component-embed" type="application/json" href="{{ "/assets/website/dsc-embed-robloxapi.json" | relative_url }}">
+{% endif %}

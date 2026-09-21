@@ -1,0 +1,25 @@
+{
+  "component": [
+    {
+      "type": 17,
+      "components": [
+        {
+          "type": 10,
+          "content": "# Independent Roblox Wiki Alliance\nOur mission is to support and help independent wikis find their footing in the Roblox wiki space. We provide support, develop tools and help emerging wikis find their style."
+        },
+        {
+          "type": 12,
+          "items": [
+            {
+              "media": {
+                "url": "https://indierobloxwikis.org/assets/promofiles/irwa-banner.webp"
+              },
+              "spoiler": false,
+              "description": "IRWA logo and \"INDEPENDENT ROBLOX WIKI ALLIANCE\" text on a mesh gradient background."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
