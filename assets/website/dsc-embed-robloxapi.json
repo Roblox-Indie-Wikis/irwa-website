@@ -1,46 +1,44 @@
 {
-  "component": [
-    {
-      "type": 17,
-      "components": [
-        {
-          "type": 10,
-          "content": "# Roblox API Documentation\nDocumentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions."
-        },
-        {
-          "type": 12,
-          "items": [
-            {
-              "media": {
-                "url": "https://indierobloxwikis.org/assets/promofiles/RobloxAPIMainThumbnail.png"
-              }
+  "component": {
+    "type": 17,
+    "components": [
+      {
+        "type": 10,
+        "content": "# Roblox API Documentation\nDocumentation for the RobloxAPI extension, which provides easy access to the Roblox API via parser functions."
+      },
+      {
+        "type": 12,
+        "items": [
+          {
+            "media": {
+              "url": "https://indierobloxwikis.org/assets/promofiles/RobloxAPIMainThumbnail.png"
             }
-          ]
-        },
-        {
-          "type": 1,
-          "components": [
-            {
-              "type": 2,
-              "style": 5,
-              "label": "Data Sources",
-              "url": "https://indierobloxwikis.org/robloxapi#data-sources"
-            },
-            {
-              "type": 2,
-              "style": 5,
-              "label": "FAQ",
-              "url": "https://indierobloxwikis.org/robloxapi#faqs"
-            },
-            {
-              "type": 2,
-              "style": 5,
-              "label": "Configuration",
-              "url": "https://indierobloxwikis.org/robloxapi#configuration"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "components": [
+          {
+            "type": 2,
+            "style": 5,
+            "label": "Data Sources",
+            "url": "https://indierobloxwikis.org/robloxapi#data-sources"
+          },
+          {
+            "type": 2,
+            "style": 5,
+            "label": "FAQ",
+            "url": "https://indierobloxwikis.org/robloxapi#faqs"
+          },
+          {
+            "type": 2,
+            "style": 5,
+            "label": "Configuration",
+            "url": "https://indierobloxwikis.org/robloxapi#configuration"
+          }
+        ]
+      }
+    ]
+  }
 }
