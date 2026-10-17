@@ -169,3 +169,15 @@
   discord: "https://discord.gg/9ZF5YzVpDT"
   team:
     - name: "piw-piw"
+
+- name: "DOORS Wiki"
+  link: "https://doorsgame.wiki"
+  logo: "assets/wiki-logos/DOORS.png"
+  description: "The official wiki for DOORS, the Roblox horror game by LSPLASH and RediblesQW."
+  joined: "October 2026"
+  game_link: "https://www.roblox.com/games/6516141723/DOORS"
+  discord: "https://discord.gg/k4uPDtbHZV"
+  twitter: "https://twitter.com/doorswiki"
+  github: "https://github.com/doorswiki"
+  team:
+    - name: "Aeywoo"
